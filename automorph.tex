@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper,twoside]{scrreprt}
+
+\include{pakete}
+
+
+\include{befehle}
+
+%FARBEN
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\begin{document}
+\pagenumbering{roman}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \begin{center}
+    \vspace{1cm}
+    \includegraphics[width=0.5\linewidth]{TU_Darmstadt_Logo.pdf}
+    \vspace{1cm}
+    
+    \large{Fachbereich Mathematik}
+    \vspace{3.5cm}
+    
+    \Huge{\textbf{Automorphe Formen}\\}
+    \vspace*{0.5cm}    
+    \Large{{Wintersemester 2018/2019}\\}
+    \vspace*{0.5cm}    
+    \small{Vorlesung gehalten von Prof. Nils Scheithauer\\}
+    \vspace*{1.0cm}
+    \small{Typeset in \LaTeX\ by Jonas Lenz\\}
+    \small{Fehler können an \url{jlenz@mathematik.tu-darmstadt.de} gemeldet werden}
+
+    \vspace*{\fill}
+    \small{Version vom \today}
+  \end{center}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\tableofcontents
+%\pagestyle{heading}
+\include{einleitung}
+\include{chap1}
+\include{chap2}
+%\include{chap3}
+%\include{chap4}
+%\include{chap5}
+
+\end{document}
+

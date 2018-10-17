@@ -1,0 +1,76 @@
+\chapter{Absolutbeträge}
+\begin{defi}
+Sei $K$ ein Körper. Ein \emph{Absolutbetrag auf $K$} ist eine Abbildung $\abs{\cdot}\colon K \to \R$ mit
+\begin{enumerate}[label=\roman*)]
+\item $\abs{x}\geq 0$ und $\abs{x}=0 \Leftrightarrow x=0$,
+\item $\abs{xy}=\abs{x}\abs{y}$,
+\item $\abs{x+y}\leq \abs{x}+\abs{y}$
+\end{enumerate}
+für alle $x,y\in K$.
+Gilt zusätzlich 
+\begin{align*}
+\abs{x+y}\leq \max(\abs{x},\abs{y}),
+\end{align*}
+so heißt $\abs{\cdot}$ \emph{nicht-archimedisch}.
+Ist $\abs{\cdot}$ ein Betrag auf $K$, so definiert
+\begin{align*}
+d(x,y)\coloneqq \abs{x-y}
+\end{align*}
+eine Metrik auf $K$.
+Zwei Absolutbeträge heißen \emph{äquivalent}, wenn sie dieselbe Topologie auf $K$ erzeugen.
+\end{defi}
+
+\begin{satz}
+Seien $\abs{\cdot}_1,\abs{\cdot}_2$ zwei Absolutbeträge auf $K$.
+Dann sind äquivalent
+\begin{enumerate}[label=\roman*)]
+\item $\abs{\cdot}_1$ und $\abs{\cdot}_2$ sind äquivalent,
+\item es existiert $c>0$ mit $\abs{x}_1=\abs{x}_2^c$ für alle $x\in K$.
+\end{enumerate}
+\end{satz}
+
+\begin{satz}
+Sei $\abs{\cdot}$ ein Absolutbetrag auf $K$. Dann sind die folgenden Abbildungen stetig:
+\begin{enumerate}[label=\roman*)]
+\item $K\to \R, x \mapsto \abs{x}$,
+\item $K\to K, x\mapsto -x$,
+\item $K \times K \to K, (x,y)\mapsto x+y$,
+\item $K^\ast \to K^\ast, x \mapsto x^{-1}$,
+\item $K \times K \to K, (x,y)\mapsto xy$.
+\end{enumerate}
+\end{satz}
+
+\begin{satz}
+Sei $K$ ein Körper mit Absolutbetrag $\abs{\cdot}$.
+Dann gibt es eine Körpererweiterung $\hat{K}/K$ und eine Fortsetzung von $\abs{\cdot}$ auf $\hat{K}$, sodass $K$ dicht in $\hat{K}$ und $\hat{K}$ vollständig bezüglich $\abs{\cdot}$ ist.
+%TODO hat und tilde passend genug machen
+Ist $\tilde{K}$ ein weiterer Erweiterungskörper von $K$ mit obigen Eigenschaften,
+so existiert genau ein Körperisomorphismus $\tilde{K}\to \hat{K}$, der auf $K$ die Identität ist
+und die Absolutbeträge ineinander überführt.
+\begin{proof}
+Sei $K'\coloneqq\{(x_n)_{n\in \N}\subseteq K \mid (x_n)_{n\in \N} \text{ Cauchy-Folge bezüglich } \abs{\cdot}\}$ die Menge der Cauchy-Folgen in $K$.
+Dann ist $K'$ ein kommutativert Ring mit $1$ und $N\coloneqq\{(x_n)_{n\in \N}\mid (x_n)_{n\in \N} \text{ Nullfolge}\}$
+ein maximales Ideal.
+Somit ist $\hat{K}=K'/N$ ein Körper. Die Abbildung
+%TODO quotienten ordentlich macehn
+\begin{align*}
+K &\to \hat{K}\\
+x &\mapsto (x)+N
+\end{align*}
+ist ein Körperhomomorphismus und somit injektiv.
+Der Absolutbetrag auf $\hat{K}$ wird definiert durch
+\begin{align*}
+\abs{(x_n)}=\lim_{n\to \infty} \abs{x_n}
+\end{align*}
+wobei $\abs{x_n}$ aufgrund der umgekehrten Dreiecksungleichung eine Cauchy-Folge in $\R$ ist.
+Dieser ist wohldefiniert, $\hat{K}$ ist vollständig und $K$ ist dicht in $\hat{K}$.
+Die Einbettung $K \hookrightarrow \hat{K}$ ist auf einer dichten Teilmenge von $\tilde{K}$ definiert.
+Da die Einbettung die Absolutbeträge erhält, ist sie stetig und lässt sich somit eindeutig zu einer stetigen Abbildung $\tilde{K}\to \hat{K}$ fortsetzen.
+Diese Abbildung ist ein Isomorphismus, der die Absolutbeträge erhält.
+Die Eindeutigkeit ist aus der Konstruktion klar.
+\end{proof}
+\end{satz}
+
+\begin{bem}
+Im Gegensatz ist der algebraische Abschluss nicht eindeutig bis auf \emph{eindeutigen} Isomorphismus.
+\end{bem}

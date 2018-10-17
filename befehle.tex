@@ -1,0 +1,55 @@
+% Makros
+
+\newcommand{\N}{\mathds{N}} % natuerliche Zahlen
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\R}{\mathds{R}} % reelle Zahlen
+\newcommand{\C}{\mathds{C}} % komplexe zahlen
+\newcommand{\CC}{\mathrm{C}} %Differenzierbarkeit
+\newcommand{\lsgwlg}{\CC^{2,1}(\Rn\times (0,\infty)) \cap \CC^0(\Rn\times [0,\infty))} %Lsg WLG
+\DeclareMathOperator{\Ret}{Re} % Guter Realteil
+\DeclareMathOperator{\diag}{diag} %diagonal matrix
+\DeclareMathOperator{\supp}{supp}%traeger
+\DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\dist}{dist}%abstand
+\DeclareMathOperator{\diam}{diam}%Durchmesser
+\DeclareMathOperator{\tr}{tr}%Trace
+\DeclareMathOperator{\GL}{GL}%Allgemeine Lineare Gruppe
+
+\newcommand{\ex}{\mathrm{e}}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} %Norm
+\newcommand{\abs}[1]{\left\vert#1\right\vert} %Betrag
+\newcommand{\Rn}{{\mathds{R}^n}} %Rn
+\newcommand{\Srn}{\mathcal{S}(\Rn)} %Schwartzraum
+\newcommand{\Ssrn}{\mathcal{S}'(\Rn)} %temperierte Distributionen
+\newcommand{\F}{\mathcal{F}} %Fourier transform
+\newcommand{\Lr}{\mathrm{L}} %Lp raeume
+\newcommand*\Laplace{\mathop{}\!\mathbin\bigtriangleup} %Laplaceoperator
+\newcommand*\grad{\mathop{}\!\mathbin\bigtriangledown} %Gradient
+
+%Differentialoperatoren
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
+
+% Umgebungen für Definitionen, Sätze, usw.
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[chapter]
+\newtheorem{bsp}[defi]{Beispiel}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}[defi]{Theorem}
+\newtheorem{satz}[defi]{Satz}
+\newtheorem{lem}[defi]{Lemma}
+\newtheorem{bem}[defi]{Bemerkung}
+\newtheorem{prop}[defi]{Proposition}
+\newtheorem{cor}[defi]{Korollar}
+
+
+\theoremstyle{remark}
+\newtheorem*{Bemerkung}{Bemerkung}
+
+
+\def\Satzrefname{Satz}
