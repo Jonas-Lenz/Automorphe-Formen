@@ -26,6 +26,7 @@ Ist $\abs{x}_p \not= \abs{y}_p$ so gilt Gleichheit.
 \item Die Folge $1,\frac{1}{10},\frac{1}{10^2},\dots$ ist keine Cauchy-Folge bezüglich $\abs{\cdot}_p$.
 \end{enumerate}
 \end{bsp}
+%TODO d_p nirgends definiert.
 
 \begin{thm}[Ostrowski]
 Ein Absolutbetrag auf $\Q$ ist äquivalent zu $\abs{\cdot}_\infty$ oder zu einem $\abs{\cdot}_p$ für eine Primzahl $p$.
@@ -47,6 +48,163 @@ Wir bezeichnen endliche Primzahlen meist mit $p$ und beliebige Primzahlen mit $\
 Wir fixieren eine endliche Primzahl $p$ und definieren
 \begin{align*}
 K(x,r)\coloneqq\{y \in \Q \mid d_p(x,y)<r\},\\
-\overline{K}(x,r) \coloneqq \{y\in \Q \mid d_p(x,y)\leq r\}.
+\overline{K}(x,r) \coloneqq \{y\in \Q \mid d_p(x,y)\leq r\}
 \end{align*}
+als offener beziehungsweise abgeschlossener Ball bezüglich $\abs{\cdot}_p$ um $x$ mit Radius $r$.
 \end{defi}
+
+\begin{satz}
+Sei $x\in \Q$ und $r \in \R, r>0$.
+\begin{enumerate}[label=(\roman*)]
+\item Für $x'\in K(x,r)$ gilt
+\begin{align*}
+K(x',r)=K(x,r).
+\end{align*}
+\item Für hinreichend kleines $\varepsilon>0$ gilt
+\begin{align*}
+K(x,r)=\overline{K}(x,r-\varepsilon),\\
+\overline{K}(x,r)=K(x,r+\varepsilon).
+\end{align*}
+\item Für $r\in \R\ setminus \{p^n \mid n\in \Z\}$ gilt
+\begin{align*}
+K(x,r)=\overline{K}(x,r).
+\end{align*}
+\item Sei $r=p^n$ für ein $n\in \Z$. Dann gilt
+\begin{align*}
+K(x,p^n)=\overline{K}=\overline{K}(x,p^{n-1}).
+\end{align*}
+Außerdem gibt es $x_1,\dots,x_{p-1}\in \overline{K}(x,p^n)$ mit
+\begin{align*}
+\overline{K}(x,p^n)=\overline{K}(x,p^{n-1})\cup \overline{K}(x_1,p^{n-1})\cup \dots \cup \overline{K}(x_{p-1},p^{n-1})
+\end{align*}
+wobei die Vereinigungen disjunkt sind.
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+\item[(i)] Sei $x'\in K(x,r)$ beliebig.
+Dann gilt für jedes $y\in K(x,r)$, dass 
+\begin{align*}
+\abs{x'-y}_p&=\abs{(x'-x)*(x-y)}_p\\
+&\leq \max(\abs{x'-x}_p,\abs{x-y}_p)<r.
+\end{align*}
+Also folgt $y\in K(x',r)$ und somit $K(x,r)\subseteq K(x',r)$.
+Die umgekehrte Inklusion folgt analog.
+\item[(ii) and (iii)] Die Distanzfunktion $d_p(x,y)=\abs{x-y}_p$ nimmt höchstens abzählbar viele Werte an, nämlich $p^n$ für ein $n\in \Z$ oder $0$.
+Also gilt für $r>0$ und hinreichend kleines $\varepsilon>0$, dass
+\begin{align*}
+\abs{x-y}_p<r \Leftrightarrow \abs{x-y}_p \leq r-\varepsilon,\\
+\abs{x-y}_p \leq r \Leftrightarrow \abs{x-y}_p<r+\varepsilon.
+\end{align*}
+Falls $r$ nicht von der Form $p^n$ für ein $n\in \Z$ ist, dann gilt
+\begin{align*}
+\abs{x-y}_p<r \Leftrightarrow \abs{x-y}_p\leq r.
+\end{align*}
+Dies beweist (ii) und (iii).
+\item[(iv)] Nach Definition der Norm gilt
+\begin{align*}
+\abs{x-y}_p<p^n \Leftrightarrow \abs{x-y}_p\leq p^{n-1}.
+\end{align*}
+Die restliche Aussage verbleibt als Übung.
+\qedhere
+\end{enumerate}
+\end{proof}
+\end{satz}
+
+\begin{satz}
+Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die nicht $p$-adisch gegen $0$ konvergiert.
+Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ konstant für alle $n>N$ ist.
+\begin{proof}
+Sei $(x_n)_{n\in \N}$ eine Cauchyfolge bezüglich $\abs{\cdot}_p$ also folgt, dass $(\abs{x_n}_p)$ eine Cauchyfolge in $\R$ ist.
+Daher ist $(\abs{x_n}_p)$ konvergent in $\R$. Da es keine Nullfolge ist, muss sie stationär werden.
+\end{proof}
+\end{satz}
+
+\begin{defi}
+Wir definieren $\Q_p$ als die Vervollständigung von $\Q$ bezüglich $\abs{\cdot}_p$.
+Die obigen Eigenschaft von $\abs{\cdot}_p$ setzen sich auf $\Q_p$ fort.
+\end{defi}
+
+\begin{bsp}
+Sei $x\in \Q_p^\ast$. Dann gilt $\abs{x}_p=p^n$ für ein $n\in \Z$.
+\end{bsp}
+Als nächstes beweisen wir den Satz von Bolzano-Weierstraß für $p$-adische Zahlen.
+
+\begin{thm}
+Jede beschränkte Folge in $\Q_\nu$ hat einen Häufungspunkt.
+\begin{proof}
+Für $\nu=\infty$ ist dies die Aussage des Satzes von Bolzano-Weierstraß.
+Sei also $(x_n)_{n\in \N} \subseteq \Q_p$ eine beschränkte Folge in $\Q_p$.
+Nach Definition ist jedes $x_n$ eine Cauchyfolge in $\Q$ bezüglich $\abs{\cdot}_p$.
+Für jedes $n \in \N$ wählen wir $x_n' \in \Q$ sodass
+\begin{align*}
+\abs{x_n-x_n'}<p^{-n}
+\end{align*}
+gilt, dies geht aufgrund der Dichtheit von $\Q$ in $\Q_p$.
+Die Folge $(x_n')\subseteq \Q$ ist beschränkt in $\abs{\cdot}_p$.
+Wir werden zeigen, dass $(x_n')$ eine Teilfolge besitzt, die Cauchy ist.
+Diese Teilfolge definiert eine Zahl $x'\in \Q_p$.
+Die "corresponding" Teilfolge von $(x_n)$ wird ebenfalls gegen $x$ konvergieren.
+Wir konstruieren die Cauchy Teilfolge von $(x_n')$ folgendermaßen.
+Da $(x_n')$ beschränkt ist, existieren $y \in \Q$ und $m\in \Z$ mit $(x_n')\subseteq \overline{K}(y,p^m)$. Dieser zerfällt in endlich viele ($p$ Stück) disjunkte abgeschlossene Bälle mit Radius $p^{m-1}$.
+Mindestens einer dieser Bälle muss unendlich viele Folgenglieder $(x_n')$ enthalten.
+Beginnend mit $x_1$ entfernen wir alle Elemente der Folge, die nicht in diesem Ball liegen.
+Dieser Ball zerfällt erneut und so weiter.
+Dadurch erhalten wir eine Teilfolge $(x_n'')$ von $(x_n')$ mit der Eigenschaft,
+dass alle $x_i''$ für alle $i\geq N$ in einem abgeschlossen Ball
+mit Radius $p^{m-N}$ liegen. Damit folgt
+\begin{align*}
+\abs{x_i''-x_j''}_p\leq p^{m-N}
+\end{align*}
+für alle $i,j\geq N$. Somit wir haben unsere gewünschte Cauchyfolge konstruiert.
+\end{proof}
+\end{thm}
+
+\begin{defi}
+Wir definieren die \emph{$p$-adischen ganzen Zahlen} durch
+\begin{align*}
+\Z_p\coloneqq \{x\in \Q_p \mid \abs{x}_p \leq 1\}.
+\end{align*}
+Dies ist ein Unterring von $\Q_p$.
+\end{defi}
+
+\begin{satz}
+Die $p$-adischen ganzen Zahlen $\Z_p$ sind beschränkt, abgeschlossen und offen.
+Insbesondere ist $\Z_p$ kompakt.
+\end{satz}
+
+\begin{satz}
+Sei $x\in \Z_p$ und $n\in \N_{\geq 1}$.
+Dann existiert ein eindeutiges $\alpha \in \Z$ mit $0\leq \alpha <p^n$ und
+\begin{align*}
+\abs{x-\alpha}_p\leq p^{-n}.
+\end{align*}
+\begin{proof}
+Da $\Q$ dicht in $\Q_p$ ist, existiert $t \in \Q$ mit $\abs{t-x}_p \leq p^{-n}$.
+Dann gilt
+\begin{align*}
+\abs{t}_p=\abs{(t-x)+x}_p \leq \max(\abs{t-x}_p,\abs{x}_p) \leq 1,
+\end{align*}
+das heißt $t \in \Z_p$ und $t=\frac{a}{b}$ mit $a,b\in \Z, (a,b)=1$ und $(p,b)=1$.
+Wähle $b'\in \Z$ mit $bb'=1 \mod p^n$.
+Dann gilt
+\begin{align*}
+\abs{t-ab'}_p&=\abs{\frac{a}{b}-ab'}_p\\
+&=\abs{\frac{a}{b}(1-bb')}_p\\
+&=\abs{\frac{a}{b}}_p \abs{1-bb'}_p.
+\end{align*}
+Für $\alpha \in \Z$ mit $\alpha=ab' \mod p^n$ und $0 \leq \alpha <p^n$ gilt
+\begin{align*}
+\abs{t-\alpha}_p\leq p^{-n},
+\end{align*}
+sowie
+\begin{align*}
+\abs{x-\alpha}_p &=\abs{(x-t)+(t-\alpha)}_p\\
+&\leq \max (\abs{x-t}_p,\abs{t-\alpha}_p)\leq p^{-n}.
+\end{align*}
+Sei $\beta$ ein anderes solches Element. Dann gilt $\abs{\alpha-\beta}\leq p^{-n}$, was $p^n\mid (\alpha-\beta)$ und somit $\alpha=\beta$ impliziert.
+\end{proof}
+\end{satz}
+
+\begin{cor}
+Es gilt $\overline{Z}=\Z_p$.
+\end{cor}
