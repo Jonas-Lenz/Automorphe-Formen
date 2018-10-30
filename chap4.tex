@@ -124,3 +124,97 @@ Jede offene Umgebung der $0\in \mathbb{A}_f$ enthält eine Menge der Form $N \ha
 \begin{prop}
 Die Einbettung $\Q \hookrightarrow \mathbb{A}_f$ hat dichtes Bild.
 \end{prop}
+
+\begin{defi}
+Der Ring $\mathbb{A} \coloneqq \R \times \mathbb{A}_f$ heißt \emph{Ring der Adele}.
+\end{defi}
+
+\begin{bem}
+$\mathbb{A}$ ist ein lokal kompakter Hausdorffraum.
+\end{bem}
+
+\begin{prop}
+$\mathbb{A}$ ist ein topologischer Ring.
+Die Abbildung
+\begin{align*}
+Q \to \mathbb{A}\\
+a &\mapsto (a,a,\dots)
+\end{align*}
+liefert eine Einbettung von $\Q$ nach $\mathbb{A}$.
+\end{prop}
+
+\begin{prop}
+$\Q$ ist eine diskrete abgeschlossene Untergruppe von $\mathbb{A}$.
+\end{prop}
+\begin{proof}
+Wir müssen zeigen, dass $\mathbb{A}$ die diskrete Topologie auf $\Q$ erzeugt, das heißt für jedes $a\in \Q$ existiert eine offene Umgebung $U$ mit $\Q \cap U=\{a\}$.
+Aufgrund der Stetigkeit der Addition können wir ohne Beschränkung der Allgemeinheit $a=0$ annehmen.
+Wähle
+\begin{align*}
+U\coloneqq [-\frac{1}{2},\frac{1}{2}] \times \prod_{p <\infty} \Z_p.
+\end{align*}
+Für $r \in \Q \cap U$ gilt
+\begin{align*}
+\abs{r}_p \leq 1
+\end{align*}
+für alle $p<\infty$.
+Also folgt $r\in \Z$ und somit $r=0$.\\
+Es bleibt zu zeigen,dass $\Q$ abgeschlossen in $\mathbb{A}$ ist.
+Sei dazu $a\in \overline{\Q}$. Wir nehmen $a \not \in \Q$ an.
+Es existiert eine offene Menge $U \subseteq \mathbb{A}$ mit $U \cap \Q=\{0\}$.
+Wähle eine offene Umgebung $V$ von $0\in \mathbb{A}$, die $V+V \subseteq U$ und $-V=V$ erfüllt.
+Die Stetigkeit der Addition impliziert, dass es eine offene Umgebung $W$ von $0$ gibt, die $W+W\subseteq U$ erfüllt. Wenn man $V=W \cap (-W)$ setzt, erhält man die gewünschte Menge.
+Dann gilt $(a+V)\cap \Q\not=\emptyset$.
+Sei $x\in (a+V)\cap \Q$. Dann $x\not =a$.
+Da $\mathbb{A}$ Hausdorff ist, existiert eine offene Umgebung $W$ von $a$ mit $x\not \in W$.
+Dann ist $(a+V)\cap W$ eine offene Umgebung von $a$.
+Wähle $y \in (a+V)\cap W \cap \Q$.
+Dann gilt
+\begin{align*}
+x-y\in ((a+V)\cap \Q)-((a+V)\cap W \cap Q.
+\end{align*}
+Dies impliziert $x-y \in  (V-V)\cap \Q$ also $x-y\in (U\cap \Q)=\{0\}$.
+Aber $x=y$ ist ein Widerspruch.
+\end{proof}
+
+Wir betrachte die kanonische Projektion
+\begin{align*}
+\pi \colon \mathbb{A} \to A/\Q
+\end{align*}
+und statten $A/\Q$ mit der Quotiententopologie aus, das heißt $U \subseteq A/\Q$ ist genau dann offen wenn $\pi^{-1}(U)$ offen in $\mathbb{A}$ ist.
+Insbesondere ist $\pi$ stetig.
+\begin{prop}
+Die kanonische Projektion ist offen.
+\end{prop}
+\begin{proof}
+Sei $U\subseteq \mathbb{A}$ offen. Wir müssen zeigen, dass $\pi^{-1}(\pi(U))$ offen ist.
+Es gilt
+\begin{align*}
+\pi^{-1}(\pi(U))&=\{a \in \mathbb{A} \mid \pi(a)\in \pi(U)\}\\
+&=\bigcup_{a \in U} (a+\Q)\\
+&=\bigcup_{x\in \Q} (x+U),
+\end{align*}
+somit ist die Offenheit gezeigt.
+%TODO warum gilt die letzte Gleichheit.
+\end{proof}
+
+\begin{prop}
+$A/\Q$ ist ein kompakter Hausdorffraum.
+\end{prop}
+\begin{proof}
+Zunächst zeigen wir, dass $A/\Q$ Hausdorff ist.
+Sei dafür $a+\Q\not = b+\Q$. Dann gilt $a-b \in \mathbb{A}\setminus \Q$, welches eine offene Menge ist.
+Dann existiert eine offene symmetrische Umgebung der $0$ mit
+\begin{align*}
+((a-b)+U+U)\cap \Q=\emptyset.
+\end{align*}
+%TODO wieso?
+Somit folgt
+\begin{align*}
+((a+U)-(b+U))\cap \Q &= \emptyset\\
+((a-b)+U)\cap (Q+ U)&=\emptyset\\
+(a+U)\cap (b+U+\Q)&=\emptyset\\
+(a+U+\Q)\cap (b+U+\Q)&=\emptyset.
+\end{align*}
+Daher sind $(a+U)$ und $(b+U)$ disjunkt in $A/\Q$ sind.
+\end{proof}
