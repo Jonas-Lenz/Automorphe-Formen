@@ -1,0 +1,232 @@
+\chapter{Integration}
+\begin{defi}
+Sei $X$ ein Hausdorffraum. Die Borel $\sigma$-Algebra $\sigma(X)$ von $X$ ist die kleinste $\sigma$-Algebra, die die offenen Mengen von $X$ enthält.
+Ein \emph{Radonmaß} auf $X$ ist ein Maß $\mu \colon \sigma(X) \to [0,\infty]$ sodass
+\begin{enumerate}[label=\roman*)]
+\item $\mu$ ist lokal endlich, das heißt für jedes $x\in X$ existiert eine offene Umgebung $U$ von $x$ die endliches Maß hat.
+\item $\mu$ ist \emph{regulär von innen}, das heißt
+\begin{align*}
+\mu(A)=\sup\{\mu(K)\mid K\subset A \text{ kompakt }\}
+\end{align*}
+gilt für alle $A \in \sigma(X)$.
+\end{enumerate}
+\end{defi}
+
+\begin{bsp}
+Das Lebesguemaß auf $\Rn$ ist ein Radonmaß.
+\end{bsp}
+
+\begin{thm}[Riesz]
+Sei $X$ ein lokal kompakter Hausdorffraum und
+\begin{align*}
+I \colon C_c(X) \to \C
+\end{align*}
+eine \emph{positive lineare Form}, das heißt $I(f)\geq 0$ für alle $0\leq f \in \C_c(X)$.
+Dann existiert ein eindeutiges Radonmaß $\mu \colon \sigma(X)\to [0,\infty]$ mit $I(f)=\int_X f ~\mathrm{d}\mu$.
+Außerdem gilt für kompakte Mengen $K$
+\begin{align*}
+\mu(K)=\inf\{I(f)\mid f\in \C_c(X),f \geq \chi_K\}
+\end{align*}
+sowie
+\begin{align*}
+\mu(A)=\sup\{\mu(K)\mid K\subseteq A \text{ kompakt } \}
+\end{align*}
+für alle $A \in \sigma(X)$.
+\end{thm}
+\begin{proof}
+Elstrodt, Kapitel 8 von Maß- und Integrationstheorie.
+\end{proof}
+
+\begin{thm}[Haar]
+Sei $G$ eine lokal kompakte Hausdorffgruppe.
+Dann gibt es ein linksinvariantes Radonmaß $\mu$ auf $G$.
+Dieses ist eindeutig bis auf positive Konstanten und heißt \emph{Haarmaß} auf $G$.
+\end{thm}
+
+\begin{bsp}
+\begin{enumerate}[label=\roman*)]
+\item Auf einer diskreten Gruppe ist das Zählmaß ein Haarmaß.
+\item Auf $(\Rn,+)$ ist das Lebesguemaß ein Haarmaß.
+\item Auf $(\R^\ast,\cdot)$ ist $\frac{\mathrm{d}x}{\abs{x}}$, wobei $\mathrm{d}x$ das Lebesguemaß auf $\R$ ist, ein Haarmaß.
+\item Ein Haarmaß auf $\GL(2,\R)$ ist durch
+\begin{align*}
+\frac{\mathrm{d}x_{11}\mathrm{d}x_{12}\mathrm{d}x_{21}\mathrm{d}x_{22}}{\abs{\det(M)}^2}
+\end{align*}
+gegeben. (M wie man es erwartet).
+\end{enumerate}
+\end{bsp}
+
+\begin{thm}
+Sei $G$ eine lokal kompakte Hausdorffgruppe und $K\subseteq G$ kompakt. Dann gibt es ein eindeutiges Haarmaß $\mu$ auf $G$, das $\mu(K)=1$ erfüllt.
+\end{thm}
+
+
+\begin{defi}
+Sei $G$ eine lokal kompakte Hausdorffgruppe und $\mu$ ein Haarmaß auf $G$.
+Dann definiert für $x\in G$
+\begin{align*}
+\mu_x(A)=\mu(Ax)
+\end{align*}
+ein links invariantes Maß auf $G$.
+\end{defi}
+
+\begin{defi}
+Die Eindeutigkeit impliziert $\mu_x=\delta(x) \mu$ für ein $\delta(x)\in \R_{\geq 0}$.
+Insbesondere ist $\delta(x)$ unabhängig von der Wahl von $\mu$.
+Die Funktion
+\begin{align*}
+\delta \colon G &\to \R_{\geq 0}\\
+x &\mapsto \delta(x)
+\end{align*}
+heißt \emph{modulare Funktion} von $G$.
+\end{defi}
+
+\begin{prop}
+Die Abbildung $\delta$ ist ein Morphismus topologischer Gruppen.
+\end{prop}
+\begin{proof}
+Für $x,y\in G$ gilt
+\begin{align*}
+\delta(xy)\mu(A)&=\mu_{xy}(A)=\mu(Axy)\\
+&=\mu_y(Ax)=\delta(y)\delta(x)\mu(A).
+\end{align*}
+Der Rest verbleibt als Übungsaufgabe.
+\end{proof}
+
+\begin{bsp}
+Man kann zeigen, dass jeder stetiger Gruppenhomomorphismus $h \colon \SL(2,\R)\to \R_{\geq 0}$ konstant sein muss.
+Daraus folgt, dass jedes Haarmaß auf $\SL(2,\R)$ auch rechts invariant ist.
+\end{bsp}
+
+Wir betrachten nun die lokal kompakten Hausdorffgruppen $\Q_p$ sowie $\Q_p^\ast$.
+Wir normieren das Haarmaß $\mu$ auf $\Q_p$ durch die Forderung $\mu(\Z_p)=1$.
+
+\begin{prop}
+Für eine messbare Menge $A \subseteq \Q_p$ und $x \in \Q_p^\ast$ gilt
+\begin{align*}
+\mu(xA)=\abs{x}_p\mu(A).
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Für $x \in \Q_p^\ast$ definiert
+\begin{align*}
+\mu_x(A)=\mu(xA)
+\end{align*}
+ein Radonmaß auf $\Q_p$.
+Dies ist links invariant, da
+\begin{align*}
+\mu_x(y+A)=\mu((y+A)x)=\mu(yx+Ax)=\mu_x(A)
+\end{align*}
+gilt.
+Also folgt aus der Eindeutigkeit, dass $\mu_x(A)=c(x)\mu(A)$ mit $c(x)\in \R_{\geq 0}$ unabhängig von $A$ gilt.
+Sei zunächst $\abs{x}_p=p^{-n}$ für ein $n>0$.
+Dann gilt $x\Z_p=p^n\Z_p$ sowie 
+\begin{align*}
+\Z_p=\bigcup_{j=0}^{p^n-1}(j+p^n\Z_p)
+\end{align*}
+als disjunkte Vereinigung.
+Aus $\sigma$-Additivität folgt daher
+\begin{align*}
+\mu(\Z_p)&=\sum_{j=0}^{p^n-1} \mu(j+p^n\Z_p)\\
+&=p^n \mu(p^n \Z_p),
+\end{align*}
+was $\abs{x}_p\mu(\Z_p)=\mu(x\Z_p$ impliziert.
+Also ist in diesem Fall $c(x)=\abs{x}_p$.
+Als nächstes betrachten wir den Fall $\abs{x}_p=p^n$ mit $n>0$.
+Dann gilt
+$\mu(A)=\mu(x^{-1}xA)=\abs{x^{-1}}_p\mu(xA)$,
+also folgt $\mu(xA)=\abs{x}_p\mu(A)$.
+\end{proof}
+
+\begin{cor}
+Sei $f$ integrierbar. Dann gilt für $a \in \Q_p^\ast$
+\begin{align*}
+\int_{\Q_p}f(a^{-1}x)~\mathrm{d}\mu(x)=\abs{a}_p\int_{\Q_p}f_(x)~\mathrm{d}\mu(x).
+\end{align*}
+\end{cor}
+\begin{proof}
+Wir wollen die letzte Proposition verwenden
+Es gilt 
+\begin{align*}
+\int_{\Q_p}f(a^{-1}x)~\mathrm{d}\mu(x)&=\int_{\Q_p} f(x)~\mathrm{d}\mu_a(x)\\
+&=\abs{a}_p \int_{\Q_p} f(x)~\mathrm{d}\mu(x).
+\end{align*}
+Wir werden das normierte Haarmaß auf $\Q_p$ mit $\mathrm{d}x$ notieren.
+\end{proof}
+
+\begin{bsp}
+Wir können jetzt das Volumen von $\Z_p^\ast=\bigcup_{j=1}^{p-1}(j+p\Z_p)$ berechnen.
+Es gilt
+\begin{align*}
+\mu_{\mathrm{d}x}(\Z_p^\ast)&=\sum_{j=1}^{p-1} \mu_{\mathrm{d}x}(j+p\Z_p)\\
+&=(p-1)\mu_{\mathrm{d}x}(p \Z_p)\\
+&=\frac{p-1}{p}\mu_{\mathrm{d}x}(\Z_p)\\
+&=\frac{p-1}{p}.
+\end{align*}
+\end{bsp}
+
+Wir konstruieren nun ein Haarmaß auf $\Q_p^\ast$.
+Für $A \subseteq \Q_p^\ast\subseteq \Q_p$ definieren wir
+\begin{align*}
+\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(A)\coloneqq \int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x_p}}.
+\end{align*}
+Da dies in $0$ nicht definiert ist, setzen wir den Integranden in diesem Punkt auf $0$.
+%warum auch immer das gut geht.
+Dann gilt für $y\in \Q_p^\ast$, dass
+\begin{align*}
+\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(yA)&=\int_{\Q_p} \chi_{yA}(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
+&=\abs{y^{-1}}_p \int_{\Q_p}\chi_A(y^{-1}x)\frac{\mathrm{d}x}{\abs{y^{-1}x}_p}\\
+&=\int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
+&=\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(A).
+\end{align*}
+Also ist $\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}$ links invariant.
+Das Volumen von $\Z_p^\ast$ bezüglich $\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}$ ist
+\begin{align*}
+\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(\Z_p^\ast)&=\int_{\Q_p}\chi(\Z_p^\ast) \frac{\mathrm{d}x}{\abs{x}_p}\\
+&=\int_{\Q_p}\chi(\Z_p^\ast)~\mathrm{d}x=\mu_{\mathrm{d}x}(\Z_p^\ast)\\
+&=\frac{p-1}{p}.
+\end{align*}
+
+\begin{thm}
+${\frac{\mathrm{d}x}{\abs{x_p}}}$ definiert ein Haarmaß auf $\Q_p^\ast$.
+Das normierte Haarmaß
+\begin{align*}
+\mathrm{d}^\ast x =\frac{p}{p-1}{\frac{\mathrm{d}x}{\abs{x_p}}}
+\end{align*}
+erfüllt $\mu_{\mathrm{d}^\ast x}(\Z_p^\ast)=1$.
+\end{thm}
+
+Für $a \in \R_{\geq 0}$ und $s\in \C$ setzen wir
+\begin{align*}
+a^s=\mathrm{e}^{s \log(a)}.
+\end{align*}
+
+Die Riemannsche $\zeta$-Funktion ist durch
+\begin{align*}
+\zeta(s)\coloneqq \sum_{n=1}^\infty \frac{1}{n^s}
+\end{align*}
+definiert.
+Die Reihe konvergiert für $\Ret(s)>1$ und besitzt eine meromorphe Fortsetzung auf $\C$ mit einer Polstelle vom Grad $1$ in $s=1$.
+Für $\Ret(s)>1$ gilt
+\begin{align*}
+\zeta(s)=\prod_p \frac{1}{1-p^{-2}}.
+\end{align*}
+Für $\Ret(s)>0$ werden wir
+\begin{align*}
+\int_{\Z_p \setminus \{0\}} \abs{x}_p^s ~\mathrm{d}^\ast x
+\end{align*}
+berechnen.
+Wir können das Integrationsgebiet durch
+\begin{align*}
+\Z_p\setminus \{0\}=\bigcup_{k=0}^\infty p^k \Z_p^\ast
+\end{align*}
+in disjunkte Mengen zerlegen.
+Somit gilt
+\begin{align*}
+\int_{\Z_p \setminus \{0\}} \abs{x}_p^s ~\mathrm{d}^\ast x&=\sum_{k=0}^\infty \int_{p^k \Z_p^\ast} \abs{x}_p^s ~\mathrm{d}^\ast x\\
+&=\sum_{k=0}^\infty \left(p^{-k}\right)^s \int_{p^k \Z_p^\ast}\mathrm{d}^\ast x \\
+&=\sum_{k=0}^\infty \left(p^{-k}\right)^s=\sum_{k=0}^\infty \left(p^{-2}\right)^k\\
+=\frac{1}{1-p^{-s}}.
+\end{align*}
+Dies scheint zunächst \glqq zufällig\grqq\, zu sein, aber wir werden später sehen, dass es hier einen tieferen Zusammenhang gibt.

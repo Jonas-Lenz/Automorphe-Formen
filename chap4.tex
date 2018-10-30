@@ -1,0 +1,126 @@
+\chapter{Adele}
+Wir wollen alle Vervollständigungen von $\Q$ gleichzeitig betrachten.
+Dafür betrachten wir den lokal kompakten Ring 
+\begin{align*}
+\A_Q=\{(x_\infty,x_2,x_3,x_5\dots,)\mid x_\nu \in \Q_\nu \text{ und } x_p \in \Z_p \text{ a.e.}\}
+\end{align*}
+von Adelen.
+
+Sei $(X_i)_{i\in I}$ eine Familie topologischer Räume.
+Die Produkttopologie auf $\prod_{i \in I} X_i$ ist die gröbste Topologie auf $\prod_{i \in I} X_i$, bezüglich der alle Projektionen stetig sind.
+Eine Basis für diese Topologie ist durch $\{\prod_{i\in I}O_i\}$ gegeben, wobei $O_i$ für alle $i \in I$ offen ist und $O_i=X_i$ für fast alle $i \in I$ gilt.
+
+Mengen dieser Form heißen \emph{offene Rechtecke}.
+
+Wir benötigen folgenden klassischen Satz aus der Topologie.
+\begin{thm}[Tychonoff]
+Sei $(X_i)_{i \in I}$ eine Familie von topologischen Räumen. Dann ist das Produkt der $X_i$ genau dann kompakt, wenn alle $X_i$ kompakt sind.
+\end{thm}
+
+\begin{thm}
+Sei $(X_i)_{i \in I}$ eine Familie von Hausdorffräumen. Dann ist $\prod_{i \in I} X_i$ lokal kompakt genau dann wenn alle $X_i$ lokal kompakt und alle bis auf endlich viele sogar kompakt sind.
+\end{thm}
+
+\begin{proof}
+\glqq $\Rightarrow$\grqq : Da die Projektionen $p_j \colon \prod_{i \in I} X_i \to X_j$ stetig sind, folgt, dass alle $X_i$ lokal kompakt sind.
+Sei $x=(x_i)_{i\in I} \in \prod_{i \in I} X_i$ und $C=(C_i)_{i \in I}$ eine kompakte Umgebung von $x$.
+$C$ enthält eine Vereinigung offener Rechtecke. Da alle bis auf endlich viele Komponenten eines offenen Rechtecks der ganze Raum sind, gilt das gleich auch für $C$, das heißt
+\begin{align*}
+\pi_i(C)=X_i
+\end{align*}
+für alle bis auf endlich viele $i \in I$.
+\glqq $\Leftarrow$\grqq : Da mit $J=\{i\in I \mid x_i \text{ compact }\}$, die Menge $I \setminus J$ endlich ist, folgt mit
+\begin{align*}
+X=\prod_{i \in J} X_i \times \prod_{i \in I\setminus J}X_i,
+\end{align*}
+dass $X$ als Produkt einer kompakten und einer lokal kompakten Menge lokal kompakt ist.
+\end{proof}
+
+\begin{bsp}
+$\prod_{p <\infty} \Q_p$ ist nicht lokal kompakt und deswegen wissen wir nicht, ob es ein Haarmaß gibt.
+\end{bsp}
+%TODO wissen wir wirklich dass es keins gibt?!
+
+\begin{defi}
+Sei $(x_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge.
+%TODO warum geht das immer?
+Dann definieren wir das eingeschränkte Produkt
+\begin{align*}
+X=\hat{\prod}_{i\in I}^{K_i} X_i \coloneqq \{(x_i)_{i \in I} \in \prod_{i \in I} X_i \mid x_i \in K_i \text{ für fast alle } i \in I\}.
+\end{align*}
+Falls $K_i$ aus dem Kontext klar ist, lassen wir diese in der Schreibweise weg.
+Ein eingeschränktes offenes Rechteck ist eine Menge der Form
+\begin{align*}
+\prod_{i\in I} U_i
+\end{align*}
+wobei $U_i \subseteq X_i$ offen ist und $K_i=U_i$ für alle bis auf endlich viele $i  \in I$ gilt.
+Eine Teilmenge $U\subseteq X$ heißt offen, wenn es eine Vereinigung solcher Mengen ist.
+Die dazugehörige Topologie heißt die \emph{eingeschränkte Produkttopologie}.
+\end{defi}
+
+\begin{prop}
+Sei $(X_i)_{i\in I}$ eine Familie lokal kompakter Hausdorffräume.
+Für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge.
+Dann ist
+\begin{align*}
+X=\hat{\prod}_{i \in I}^{K_i} X_i
+\end{align*}
+ausgestattet mit der eingeschränkten Produkttopologie ein lokal kompakter Hausdorffraum.
+\end{prop}
+
+\begin{proof}
+Sei $x=(x_i)_{i \in I} \in X$. Definiere $J=\{i \in I \mid x_i \in K_i\}$. Dann ist $I\setminus J$ endlich. Für jedes $i \in I\setminus J$ wählen wir eine kompakte Umgebung $U_i$ von $x_i$.
+Dann ist
+\begin{align*}
+\prod_{i\in I\setminus J} U_i \times \prod_{i\in J} K_i
+\end{align*}
+eine kompakte Umgebung von $x$.
+Die Hausdorffeigenschaft verbleibt als Übung.
+\end{proof}
+
+\begin{defi}
+Der Ring
+\begin{align*}
+\mathbb{A}_f \coloneqq \widehat{\prod_{p<\infty}}^{\Z_p} \Q_p
+\end{align*}
+heißt der Ring der \emph{endlichen Adele}.
+Nach dem letzten Satz ist $\mathbb{A}_f$ ein lokal kompakter Hausdorffraum.
+\end{defi}
+%TODO A_f schoen machen, Problem: ds gibt doppelstrich auf falscher Seite...
+
+\begin{prop}
+Der Ring $\mathbb{A}_f$ ist ein topologischer Raum, das heißt, die Ringverknüpfungen sind stetig.
+\end{prop}
+
+\begin{prop}
+Die Menge
+\begin{align*}
+\hat{\Z}=\prod_{p <\infty} \Z_p \subseteq \mathbb{A}_f
+\end{align*}
+ist kompakt und offen.
+\end{prop}
+
+Sei $N\in \Z$ sowie $N>0$. Dann gilt
+\begin{align*}
+N=\prod_{p<\infty} p^{\nu_p}
+\end{align*}
+und $\nu_p=0$ für alle bis auf endlich viele $p$.
+Weiterhin haben wir, dass
+\begin{align*}
+N \hat{\Z}=\prod_{p <\infty} p^{\nu_p}\Z_p
+\end{align*}
+eine kompakte offene Umgebung der $0 \in \mathbb{A}_f$.
+Eine beliebige offene Umgebung der $0 \in \mathbb{A}_f$ ist eine Vereinigung von Mengen der Form
+\begin{align*}
+\prod_{i \in I\setminus J} U_i \times \prod_{j \in J} K_j
+\end{align*}
+wobei $I\setminus J$ endlich ist und die $U_i$ für $i \in I \setminus J$ offen sind.
+In $\Q_p$ gilt $K(0,p^m)=p^{-m}\Z_p$ für alle $m \in \Z$.
+
+\begin{prop}
+Jede offene Umgebung der $0\in \mathbb{A}_f$ enthält eine Menge der Form $N \hat{Z}$ für ein $N \in \Z$ mit $N>0$.
+\end{prop}
+
+\begin{prop}
+Die Einbettung $\Q \hookrightarrow \mathbb{A}_f$ hat dichtes Bild.
+\end{prop}

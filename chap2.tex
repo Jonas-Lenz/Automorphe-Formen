@@ -159,6 +159,10 @@ für alle $i,j\geq N$. Somit wir haben unsere gewünschte Cauchyfolge konstruier
 \end{proof}
 \end{thm}
 
+\begin{cor}
+Eine Menge ist genau dann in $\Q_p$ kompakt, wenn sie beschränkt und abgeschlossen ist.
+\end{cor}
+
 \begin{defi}
 Wir definieren die \emph{$p$-adischen ganzen Zahlen} durch
 \begin{align*}
@@ -206,5 +210,119 @@ Sei $\beta$ ein anderes solches Element. Dann gilt $\abs{\alpha-\beta}\leq p^{-n
 \end{satz}
 
 \begin{cor}
-Es gilt $\overline{Z}=\Z_p$.
+Es gilt $\overline{Z}=\Z_p$, insbesondere für jedes $x \in \Z_p$ existiert eine Folge
+$(\alpha_n)_{n\in \N}\subseteq \Z$ mit $0 \leq \alpha_n<p^n$, $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ und $\abs{x-\alpha_n}\leq p^{-n}$.
+Darüber hinaus ist diese Folge eindeutig.
 \end{cor}
+
+Sei umgekehrt $(\alpha_n)_{n \in \N}\subseteq \Z$ eine Folge mit $0\leq \alpha_n <p^n$ sowie $\alpha_n=\alpha_{n-1} \mod p^{n-1}$.
+Dann ist $(\alpha_n)_{n\in \N}$ eine Cauchyfolge und konvergiert gegen ein $x\in \Z_p$.
+
+\begin{defi}
+Eine Folge von Restklassen $(\alpha_n)_{n\in \N}$ wobei $\alpha_n \in \Z / p^n\Z$ ist, die $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ erfüllt, heißt \emph{kompatibles System}.
+Die Menge aller kompatiblen System heißt \emph{projektiver Limes} des Systems.
+Der projektive Limes $\lim\limits_{\leftarrow} \Z /p^n\Z$ ist ein Ring bezüglich punktweiser Addition und Multiplikation.
+\end{defi}
+
+\begin{thm}
+Die Abbildung
+\begin{align*}
+\Z_p &\to \lim_{\leftarrow} \Z/p^n\Z\\
+x &\mapsto (\alpha_n)_{n\in \Z}
+\end{align*}
+ist ein Ringisomorphismus.
+Weiterhin ist die Abbildung
+\begin{align*}
+\Z_p &\to \Z /p^n \Z\\
+x &\mapsto \alpha_n
+\end{align*}
+ist surjektiv und ihr Kern ist durch $p^n\Z_p$ gegeben.
+Also folgt
+\begin{align*}
+\Z_p /p^n \Z_p \cong \Z /p^n \Z
+\end{align*}
+aufgrund des Homomorphiesatzes.
+\end{thm}
+
+\begin{lem}
+Sei $x\in \Q_p$ mit $\abs{x}_p=p^n$ für ein $n>0$.
+Dann gilt $\abs{p^n x}_p=1$, sodass $p^nx\in \Z_p$ folgt.
+Dies impliziert
+\begin{align*}
+\Q_p=\bigcup_{n=1}^\infty p^{-n}\Z_p
+\end{align*}
+sodass $\Q_p$ der Quotientenkörper von $\Z_p$ ist.
+\end{lem}
+
+Für $x\in \Q_p^\ast$ gilt $\abs{x^{-1}}_p=\frac{1}{\abs{x}_p}$ und somit auch
+\begin{align*}
+\Z_p^\ast=\{x\in \Z_p \mid \abs{x}_p=1\}.
+\end{align*}
+
+
+
+\begin{prop}
+Jedes $x\in \Z_p$ hat eine Darstellung der Form
+\begin{align*}
+x=\sum_{i=0}^\infty b_i p^i
+\end{align*}
+mit $b_i \in \{0,\dots,p-1\}$. Weiterhin ist diese Darstellung eindeutig.
+\end{prop}
+\begin{proof}
+Für $x \in \Z_p$ gibt es eine eindeutige Folge $(\alpha_n)_{n\in \N}\subseteq \Z$ mit $0 \leq \alpha_n<p^n$, $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ und $\abs{x-\alpha_n}\leq p^{-n}$.
+Insbesondere lassen sich die $\alpha_n$ schreiben durch
+\begin{align*}
+\alpha_n=\sum_{i=0}^{n-1} b_i p^i
+\end{align*}
+wobei $b_i \in\{0,\dots,p-1\}$ gilt.
+\end{proof}
+
+\begin{prop}
+Sei $x\in \Q_p$ mit $\abs{x}_p=p^n$. Dann hat $x$ eine eindeutige Darstellung der Form
+\begin{align*}
+x=b_{-n}p^{-n}+b_{-n+1}p^{-n+1}+\dots,
+\end{align*}
+wobei $b_i \in \{0,\dots,p-1\}$ und $b_{-n}\not =0$.
+\end{prop}
+
+\begin{bem}
+Die Elemente in $\Z_p^\ast$ sind von der Form
+\begin{align*}
+x=b_0+b_1p+\dots
+\end{align*}
+mit $b_0\not =0$.
+\end{bem}
+
+\begin{defi}
+Ein Hausdorffraum heißt \emph{lokal kompakt}, falls jeder Punkt eine kompakte Umgebung hat.
+\end{defi}
+
+\begin{bsp}
+\begin{enumerate}[label=(\roman*)]
+\item Ein kompakter Hausdorffraum ist lokal kompakt.
+\item $(\R=\Q_\infty,\abs{\cdot}_\infty)$ ist lokal kompakt.
+\end{enumerate}
+\end{bsp}
+
+\begin{prop}
+$\Q_p$ ist lokal kompakt.
+\end{prop}
+\begin{proof}
+Sei $x\in \Q_p$ und wähle $r>0$. Dann ist $\overline{K}(x,r)$ eine kompakte Umgebung von $x$.
+\end{proof}
+
+\begin{prop}
+$\Q_p^\ast=\Q_p \setminus \{0\}$ ist lokal kompakt.
+\end{prop}
+Wir haben bereits gesehen, dass $\Z_p$ offen, abgeschlossen und kompakt ist.
+\begin{prop}
+$\Z_p^\ast$ ist offen, abgeschlossen und kompakt.
+\end{prop}
+\begin{proof}
+Dies folgt aus der Stetigkeit von $\abs{\cdot} \colon \Q_p \to \R$.
+\end{proof}
+
+\begin{prop}
+$(\Q_p,+)$, $(\Z_p,+)$, $(Q_p^\ast,\cdot)$, $(\Z_p^\ast,\cdot)$
+sind lokal kompakte topologische Gruppen
+\end{prop}
