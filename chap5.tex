@@ -1,0 +1,27 @@
+\chapter{Idele}
+\begin{defi}
+Die Einheitengruppe $\A^\ast$ von $\A$ heißt Gruppe der \emph{Idele}.
+Es gilt
+\begin{align*}
+\A =\R \times \A_f, \A_f=\hat{\prod}_{p <\infty}^{\Z_p} \Q_p\\
+\A^\ast =\R^\ast \times \A_f^\ast, \A_f^\ast=\{(a_p)_{p<\infty} \mid a_p \in \Q_p^\ast \forall p, a_p \in \Z_p^\ast \text{ a.e. } p\}=\hat{\prod}^{\Z_p^\ast} \Q_p^\ast.
+\end{align*}
+%TODO schoen untereinander machen
+\end{defi}
+Wir statten $\A_f^\ast$ mit der eingeschränkten Produkttopologie aus.
+$\hat{\Z}=\prod_{p<\infty} \Z_p$ ist offen und kompakt in $\A_f$,
+$\hat{\Z}^\ast=\prod_{p<\infty} \Z_p^\ast$ ist offen und kompakt in $\A_f^\ast$ bezüglich der eingeschränkten Produkttopologie.
+$\hat{Z}^\ast$ ist nicht offen bezüglich der Topologie von $\A_f^\ast$, die von $\A_f$ induziert wird.
+Die eingeschränkte Produkttopologie auf $\A_f^\ast$ ist echt feiner als die Topologie, die von $\A_f$ induziert wird.
+Wir statten $\A^\ast=\R^\ast\times \A_f^\ast$ mit der Produkttopologie aus. 
+
+\begin{thm}
+Dann sind $(A_f^\ast,\cdot)$ und $(\A^\ast,\cdot)$ lokal kompakte Hausdorffräume.
+\end{thm}
+
+Wir normieren das Haarmaß auf $\A_f^\ast$ sodass $\hat{\Z}^\ast$ Maß $1$ hat und schreiben $\mathrm{d}^\ast x_f$ für dieses Maß.
+Auf $\R^\ast$ ist $\frac{\mathrm{d}t}{\abs{t}}$ ein Haarmaß.
+Wir statten $\A^\ast$ mit dem Produktmaß aus, also mit dem Haarmaß
+\begin{align*}
+\mathrm{d}^\ast x=\frac{\mathrm{d}t}{\abs{t}}\cdot \mathrm{d}^\ast x_f.
+\end{align*}
