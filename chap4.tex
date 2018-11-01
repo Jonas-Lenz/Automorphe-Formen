@@ -177,7 +177,7 @@ Dies impliziert $x-y \in  (V-V)\cap \Q$ also $x-y\in (U\cap \Q)=\{0\}$.
 Aber $x=y$ ist ein Widerspruch.
 \end{proof}
 
-Wir betrachte die kanonische Projektion
+Wir betrachten die kanonische Projektion
 \begin{align*}
 \pi \colon \mathbb{A} \to A/\Q
 \end{align*}
@@ -217,4 +217,138 @@ Somit folgt
 (a+U+\Q)\cap (b+U+\Q)&=\emptyset.
 \end{align*}
 Daher sind $(a+U)$ und $(b+U)$ disjunkt in $A/\Q$ sind.
+Es bleibt die Kompaktheit zu zeigen.
+Dafür zeigen wir, dass es eine kompakte Teilmenge $K \subseteq \A$ mit $\pi(K)=\A$ gibt.
+Sei $K\coloneqq [0,1]\times \hat{\Z}\subseteq \A$.
+Wir zeigen, dass jede Restklasse in $\A/\Q$ einen Repräsentanten in $K$ besitzt.
+Sei $a=(a_\nu)_{\nu \leq \infty} \in \A$. Für $p<\infty$ schreiben wir
+\begin{align*}
+a_p=\sum_{n=n_p} a_p(n)p^n
+\end{align*}
+Dann gilt $n_p=0$ für fast alle $p$.
+Definiere
+\begin{align*}
+b\coloneqq a- \sum_{p<\infty}\sum_{n=n_p}^{-1} a_p(n)p^n,
+\end{align*}
+wobei der zweite Summand ein Element von $\Q \subseteq \A$ ist.
+Dann gilt $b \in \R \times \A$, da
+\begin{align*}
+\abs{a_p-\sum_{q<\infty} \sum_{n=n_q}^{-1} a_q(n)q^n}_p\\
+=\abs{\sum_{n=0}^\infty a_p(n)p^n-\sum_{\infty>q\not =p} \sum_{n=n_q} a_q(n)q^n}_p\\
+=\max \left(\abs{\sum_{n=0}^\infty a_p(n)p^n}_p,\abs{\sum_{\infty>q\not =p} \sum_{n=n_q}^{-1} a_q(n)q^n}_p\right) \leq 1.
+\end{align*}
+%TODO schön untereinander schreiben
+In dem wir $b$ um eine geeignete ganze Zahlen verschieben, erhalten wir einen Repräsentanten in $K$.
 \end{proof}
+
+Da $\A$ eine lokal kompakte Hausdorffgruppe ist, können wir das Haarmaß auf $A$ betrachten, sodass $[0,1]\times \hat{\Z}$ Maß $1$ hat.
+
+\begin{defi}
+Eine \emph{einfache Funktion auf $\A$} ist eine Funktion der Form
+\begin{align*}
+f=\prod_{\nu \leq \infty} f_\nu,
+\end{align*}
+wobei $f_\nu \in C_c(\Q_\nu)$ und $f_p=\chi_{\Z_p}$ für fast alle $p<\infty$.
+\end{defi}
+%TODO schoenes C fuer diffbarkeit
+
+\begin{bem}
+Für $x=(x_\nu)_{\nu \leq \infty}\in \A$ gilt
+\begin{align*}
+f(x)=\prod_{\nu \leq \infty} f_\nu(x),
+\end{align*}
+wobei nur endlich viele Faktoren ungleich $1$ sind.
+Die einfachen Funktionen auf $\A$ sind stetig und haben kompakten Träger (Notation $f \in C_c(\A)$).
+\end{bem}
+
+\begin{prop}
+Sei $f=\prod_{\nu \leq \infty} f_\nu$ eine einfache Funktion auf $\A$.
+Dann gilt
+\begin{align*}
+\int_A f(x)~\mathrm{d}x=\prod_{\nu \leq \infty} \int_{\Q_p} f_\nu(x)~\mathrm{d}x_\nu.
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Betrachte die endliche Menge $I \coloneqq \{p <\infty \mid f_p \not = \chi_{\Z_p}\} \cup \{\infty\}$.
+Definiere $\A_I=\prod_{\nu \in I}\Q_\nu$.
+Dann gilt $\A=\A_I \times \A^I$, wobei
+\begin{align*}
+\A^I =\hat{\prod^{\Z_p}}_{p \not \in I} \Q_p
+\end{align*}
+ist.
+$\A_I$ ist als endliches Produkt lokal kompakter Hausdorffräume wieder ein lokal kompakter Hausdorffraum.
+Das Haarmaß auf $\A_I$ ist durch das Produkt der Haarmaße auf den Faktoren gegeben und der Satz von Fubini gilt.
+%TODO "das" haarmaß ist eher suboptimal.
+Wir schreiben
+\begin{align*}
+f=\prod_{\nu \in I} f_\nu \cdot \prod_{p \not \in I} f_p.
+\end{align*}
+%TODO erster Faktor f_I und zweiter f^I
+Mit Fubini gilt somit
+\begin{align*}
+\int_Af(x)~\mathrm{d}x&=\int_{\A_I}f_I(x)~\mathrm{d}x \int_{\A^I}f^I(x)~\mathrm{d}x\\
+&=\prod_{\nu \in I} \int_{\Q_\nu} f_\nu(x)~\mathrm{d}x\\
+&=\prod_{\nu \leq \infty} \int_{\Q_\nu} f_\nu(x)~\mathrm{d}x,
+\end{align*}
+was zu zeigen war.
+\end{proof}
+
+Sei $x\in \Z_p$. Dann existiert für jedes $n \in \Z, n>0$ genau ein $\alpha_n \in \Z$, $0 \leq \alpha_n<p^n$ mit
+\begin{align*}
+\abs{x-\alpha_n}_p \leq p^{n-}\\
+\Leftrightarrow \alpha_n \in x+K(0,p^{-n})\\
+\Leftrightarrow \alpha_n \in x+p^n \Z_p.
+\end{align*}
+%TODO formatierung schoen machen
+
+\begin{thm}
+Sei nun $x\in \hat{Z})=\prod_{\nu \leq \infty} \Z_p$. Dann existiert für jedes $N \in \Z$, $N>0$ existiert ein eindeutiges $\alpha_N\in \Z$, $0 \leq \alpha<N$ mit
+\begin{align*}
+\alpha_N \in x + N\hat{Z}.
+\end{align*}
+\end{thm}
+%nu statt p, da p nur für endliche primzahlen?!
+\begin{proof}
+Sei $x=(x_p)_{p\leq \infty}$ mit $x_p=\sum_{n=0}^\infty x_p(n)p^n$ sowie $N=\prod_{p\leq \infty} p^{\nu_p}$.
+Dann gilt $\nu_p=0$ für fast alle $p$ und $N\hat{\Z}=\prod_{p<\infty}p^{\nu_p} \Z_p$.
+Der Chinesische Restsatz existiert ein eindeutiges $\alpha_N \in \Z$, $0\leq \alpha <N$ mit 
+\begin{align*}
+\alpha_N=\sum_{n=0}^{\nu_p-1} x_p(n)p^n~~\mod p^{\nu_p}
+\end{align*}
+für alle $\nu_p\not =0$. Für dieses $\alpha_N$ gilt $\alpha_N \in x+N \hat{Z}$.
+Diese Approximation werden für wachsendes $N$ immer besser.
+Insbesondere gilt $\alpha_M=\alpha_N ~\mod N$ für alle Vielfachen $M$ von $N$. Also definiert $x$ eine Folge ganzer Zahlen $(\alpha_N)_{N>0}$ mit $0\leq \alpha_N <N$ sowie $\alpha_M=\alpha_N \mod N$ falls $N\mid M$.
+\end{proof}
+
+Umgekehrt definiert eine solche Folge ein Element in $\hat{Z}$.
+
+\begin{defi}
+Eine Folge von Restklassen $(\alpha_N)_{N>0}$ mit $\alpha_N)\Z /N\Z$, die die Kompatibilitätsbedingung $\alpha_M=\alpha_N \mod N$ für $N \mid M$ erfüllt, heißt \emph{kompatibles System}.
+Der projektive Limes
+\begin{align*}
+\lim_{\longleftarrow} \Z /N \Z=\{(\alpha_N) \in \prod_{N>0} (\Z /N \Z \mid (\alpha_N) \text{ ist kompatibel}\}
+\end{align*}
+%TODO vermutlich zu lang
+ist auf natürliche Art und Weise ein Ring.
+Wir können diesen mit der Topologie des projektiven Limes ausstatten.
+\end{defi}
+
+\begin{thm}
+Die Abbildung
+\begin{align*}
+\hat{Z}&\mapsto \lim_{\longleftarrow} \Z /N \Z\\
+x&\mapsto (\alpha_N \mod N)
+\end{align*}
+ist ein Isomorphismus topologischer Ringe.
+\end{thm}
+
+Die Abbildung
+\begin{align*}
+\hat{\Z} &\to \Z /N\Z\\
+x&\mapsto \alpha_N \mod N
+\end{align*}
+ist surjektiv mit Kern $N\hat{Z}$. Also folgt
+\begin{align*}
+\hat{\Z}/N\hat{\Z}=\Z /N \Z.
+\end{align*}
