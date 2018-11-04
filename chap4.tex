@@ -42,12 +42,13 @@ $\prod_{p <\infty} \Q_p$ ist nicht lokal kompakt und deswegen wissen wir nicht, 
 %TODO wissen wir wirklich dass es keins gibt?!
 
 \begin{defi}
-Sei $(x_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge.
-%TODO warum geht das immer?
+Sei $(x_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge
+(Diese muss es nicht geben, betrachte dafür zum Beispiel $\Rn$).
 Dann definieren wir das eingeschränkte Produkt
 \begin{align*}
 X=\hat{\prod}_{i\in I}^{K_i} X_i \coloneqq \{(x_i)_{i \in I} \in \prod_{i \in I} X_i \mid x_i \in K_i \text{ für fast alle } i \in I\}.
 \end{align*}
+%TODO eine gute art finden, dies zu texen
 Falls $K_i$ aus dem Kontext klar ist, lassen wir diese in der Schreibweise weg.
 Ein eingeschränktes offenes Rechteck ist eine Menge der Form
 \begin{align*}
@@ -81,12 +82,12 @@ Die Hausdorffeigenschaft verbleibt als Übung.
 \begin{defi}
 Der Ring
 \begin{align*}
-\mathbb{A}_f \coloneqq \widehat{\prod_{p<\infty}}^{\Z_p} \Q_p
+\mathbb{A}_f \coloneqq \widehat{\prod_{p<\infty}^{\Z_p}} \Q_p
 \end{align*}
 heißt der Ring der \emph{endlichen Adele}.
 Nach dem letzten Satz ist $\mathbb{A}_f$ ein lokal kompakter Hausdorffraum.
 \end{defi}
-%TODO A_f schoen machen, Problem: ds gibt doppelstrich auf falscher Seite...
+
 
 \begin{prop}
 Der Ring $\mathbb{A}_f$ ist ein topologischer Raum, das heißt, die Ringverknüpfungen sind stetig.
