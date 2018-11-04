@@ -2,8 +2,8 @@
 Für $x\in \Q$ definieren wir
 \begin{align*}
 \abs{x}_\infty\coloneqq\begin{cases}
-x &\text{ falls } x\geq 0,\\
--x &\text{ falls } x<0.
+x, &\text{ falls } x\geq 0,\\
+-x, &\text{ falls } x<0.
 \end{cases}
 \end{align*}
 Dann ist $\abs{\cdot}_\infty$ ein Absolutbetrag.
@@ -14,7 +14,8 @@ Sei $p>0$ eine Primzahl. Wir schreiben $x\in \Q^\ast$ als $x=p^n \frac{a}{b}$ mi
 \end{align*}
 und setze $\abs{0}_p=0$.
 Dann ist der $p$-adische Betrag $\abs{\cdot}_p$ ein nicht-archimedischer Absolutbetrag auf $\Q$.
-Es gilt
+Mit $d_p$ bezeichnen wir die Metrik, die durch $\abs{\cdot}_p$ induziert wird.
+Es gilt die verschärfte Dreiecksungleichung
 \begin{align*}
 \abs{x+y}_p\leq \max{(\abs{x}_p,\abs{y}_p)}.
 \end{align*}
@@ -26,7 +27,7 @@ Ist $\abs{x}_p \not= \abs{y}_p$ so gilt Gleichheit.
 \item Die Folge $1,\frac{1}{10},\frac{1}{10^2},\dots$ ist keine Cauchy-Folge bezüglich $\abs{\cdot}_p$.
 \end{enumerate}
 \end{bsp}
-%TODO d_p nirgends definiert.
+
 
 \begin{thm}[Ostrowski]
 Ein Absolutbetrag auf $\Q$ ist äquivalent zu $\abs{\cdot}_\infty$ oder zu einem $\abs{\cdot}_p$ für eine Primzahl $p$.
