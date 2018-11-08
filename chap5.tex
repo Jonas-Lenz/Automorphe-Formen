@@ -16,7 +16,7 @@ Die eingeschränkte Produkttopologie auf $\A_f^\ast$ ist echt feiner als die Top
 Wir statten $\A^\ast=\R^\ast\times \A_f^\ast$ mit der Produkttopologie aus. 
 
 \begin{thm}
-Dann sind $(A_f^\ast,\cdot)$ und $(\A^\ast,\cdot)$ lokal kompakte Hausdorffräume.
+Dann sind $(A_f^\ast,\cdot)$ und $(\A^\ast,\cdot)$ lokal kompakte Hausdorffgruppen.
 \end{thm}
 
 Wir normieren das Haarmaß auf $\A_f^\ast$ sodass $\hat{\Z}^\ast$ Maß $1$ hat und schreiben $\mathrm{d}^\ast x_f$ für dieses Maß.
@@ -24,4 +24,94 @@ Auf $\R^\ast$ ist $\frac{\mathrm{d}t}{\abs{t}}$ ein Haarmaß.
 Wir statten $\A^\ast$ mit dem Produktmaß aus, also mit dem Haarmaß
 \begin{align*}
 \mathrm{d}^\ast x=\frac{\mathrm{d}t}{\abs{t}}\cdot \mathrm{d}^\ast x_f.
+\end{align*}
+
+\begin{defi}
+Eine \emph{einfache Funktion auf $\A^\ast$} ist eine Funktion der Form
+\begin{align*}
+f=\prod_{\nu \leq \infty}f_\nu
+\end{align*}
+mit $f_\nu\in C_c(\Q_\nu^\ast)$ für alle $\nu\leq \infty$ und $f_p=\chi_{\Z_p^\ast}$ für fast alle $p<\infty$.
+Für eine solche Funktion definieren wir das Integral über
+\begin{align*}
+\int_{\A^\ast} f(x)~\mathrm{d}^\ast x=\prod_{\nu \leq \infty} \int_{\Q_\nu^\ast} f_\nu(x)~\mathrm{d}x.
+\end{align*}
+\end{defi}
+
+Die Abbildung
+\begin{align*}
+\Q^\ast &\to \A^\ast\\
+x&\mapsto (x,x,\dots)
+\end{align*}
+ist eine Einbettung von $\Q^\ast$ nach $\A^\ast$.
+
+\begin{prop}
+$\Q^\ast$ ist eine diskrete und abgeschlossene Untergruppe von $\A^\ast$.
+\end{prop}
+\begin{proof}
+Für $a=(a_\nu)_{\nu \leq \infty} \in \A^\ast$ definieren wir die Norm
+\begin{align*}
+\abs{a}\coloneqq \prod_{\nu \leq \infty} \abs{a_\nu}_\nu,
+\end{align*}
+wobei nur endlich viele Faktoren ungleich $1$ sind.
+Die Abbildung
+\begin{align*}
+\A^\ast &\to \R_{>0}^\ast\\
+a &\mapsto \abs{x}
+\end{align*}
+ist ein stetiger Gruppenhomomorphismus.
+Der Kern
+\begin{align*}
+A'\coloneqq \{a \in \A^\ast \mid \abs{a}=1\}
+\end{align*}
+ist eine abgeschlossene Untergruppe von $\A^\ast$.
+Für $x \in \Q^\ast$ gilt
+\begin{align*}
+\prod_{\nu \leq \infty} \abs{x}_\nu=1.
+\end{align*}
+Also ist $\Q^\ast$ eine diskrete abgeschlossene Untergruppe von $A'$.
+\end{proof}
+
+Der Quotient $A'/\Q^\ast$ ausgestattet mit der Quotiententopologie ist eine lokal kompakte Hausdorffgruppe.
+Wir definieren
+\begin{align*}
+\hat{\Z}^\ast &\to \A'\\
+(x_p)_{p<\infty} &\mapsto (1,x_2,x_3,\dots).
+\end{align*}
+
+\begin{prop}
+Die kanonische Abbildung $f \colon \hat{\Z}^\ast \to \A'/\Q^\ast$
+ist ein Isomorphismus topologischer Gruppen.
+\end{prop}
+\begin{proof}
+Wir zeigen zunächst, dass $f$ injektiv ist.
+Sei dafür $f((x_p)_{p<\infty})=f((y_p)_{p<\infty})$. Dann gilt
+\begin{align*}
+(1,x_2,x_3,\dots)=(r (1,y_2,y_3,\dots)
+\end{align*}
+für ein $r\in \Q^\ast$.
+Die erste Komponente impliziert aber $r=1$. Also folgt die Injektivität.
+Für die Surjektivität betrachten wir $a=(a_\infty,a_2,a_3,\dots)\in \A'$. Dann gilt
+\begin{align*}
+1&=\abs{a_\infty}_\infty \prod_{p<\infty}\abs{a_p}_p\\
+&=a_\infty \frac{\abs{a_\infty}_\infty}{a_\infty}\prod_{p<\infty} \abs{a_p}_p\\
+&\eqqcolon a_\infty \cdot r.
+\end{align*}
+Definiere $b=(r,a_2,a_3,\dots)$. Dann gilt $b \in \hat{\Z}^\ast$, da
+\begin{align*}
+\abs{r a_p}_p&=\abs{\frac{\abs{a_\infty}_\infty}{a_\infty}\prod_{q<\infty} \abs{a_q}_q a_p}_p\\
+&=\abs{\abs{a_p}_p a_p}_p \abs{\prod_{p\not =q <\infty} \abs{a_q}_q}_p=1
+\end{align*}
+sowie
+$f(b)=ra$.
+Die Stetigkeit verbleibt als Übungsaufgabe.
+\end{proof}
+
+\begin{cor}
+$\A'/\Q^\ast$ ist kompakt.
+\end{cor}
+
+Der Isomorphismus $\hat{\Z}=\lim_{\Leftarrow} (\Z/N\Z)$ impliziert
+\begin{align*}
+\hat{\Z}^\ast=\lim_{\Leftarrow} \left(\Z/N\Z\right)^\ast=A'/\Q^\ast.
 \end{align*}

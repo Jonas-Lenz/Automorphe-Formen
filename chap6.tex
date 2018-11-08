@@ -1,0 +1,111 @@
+\chapter{Charaktere}
+\begin{defi}
+Sei $G$ eine topologische Gruppe.
+Ein \emph{Quasicharakter} von $G$ ist ein stetiger Gruppenhomomorphismus $G \to \C^\ast$.
+Ein \emph{Charakter} von $G$ ist ein stetiger Gruppenhomomorphismus $G=T\coloneqq \{z \in \C \mid \abs{z}=1\}$.
+\end{defi}
+
+\begin{prop}
+Sei $G$ eine kompakte Gruppe und $f \colon G \to \C^\ast$ ein Quasicharakter.
+Dann ist $f$ ein Charakter.
+\end{prop}
+\begin{proof}
+Die Abbildung
+\begin{align*}
+G &\to \R_{>0}^\ast\\
+x&\mapsto \abs{f(x)}
+\end{align*}
+ist ein stetiger Gruppenhomomorphismus. Daher ist das Bild eine kompakte Untergruppe von $\R_{>0}^\ast$, nämlich $\{1\}$.
+\end{proof}
+
+\begin{defi}
+Eine lokal kompakte Hausdorffgruppe heißt \emph{total umzusammenhängend}, falls jede offene Umgebung der $1$ eine offene Untergruppe enthält.
+\end{defi}
+
+\begin{bsp}
+Zum Beispiel sind
+\begin{enumerate}[label=\roman*)]
+\item $(\Q_p,+)$, $(\Q_p^\ast,\cdot)$
+\item $(\Z_p,+)$, $(\Z_p^\ast,\cdot)$
+\item $(\A_f,+)$, $(\A_f^\ast,\cdot)$
+\item $(\hat{Z},+)$, $(\hat{Z}^\ast,\cdot)$
+\end{enumerate}
+solche Gruppen.
+\end{bsp}
+
+\begin{prop}
+Sei $G$ eine total unzusammenhängende lokal kompakte Hausdorffgruppe und $\chi\colon G \to \C^\ast$ ein Quasicharakter.
+Dann ist $\ker(\chi)$ offen.
+\end{prop}
+\begin{proof}
+Sei $0<\varepsilon<1$. Dann ist $V_\varepsilon\coloneqq \{z\in \C \mid \Ret(z)>\varepsilon\}$ eine offene Umgebung von $1\in \C^\ast$.
+Also ist $\chi^{-1}(V_\varepsilon)$ offen in $G$ und enthält somit eine offene Untergruppe $H \subseteq G$.
+Das Bild $\chi(H)$ ist eine Untergruppe von $\C^\ast$ in $V_\varepsilon$.
+Für $z\in \C$ ungleich $1$ existiert ein $n\in \N$ sodass die Potenz $z^n$ außerhalb von $V_\varepsilon$ liegt.
+Also folgt $\chi(H)=1$.
+Sei nun $x\in \ker(\chi)$. Dann ist $xH$ eine offene Umgebung von $x$ in $\ker(\chi)$.
+\end{proof}
+
+\begin{defi}
+Sei $G$ eine topologische Gruppe. Dann ist die Menge der Charaktere auf $G$ eine Gruppe bezüglich punktweiser Multiplikation.
+Dieser Gruppe heißt die \emph{duale Gruppe von $G$}, wir bezeichnen sie mit $\hat{G}$.
+Wir statten $\hat{G}$ mit kompakt-offenen Topologie aus.
+Eine Subbasis dieser Topologie bilden die Mengen der Form
+\begin{align*}
+S(K,U)\coloneqq \{\chi \in C(G,T)\mid \chi(K)\subseteq U\}
+\end{align*}
+wobei $K\subseteq G$ kompakt und $U\subseteq T$ offen ist.
+Endliche Schnitte dieser Mengen bilden eine Basis der Topologie von $\hat{G}$.
+\end{defi}
+
+\begin{prop}
+Die duale Gruppe $\hat{G}$ ist eine abelsche Hausdorffgruppe.
+\end{prop}
+\begin{proof}
+Sei $f \in \hat{G}, \varepsilon\not =f$.
+Dann existiert ein $x\in G$ mit
+\begin{align*}
+f(x)\not =1 \varepsilon(x).
+\end{align*}
+Da $T$ Hausdorff ist, können wir offene Mengen $U,W \subseteq T$ mit $f(x)\in U, 1\in W$ sowie $U\cap W=\emptyset$ wählen.
+Definiere $K=\{x\}$.
+Dann gilt $f\in S(K,U)$, $\varepsilon\in S(K,W)$ sowie $S(K,U)\cap S(K,W)=\emptyset$.
+\end{proof}
+
+\begin{prop}
+Sei $G$ eine topologische Gruppe.
+\begin{enumerate}[label=\roman*)]
+\item Falls $G$ endlich ist, so ist $\hat{G}$ ebenfalls endlich,
+\item Falls $G$ diskret ist, so ist $\hat{G}$ kompakt.
+\end{enumerate}
+\end{prop}
+
+\begin{prop}
+Sei $G$ eine Hausdorffgruppe.
+\begin{enumerate}[label=\roman*)]
+\item Falls $G$ lokal kompakt ist, so ist $\hat{G}$ ebenfalls lokal kompakt.
+\item Falls $G$ kompakt ist, so ist $\hat{G}$ diskret.
+\end{enumerate}
+\end{prop}
+
+\begin{bsp}
+Wir betrachten einige Beispiele von Charakteren.
+\begin{enumerate}[label=\roman*)]
+\item Die Abbildung
+\begin{align*}
+\mathrm{e}_\infty \colon \R &\to T\\
+x &\mapsto \mathrm{e}^{2\pi \mathrm{i}x}\eqqcolon \mathrm{e}(x)
+\end{align*}
+ist ein Charakter von $\R$.
+\end{enumerate}
+\end{bsp}
+
+\begin{prop}
+Es gilt $\chi(x)=\mathrm{e}^{2\pi \mathrm{i}a x}$.
+Die Abbildung
+\begin{align*}
+\R &\to \hat{\R}\\
+a&\mapsto (x\mapsto \mathrm{e}_\infty(ax))
+\end{align*}
+ist ein Isomorphismus topologischer Gruppen.
+\end{prop}
