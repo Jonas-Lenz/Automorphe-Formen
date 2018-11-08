@@ -1,4 +1,5 @@
 \chapter{Charaktere}
+An dieser Stelle vergessen wir die Notation $\hat{}$ aus Kapitel 4.
 \begin{defi}
 Sei $G$ eine topologische Gruppe.
 Ein \emph{Quasicharakter} von $G$ ist ein stetiger Gruppenhomomorphismus $G \to \C^\ast$.
@@ -100,6 +101,8 @@ ist ein Charakter von $\R$.
 \end{enumerate}
 \end{bsp}
 
+Nun werden wir die Charaktere einiger Gruppen bestimmen, die in der Vorlesung eine Rolle spielen, z.B. $\R$, $\Q$, $\A$.
+
 \begin{prop}
 Es gilt $\chi(x)=\mathrm{e}^{2\pi \mathrm{i}a x}$.
 Die Abbildung
@@ -109,3 +112,178 @@ a&\mapsto (x\mapsto \mathrm{e}_\infty(ax))
 \end{align*}
 ist ein Isomorphismus topologischer Gruppen.
 \end{prop}
+\begin{proof}
+Wir zeigen, dass jeder Charakter von $\R$ von der angegebenen Form ist.
+Sei $\gamma \colon \R \to T$ ein Charakter. Dann gilt $\gamma(0)=1$ und wegen der Stetigkeit von $\gamma$ existiert $a>0$ mit
+\begin{align*}
+\int_0^a \gamma(t)~\mathrm{d}t=c\not =0.
+\end{align*}
+Für $x\in \R$ gilt
+\begin{align*}
+\int_x^{x+a}\gamma(t)~\mathrm{d}t&= \int_0^a\gamma(x+t)~\mathrm{d}t\\
+&=\gamma(x)\int_0^a \gamma(t)~\mathrm{d}t=\gamma(x)c
+\end{align*}
+und somit folgt $\gamma(x)=\frac{1}{c}\int_x^{x+a} \gamma(t)~\mathrm{d}t$.
+Dies impliziert aber, dass $\gamma$ differenzierbar ist mit
+\begin{align*}
+\gamma'(t)&=\frac{1}{c}\left(\gamma(x+a)-\gamma(x)\right)\\
+&= \frac{1}{c}(\gamma(a)-1)\gamma(x).
+\end{align*}
+Aus der Differentialgleichung folgt, dass $\gamma$ von der gewünschten Gestalt ist.
+\end{proof}
+
+\begin{prop}
+Die Abbildung
+\begin{align*}
+\Z &\to \hat{\R/\Z}\\
+n &\mapsto (x \to \mathrm{e} (nx))
+\end{align*}
+ist ein Isomorphismus.
+\end{prop}
+
+\begin{prop}
+Die dualen Gruppen der zyklischen Gruppen sind
+\begin{align*}
+\hat{\Z/n\Z} &\simeq \Z/n\Z\\
+\hat{\Z} &\simeq \R/\Z \simeq T.
+\end{align*}
+\end{prop}
+
+Sei nun $p<\infty$. Wie wir wissen, ist ein Element $a\in \Q_p$ von der Form
+\begin{align*}
+a=\sum_{n=n_p}^\infty a_p(n)p^n
+\end{align*}
+mit $a_p(n)\in \Z$, $0\leq a_p(n)<p$.
+Der  \emph{Hauptteil} von $a$ ist definiert als
+\begin{align*}
+a^-=\sum_{n=n_p}^{-1} a_p(n)p^n.
+\end{align*}
+In der folgenden Definition ist eine gute Konvention $-a^-$ zu wählen, dies wird später klar werden.
+Wir definieren also
+\begin{align*}
+e_p(a)\coloneqq  \mathrm{e}(-a^-)=\mathrm{e}^{2\pi \mathrm{i}(-a^-)}.
+\end{align*}
+%TODO nachschauen wie wir e(\cdot) definiert haben
+Dann ist
+\begin{align*}
+e_p \colon \Q_p \to T
+\end{align*}
+ein Charakter. Die Stetigkeit folgt, daraus, dass $e_p$ auf $\Z_p$ konstant $1$, also lokal konstant ist.
+
+\begin{prop}
+Die Abbildung
+\begin{align*}
+\Q_p &\to \hat{\Q_p}\\
+a &\mapsto (x \mapsto e_p(ax))
+\end{align*}
+ist ein Isomorphismus topologischer Gruppen.
+\end{prop}
+\begin{proof}
+Wie so oft, ist die Surjektivität der schwierigste Teil.
+Es ist klar, dass diese Abbildung ein Homomorphismus ist.
+Für die Injektivität betrachten wir $a \in \Q_p$ mit $e_p(ax)=1$ für alle $x\in \Q_p$.
+Dann gilt $ax \in \Z_p$ für alle $x\in \Q_p$. Dies impliziert aber $a=0$.
+Für die Surjektivität sei $\chi\colon \Q_p \to T$ ein Charakter.
+\begin{enumerate}[label=\roman*)]
+\item Wir nehmen zunächst $\Z_p\subseteq \ker(\chi)$ an.
+Für $m\in \Z$, $m>0$ gilt dann
+$p^m \frac{1}{p^m}=1$ und somit $\chi(\frac{1}{p^m})^{p^m}=1$.
+Also muss $\chi(\frac{1}{p^m})$ eine Einheitswurzel sein, im Besonderen gilt
+\begin{align*}
+\chi(\frac{1}{p^m})=\mathrm{e}(\frac{a_m}{p^m})
+\end{align*}
+für ein eindeutiges $a_m \in \Z/p^m\Z$.
+Wir erhalten so eine Folge $(a_m)_{m> 0} \in \prod_{m>0} \left(\Z/p^m\Z\right)$ und behaupten, dass diese kompatibel ist.
+Dies gilt, da
+\begin{align*}
+\mathrm{e}(\frac{a_m}{p^m})&=\chi(\frac{1}{p^m})=\chi(\frac{p}{p^{m+1}})\\
+&=\chi(\frac{1}{p^{m+1}})^p=\mathrm{e}(\frac{a_{m+1}}{p^{m+1}})^p=\mathrm{e}(\frac{a_{m+1}}{p^{m}})^p,
+\end{align*}
+sodass $\frac{a_{m+1}}{p^m}=\frac{a_m}{p^m}\mod 1$.
+Also definiert $(a_m)_{m>0}$ eine $p$-adische Zahl $a\in \Z_p$.
+Es gilt $\chi(x)=e_p(-ax)$ für alle $x\in \Q_p$. Dies ist wahr für $x\in \Z_p$.
+Als nächstes beweisen wir dies für $x=\frac{1}{p^m}$ mit $\Z \ni m>0$.
+Dazu schreiben wir $a=\sum_{n=0}^\infty a_p(n)p^n$ modulo $p^m$ gilt
+\begin{align*}
+a&=\sum_{n=0}^{m-1}a_p(n)p^n \mod p^m\\
+&=a_m \mod p^m.
+\end{align*}
+Daraus folgt
+\begin{align*}
+\frac{a_m}{p^m}=\frac{1}{p^m} \sum_{n=0}^{m-1} a_p(n)p^n \mod 1
+\end{align*}
+und
+\begin{align*}
+e_p(-\frac{a}{p^m})&=\mathrm{e}((\frac{a}{p^m})^-)\\
+&=\mathrm{e}(\frac{1}{p^m}\sum_{n=0}^\infty a_p(n)p^n)\\
+&=\mathrm{e}(\frac{a^m}{p^m})=\chi(\frac{1}{p^m}).
+\end{align*}
+Da $\Q_p$ als Gruppe von $\Z_p$ und den Elementen der Form $\frac{1}{p^m}$ mit $\Z \ni m>0$ erzeugt wird, folgt die Gleichheit der Charaktere.
+\item Wir reduzieren den allgemeinen Fall auf Fall $1$.
+Da $\Q_p$ total unzusammenhängend ist, enthält der Kern von $\chi$ einen Ball $K(0,p^{-m})=p^m \Z_p$ für $\Z \ni m>0$.
+Wir definieren nun einen neuen Charakter, auf denen wir i) anwenden können.
+Für $\psi(x)\coloneqq \chi(p^mx)$ gilt $\Z_p \subseteq \ker(\psi)$ und somit $\psi(x)=e_p(ax)$ für ein $a\in \Z_p$.
+Damit folgt $\chi(x)=e_p(\frac{a_p}{p^m}x)$. \qedhere
+\end{enumerate}
+\end{proof}
+
+Sei $a=(a_\nu)_{\nu \leq \infty}$. Dann gilt $a_p \in \Z_p$ für fast alle $p$.
+Dies impliziert, dass
+\begin{align*}
+\mathrm{e}\colon \A &\to T\\
+a &\mapsto \prod_{\nu \leq \infty} \mathrm{e}_\nu(a_\nu) 
+\end{align*}
+wohldefiniert ist. Außerdem ist $\mathrm{e}$ ein Charakter.
+
+\begin{prop}
+Die Abbildung
+\begin{align*}
+A &\to \hat{A}\\
+a&\mapsto (x \mapsto \mathrm{e}(ax)
+\end{align*}
+ist ein Isomorphismus topologischer Gruppen.
+\end{prop}
+\begin{proof}
+Es ist klar, dass die Abbildung ein Homomorphismus ist.
+Um die Surjektivität zu zeigen, betrachten wir einen beliebigen Charakter $\chi \colon \A \to T$.
+Dies induziert einen Charakter $\chi_\nu$ auf $\Q_\nu$ via
+\begin{align*}
+\Q_\nu \hookrightarrow \A \overset{\chi}{\to} T.
+\end{align*}
+Wir wissen, dass dann ein eindeutiges $a_\nu \in \Q_\nu$ mit $\chi_\nu(x_\nu)=\mathrm{e}_\nu=(a_\nu x_\nu)$ für alle $x_\nu \in \Q_\nu$ existiert.
+Es gilt $a=(a_\nu)_{\nu \leq \infty}\in \A$, das heißt $a_p \in \Z_p$ für fast alle $p<\infty$.
+Die natürliche Abbildung $\chi_f \colon \A_f \to T$ ist ein Charakter von $\A_f$.
+Da $\A_f$ total unzusammenhängend ist, existiert $\Z \ni m >0$ mit
+$m \hat{Z} \subseteq \ker(\chi_f)=\prod_{p<\infty} p^{\nu_p} \Z_p$ (hier ist $\hat{\Z}$ \emph{nicht} die duale Gruppe) mit $m=\prod p^{\nu_p}$.
+Also gilt für alle $p \not \mid m$, dass $\Z_p \subseteq \ker(\chi_p)$ und somit $a_p \in \Z_p$.
+Da ein beliebiges Element $x\in \A$ die Summe von endlich vielen Elementen in $\Q_\nu$ und etwas $m\hat{Z}$ ist, erhalten wir, dass $\chi(x)=\mathrm{e}(ax)$ für alle $x\in \A$ gilt.
+\end{proof}
+
+Als nächstes bestimmen wir die Charaktere der kompakten Gruppe $\A/\Q$.
+Sei $r\in \Q$. Dann gilt
+\begin{align*}
+r=\sum_{n=n_p}^\infty r_p(n)n^p
+\end{align*}
+mit $n_p=0$ für fast alle $p<\infty$ und
+\begin{align*}
+r-\sum_{p<\infty} \sum_{n=n_p}^{-1}r_p(n) \in \Q \cap \Z_p
+\end{align*}
+for all $p$. Also folgt $r-\sum_{p<\infty} \sum_{n=n_p}^{-1}r_p(n) \in \Z$.
+Daraus folgt dass für alle $a\in \Q$ die Abbildung
+\begin{align*}
+\A &\to T\\
+x &\mapsto \mathrm{e}(ax)
+\end{align*}
+trivial auf $\Q$ ist, das heißt ein Charakter von $\A / \Q$.
+
+\begin{thm}
+Die Abbildung
+\begin{align*}
+\Q &\to \hat{\A/\Q}\\
+a &\mapsto (x \mapsto \mathrm{e}(ax))
+\end{align*}
+ist ein Isomorphismus topologischer Gruppen.
+\end{thm}
+\begin{bem}
+Wenn man dieser Isomorphie dualisiert, bekommt man eine Motiviation für die Einführung der Adele, nämlich um die Charaktere von $\Q$ beschreiben zu können.
+\end{bem}
