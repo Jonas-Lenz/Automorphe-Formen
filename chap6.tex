@@ -135,7 +135,7 @@ Aus der Differentialgleichung folgt, dass $\gamma$ von der gewünschten Gestalt 
 \begin{prop}
 Die Abbildung
 \begin{align*}
-\Z &\to \hat{\R/\Z}\\
+\Z &\to \widehat{\R/\Z}\\
 n &\mapsto (x \to \mathrm{e} (nx))
 \end{align*}
 ist ein Isomorphismus.
@@ -239,7 +239,7 @@ wohldefiniert ist. Außerdem ist $\mathrm{e}$ ein Charakter.
 Die Abbildung
 \begin{align*}
 A &\to \hat{A}\\
-a&\mapsto (x \mapsto \mathrm{e}(ax)
+a&\mapsto (x \mapsto \mathrm{e}(ax))
 \end{align*}
 ist ein Isomorphismus topologischer Gruppen.
 \end{prop}
@@ -280,20 +280,258 @@ trivial auf $\Q$ ist, das heißt ein Charakter von $\A / \Q$.
 \begin{thm}
 Die Abbildung
 \begin{align*}
-\Q &\to \hat{\A/\Q}\\
+\Q &\to \widehat{\A/\Q}\\
 a &\mapsto (x \mapsto \mathrm{e}(ax))
 \end{align*}
+%hier verwenden wir e(ax)=e(x) fur x in A falls a in Q %TODO schauen ob das schon wo steht.
 ist ein Isomorphismus topologischer Gruppen.
 \end{thm}
 \begin{bem}
-Wenn man dieser Isomorphie dualisiert, bekommt man eine Motiviation für die Einführung der Adele, nämlich um die Charaktere von $\Q$ beschreiben zu können.
+Wenn man dieser Isomorphie dualisiert, bekommt man eine Motiviation für die Einführung der Adele; nämlich um die Charaktere von $\Q$ beschreiben zu können. Dies verwendet den Dualitätssatz von Pontryagin.
 \end{bem}
-\begin{proof}[des Theorems]
+\begin{proof}[Beweis des Theorems]
+Wir zeigen lediglich die Surjektivität.
 Sei $\chi \colon \A \to T$ ein Charakter, der trivial auf $\Q$ ist.
 Da es ein Charakter auf $\A$ ist, gilt
 \begin{align*}
 \chi(x)=\mathrm{e}(ax)
 \end{align*}
 für ein $a\in \A$.
-Wir müssen zeigen, dass $a\in \Q$ ist.
+Wir müssen zeigen, dass $a\in \Q$ ist. Dazu schreiben wir $a=(a_\infty,a_f)$.
+Da $\Q$ dicht in $\A_f$ ist, gilt
+\begin{align*}
+(a_f+\hat{\Z})\cap \Q \not=\emptyset.
+\end{align*}
+Also ist $a_f$ von der Form $r+b_f$, wobei $r\in \Q$ und $b_f\in \hat{Z}$ ist.
+Wir schreiben $a=r+b$ mit $b=(b_\infty,b_f)=(a_\infty-r,b_f)$.
+Da $\chi$ trivial auf $\Q$ ist, gilt
+\begin{align*}
+1=\ex(ax)=\ex(rx)\ex(bx)
+\end{align*}
+und somit
+\begin{align*}
+\ex(b_\infty x)=\prod_{p<\infty} \ex((b_px)^-)
+\end{align*}
+für alle $x\in \Q$. Wählen wir $x=1$, so erhalten wir $b_\infty \in \Z$.
+Für $x=\frac{1}{p^m}$ mit $\Z \ni m>0$ und mit $b=\sum_{n=0}^\infty b_n(p)p^n$ erhalten wir
+\begin{align*}
+\ex(b_\infty \frac{1}{p^m})=\ex\left(\frac{1}{p^m}\sum_{n=0}^{m-1} b_n(p)p^n\right),
+\end{align*}
+woraus
+\begin{align*}
+b_\infty =\sum_{n=0}^{m-1} b_n(p)p^n~~\mod p^m
+\end{align*}
+folgt.
+Dies impliziert, dass $b=b_\infty \mod p^m$ für alle $m>0$ gilt.
+Also folgt $b \in \Z$ und somit $a=r+b \in \Q$.
+Der Rest verbleibt als Übung.
 \end{proof}
+
+
+\begin{defi}
+Sei $p<\infty$. Ein quasicharakter $\chi_p \colon \Q_p^\ast \to \C^\ast$ heißt \emph{unverzweigt}, falls $\Z_p^\ast \subseteq \ker(\chi_p)$ gilt.
+\end{defi}
+
+\begin{prop}
+Für $s\in \C$ ist die Abbildung
+\begin{align*}
+\lambda \colon \Q_p^\ast &\to \C^\ast\\
+a&\mapsto \abs{a}_p^s
+\end{align*}
+ein unverzweigter Quasicharakter.
+Außerdem ist jeder unverzweigte Quasicharakter von dieser Form für ein eindeutiges $s\in \C/\frac{2\pi \mathrm{i}}{\log \abs{a}_p}\Z$.
+Die Abbildung $\lambda$ ist ein genau dann ein Charakter, wenn $s=\mathrm{i}t$ für ein $t\in \R$ gilt.
+\end{prop}
+\begin{proof}
+Die erste Aussage ist klar.
+Sei nun $\chi\colon \Q_p^\ast \to \C^\ast$ ein unverzweigter Quasicharakter.
+Wähle $s\in \C$ so, dass $\chi(p)=p^{-s}$.
+Schreibe nun $a\in \Q_p^\ast$ als $a=p^m n$ mit $n \in \Z_p^\ast$. Dann gilt
+\begin{align*}
+\chi(a)&=\chi(p^mn)=\chi(p)^m=p^{-sm}\\
+&=\abs{a}_p^s.
+\end{align*}
+Die Eindeutigkeit folgt aus $\{z \in \C \mid \ex^z=1\}=2\pi \mathrm{i}\Z$.
+Die letzte Aussage ist klar.
+%ist sie das?!
+\end{proof}
+
+Sei nun $\chi \colon \A^\ast \to T$ ein Charakter.
+Dann definieren die Einbettung $\Q_\nu^\ast \to \A^\ast$ Charaktere $\chi_\nu \colon \Q_\nu^\ast\to T$.
+
+\begin{prop}
+Die Abbildung
+\begin{align*}
+x \mapsto (x_\nu)_{\nu \leq \infty}
+\end{align*}
+ist eine Bijektion zwischen den Charakteren von $\A^\ast$ und den Systemen von Charakteren $\chi_\nu \colon \Q_\nu^\ast \to T$ sodass $\chi_p$ für fast alle $p$ unverzweigt.
+\end{prop}
+\begin{proof}
+Ist nun $(\chi_\nu)_{\nu \leq \infty}$ ein solches System, so ist
+\begin{align*}
+\chi \colon A^\ast &\to T\\
+a&\mapsto \prod_{\nu \leq \infty} \chi_\nu(a_\nu)
+\end{align*}
+ein Charakter.
+
+Sei nun $\chi \colon \A^\ast \to T$ ein Charakter und $(\chi_\nu)_{\nu \leq \infty}$ das zugehörige System lokaler Charaktere.
+Wir müssen zeigen, dass fast alle dieser $\chi_p$ unverzweigt sind.
+Wegen $\A^\ast=\R^\ast=\A_f^\ast$ reicht es die Aussage für $\chi_f$ zu zeigen.
+Da $\A_f^\ast$ total unzusammenhängend ist, enthält der Kern $\ker(\chi_f)$ eine offene Untergruppe.
+Also enthält es eine offene Menge der Form
+$\prod_{p \in I} U_p \times \prod_{p \not \in I} \Z_p^\ast$ für eine endliche Menge $I$ und $U_p \subseteq \Q_p^\ast$ offen.
+Dann ist $\chi_p$ für alle $p \not  \in I$ unverzweigt.
+%Also existiert ein $\Z \ni N >0$ mit
+%\begin{align*}
+%1+N\hat{Z} \subseteq \ker(\chi_f).
+%\end{align*}
+%Also ist $\chi_p$ für alle $p\not \mid N$ unverzweigt.
+\end{proof}
+
+\begin{defi}
+Ein Charakter $\chi \colon G \to T$ heißt \emph{endlich}, falls $\chi(G)$ endlich ist oder äquivalent, falls $\chi$ endliche Ordnung in $\hat{G}$ hat.
+\end{defi}
+
+\begin{prop}
+Sei $G$ eine kompakte, total unzusammenhängende Hausdorffgruppe.
+Dann ist jeder Charakter auf $G$ endlich.
+\end{prop}
+\begin{proof}
+Sei $x \in \hat{G}$ und $H=\ker(\chi)$.
+Dann ist $H$ offen und
+%wieso?
+\begin{align*}
+G=\bigcup_{a \in G/H} aH
+\end{align*}
+ist eine offene Überdeckung von $G$.
+Da $G$ kompakt ist, gibt es eine endliche Teilüberdeckung und $H$ ist konstant auf jedem $a_i H$. Somit $\chi(G)=\{\chi(a_i),\dots,\chi(a_n)\}$.
+%wieso
+\end{proof}
+
+Da die Gruppe $A'/\Q^\ast\simeq \hat{\Z^\ast}$ kompakt und total unzusammenhängend ist, ist jeder Charakter dieser Gruppe endlich.
+
+Wir zeigen zunächst folgendes Lemma, um den nächsten Satz leichter beweisen zu können.
+\begin{lem}
+Sei $\chi \colon \R_0^\ast \to T$ ein endlicher Charakter.
+Dann ist $\chi$ trivial.
+\end{lem}
+\begin{proof}
+Die Exponentialfunktion liefert einen Isomorphismus von $(\R,+)$ nach $(\R_{>0}^\ast,\cdot)$.
+Wir wissen bereits, dass die Charaktere von $(\R,+)$ von der der Form
+\end{proof}
+
+Der Gruppenisomorphismus
+\begin{align*}
+A^\ast &\to \A' \times \R_{>0}^\ast\\
+(a_\infty,a_f)&\mapsto \left( \left( \frac{a_\infty}{\abs{a}},a_f\right),\abs{a}\right)
+\end{align*}
+induziert einen Isomorphismus
+\begin{align*}
+\A^\ast/\Q^\ast &\to \A'/\Q^\ast \times \R_{>0}^\ast\\
+(a_\infty,a_f)\Q^\ast&\mapsto \left( \left( \frac{a_\infty}{\abs{a}},a_f\right)\Q^\ast,\abs{a}\right)
+\end{align*}
+
+\begin{prop}
+Es gibt eine Bijektion zwischen
+\begin{enumerate}[label=\roman*)]
+\item den Charakteren von $\A'/\Q^\ast$,
+\item den Charakteren von $\A'/\Q \times \R_{>0}^\ast$, die trivial auf $\R_{>0}^\ast$ sind,
+\item den endlichen Charakteren von $\A^\ast/\Q^\ast$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Es ist klar, dass die beiden ersten Mengen identisch sind.
+Der Rest ist klar.
+%TODO mir nicht
+\end{proof}
+
+\begin{defi}
+Ein \emph{Dirichlet-Charakter von \glqq Level\grqq\ $N$}
+%TODO wie auf deutsch?! Stufe!
+ist ein Charakter $\left(\Z/N\Z\right)^\ast \to T$.
+\end{defi}
+Ist $\psi$ ein Dirichlet-Charakter von Grad $d \mid N$.
+Dann induziert $\psi$ einen Dirichlet-Charakter von Grad $N$ durch
+%TODO Diagramm einfügen
+\begin{defi}
+Ein Dirichlet-Charakter $\chi$ heißt \emph{primitiv von Grad $N$},
+falls $\chi$ nicht durch einen Dirichlet-Charakter kleineren Grads induziert wird.
+In diesem Fall heißt $N$ der \emph{Führer} von $\chi$.
+\end{defi}
+\begin{prop}
+Sei $\chi \colon (\Z/N\Z)^\ast \to T$ ein Dirichlet-Charakter $\mod N$.
+Dann induziert $\chi$ einen Charakter $\omega$ von $\A'/\Q^\ast$ durch
+\begin{align*}
+\A'/\Q^\ast \simeq \hat{Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
+\end{align*}
+sowie einen endlichen Charakter von $\A^\ast/\Q^\ast$
+durch
+\begin{align*}
+\A^\ast/\Q^\ast \simeq \A'/\Q^\ast \times \R_{>0}^\ast \to \A'/\Q^\ast \simeq \hat{Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
+\end{align*}
+%TODO wirklich endlich?!
+Dieser Charakter erzeugt einen Charakter $\A^\ast \to T$, der trivial auf $\Q^\ast$ ist.
+Das zugehörige System von Charakteren $\omega_\nu \colon \Q_\nu^\ast \to T$ erfüllt
+\begin{enumerate}[label=\roman*)]
+\item $\omega_p$ ist für fast alle $p$ unverzweigt, nämlich für $p \nmid N$ und $\omega_p$
+ist durch $\omega_p(p)=\chi(p)^{-1}$ eindeutig bestimmt,
+%TODO überall chi_p^-1
+\item Für $p \mid N$ sei $N=p^{m_p}q$ mit $(p,q)=1$. In diesem Fall ist $\omega_p$ verzweigt und
+\begin{align*}
+K(1,p^{-m_p})=1+p^{m_p}\Z_p \subseteq \ker(\omega_p).
+\end{align*}
+Wir zerlegen $\Z_p^\ast$ in
+\begin{align*}
+\Z_p^\ast=\bigcup_{j \in (\Z/p^{m_p}\Z)^\ast} j(1+p^{m_p}\Z_p=\bigcup_{j \in (\Z/p^{m_p}\Z)^\ast} j+p^{m_p}\Z_p
+\end{align*}
+(Die natürliche Abbildung $\Z_p \to \Z/p^{m_p}\Z$ induziert eine surjektive Abbildung $\Z_p^\ast \to (\Z/p^{m_p} \Z)^\ast$ mit Kern $1+p^{m_p}\Z_p$) und schreiben $x \in \Q_p^\ast$ als
+$x=p^m u$ mit $m \in \Z$ und $u \in \Z_p^\ast$. Falls $u \in j+p^{m_p}\Z_p$ liegt, gilt
+\begin{align*}
+\omega_p(x)&=\omega_p(p)^m\omega_p(u)\\
+&=\omega_p(p)^m \omega_p(j).
+\end{align*}
+Wir können $\chi$ durch $\chi=\chi_{p^{m_p}} \chi_q$ faktorisieren.
+Dann gilt $\omega_p(p)=\chi_q(p)^{-1}$ und $\omega_p(j)=\chi_{p^{m_p}}(j)$.
+\item $\chi_\infty$ ist entweder trivial oder der Signums-Charakter.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Wir beweisen iii). Sei $x\in \R$. Dann gilt
+\begin{align*}
+\chi_\infty(x)&=\chi((x,1,1,1,\dots)\Q)\\
+&=\chi((\frac{x}{\abs{x}},(1,1,1,\dots))\Q,\abs{x}).
+\end{align*}
+Somit folgt $\chi_\infty(x^2)=1$ und die Behauptung folgt.
+\end{proof}
+
+Wir stellen uns nun die Frage, welche endlichen Charaktere man durch Liften erreichen kann.
+Sei dazu $\omega \colon \A^\ast/\Q^\ast \to T$ ein Charakter endlicher Ordnung.
+Wir betrachten $\omega \colon \A^\ast \to T$ als Charakter auf $\A^\ast$.
+Dann sind fast alle $\omega_p$  unverzweigt.
+Betrachte ein verzweigtes $\omega_p$. Dann ist $\ker(\omega_p)$ offen und enthält daher einen größten Ball
+\begin{align*}
+K(1,p^{-m_p})=1+K(0,p^{-m_p})=1+p^{m_p}\Z_p
+\end{align*}
+mit $0<m_p \in \Z$.
+Definiere $N\coloneqq \prod_{\omega_p \text{ verzweigt}} p^{m_p}$ und $\chi(p)=\omega_p(p)$ für alle $p \not \mid N$.
+Wir setzen $\chi$ zu einer multiplikativen Funktion auf $\{m \in \Z \mid (m,N)=1\}$ fort.
+Dann ist $\omega$ auf dem Kern von $\hat{\Z}^\ast \to (\Z/N\Z)^\ast$ trivial, sodass
+\begin{align*}
+\chi_(m+N)=\chi(m)
+\end{align*}
+gilt.
+Also definiert $\chi$ einen Charakter
+\begin{align*}
+\chi \colon (\Z/N\Z)^\ast \to T.
+\end{align*}
+Da wir $m_p$ minimal gewählt haben, ist der Charakter $\chi$ primitiv.
+Wenn wir $\chi$ zu einem Charakter auf $\A^\ast/\Q^\ast$ liften, erhalten wir $\omega$.
+
+Somit erhalten wir folgendes Resultat.
+\begin{thm}
+Jeder endliche Charakter
+\begin{align*}
+\omega \colon \A^\ast/\Q^\ast \to T
+\end{align*}
+ist der idelische Lift eines eindeutigen primitiven Dirichlet-Charakters $\chi \colon (\Z/N\Z)^\ast \to T$.
+\end{thm}

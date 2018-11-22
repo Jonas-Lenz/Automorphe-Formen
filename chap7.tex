@@ -1,0 +1,244 @@
+\chapter{Fourieranalyis}
+Sei $G$ eine abelsche, lokal kompakte Hausdorffgruppe, $\mathrm{d}x$ ein Haarmaß auf $G$
+sowie $\hat{G}$ die duale Gruppe.
+\begin{defi}
+Die \emph{Fouriertransformierte} von $f \in \mathit{L}^1(G)$ ist definiert durch
+\begin{align*}
+\hat{f}\colon \hat{G} &\to \C\\
+\chi &\mapsto \hat{f}(\chi)=\int_G f(x)\overline{\chi(x)}~\mathrm{d}x.
+\end{align*}
+\end{defi}
+
+\begin{bsp}
+Für $G=(\R,+)$ erhalten wir die bekannte Fouriertransformation aus der Integrationstheorie.
+Wir wissen bereits, dass $\hat{G} \cong G$ und somit können wir die Fouriertransformation als Funktion $\R \to \C$ auffassen.
+Wir erhalten so die klassische Formel für die Fouriertransformation.
+\begin{align*}
+\hat{f}(y)=\int_\R f(x)\overline{\mathrm{e}_{\infty}(yx)}~\mathrm{d}x.
+\end{align*}
+\end{bsp}
+
+Im Folgenden werden wir Schwartzfunktionen betrachten.
+\begin{defi}
+Eine Funktion $f\colon \R \to \C$ heißt \emph{Schwartzfunktion}, wenn $f \in \CC^\infty$ und $Pf^{(n)}$ für alle Polynome $P$ und alle $n \in \N$ beschränkt ist.
+\end{defi}
+\begin{bsp}
+Die Funktion $f(x)=\mathrm{e}^{-x^2}$ ist eine Schwartzfunktion, außerdem alle $\CC^\infty$ Funktionen, die kompakten Träger haben.
+\end{bsp}
+Wir erweitern diese Definition auf $\Q_p$.
+\begin{defi}
+Sei $p<\infty$. Eine Funktion $f \colon \Q_p \to \C$ heißt \emph{Schwartzfunktion}, falls sie lokal konstant ist und kompakten Träger hat.
+Wir definieren $\Sq$ als die Menge aller Schwartzfunktionen auf $\Q_p$.
+Dies ist ein komplexer Vektorraum.
+\end{defi}
+\begin{bsp}
+Für $a \in \Q_p$ und $m\in \Z$ ist $\chi_{a+p^m\Z_p}$ eine Schwartzfunktion.
+\end{bsp}
+
+Tatsächlich sind alle Schwartzfunktionen quasi von dieser Form.
+
+\begin{prop}
+Sei $f \in \Sq$. Dann ist $f$ eine endliche Linearkombination von Funktionen der Form $\chi_{a+p^m\Z_p}$.
+\end{prop}
+\begin{proof}
+Sei $f \in \Sq$. Da $f$ lokal konstant ist, ist $f^{-1}(0)$ offen.
+Insbesondere ist somit $\Q_p \setminus f^{-1}(0)$ abgeschlossen.
+Also ist $\Q_p\setminus f^{-1}(0)=\supp(f)$ kompakt.
+Wir können es durch die offenen Mengen $f^{-1}(z)$ für $z \not =0$ überdecken.
+Aufgrund der Komapktheit reichen endlich viele dieser Mengen $f^{-1}(z)$ und $f$ hat endliches Bild.
+Jede der offene Mengen $f^{-1}(z)$ ist eine Vereinigung offener Bälle.
+Also ist $\supp(f)$ die Vereinigung von endlich vielen Bällen auf denen $f$ konstant ist.
+\end{proof}
+
+
+\begin{defi}
+Für $f\in \mathit{L}^1(\Q_p)$ definieren wir die Fouriertransformation durch
+\begin{align*}
+	\hat{f}(y)=\int_{\Q_p} f(x)\ex_p(-xy)~\mathrm{d}x.
+\end{align*}
+\end{defi}
+
+Ziel ist es die Riemannsche Zeta-Funktion meromorph fortzusetzen.
+Für die analytische Fortsetzung benötigen wir die Maschinerie, die wir bisher aufgebaut haben.
+
+Wir sammeln nun einige Eigenschaften der Fouriertransformation, die wir für $\Q_\infty$ bereits aus der Integrationstheorie kennen.
+
+\begin{prop}
+Sei $\nu \leq \infty$ und $f \in \mathcal{S}(\Q_\nu)$.
+\begin{enumerate}[label=\roman*)]
+\item Für $a \in \Q_\nu$ und $g(x)=\ex_\nu(ax)f(x)$ gilt
+\begin{align*}
+	\hat{g}(x)=\hat{f}(x-a).
+\end{align*}
+\item Für $a \in\Q_\nu$ und $g(x)=f(x+a)$ gilt
+\begin{align*}
+	\hat{g}(x)=\ex_\nu(ax)\hat{f}(x).
+\end{align*}
+\item Für $a \in \Q_\nu^\ast$ und $g(x)=f(ax)$ gilt
+\begin{align*}
+	\hat{g}(x)=\frac{1}{\abs{a}_\nu}\hat{f}\left(\frac{x}{a}\right).
+\end{align*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Die Beweise funktionieren analog zum bereits Bekannten, für iii) verwendet man Korollar 3.12.
+\end{proof}
+
+Wir zeigen nun die lokale Inversionformel für die Fouriertransformation.
+
+\begin{prop}
+Sei $f \in \mathcal{S}(\Q_\nu)$. Dann gilt $\hat{f} \in \mathcal{S}(\Q_\nu)$ sowie
+\begin{align*}
+\hat{\hat{f}}(x)=f(-x).
+\end{align*}
+\end{prop}
+\begin{proof}
+Für $\nu=\infty$ ist dies aus Integrationstheorie bekannt.
+Sei nun $p<\infty$. Wir führen den Beweis in mehreren Schritten.
+Zunächst zeigen wir, dass $f=\chi_{\Z_p}$ ein Fixpunkt der Fouriertransformation ist.
+Es gilt
+\begin{align*}
+\hat{f}(y)&=\int_{\Q_p}\chi_{\Z_p}(x)\ex_p(-xy)~\mathrm{d}x\\
+&=\int_{\Z_p}  \ex_p(-xy)~\mathrm{d}x\\
+&=\int_{\Z_p} \psi(x)~\mathrm{d}x,
+\end{align*}
+wobei $\psi =\ex_p(-xy) \colon \Z_p \to T$ ein Charakter ist.
+Dieser ist genau dann trivial, wenn $y \in \Z_p$.
+In diesem Fall gilt $\hat{f}(y)=1$.
+Sei nun $y \not \in \Z_p$. Dann existiert $t \in \Z_p$ mit $\psi(t)\not =1$ und
+\begin{align*}
+\int_{\Z_p}\psi_(x)~ \mathrm{d}x=\int_{\Z_p}\psi(x+t)~\mathrm{d}x=\psi(t)\int_{\Z_p} \psi(x)~\mathrm{d}x.
+\end{align*}
+Da $\psi(t)\not =1$, ist dies nur für $\hat{f}(y)=0$ möglich.
+Also ist $\chi_{\Z_p}$ ein Fixpunkt der Fouriertransformation.
+
+Als nächstes betrachten die Fouriertransformation von $f=\chi_{p^n \Z_p}$ und zeigen, dass diese $p^{-n}\chi_{p^{-n} \Z_p}$ ist.
+Es gilt $f(x)=\chi_{p^n \Z_p}(x)= \chi_{\Z_p}(\frac{x}{p^n})$.
+Mit Proposition 7.9 iii) angewendet mit $a=\frac{1}{p^n}$ folgt
+\begin{align*}
+\hat{f}(x)=\frac{1}{p^n}\chi_{\Z_p}(p^nx)=\frac{1}{p^n}\chi_{p^{-n} \Z_p}(x).
+\end{align*}
+Nun betrachten $f(x)=\chi_{a+p^n\Z_p}(x)$ und zeigen, dass
+\begin{align*}
+\hat{f}(y)=p^{-n} \ex_p(-ay)\chi_{p^{-n}\Z_p}(y)
+\end{align*}
+gilt.
+Wir wollen 7.9 i) verwenden und bemerken, dass $f(x)=\chi_{p^n\Z_p}(x-a)$ gilt.
+Somit folgt die Behauptung.
+Da $\ex_p(-ay)$ lokal konstant ist, folgt $\ex_p(-ay)\chi_{p^{-n}\Z_p}(y) \in \Sq$.
+Also bildet die Fouriertransformation $\Sq$ auf $\Sq$ ab.
+Es bleibt lediglich die Inversionsformel zu zeigen.
+Sei dafür $f(x)=p^{-n} \ex_p(-ax)\chi_{p^{-n}\Z_p}(x)$.
+Dann gilt
+\begin{align*}
+\hat{f}(y)&=p^{-n}\hat{\chi}_{p^{-n}\Z_p} (y+a)\\
+&=p^{-n}p^n \chi_{p^n \Z_p}(y+a)\\
+&=\chi_{-a+p^n\Z_p}(y)\\
+&=\chi_{a+^pn\Z_p}(-y).
+\end{align*}
+Da für $f=\chi_{a+p^n\Z_p}$ die behauptete Formel gilt und jede Schwartzfunktion eine endliche Summe solcher Funktionen ist, folgt die Behauptung.
+\end{proof}
+
+Nach der lokalen Fourieranalysis machen wir nun globale Fourieranalysis auf den Adelen.
+Zunächst betrachten wir die endlichen Adele.
+
+\begin{defi}
+Eine Funktion $f \colon \A_f \to \C$ heißt \emph{Schwartzfunktion}
+falls $f$ lokal konstant ist und kompakten Träger hat.
+Wir bezeichnen den komplexen Vektorraum aller Schwartzfunktionen auf $\A_f$ mit $\mathcal{S}(\A_f)$.
+\end{defi}
+
+\begin{bsp}
+Für $a \in \A_f$ und $\Z \ni m>0$ ist die Funktion $\chi_{a+m\hat{Z}}$ eine Schwartzfunktion.
+\end{bsp}
+
+\begin{prop}
+Sei $ f\in \mathcal{S}(\A_f)$. Dann ist $f$ eine endliche Linearkombination
+von Funktionen der Form $\chi_{a+m\hat{Z}}$.
+\end{prop}
+
+\begin{defi}
+Sei $f\in \mathit{L}^1(\A)$. Dann ist die Fouriertransformation von $f$ definiert durch
+\begin{align*}
+\hat{f}(y)=\int_\A f(x)\overline{\ex(xy)}~\mathrm{d}x.
+\end{align*}
+\end{defi}
+
+\begin{defi}
+Eine Funktion $f \colon \A \to \C$ heißt \emph{Schwartzfunktion}, falls $f$ eine endliche Linearkombination von Funktionen der Form
+$t(x)=g(x_\infty)h(x_f)$ für $x=(x_\infty,x_f)$ ist.
+\end{defi}
+
+\begin{defi}
+Seien $g\in \mathcal{S}(\Rn)$ und $h\in \mathcal{S}(\A_f)$.
+Eine Funktion der Form
+\begin{align*}
+f \colon A &\to \C\\
+x &\mapsto \prod_{\nu \leq \infty} f_\nu(x_\nu)
+\end{align*}
+mit $f_\nu \in \mathcal{S}(\Q_\nu)$ für alle $\nu \leq \infty$
+sowie $f_p=\chi_{\Z_p}$ für fast alle $p$
+heißt \emph{einfache Schwartzfunktion}.
+\end{defi}
+
+\begin{lem}
+Jede Funktion $f \in \mathcal{S}(\A)$ ist eine endliche Linearkombination einfacher Schwartzfunktionen.
+\end{lem}
+
+Für $f \in \mathcal{S}(\A)$ ist $f$ integrierbar und die lokale Inversionformel impliziert das folgende Theorem.
+
+\begin{thm}
+Sei $f \in \mathcal{S}(\A)$. Dann gilt $\hat{f}\in \mathcal{S}(\A)$ und
+\begin{align*}
+\hat{\hat{f}}(x)=f(-x).
+\end{align*}
+\end{thm}
+
+\begin{thm}[Poissonsche Summenformel]
+Sei $f\in \mathcal{S}(\A)$. Dann gilt
+\begin{align*}
+\sum_{t \in\Q} f(t)=\sum_{t \in \Q}\hat{f}(t)
+\end{align*}
+und insbesondere sind beide Summen absolut konvergent.
+\end{thm}
+\begin{proof}
+Es genügt, die Behauptung für $f(x)=f_\infty(x_\infty)\chi_{a+N\hat{Z}}(x_f)$ zu zeigen.
+Da $\Q\subseteq \A_f$ dicht ist, existiert $t\in \Q$ mit $t \in a+N\hat{Z}$.
+Dann gilt auch $t+N\hat{Z}=a+N\hat{Z}$ sowie
+\begin{align*}
+\sum_{x\in \Q} f(x)&=\sum_{x\in \Q} f_\infty(x_\infty)\chi_{a+N\hat{Z}}(x_f) \\
+&=\sum_{x\in \Q} f_\infty(x_\infty)\chi_{t+N\hat{Z}}(x_f)\\
+&=\sum_{x\in \Q \cap (t+N\hat{Z})} f_\infty(x_\infty)\\
+&=\sum_{y\in \Z} f_\infty(Ny+t).
+\end{align*}
+Dies impliziert die absolute Konvergenz beider Reihen.
+Die Gleichheit kann aus der klassischen Poissonsche Summationsformel gefolgert werden.
+Sie kann ebenfalls folgendermaßen bewiesen werden.
+Die Funktion
+\begin{align*}
+F \colon \A &\to \C\\
+x &\mapsto \sum_{t\in \Q} f(x+t)
+\end{align*}
+ist unter $\Q$ invariant und kann daher als Funktion auf $\A/\Q$ aufgefasst werden.
+Sie hat eine Fourierentwicklung durch die Charaktere der dualen Gruppe $\widehat{\A/\Q}=\Q$, d.h.\,
+\begin{align*}
+F(x)=\sum_{\nu \in \Q} a_\nu \ex(\nu x)
+\end{align*}
+mit
+\begin{align*}
+a_\nu=\int_{\A/\Q} F(x)\ex(-\nu x)~\mathrm{d}x.
+\end{align*}
+Es gilt
+\begin{align*}
+a_\nu&=\int_{\A/\Q} \sum_{t \in \Q} f(x+t) \ex(-\nu x)~\mathrm{d}x\\
+&= \sum_{t\in \Q} \int_{\A /\Q} f(x+t)\ex(-\nu x)~\mathrm{d}x\\
+&= \sum_{t \in \Q} \int_{A /\Q} f(x+t)\ex(-\nu(x+t))~\mathrm{d}x\\
+&=\int_A f(x) \ex(-\nu x)~\mathrm{d}x\\
+&=\hat{f}(\nu).
+\end{align*}
+Also folgt
+\begin{align*}
+\sum_{t \in \Q} f(x+t)=\sum_{\nu \in \Q} \hat{f}(\nu)\ex(\nu x).
+\end{align*}
+Für $x=0$ folgt die Behauptung.
+\end{proof}
