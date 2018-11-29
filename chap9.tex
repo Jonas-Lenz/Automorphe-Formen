@@ -1,0 +1,57 @@
+\chapter{Dirichletsche $L$-Reihe}
+Sei $\chi \colon (\Z/N\Z)^\ast \to T$ ein Dirichletcharakter modulo $N$.
+Wir setzen $\chi$ zu einer Funktion auf $\Z$ durch
+\begin{align*}
+\chi(a)=\begin{cases}
+\chi(a \mod N),~~&(a,N)=1,\\
+0, &(a,N)>1.
+\end{cases}
+\end{align*}
+fort und definieren die \emph{$L$-Reihe} von $\chi$ durch
+\begin{align*}
+L(\chi,s)\coloneqq \sum_{n=1} \frac{\chi(n)}{n^s}.
+\end{align*}
+Diese Reihe konvergiert für $\Ret(s)>1$ und definiert dort eine holomorphe Funktion.
+Es gilt
+\begin{align*}
+L(\chi,s)=\prod_{p>0} \frac{1}{1-\chi(p)p^{-s}}.
+\end{align*}
+
+Erinnerung: Sei $\omega$ ein endlicher Charakter von $\A^\ast/\Q^\ast$.
+Wir betrachten $\omega$ als Charakter auf $\A^\ast$.
+Dann sind fast alle $\omega_p$ unverzweigt, das heißt $\Z_p^\ast \subseteq \ker(\omega_p)$.
+Falls $\omega_p$ verzweigt, so existiert ein minimales $\Z\ni m_p >0$ mit
+\begin{align*}
+1+K(0,p^{-m_p})\subseteq \ker(\omega_p).
+\end{align*}
+Der Führer von $\omega$ ist durch $N=\prod_{p \text{verzweigt}} p^{m_p}$ definiert.
+Dann definiert $\omega$ durch $\chi(p)=\overline{\omega_p(p)}$ für $p\nmid N$ einen primitiven Dirichletcharakter modulo $N$.
+Wenn wir $\chi$ zu einem Charakter auf $\A^\ast/\Q^\ast$ liften, erhalten wir $\omega$ zurück.
+
+\begin{defi}
+Sei $\omega$ ein endlicher Charakter auf $\A^\ast/\Q^\ast$ und $f \in \mathcal{S}(A)$.
+Wir definieren die twisted $\zeta$-Funktion
+\begin{align*}
+\zeta(f,\omega,s)\coloneqq \int_{\A^\ast} f(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x.
+\end{align*}
+\end{defi}
+%TODO wie heißt twisted auf deutsch?!
+Wie im letzten Kapitel kann man zeigen, dass das Integral lokal gleichmäßig für $\Ret(s)>1$ konvergiert und dort eine holomorphe Funktion definiert.
+Ebenso gilt
+\begin{align*}
+\zeta(f,\omega,s)=\int_{\A^\ast/\Q^\ast} E(f)(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x,
+\end{align*}
+wobei $E(f)$ wie im letzten Kapitel definiert ist (siehe Definition 8.3).
+
+Als Vorbereitungen benötigen wir folgendes Lemma.
+\begin{lem}
+Sei $K$ eine kompakte Hausdorffgruppe mit Haarmaß $\mathrm{d}x$ und $\chi \colon K\to T$ ein Charakter. Dann gilt
+\begin{align*}
+\int_K \chi(x)~\mathrm{d}x=\begin{cases}
+\text{vol}(K),~~&\text{falls } \chi \text{ trivial ist},\\
+0,&\text{sonst.}
+\end{cases}
+\end{align*}
+\end{lem}
+%besondere: man kann L-reihen für viele verschiedene objekte definieren, aber diese sind immer gleich
+%für modulare Formen hat dies Wiles vor nicht allzulanger Zeit gesagt und ist allgemeiner Teil des Langland Programms.

@@ -1,0 +1,276 @@
+\chapter{Die Riemannsche $\zeta$-Funktion}
+
+Wir werden die analytischen Eigenschaften der Riemannschen $\zeta$-Funktion mit Hilfe adelischer Methoden zeigen.
+Natürlich geht dies auch mit klassischen Methoden aus der Funktionentheorie,
+aber unsere Methode wird alles in einen größeren Kontext stellen
+und auch auf andere Situationen anwendbar sein.
+
+\begin{defi}
+Für $s\in \C$ mit $\Ret(s)>1$ ist die Riemannsche $\zeta$-Funktion durch
+\begin{align*}
+	\zeta(s)\coloneqq \sum_{n=1}^\infty \frac{1}{n^s}
+\end{align*}
+definiert.
+\end{defi}
+
+\begin{lem}
+Die Reihe konvergiert lokal gleichmäßig und absolut.
+\end{lem}
+
+Wir betrachten nun die Poisson-Summation für Schwartzfunktionen.
+
+\begin{defi}
+Für $f \in \mathcal{S}(\A)$ definieren wir
+\begin{align*}
+	E(f)(x)=\sum_{t \in \Q^\ast} f(tx)
+\end{align*}
+für $x \in \A^\ast$.
+\end{defi}
+
+\begin{prop}
+$E(f)$ konvergiert lokal gleichmäßig und absolut und definiert eine
+stetige Funktion auf $\A^\ast/\Q^\ast$.
+Weiterhin ist $E(f)$ schnell fallend, das heißt für alle $\Z\ni N >0$ existiert ein $C_N>0$ mit
+\begin{align*}
+	\abs{E(f)(x)}\leq \frac{C_N}{\abs{x}^N}
+\end{align*}
+für $\abs{x}\geq 1$.
+Außerdem gilt
+\begin{align*}
+	E(f)(x)=\frac{1}{\abs{x}}\left(E(\hat{f})(\frac{1}{x})+\hat{f}(0)\right) -f(0).
+\end{align*}
+\end{prop}
+\begin{proof}
+Wir zeigen zunächst die Konvergenz der Reihe.
+Es reicht diese für Funktionen der Form
+\begin{align*}
+	f(x)=f_{\infty}(x_\infty)\chi_{a+N\hat{Z}}(x_f)
+\end{align*}
+mit $f\in \mathcal{S}(\R)$, $a \in \A_f$, $\Z \ni N>0$.
+Da $f_\infty$ eine Schwartzfunktion ist, existiert ein $C>0$, sodass
+\begin{align*}
+	\abs{f_\infty(x_\infty)}\leq \frac{C}{1+x_\infty^2}
+\end{align*}
+für alle $x_\infty \in \R$ gilt.
+Sei $x_f \in \A_f^\ast$. Dann ist $x_f$ von der Form
+\begin{align*}
+	x_f=r u
+\end{align*}
+für eindeutige $r \in \Q_{\geq 0}^\ast$, $u \in \hat{Z} ^\ast$.
+Insbesondere ist dann $r \hat{Z} ^\ast$ eine kompakte offene Teilmenge von $\A_f^\ast$.
+Für $t \in \Q^\ast$ gilt
+\begin{align*}
+tx_f &\in a+N\hat{Z}\\
+\Rightarrow tru &\in a+ N \hat{Z}\\
+\Rightarrow t &\in r^{-1}\left(u^{-1}a+N\hat{Z}\right)\\
+\Rightarrow t &\in r^{-1}s (\hat{Z}\cap \Q^\ast)\\
+\Rightarrow t &\in \frac{1}{n}\hat{Z}
+\end{align*}
+für ein $Z \ni n>0$.
+Somit gilt nun
+\begin{align*}
+\abs{E(f)(x)}&\leq \sum_{t \in \Q^\ast} \abs{f(tx)}\\
+&\leq \sum_{t \in \Q^\ast} \abs{f_\infty(tx_\infty)}\chi_{a+N\hat{Z}}(tx_f)\\
+&\leq \sum_{t \in \Q^\ast, tx_f \in a+N\hat{Z}} \abs{f_\infty(tx_\infty)}\\
+&\leq c\sum_{t \in \frac{1}{n}\Z} \frac{1}{1+(tx_\infty)^2}\\
+&\leq c\sum_{t\in \Z} \frac{1}{1+t^2x_\infty^2/n^2}.
+\end{align*}
+Die rechte Seite verhält sich wie $\zeta(2)$.
+Daher konvergiert $E(f)$ gleichmäßig auf Mengen der Form $I \times r \hat{Z} ^\ast$, wobei $I \subseteq \R^\ast$ kompakt ist.
+
+Ebenso kann man zeigen, dass $E(f)$ schnell fallend ist.
+Die Darstellung über die Fouriertransformation folgt aus der Poissonschen Summationsformel.
+Für $x\in \A^\ast$ definieren wir
+\begin{align*}
+	f_x(y)\colon f(xy) \in \mathcal{S}(\A).
+\end{align*}
+Damit gilt
+\begin{align*}
+	\hat{f}_x(y)&=\int_\A f_x(z)\overline{\ex(zy)}~\mathrm{d}z\\
+	&=\int_\A f(xz)\ex(-xzy/x)~\mathrm{d}z\\
+	&=\frac{1}{\abs{x}}\hat{f}(y/x).
+\end{align*}
+Daraus folgt nun
+\begin{align*}
+	E(f)(x)&=\sum_{t \in \Q} f(tx)-f(0)\\
+	&=\sum_{t\in \Q} f_x(t)-f(0)\\
+	&=\sum_{t\in \Q} \hat{f}_x(t)-f(0)\\
+	&=\frac{1}{\abs{x}}\sum_{t \in Q} \hat{f}(t/x)-f(0)\\
+	&=\frac{1}{\abs{x}}\left(\sum_{t \in \Q^\ast} \hat{f}(t/x)+\hat{f}(0)\right)-f(0)\\
+	&=\frac{1}{\abs{x}} \left(E(\hat{f})(1/x)+\hat{f}(0)\right)-f(0),
+\end{align*}
+was die Behauptung zeigt.
+\end{proof}
+
+\begin{defi}
+Für $f \in \mathcal{S}(\A)$ definieren wir das $\zeta$-Integral von $f$ durch
+\begin{align*}
+	\zeta(f,s)=\int_{\A^\ast} f(x)\abs{x}^s~\mathrm{d}^\ast x,
+\end{align*}
+wobei $\mathrm{d}^\ast x$ das normalisierte Haarmaß auf $\A^\ast$ ist.
+\end{defi}
+
+Wenn man die richtige Funktion einsetzt erhält man die Riemannsche $\zeta$-Funktion.
+Allerdings kann man mit dieser Methode auch Funktionalgleichungen für andere holomorphe Funktionen zeigen.
+
+\begin{prop}
+Sei $g=g_\infty g_f \in \mathcal{S}(\A)$ mit
+\begin{align*}
+g_\infty(x_\infty)&=\ex^{-\pi x_\infty^2} \in \mathcal{S}(\R),\\
+g_f(x_f)&=\chi_{\hat{Z}}(x_f) \in \mathcal{S}(\A_f).
+\end{align*}
+Dann gilt für $\Ret(s)>1$
+\begin{align*}
+\zeta(g,s)=\pi^{-s/2} \Gamma(\frac{s}{2})\zeta(s),
+\end{align*}
+das heißt $\zeta(g,s)$ ist die vervollständigte Riemannsche $\zeta$-Funktion.
+\end{prop}
+\begin{proof}
+Es gilt
+\begin{align*}
+\zeta(g,s)=&\int_{\R^\ast} g_\infty(x_\infty)\abs{x_\infty}^s~\mathrm{d}^\ast x_\infty \cdot\\
+&\int_{\A_f^\ast} g_f(x_f)\abs{x_f}^s~\mathrm{d}_f^\ast x_f.
+\end{align*}
+Das erste Integral ergibt
+\begin{align*}
+\int_{\R^\ast} g_\infty(t) \abs{t}^s \frac{\mathrm{d}t}{\abs{t}}&=2\int_0^\infty \mathrm{e}^{-\pi t^2} t^{s-1}~\mathrm{d}t\\
+&=\pi^{-s/2} \int_0^\infty \ex^{-x} x^{s/2-1}~\mathrm{d}x\\
+&=\pi^{-s/2} \Gamma(s/2).
+\end{align*}
+Das zweite Integral ergibt
+\begin{align*}
+\int_{\A_f^\ast} g_f(x_f)\abs{x_f}^s~\mathrm{d}_f^\ast x_f&=\prod_{p<\infty} \int_{\Q_p^\ast} g_p(x_p)\abs(x_p)_p^s ~\mathrm{d}^\ast x_p\\
+&=\prod_{p<\infty} \int_{\Z_p \setminus \{0\}} \abs{x_p}_p^s~\mathrm{d}^\ast x_p\\
+&=\prod_{p<\infty} \frac{1}{1+p^{-s}}=\zeta(s).
+\end{align*}
+%TODO woher wissen wir das?!
+Wenn wir die beiden Rechnung kombinieren, folgt die Behauptung.
+\end{proof}
+
+Wir zeigen nun folgende allgemeine Aussage.
+Als Spezialfall wird daraus die Funktionalgleichung der Riemannschen $\zeta$-Funktion folgen.
+\begin{thm}
+Es gilt
+\begin{align*}
+	\zeta(f,s)=\int_{\A^\ast/\Q^\ast} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x.	
+\end{align*}
+Das Integral konvergiert lokal gleichmäßig für $\Ret(s)>1$ und definiert eine holomorphe Funktion.
+Weiterhin hat es eine meromorphe Fortsetzung nach $\C$ und ist holomorph auf $\C\setminus\{0,1\}$.
+In $s=0,1$ liegt ein Pol der Ordnung $\leq 1$ mit Residuum $-f(0)$ bzw.\, $\hat{f}(0)$ vor.
+Außerdem erfüllt das $\zeta$-Integral die Funktionalgleichung
+\begin{align*}
+	\zeta(f,s)=\zeta(\hat{f},1-s).
+\end{align*}
+\end{thm}
+\begin{proof}
+Zunächst zeigen wir die Konvergenz für $\Ret(s)>1$.
+Es gilt
+\begin{align*}
+\abs{f(x)} \leq \frac{c}{1+\abs{x_\infty}^N} \chi_{\frac{1}{n}\hat{Z}} (x_f)
+\end{align*}
+für geeignetes $c>0$, $\Z \ni N,n>0$ und $N>\Ret(s)$.
+Damit können wir nun leicht die Konvergenz zeigen, denn es gilt
+\begin{align*}
+\zeta(\abs{f},s)&=\int_{\A^\ast} \abs{f(x)} \abs{x}^s~\mathrm{d}^\ast x\\
+&=\int_{\R^\ast} \abs{f_\infty(t)}\abs{t}^{s} \frac{\mathrm{d}t}{\abs{t}} \int_{\A_f} \abs{f(x_f)}\abs{x_f}^s ~\mathrm{d}_f^\ast x_f\\
+&\leq 2C \int_{\R_{\geq 0}^\ast} \frac{t^{s-1}}{1+t^N}~\mathrm{d}t\int_{\frac{1}{n}\hat{Z}\cap \A_f^\ast} \abs{x_f}^s~\mathrm{d}_f^\ast x_f.
+\end{align*}
+Der erste Faktor ist endlich, da wir $N$ groß genug gewählt haben.
+Der zweite Faktor konvergiert wie $\zeta(s)$ für $\Ret(s)>1$.
+Diese Abschätzungen gelten lokal gleichmäßig in $s$ und dies zeigt die Konvergenz.
+
+Als nächstes zeigen wir, dass wir $\zeta(f,s)$ auch durch obiges Integral darstellen können.
+Dazu verwenden wir, dass die Isomorphie
+\begin{align*}
+\A^\ast &\to \A^1\times \R_{>0}^\ast\\
+(a_\infty,a_f)&\mapsto ((\frac{a_\infty}{\abs{a}},a_f),\abs{a})
+\end{align*}
+einen Isomorphismus
+\begin{align*}
+\A^\ast/\Q\ast  &\to \A^1/\Q^\ast \times \R_{>0}^\ast\\
+(a_\infty,a_f)\Q^\ast&\mapsto ((\frac{a_\infty}{\abs{a}},a_f)\Q^\ast,\abs{a})
+\end{align*}
+induziert.
+In Kombination mit dem Isomorphismus
+\begin{align*}
+\A^1/\Q^\ast &\to \hat{Z} ^\ast\\
+(1,a_f)\Q^\ast &\mapsto a_f
+\end{align*}
+erhalten wir einen Isomorphismus
+\begin{align*}
+\A^\ast/\Q^\ast \to \hat{Z} ^\ast \times \R_{>0}^\ast \eqqcolon \mathcal{F}.
+\end{align*}
+Für $s\in \C$ mit $\Ret(s)>1$ gilt (da $\mathrm{d}^\ast x$ ein invariantes Maß ist)
+\begin{align*}
+\zeta(f,s)&=\int_{\A^\ast} f(x)\abs{x}^s~\mathrm{d}^\ast x\\
+&=\sum_{t\in \Q^\ast}\int_{t\mathcal{F}} f(x)\abs{x}^s~\mathrm{d}^\ast x\\
+&=\sum_{t \in \Q^\ast} \int_\mathcal{F} f(tx)\abs{tx}^s~\mathrm{d}^\ast x\\
+%was passiert hier?!
+&=\sum_{t \in \Q^\ast} \int_\mathcal{F} f(tx)\abs{x}^s~\mathrm{d}^\ast x\\
+&=\int_\mathcal{F} \sum_{t \in \Q^\ast} f(tx)\abs{x}^s ~\mathrm{d}^\ast x\\
+&=\int_{\A^\ast/\Q^\ast} E(f)(x)\abs{x}^s ~\mathrm{d}^\ast x,
+\end{align*}
+wobei wir verwendet haben, dass das Integral absolut konvergiert, damit wir Integral und Summe (Integral bzgl.\, Zählmaß) vertauschen dürfen.
+Da $\{1\}\subseteq \R_{>0}\ast$ eine Nullmenge ist und $A^1/\Q^\ast$ kompakt ist, hat auch
+\begin{align*}
+\A^1/\Q^\ast \times \{1\}\subseteq \A^\ast/\Q^\ast
+\end{align*}
+Maß $0$.
+Damit folgt (da Nullmengen für das Integral unwichtig sind)
+\begin{align*}
+\zeta(f,s)=\int_{\A^\ast /\Q^\ast \abs{x}>1} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x + \int_{\A^\ast /\Q^\ast \abs{x}<1} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x
+\end{align*}
+%TODO zweizeilige Integralgrenzen machen
+Da $E(f)$ schnell fallend ist, konvergiert das erste Integral für $s\in \C$, da
+\begin{align*}
+\abs{\int_{\A^\ast /\Q^\ast \abs{x}>1} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x} &\leq \int_{\abs{x}>1} \abs{E(f)(X)} \abs{\abs{x}^s} ~\mathrm{d}^\ast x\\
+&\leq \int_{\abs{y}>1} \frac{C_n}{\abs{x}^N} \abs{x}^{\Ret(s)}~\mathrm{d}^\ast x\\
+&\leq C_N \int_{A^1/\Q^\ast} \int_1^\infty t^{\Ret(s)-N} \frac{\mathrm{d}t}{t}~\mathrm{d}^\ast x\\
+&\leq C_N \int_1^\infty t^{\Ret(s)-N-1}~\mathrm{d}t
+\end{align*}
+mit Fubini folgt.
+Wenn wir $N$ groß genug wählen ($\Ret(s)<N$), konvergiert das letzte Integral
+und die Konvergenz ist lokal gleichmäßig.
+Daraus folgt, dass $\int_{\abs{x}>1} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x$ eine holomorphe Funktion auf $\C$ definiert.
+
+Für das zweite Integral verwenden wir die Darstellung von $E(f)$ aus
+Proposition 8.4.
+Damit erhalten wir
+\begin{align*}
+\int_{\abs{x}<1} E(f)(x)\abs{x}^s~\mathrm{d}^\ast x &= \int_{\abs{x}<1}E(\hat{f})(\frac{1}{x})\abs{x}^{s-1}~\mathrm{d}^\ast x\\
+&+ \hat{f}(0)\int_{\abs{x}<1} \abs{x}^{s-1} ~\mathrm{d}^\ast x -f(0)\int_{\abs{x}<1}\abs{x}^s ~\mathrm{d}^\ast x.
+\end{align*}
+Wir betrachten nun jedes Integral einzeln und beginnen mit dem zweiten.
+Es gilt
+\begin{align*}
+\int_{\abs{x}<1}\abs{x}^{s-1}~\mathrm{d}^\ast x &=\int_{\A^1/\Q^\ast} \int_0^1 t^{s-1}\frac{\mathrm{d}t}{t}~\mathrm{d}^\ast x\\
+&=\int_0^1 t^{s-2}~\mathrm{d}t=\frac{1}{s-1}.
+\end{align*}
+Analog folgt
+\begin{align*}
+\int_{\abs{x}<1} \abs{x}^s~\mathrm{d}^\ast x =\frac{1}{s}.
+\end{align*}
+Für das erste Integral verwenden wir die Substitution $y=\frac{1}{x}$ und erhalten
+\begin{align*}
+\int_{\abs{x}<1}E(\hat{f})(\frac{1}{x})\abs{x}^{s-1}~\mathrm{d}^\ast x&=\int_{\abs{y}>1} E(\hat{f})(y)\abs{y}^{1-s}~\mathrm{d}^\ast y.
+\end{align*}
+Das schwierige bei dieser Substitution ist, wie sich das Maß verhält.
+Für $\nu=\infty$ gilt für die Substitution $y=\frac{1}{x}$ mit $\frac{\mathrm{d}y}{\mathrm{d}x}=-\frac{1}{x^2}$ und somit
+\begin{align*}
+\int_0^\infty f(\frac{1}{x})~\frac{\mathrm{d}x}{x}=-\int_{\infty}^0 f(y)\frac{\mathrm{d}y}{y}.
+\end{align*}
+Der Fall $\nu<\infty$ verbleibt als Übung.
+Insgesamt erhalten wir
+\begin{align*}
+\zeta(f,s)=\int_{\abs{x}>1}E(f)(x)\abs{x}^s +E(\hat{f})(x)\abs{x}^{1-s}~\mathrm{d}^\ast x +\frac{\hat{f}(0)}{s-1}-\frac{f(0)}{s}.
+\end{align*}
+Dies zeigt die meromorphe Fortsetzung sowie die Aussage über die Residuen.
+\end{proof}
+Dieses Theorem ist eines der Hauptresultate der Vorlesung und liefert eine schöne Beschreibung der Eigenschaften des $\zeta$-Integrals.
+Für $g \in \mathcal{S}(A)$ aus Proposition 8.6 gilt $g=\hat{g}$,
+sodass $\zeta(g,s)=\zeta(g,1-s)$ folgt.
+\begin{prop}
+Sei $\zeta^\ast(s)=\pi^{-s/2} \Gamma(s/2)\zeta(s)$ für $\Ret(s)>1$.
+Dann definiert $\zeta^\ast$ ist eine meromorphe Funktion auf $\C$ mit einfachen Polen in $0$ und $1$.
+Weiterhin gilt $\zeta^\ast(s)=\zeta^\ast(1-s)$.
+\end{prop}
