@@ -1,0 +1,36 @@
+\chapter{Automorphe Formen auf $\GL(1,\A)$}
+\begin{defi}
+Sei $\omega \colon \A^\ast /\Q^\ast \to T$ ein Charakter, der nicht notwendigerweise endlich ist.
+Eine \emph{automorphe Form} auf $\GL(1,\A)$ mit Charakter $\omega$
+ist eine Funktion
+\begin{align*}
+\Phi \colon \GL(1,\A) \to \C
+\end{align*}
+mit den Eigenschaften
+\begin{enumerate}[label=(\roman*)]
+\item $\Phi(\gamma g)=\Phi(g)$ für alle $\gamma \in \GL(1,\Q)$ und $g \in \GL(1,\A)$,
+\item $\Phi(zg)=\omega(z)\Phi(g)$ für alle $z,g \in \A^\ast$,
+\item $\Phi$ wächst moderat.
+\end{enumerate}
+\end{defi}
+
+Die automorphen Formen mit Charakter $\omega$ bilden einen komplexen
+Vektorraum $S_\omega$.
+Setzen wir in ii) $g=(1,1,\dots)$, so erhalten wir 
+\begin{align*}
+\Phi(z)=\omega(z)\Phi(g)=c \omega(z).
+\end{align*}
+Also ist $\dim_\C S_\omega=1$.
+
+\begin{thm}
+Sei $\Phi$ eine autormorphe Form auf $\GL(1,\A)$.
+Dann kann $\Phi$ als
+\begin{align*}
+\Phi(g)=c \chi_{\text{idelic}}(g)\abs{g}^{\mathrm{i}t}
+\end{align*}
+mit $c \in \C$, $t \in \R$ und $\chi$ ein primitiver Dirichlet Charakter geschrieben werden kann.
+Diese Darstellung ist eindeutig.
+Wir können $\zeta$-Integrale für beliebige automorphe Formen
+auf $\GL(1,\A)$ definieren.
+Diese haben ähnliche Eigenschaften wie die, die zu endlichen Charakteren von $\A^\ast /\Q^\ast$ korrespondieren.
+\end{thm}

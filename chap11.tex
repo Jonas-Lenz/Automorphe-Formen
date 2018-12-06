@@ -1,0 +1,68 @@
+\chapter{Automorphe Formen auf $\GL(2,\A)$}
+
+\begin{defi}
+Eine Funktion $\Phi \colon \GL(2,\A) \to \C$ heißt \emph{glatt},
+wenn für jedes $g_0 \in \GL(2,\A)$ eine offene Umgebung $U$ und eine
+glatte Funktion $\Phi_\infty^U \colon \GL(2,\R) \to \C$ existiert, sodass
+\begin{align*}
+\Phi(g)=\Phi_\infty^U(g_\infty)
+\end{align*}
+für alle $g \in U$ gilt.
+\end{defi}
+
+\begin{defi}
+Sei $g \in \GL(2,\A)$ mit Einträgen $a=(a_\infty,a_2,\dots)$ usw.
+Definiere
+\begin{align*}
+\norm{g}=\prod_{\nu \leq \infty} \max\{\abs{a_\nu}_\nu, \abs{b_\nu}_\nu, \abs{c_\nu}_\nu, \abs{d_\nu}_\nu, \abs{a_\nu d_\nu-b_\nu c_\nu}_\nu\}.
+\end{align*}
+Eine Funktion $\Phi \colon  \GL(2,\Q)\ \GL(2,\A) \to \C$ \emph{wächst moderat}, falls Konstanten $B,C>0$ mit
+\begin{align*}
+\abs{\Phi(g)} \leq C \norm{g}^B
+\end{align*}
+für alle $g \in \GL(2,\A)$ existieren.
+Sei $K=O(2,\R) \prod_{p<\infty} \GL(2,\Z_p)$
+die maximale kompakte Untergruppe von $\GL(2,\A)$.
+Eine Funktion $\Phi \colon \GL(2,\A)\to \C$
+heißt \emph{rechts $K$-endlich}, wenn die Menge
+\begin{align*}
+\{\Phi(gk)\mid k\in K\}
+\end{align*}
+für jedes $g \in \GL(2,\A)$ einen endlich-dimensionalen Vektorraum definiert.
+Sei $Z(U(g))$ der Zentralisator der universellen einhüllenden Algebra von $g \in \GL(2,\C)$.
+Eine glatte Funktion $\Phi \colon \GL(2,\A) \to \C$ heißt
+\emph{$Z(U(g))$-endlich} wenn die Menge
+\begin{align*}
+\{D \phi(g)\mid D\in Z(U(g))\}
+\end{align*}
+einen endlich-dimensionalen Vektorraum erzeugt.
+\end{defi}
+
+\begin{defi}
+Sei $\omega\colon \Q^\ast \backslash \A^\ast \to T$ ein Charakter.
+Eine \emph{automorphe Form} auf $\GL(2,\A)$ mit Charakter $\omega$ ist eine glatte Funktion
+\begin{align*}
+\Phi \colon \GL(2,\A) \to \C
+\end{align*}
+mit
+\begin{enumerate}[label=(\roman*)]
+\item $\Phi(\gamma g)=\Phi(g)$ für alle $\gamma \in \GL(2,\Q)$ und $g \in \GL(2,\A)$,
+\item $\Phi(zg)=\omega(z)\Phi(g)$ für alle $z \in \A^\ast$ und $g \in \GL(2,\A)$,
+\item $\Phi$ ist rechts $K$-endlich,
+\item $\Phi$ ist $Z(U(g))$-endlich,
+\item $\Phi$ wächst moderat.
+\end{enumerate}
+Solch eine Funktion heißt \emph{Spitzenform}, wenn zusätzlich
+\begin{align*}
+\int_{\Q\ \A} \Phi \left( \begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+g\right) ~\mathrm{d}x=0
+\end{align*}
+für alle $g$ gilt.
+\end{defi}
+
+\begin{bem}
+Automorphe Formen auf $\GL(2,\A)$ können durch Lifts klassischer Modulformen erhalten werden.
+\end{bem}
