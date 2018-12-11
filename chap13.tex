@@ -1,0 +1,95 @@
+\chapter{Modulare Formen für $\SL_2(\Z)$}
+
+Nun können wir modulare Formen definieren, dies sind sehr besondere Funktionen.
+Erinnerung: $\Gamma=\SL_2(\Z)$ operiert auf der oberen Halbebene $H$ durch
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} z=\frac{az+b}{cz+d}.
+\end{align*}
+
+\begin{defi}
+Sei $k \in \Z$. Eine meromorphe Funktion $f \colon H \to \C$ heißt
+\emph{meromorphe modulare Form von Gewicht $k$} für $\Gamma$ falls
+\begin{enumerate}[label=\arabic*)]
+\item $f(M \tau)=(c\tau +d)^k f(\tau)$ gilt für alle $M =\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \Gamma$.
+\item $f$ ist meromorph im unendlichen, das heißt, es $f$ besitzt
+eine Fourierentwicklung der Form
+\begin{align*}
+f(\tau)=\sum_{n \in \Z} a_n q^n,
+\end{align*}
+wobei $q=\mathrm{e}^{2\pi \mathrm{i} \tau}$ und $a_n=0$ für $n$ hinreichend klein.
+\end{enumerate}
+\end{defi}
+
+Tatsächlich kann man die Voraussetzung 1) abschwächen.
+Man muss dies nicht für alle Matrizen in $\SL_2(Z)$ testen,
+dies würde sehr lange dauern, es reicht sich auf die Erzeuger zu beschränken.
+Dies ist nicht vollkommen offensichtlich.
+\begin{bem}
+\begin{enumerate}[label=\arabic*)]
+\item Da $\Gamma$ von $S$ und $T$ erzeugt wird, ist es ausreichend,
+die Transformationseigenschaft für $S$ und $T$ zu überprüfen.
+%TODO Beweis?!
+\item Die Abbildung
+\begin{align*}
+H&\to \{q \in \C \mid 0<\abs{q}<1\}\\
+\tau &\mapsto \mathrm{e}^{2 \pi \mathrm{i}\tau}
+\end{align*}
+ist holomorph und surjektiv.
+Da $f$ wegen 1) für $T$ $1$-periodisch ist, ist die Funktion
+\begin{align*}
+g(q)\coloneqq f\left( \frac{\log(q)}{2 \pi \mathrm{i}} \right)
+\end{align*}
+wohldefiniert und meromorph.
+Falls $g$ zu einer meromorphen Funktion auf dem offenen Einheitsball fortgesetzt werden kann,
+so besitzt $g$ eine Laurententwicklung der Form
+\begin{align*}
+g(q)=\sum_{n\in \Z} a_nq^n
+\end{align*}
+in einer Umgebung der $0$ mit $a_n=0$ für hinreichend kleines $n$. Dann gilt
+\begin{align*}
+f(\tau)=\sum_{n\in \Z} a_n \mathrm{e}^{2 \pi \mathrm{i} \tau n}
+\end{align*}
+mit $a_n=0$ für hinreichend kleines $n$.
+In diesem Fall sagen wir, dass $f$ meromorph im unendlichen ist.
+Die Fourierkoeffizienten sind durch
+\begin{align*}
+a_n =\int_w^{w+1} f(\tau)\mathrm{e}^{-2\pi \mathrm{i} n \tau}~\mathrm{d}\tau
+\end{align*}
+für beliebiges $w$ mit möglicherweise hinreichendem großem Imaginärteil (sodass $g$ im korrespondieren Ball keine Pole hat).
+\end{enumerate}
+\end{bem}
+%TODO qs ordentlich machen
+
+\begin{defi}
+Eine holomorphe Funktion heißt \emph{holomorphe modulare Form}, falls
+\begin{enumerate}[label=\arabic*)]
+\item $f(M\tau)=(c\tau +d)^k f(\tau)$ für alle $M\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \Gamma$.
+\item $f$ holomorph im unendlichen ist, das heißt $f$ hat eine Fourierentwicklung der Form
+\begin{align*}
+f(\tau)=\sum_{n=0}^\infty a_n q^n.
+\end{align*}
+\end{enumerate}
+Falls zusätzlich $a_0=0$ gilt, dann heißt $f$ \emph{Spitzenform}.
+\end{defi}
+
+Der Raum aller modularer Formen von Gewicht $k$ wird mit $M_k$
+bezeichnet und der Raum der Spitzenform mit $S_k$.
+\begin{thm}[Hecke]
+Sei $f(\tau)=\sum_{n=1}^\infty a_n q^n$ einen Spitzenform von
+Gewicht $k>0$.
+Dann gilt
+\begin{align*}
+\abs{a_n} \leq c n^{k/2}.
+\end{align*}
+\end{thm}
+Diese Schranke heißt \emph{triviale Schranke}. Man kann diese Schranke noch verbessern, dafür gab es die Fields-Medaille und den Abel-Preis.
+%TODO Name raussuchen.

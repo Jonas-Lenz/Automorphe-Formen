@@ -7,7 +7,7 @@ Sei $K$ ein Körper. Ein \emph{Absolutbetrag auf $K$} ist eine Abbildung $\abs{\
 \item $\abs{x+y}\leq \abs{x}+\abs{y}$
 \end{enumerate}
 für alle $x,y\in K$.
-Gilt zusätzlich 
+Gilt zusätzlich die starke Dreiecksungleichung
 \begin{align*}
 \abs{x+y}\leq \max(\abs{x},\abs{y}),
 \end{align*}
@@ -17,14 +17,19 @@ Ist $\abs{\cdot}$ ein Betrag auf $K$, so definiert
 d(x,y)\coloneqq \abs{x-y}
 \end{align*}
 eine Metrik auf $K$.
-Zwei Absolutbeträge heißen \emph{äquivalent}, wenn sie dieselbe Topologie auf $K$ erzeugen.
+Zwei Absolutbeträge heißen \emph{äquivalent}, wenn sie die selbe Topologie auf $K$ erzeugen.
 \end{defi}
+
+Zunächst bemerken wir eine besonders einfache Charakterisierung äquivalenter Absolutbeträge.
+Danach geben wir Beispiel für stetige Abbildungen an.
+Die Beweise der nächsten beiden Sätze bleiben dem Leser als Übungsaufgabe überlasen.
+
 
 \begin{satz}
 Seien $\abs{\cdot}_1,\abs{\cdot}_2$ zwei Absolutbeträge auf $K$.
 Dann sind äquivalent
 \begin{enumerate}[label=\roman*)]
-\item $\abs{\cdot}_1$ und $\abs{\cdot}_2$ sind äquivalent,
+\item $\abs{\cdot}_1$ und $\abs{\cdot}_2$ erzeugen die selbe Topologie,
 \item es existiert $c>0$ mit $\abs{x}_1=\abs{x}_2^c$ für alle $x\in K$.
 \end{enumerate}
 \end{satz}
@@ -43,15 +48,14 @@ Sei $\abs{\cdot}$ ein Absolutbetrag auf $K$. Dann sind die folgenden Abbildungen
 \begin{satz}
 Sei $K$ ein Körper mit Absolutbetrag $\abs{\cdot}$.
 Dann gibt es eine Körpererweiterung $\hat{K}/K$ und eine Fortsetzung von $\abs{\cdot}$ auf $\hat{K}$, sodass $K$ dicht in $\hat{K}$ und $\hat{K}$ vollständig bezüglich $\abs{\cdot}$ ist.
-
 Ist $\tilde{K}$ ein weiterer Erweiterungskörper von $K$ mit obigen Eigenschaften,
 so existiert genau ein Körperisomorphismus $\tilde{K}\to \hat{K}$, der auf $K$ die Identität ist
 und die Absolutbeträge ineinander überführt.
 \begin{proof}
-Sei $K'\coloneqq\{(x_n)_{n\in \N}\subseteq K \mid (x_n)_{n\in \N} \text{ Cauchy-Folge bezüglich } \abs{\cdot}\}$ die Menge der Cauchy-Folgen in $K$.
-Dann ist $K'$ ein kommutativer Ring mit $1$ und $N\coloneqq\{(x_n)_{n\in \N}\mid (x_n)_{n\in \N} \text{ Nullfolge}\}$
-ein maximales Ideal.
-Somit ist $\hat{K}=K'/N$ ein Körper. Die Abbildung
+Sei $K'\coloneqq\{(x_n)_{n\in \N}\subseteq K \mid (x_n)_{n\in \N} \text{ Cauchy-Folge bezüglich } \abs{\cdot}\}$ die Menge aller Cauchy-Folgen in $K$.
+Dann ist $K'$ ein kommutativer Ring mit $1$ und man prüft leicht nach, dass $N\coloneqq\{(x_n)_{n\in \N}\mid (x_n)_{n\in \N} \text{ Nullfolge}\}$
+ein maximales Ideal ist.
+Somit ist $\hat{K}=\sfrac{K'}{N}$ ein Körper. Die Abbildung
 %TODO quotienten ordentlich macehn
 \begin{align*}
 K &\to \hat{K}\\

@@ -1,0 +1,180 @@
+\chapter{Die modulare Gruppe}
+
+Die Gruppe $\GL_2(\C)$ operiert auf der Riemannschen Zahlenkugel
+$\mathds{P}^1=\C \cup \{\infty\}$
+via
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} z=\frac{az+b}{cz+d}.
+\end{align*}
+Diese Gruppenoperation ist transitiv.
+Für $M=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \GL_2(\R)$ und $z \in \C$ mit $cz+d\not =0$ gilt
+\begin{align*}
+\Imt(Mz)=\frac{\det(M)}{\abs{cz+d}^2}\Imt(z).
+\end{align*}
+$\mathds{P}^1(\C)$ wird durch die Operation von $\GL_2(\R)^+$, den Matrizen mit positiver Determinante, in drei Orbits zerlegt, nämlich
+$H=\{z\in \C \mid \Imt(z)>0\}$, $-H$ und $\mathds{P}^1(\R)=\R\cup \{\infty\}$.
+
+\begin{bsp}
+\begin{enumerate}[label=(\roman*)]
+\item $T=\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}$ operiert durch Translation, es gilt $T^m=\begin{pmatrix}
+1&m\\
+0&1
+\end{pmatrix}$
+und $T^m=z+m$.
+\item $S=\begin{pmatrix}
+0&-1\\
+1&0
+\end{pmatrix}$ operiert durch $Sz=\frac{-1}{z}$
+\item Für $z=x+\mathrm{i}y\in H$ gilt
+\begin{align*}
+M_z=\begin{pmatrix}
+y&x\\
+0&1
+\end{pmatrix} \in \GL_2(\R)^+
+\end{align*}
+und $M_z \mathrm{i}=z$.
+\item Es gilt die folgende Formel $(ST)^3=(TS)^3=S^2=-1$.
+\end{enumerate}
+\end{bsp}
+
+Wir charakterisieren nun Erzeuger von $\SL_2(\R)$.
+\begin{prop}
+Die Gruppe $\SL_2(\R)$ wird durch die Matrizen $\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix}$,
+$\begin{pmatrix}
+y&0\\
+0&\frac{1}{y}
+\end{pmatrix}$, $S$
+erzeugt.
+\end{prop}
+
+\begin{prop}
+Der Stabilisator von $\mathrm{i}$ in $\SL_2(\R)$ ist
+\begin{align*}
+\SO_2(\R)=\{M \in \SL_2(\R) \mid M M^T=1\}.
+\end{align*}
+Insbesondere ist die Abbildung
+\begin{align*}
+\SL_2(\R)/\SO_2(\R) &\to H\\
+M\SO_2(\R) &\mapsto M_i
+\end{align*}
+eine Bijektion.
+\end{prop}
+
+
+\begin{prop}
+Die Gruppe $\Gamma \coloneqq \SL_2(\Z)$ wird von $S$ und $T$ erzeugt wird.
+\end{prop}
+\begin{proof}
+Sei $G=\langle S,T \rangle \subseteq \Gamma$. Dann gilt $-1=S^2\in G$.
+Sei $M=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\in \Gamma$.
+Wir zeigen per Induktion über $\abs{c}$, dass $M\in G$.
+Falls $c=0$, dann gilt $M= \pm \begin{pmatrix}
+1&n\\
+0&1
+\end{pmatrix}=\pm T^n$
+für geeignetes $n\in \Z$.
+Also ist $M \in G$. Sei nun $c \not =0$. Dann gilt
+\begin{align*}
+ST^m M&=\begin{pmatrix}
+0&-1\\
+1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&m\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\\
+&=\begin{pmatrix}
+0&-1\\
+1&m
+\end{pmatrix}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\\
+&=\begin{pmatrix}
+\ast&\ast\\
+a+mc&\ast
+\end{pmatrix}.
+\end{align*}
+Für geeignetes $m$ gilt
+\begin{align*}
+0 \leq a+mc <\abs{c}.
+\end{align*}
+Nach Induktionsvoraussetzung ist dann aber $ST^m M \in G$, sodass $M \in G$ folgt.
+\end{proof}
+
+Definiere $D=\{z \in \C \mid \abs{\Ret(z)}<\frac{1}{2},\abs{z}>1\}$.
+$D$ ist ein Fundamentalbereich für Operation von $\Gamma$ auf $H$.
+%TODO Definition dafür einfügen
+
+\begin{thm}
+\begin{enumerate}[label=(\arabic*)]
+\item Für jedes $z\in H$ existiert ein $\gamma \in \Gamma$ mit $\gamma y\in \overline{D}$.
+\item Seien $z \not =w\in \overline{D}$ konjugiert bezüglich $\Gamma$. Dann liegen $z,w$ auf dem Rand von $D$ und $\abs{\Ret(z)}=\frac{1}{2}$ und $z=w \pm 1$ oder $\abs{z}=1$ und $z=-\frac{1}{w}$.
+\item Sei $z\in \overline{D}$ und $\Gamma_z=\{\gamma \in \Gamma \mid \gamma z=z\}$ der Stabilisator von $z$.
+Dann gilt mit $\rho=\mathrm{e}^{2/3\pi \mathrm{i}}$
+\begin{align*}
+\Gamma_i&=\langle S \rangle\\
+\Gamma_\rho&=\langle ST \rangle\\
+\Gamma_{-\overline{\rho}}&=\langle TS \rangle\\
+\Gamma_z&=\langle -1 \rangle
+\end{align*}
+für alle $z\in \overline{D} \setminus  \{\mathrm{i},\rho,-\overline{\rho}\}$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Wir beweisen lediglich 1).
+Sei $z\in H$. Dann ist $\{mz+n \mid (m,n)\in \Z^2\}$ ein Gitter in $\C$.
+Jeder Ball um $0$ enthält lediglich endlich viele Gitterpunkte.
+Also existiert ein Paar $(c,d)\in \Z^2\setminus \{(0,0)\}$ mit 
+\begin{align*}
+\abs{cz+d}\leq \abs{mz+n}
+\end{align*}
+für alle $(m,n)\in \Z^2\setminus \{(0,0)\}$.
+Das heißt, es gibt einen Gitterpunkt, der am nächsten an der Null ist.
+Aufgrund der Minimalität gilt $(c,d)=1$ und es gibt eine Matrix
+$\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \SL_2(\Z)$.
+Dann gilt
+\begin{align*}
+T^m M &= \begin{pmatrix}
+1&m\\
+0&1
+\end{pmatrix}\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\\
+&=\begin{pmatrix}
+a+mc&b+md\\
+c&d
+\end{pmatrix}
+\end{align*}
+und mit $z'\coloneq T^m Mz$
+\begin{align*}
+\abs{z'}=\abs{\frac{(a+mc)z+(b+md)}{cz+d}} \geq 1.
+\end{align*}
+Wenn man $m$ geeignet wählt, folgt $abs{\Ret(z')}\leq \frac{1}{2}$, also $z'\in \overline{D}$.
+\end{proof}
+

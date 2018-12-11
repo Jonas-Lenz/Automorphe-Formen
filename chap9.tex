@@ -48,10 +48,149 @@ Als Vorbereitungen benötigen wir folgendes Lemma.
 Sei $K$ eine kompakte Hausdorffgruppe mit Haarmaß $\mathrm{d}x$ und $\chi \colon K\to T$ ein Charakter. Dann gilt
 \begin{align*}
 \int_K \chi(x)~\mathrm{d}x=\begin{cases}
-\text{vol}(K),~~&\text{falls } \chi \text{ trivial ist},\\
+\operatorname{vol}(K),~~&\text{falls } \chi \text{ trivial ist},\\
 0,&\text{sonst.}
 \end{cases}
 \end{align*}
 \end{lem}
 %besondere: man kann L-reihen für viele verschiedene objekte definieren, aber diese sind immer gleich
 %für modulare Formen hat dies Wiles vor nicht allzulanger Zeit gesagt und ist allgemeiner Teil des Langland Programms.
+
+Nun können wir unseren Satz formulieren.
+
+\begin{thm}
+Sei $\omega \not =1$ ein endlicher Charakter von $\A^\ast/\Q^\ast$.
+Dann hat $\zeta(f,\omega,s)$ eine holomorphe Fortsetzung auf $\C$ und erfüllt die Funktionalgleichung
+\begin{align*}
+\zeta(f,\omega,s)=\zeta(\hat{f},\overline{\omega},1-s).
+\end{align*}
+\end{thm}
+\begin{proof}
+Wie im Fall $\omega=1$ erhält man
+\begin{align*}
+\zeta(f,\omega,s)&=\int_{\A^\ast/\Q^\ast} E(f)(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x\\
+&=\int_{\A^\ast/\Q^\ast \abs{x}<1} E(f)(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x +\int_{\A^\ast/\Q^\ast \abs{x}>1} E(f)(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x.
+\end{align*}
+Der zweite Summand konvergiert für alle $s\in \C$ und ist holomorph.
+%TODO wieso macht der charakter nichts kaputt?
+Für das Integral erhalten wir zuvor mit der Funktionalgleichung für $E(f)$
+\begin{align*}
+\int_{\A^\ast/\Q^\ast \abs{x}<1} E(f)(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x \\
+=\int_{\abs{x}<1} E(\hat{f})(\frac{1}{x})\omega(x)\abs{x}^{s-1}~\mathrm{d}^\ast x + \hat{f}(0)\int_{\abs{x}<1} \omega(x)\abs{x}^{s-1}~\mathrm{d}^\ast x - f(0) \int_{\abs{x}<1} \omega(x) \abs{x}^s~\mathrm{d}^\ast x.
+\end{align*}
+Mit der Substitution $y=\frac{1}{x}$ wird das Integral zu
+\begin{align*}
+\int_{\abs{y}>1} E(\hat{f})(y)\overline{\omega}(y)\abs{y}^{1-s} ~\mathrm{d}^\ast y.
+\end{align*}
+Als nächstes zeigen wir, dass die beiden anderen Integrale verschwinden. Es gilt
+\begin{align*}
+\int_{\abs{x}<1}\omega(x)\abs{x}^{s-1}~\mathrm{d}^\ast x&=\int_{A^1/\Q^\ast} \int_0^1 \omega(x)t^{s-1} \frac{\mathrm{d}t}{t}~\mathrm{d}^\ast x\\
+&=\int_0^1 t^{s-2}~\mathrm{d}t \int_{A^1/\Q^\ast} \omega(x)~\mathrm{d}x.
+\end{align*}
+Da wir $\omega$ als nicht trivial vorausgesetzt haben, folgt mit Lemma 9.2, dass das zweite Integral verschwindet.
+Das dritte Integral lässt sich genauso behandeln.
+Daraus folgt nun
+\begin{align*}
+\zeta(f,\omega,s)=\int_{\A^\ast/\Q^\ast \abs{x}>1} E(f)(x)\omega(x)\abs{x}^s +E(\hat{f})(x)\overline{\omega}(x)\abs{x}^{1-s}~\mathrm{d}^\ast x.
+\end{align*}
+Daraus folgt die Behauptung.
+\end{proof}
+
+\begin{thm}
+Sei $\omega \not =1$ ein endlicher Charakter von $\A^\ast/\Q^\ast$
+mit Führer $N$ und sei $\chi$ der zugehörige primitive Dirichletcharakter modulo $N$.
+Dann gibt es $f \in \mathcal{S}(\A)$ mit
+\begin{align*}
+\zeta(f,\omega,s)=L_\infty(\overline{\chi},s) L(\overline{\chi},s),
+\end{align*}
+wobei $L_\infty(\overline{\chi},s)=\Gamma(\frac{s+\delta}{2})\pi^{-\frac{s+\delta}{2}}$ für $\delta \in \{0,1\}$, sodass $\omega_\infty(-1)=(-1)^\delta=\overline{\chi}(-1)$ gilt.
+Für $L^\ast(\overline{\chi},s)=L_\infty(\overline{\chi},s)L(\overline{\chi},s)$ gilt
+\begin{align*}
+L^\ast(\overline{\chi},s)=(-1)^\delta N^{-s}\overline{\tau(\omega,\mathrm{e})} L^\ast (\overline{\chi},1-s),
+\end{align*}
+mit
+\begin{align*}
+\tau_(\omega,\mathrm{e})=\varphi(N)\int_{1/N \hat{Z} ^\ast} \omega(x)\mathrm{e}(x)~\mathrm{d}^\ast x.
+\end{align*}
+%eulersche phi funktion, e eulersche Zahl?!
+\end{thm}
+\begin{proof}
+Wir schreiben $N=\prod_{p<\infty} p^{n_p}$. Wir definieren $f\in \mathcal{S}(\A)$ durch $f_p=\chi_{\Z_p}$ für $p \nmid N$, $f_p=p^{n_p}(1-\frac{1}{p})\chi_{1+p^{n_p}\Z_p}$ für $p \mid N$ und $f_\infty(t)=t^s \mathrm{e}^{-\pi t^2}$.
+Dann gilt
+\begin{align*}
+\zeta(f,\omega,s)&=\int_{\A^\ast} f(x)\omega(x)\abs{x}^s~\mathrm{d}^\ast x\\
+&=\prod_{\nu \leq \infty} \int_{\Q_\nu^\ast} f_\nu(x_\nu)\omega_\nu(x_\nu)\abs{x_\nu}_\nu^s~\mathrm{d}^\ast x_\nu.
+\end{align*}
+Also reicht es die einzelne Faktoren $\zeta_\nu(f_\nu,\omega_\nu,s)$ zu berechnen.
+
+Sei $p \nmid N$, also unverzweigt. Dann gilt, da $\Z_p\setminus \{0\}=\bigcup_{j=0}^\infty p^j\Z_p^\ast$
+\begin{align*}
+\zeta_p &=\int_{\Q_p^\ast \cap \Z_p} \omega_p(x_p)\abs{x}_p^s~\mathrm{d}^\ast x_p\\
+&=\sum_{j=0}^\infty \int_{p^j\Z_p^\ast} \omega_p(x_p)\abs{x_p}_p^s ~\mathrm{d}^\ast x_p\\
+&=\sum_{j=0}^\infty \int_{\Z_p^\ast} \omega_p(p^jy_p)\abs{p^jy_p}_p^s~\mathrm{d}^\ast y_p.
+\end{align*}
+Da das Maß invariant unter Multiplikation ist folgt, dass sich obiges Integral zu folgendem Ausdruck vereinfacht
+\begin{align*}
+\sum_{j=0}^\infty \omega_p(p^j)p^{-js} \int_{\Z_p^\ast} \mathrm{d}^\ast y_p\\
+=\sum_{j=0}^\infty \overline{\chi}(p)^j p^{-js}=\frac{1}{1-\overline{\chi}(p)p^{-s}}.
+\end{align*}
+Sei $p \mid N$, also $p$ verzweigt. In diesem Fall erhalten wir
+\begin{align*}
+\zeta_p&=p^{n_p}(1-\frac{1}{p})\int_{1+p^{n_p}\Z_p} \omega_p(x_p)\abs{x_p}_p^s~\mathrm{d}^\ast x_p\\
+&=\varphi(p^{n_p})\int_{1+p^{n_p}\Z_p} \mathrm{d}^\ast x_p =1,
+\end{align*}
+da $\Z_p^\ast$ die disjunkte Zerlegung
+\begin{align*}
+\Z_p^\ast=\bigcup_{j \in (\Z/p^{n_p}\Z)^\ast} (j+p^{n_p} \Z_p)
+\end{align*}
+besitzt.
+Für $\nu=\infty$ und $\delta=0$ ist $\omega_\infty$ trivial.
+Es gilt
+\begin{align*}
+\zeta_\infty=\int_{\R^\ast} \mathrm{e}^{-\pi x^2}\abs{x}\frac{\mathrm{d}x}{\abs{x}}=\Gamma(\frac{s}{2})\pi^{-\frac{s}{2}}.
+\end{align*}
+Für $\delta=1$ ist $\omega_\infty$ der Signumscharakter und es gilt
+\begin{align*}
+\zeta_\infty &=\int_{\R^\ast} \mathrm{e}^{-\pi x^2}  x \omega_\infty(x)\abs{x}^s\frac{\mathrm{d}x}{\abs{x}}\\
+&=\Gamma(\frac{s+1}{2})\pi^{-\frac{s+1}{2}}.
+\end{align*}
+Insgesamt folgt
+\begin{align*}
+\zeta(f,\omega,s)=L_\infty(\overline{\chi},s) L(\overline{\chi},s).
+\end{align*}
+Die Funktionalgleichung von $L^\ast$ folgt aus
+\begin{align*}
+\zeta(f,\omega,s)=\zeta(\hat{f},\overline{\omega},1-s).
+\end{align*}
+Dazu berechnen wir die Fouriertransformierte von $f$.
+Für $p \nmid N$ gilt $\hat{f_p}=f_p$.
+
+Für $p \mid N$ gilt mit der Substitution $y=1+t$
+\begin{align*}
+\hat{f_p}(x)&=\int_{\Q_p} f_p(y)\ex_p(-xy)~\mathrm{d}y\\
+&=\varphi(p^{n_p})\int_{\Q_p} \chi_{1+p^{n_p}\Z_p}(y)\ex_p(-xy)~\mathrm{d}y\\
+&= \varphi(p^{n_p})\int_{\Q_p} \chi_{p^{n_p} \Z_p}(t)\ex_p(-x(1+t))~\mathrm{d}t\\
+&=\varphi(p^{n_p})\ex_p(-x)\int_{\Q_p} \chi_{\Z_p}(p^{-n_p}t)\ex_p(-xp^{n_p}p^{-n_p}t)~\mathrm{d}t
+%lustige Dinger aus chapter 4, integrand ist g(p^{-n_p}t)
+&=\varphi(p^{n_p})\overline{\ex_p(x)} \abs{p^{n_p}}_p \int_{\Q_p} g(t)~\mathrm{d}t\\
+&=(1-\frac{1}{p})\overline{\ex_p(x)} \int_{\Z_p} \ex_p(-xp^{n_p}t)~\mathrm{d}t\\
+&=(1-\frac{1}{p})\overline{\ex_p(x)} \chi_{p^{-n_p}\Z_p}(x).
+\end{align*}
+Im Fall $\nu=\infty$ und $\delta=0$ gilt
+\begin{align*}
+\hat{f}_\infty=f_\infty=(-\mathrm{i})^\delta f_{\infty}.
+\end{align*}
+Für $\delta=1$ gilt
+\begin{align*}
+\hat{f}_{\infty}(x)=\int_\R y \ex^{-\pi y^2-2\pi \mathrm{i}xy}\mathrm{d}y=(-\mathrm{i})^\delta f_\infty(x).
+\end{align*}
+Wir berechnen nun das $\zeta$-Integral
+\begin{align*}
+\zeta(\hat{f},\overline{\omega},1-s)=\prod_{\nu \leq \infty} \int_{\Q_\nu^\ast} f_\nu(x)\overline{\omega}_nu(x)\abs{x_\nu}_\nu^{1-s}~\mathrm{d}^\ast x_\nu.
+\end{align*}
+Für $p \nmid N$ gilt
+\begin{align*}
+\zeta_p(\hat{f}_p,\overline{\omega},1-s)=\frac{1}{1-\chi(p)p^{1-s}}.
+\end{align*}
+Für $p\mid N$ gilt
+\end{proof}
