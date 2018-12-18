@@ -67,16 +67,17 @@ für beliebiges $w$ mit möglicherweise hinreichendem großem Imaginärteil (sod
 %TODO qs ordentlich machen
 
 \begin{defi}
-Eine holomorphe Funktion heißt \emph{holomorphe modulare Form}, falls
+Eine holomorphe Funktion heißt \emph{holomorphe modulare Form} oder auch \emph{Modulform}, falls
 \begin{enumerate}[label=\arabic*)]
-\item $f(M\tau)=(c\tau +d)^k f(\tau)$ für alle $M\begin{pmatrix}
+\item $f(M\tau)=(c\tau +d)^k f(\tau)$ für alle $M=\begin{pmatrix}
 a&b\\
 c&d
 \end{pmatrix} \in \Gamma$.
-\item $f$ holomorph im unendlichen ist, das heißt $f$ hat eine Fourierentwicklung der Form
+\item $f$ holomorph im unendlichen ist, das heißt, $f$ hat eine Fourierentwicklung der Form
 \begin{align*}
-f(\tau)=\sum_{n=0}^\infty a_n q^n.
+f(\tau)=\sum_{n=0}^\infty a_n q^n
 \end{align*}
+für $q=\mathrm{e}^{2\pi \mathrm{i} \tau}$.
 \end{enumerate}
 Falls zusätzlich $a_0=0$ gilt, dann heißt $f$ \emph{Spitzenform}.
 \end{defi}
@@ -93,3 +94,261 @@ Dann gilt
 \end{thm}
 Diese Schranke heißt \emph{triviale Schranke}. Man kann diese Schranke noch verbessern, dafür gab es die Fields-Medaille und den Abel-Preis.
 %TODO Name raussuchen.
+\begin{proof}
+Mit
+\begin{align*}
+h(\tau)=\abs{f(\tau)} \Imt(\tau)^{k/2}
+\end{align*}
+gilt
+\begin{align*}
+h(M\tau)=h(\tau)
+\end{align*}
+für alle $M \in \Gamma$.
+%TODO wieso ist das so?
+Außerdem gilt
+\begin{align*}
+f(\tau)=\sum_{n=1}^\infty a_n q^n=q\sum_{n=1}^\infty a_n q^{n-1}.
+\end{align*}
+Deshalb ist $\mathrm{e}^{-2\pi \mathrm{i}t} f(\tau)$ für alle $\gamma>0$ auf
+dem Gebiet $\{\gamma \in H \mid \Imt(\tau)\geq \gamma\}$ beschränkt.
+%TODO wieso?
+Also ist
+\begin{align*}
+\abs{f(\tau) \mathrm{e}^{-2\pi \mathrm{i}t}} \leq \abs{f(\tau)} \mathrm{e}^{2\pi y}
+\end{align*}
+%TODO y einfach aufgrund der schreibweise z=x+iy
+und
+\begin{align*}
+h(T))\abs{f(\tau)}y^{k/2}
+%TODO \tau?
+\end{align*}
+auf $\overline{\mathbb{D}}$ beschränkt.
+Da $h$ invariant unter $\Gamma$ ist, gilt
+\begin{align*}
+0 \leq h(\tau)\leq c'
+\end{align*}
+für ein $c'>0$ und alle $\tau \in H$.
+Nun schätzen wir die Fourierkoeffizienten ab
+\begin{align*}
+\abs{a_n}&=\abs{\int_0^1 f(x+iy) \ex^{-2\pi \mathrm{i} n(x+\mathrm{i}}} ~\mathrm{d}x\\
+&\leq \ex^{2\pi ny} \int_0^1 \abs{f(x+\mathrm{i}y)}~\mathrm{d}x\\
+&\leq \ex^{2\pi ny} y^{-k/2} \int_0^1 h(x+\mathrm{i}y)~\mathrm{d}x\\
+&\leq c' y^{-k/2} \mathrm{e}^{2\pi ny}.
+\end{align*}
+%TODO ah das ist der parametrisierte Weg schon eingesetzt, das möchte man tendenziell hinschreiben, 1/n sollte groß genug sein, da wir holomorph sind.
+Wenn wir $y=\frac{1}{n}$ wählen, erhalten wir die Behauptung.
+\end{proof}
+
+\begin{bem}
+Eine Konsequenz des Beweises von Deligne\footnote{\url{http://www.numdam.org/article/SB_1968-1969__11__139_0.pdf}} der Ramanujan-Petersson Vermutung \footnote{\url{https://en.wikipedia.org/wiki/
+Ramanujan-Petersson_conjecture}}
+ist
+\begin{align*}
+\abs{a_n} \leq c(\varepsilon) n^{\frac{k-1}{2}+\varepsilon}
+\end{align*}
+für alle $\varepsilon>0$.
+\end{bem}
+
+\begin{defi}
+Die einfachsten Beispiele für Modulformen sind die \emph{Eisensteinreihen}\footnote{\url{https://de.wikipedia.org/wiki/Gotthold_Eisenstein}}
+\begin{align*}
+G_k(\tau)\coloneqq \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}} \frac{1}{(m\tau +n )^k}.
+\end{align*}
+\end{defi}
+
+Zum Beweis der Wohldefiniertheit der Eisensteinreihen benötigen wir
+das folgende Lemma.
+
+\begin{lem}
+Sei $K\subseteq H$ kompakt.
+Dann gibt es Konstanten $\gamma,\delta>0$, sodass
+\begin{align*}
+\gamma \abs{m\mathrm{i}+n} \leq \abs{m\tau +n} \leq \delta \abs{m\mathrm{i}+n}
+\end{align*}
+für alle $m,n \in \R$ und $\tau \in K$ gilt.
+\end{lem}
+\begin{proof}
+Dies verbleibt als Übung.
+Sollte sofort aus Stetigkeit und Positivität der mittleren Funktion folgen.
+\end{proof}
+
+\begin{thm}
+Sei $k\geq 3$. Dann konvergiert die Eisensteinreihe $G_k$
+absolut und lokal gleichmäßig.
+Insbesondere ist $G_k$ holomorph auf $H$.
+\end{thm}
+\begin{proof}
+Aufgrund des vorherigen Lemmas reicht es zu zeigen, dass
+\begin{align*}
+\sum_{\substack{(mn,n)\in \Z^2\\ (m,n)\not =(0,0)}} \frac{1}{(m^2+n^2)^\alpha}
+\end{align*}
+für $\alpha>1$ konvergiert. An dieser Stelle ist $k\geq 3$ wichtig,
+da man sonst $\alpha\leq 1$ erhalten würde.
+Im weiteren betrachten wir die Reihe für eine endliche Teilmenge $E \subseteq \Z^2$ und schätzen diese unabhängig von der Menge ab.
+\end{proof}
+
+\begin{bem}
+Da die Reihen absolut konvergieren, können wir die Summationsreihenfolge der $G_k$ vertauschen,
+ohne dass sich der Wert ändert.
+\end{bem}
+
+Als nächstes zeigen wir, dass die $G_k$ wirklich von Gewicht $k$ sind.
+
+\begin{thm}
+Für $k\geq 3$ gilt
+\begin{align*}
+G_k(M\tau)=(c\tau +d)^k G_k(\tau).
+\end{align*}
+\end{thm}
+\begin{proof}
+rechnen, wird nachgereicht.
+\end{proof}
+
+\begin{prop}
+Für $\tau \in H$ und $k\geq 2$ gilt
+\begin{align*}
+\sum_{n \in \Z} \frac{1}{(\tau+n)^k}=\frac{(-2\pi \mathrm{i})^k}{(k-1)!}  \sum_{n=1}^\infty n^{k-1} q^n
+\end{align*}
+mit $q=\mathrm{e}^{2\pi \mathrm{i} \tau}$.
+\end{prop}
+
+Nun zeigen wir die Fourierreihendarstellung, was wir benötigen, um zu zeigen, dass Eisensteinreihen Modulformen definieren.
+\begin{thm}
+Für alle $\tau \in H$ und $k \in 2\Z, k\geq 4$ gilt
+\begin{align*}
+G_k(\tau)=2 \zeta(k)+2\frac{(2\pi \mathrm{i})^k}{(k-1)!} \sum_{n=1}^\infty \sigma_{k-1}(n)q^n
+\end{align*}
+mit $\sigma_{k-1}(n)=\sum_{d \mid n} k^{d-1}$.
+Insbesondere gilt $G_k \in M_k$.
+\end{thm}
+
+\begin{defi}
+Die \emph{normalisierte Eisensteinreihe} wird als
+\begin{align*}
+E_k\coloneqq  \frac{1}{2\zeta(k)} G_k
+\end{align*}
+definiert.
+Für $k \in 2\Z, k\geq 4$ gilt
+\begin{align*}
+2 \zeta(k)=-\frac{(2\pi \mathrm{i})^k}{k!}B_k
+\end{align*}
+wobei $B_k$ Bernoullizahlen\footnote{\url{https://de.wikipedia.org/wiki/Bernoulli-Zahl}} sind.
+Also gilt
+\begin{align*}
+E_k(\tau)=1-\frac{2k}{B_k} \sum_{n=1}^\infty \sigma_{k-1}(n)q^n.
+\end{align*}
+Man kann außerdem zeigen, dass
+\begin{align*}
+E_k(\tau)=\frac{1}{2} \sum_{(m,n)=1} \frac{1}{(m\tau +n)^k}
+\end{align*}
+gilt.
+\end{defi}
+
+\begin{defi}
+Sei $k\in \Z$.
+Für eine meromorphe Funktion $f \colon H \to \C \cup \{\infty\}$
+definieren wir eine Operation von $M=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \GL_2(\R^+)$
+durch
+\begin{align*}
+(f\mid_{k,M})(\tau)=\det(M)^{k/2}(c\tau +d)^{-k} f(M\tau).
+\end{align*}
+Dann gilt für $M,N \in \GL_2(\R)$
+%TODO muss da noch ein plus hin?!
+\begin{align*}
+(f\mid_{k,M})\mid_{k,N} =f \mid_{k,MN}.
+\end{align*}
+Der Index wird oft weggelassen, da wenn $M \in \Gamma$ auch
+\begin{align*}
+f\mid_M=f
+\end{align*}
+gilt.
+%TODO warum steht nur M und kein k dabei?
+\end{defi}
+
+\begin{defi}
+Sei $f$ eine meromorphe Funktion auf $H$.
+Die Ordnung von $f$ in $\omega \in H$ ist definiert als die Zahl $n$, sodass
+\begin{align*}
+\frac{f(\tau)}{(\tau-\omega)^n}
+\end{align*}
+holomorph und ungleich $0$ in $\omega$ ist.
+Wir schreiben $n=\nu_\omega(f)$.
+Wenn $f$ eine meromorphe Modulform ist, dann gilt
+\begin{align*}
+\nu_\omega(f)=\nu_{M\omega}(f)
+\end{align*}
+für alle $M \in \Gamma$.
+Wenn $f(\tau)=\sum_{n\geq n_0} a_nq^n$ mit $a_{n_0}\not =0$ ist, dann gilt $\nu_\infty(f)=n_0$.
+\end{defi}
+
+\begin{thm}[$\frac{k}{12}$-Formel, Gewichtsformel]
+Sei $f\not =0$ eine meromorphe Modulform von Gewicht $k$.
+Dann hat $f$ nur endlich viele Polstellen und Nullstellen modulo $\Gamma$ und es gilt
+\begin{align*}
+\nu_\infty(f)+\sum_{\tau \in \Gamma \ H} \frac{1}{\frac{1}{2}\abs{G_t}} \nu_t(f)=\frac{k}{12}.
+\end{align*}
+%TODO was heißt das?, \Gamma modulo H 
+\end{thm}
+\begin{proof}
+rechnen und cauchyintegral formel + Residuensatz.
+\end{proof}
+
+\begin{bem}
+Die Transformationsformel impliziert, dass $M_k=\{0\}$, wenn $k$ ungerade ist.
+Sei $0 \not =f \in M_k$
+\end{bem}
+
+\begin{prop}
+\begin{enumerate}[label=(\roman*)]
+\item $M_k=\{0\}$ für $k<0$ oder $k=2$.
+\item $M_k=\C$ für $k=0$.
+\item $M_k=\C E_k$ für $k=4,6,8,10,14$.
+\end{enumerate}
+\end{prop}
+
+\begin{defi}
+Wir definieren
+\begin{align*}
+\bigtriangleup(\tau)=\frac{1}{1728} (E_4(\tau)^3-E_6(\tau)^2)\not =0.
+\end{align*}
+Dann ist $\bigtriangleup\in S_{12}$, $\nu_\infty(\bigtriangleup)=1$ und $\bigtriangleup(\tau)\not=0$ für alle $\tau \in H$.
+\end{defi}
+
+\begin{prop}
+\begin{enumerate}[label=(\roman*)]
+\item $S_k=\{0\}$ für $k<12$ oder $k=14$.
+\item $S_k=\bigtriangleup M_{k-12}$ für $k>14$.
+\item $M_k=\C E_k\oplus S_k$ für $k>2$.
+\end{enumerate}
+\end{prop}
+
+\begin{prop}
+Sei $0\leq k\in 2\Z$. Dann gilt
+\begin{align*}
+\dim M_k=\begin{cases}
+\left[\frac{k}{12}\right],~~&\text{wenn } k \equiv 2 \mod 12\\
+\left[\frac{k}{12}\right]+1,&\text{ wenn } k \not \equiv 2 \mod 12.
+\end{cases}
+\end{align*}
+\end{prop}
+
+\begin{thm}
+Die Abbildung $\C[X,Y]\to M$ definiert durch
+\begin{align*}
+X &\mapsto E_4\\
+Y &\mapsto E_6
+\end{align*}
+ist ein Isomorphismus von Ringen mit $M =\bigoplus_{k=0}^\infty M_k$.
+Die \emph{Hilbertfunktion} ist durch
+\begin{align*}
+\sum_{k=0}^\infty \dim(M_k)t^k&=\frac{1}{(1-t^4)(1-t^6}\\
+&=\left(\sum_{n=0}^\infty t^{4n}\right) \left(\sum_{m=0}^\infty t^{6m}\right)
+\end{align*}
+definiert.
+\end{thm}
+\begin{proof}
+Der Beweis verbleibt als Übung.
+\end{proof}
