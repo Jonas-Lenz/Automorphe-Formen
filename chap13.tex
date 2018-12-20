@@ -379,7 +379,7 @@ Für weitere Details verweisen wir auf den Wikipediaartikel und die dort angegeb
 \begin{prop}
 $j$ ist eine meromorphe modulare Form von Gewicht $0$ und hat einen
 einfachen Pol in $\infty$.
-Außerdem definiert $j$ eine Bijektion zwischen $\Gamma\ H$ und $\C$.
+Außerdem definiert $j$ eine Bijektion zwischen $\Gamma\backslash H$ und $\C$.
 \end{prop}
 \begin{proof}
 Die erste Aussage ist klar.
@@ -435,7 +435,7 @@ Mit Lemma 13.7 gilt für alle $\tau \in K$, wobei $K$ kompakt ist, dass
 &\leq\frac{1}{\gamma} \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}}\frac{1}{\abs{m\mathrm{i}+n}^k} \\
 &\leq \frac{1}{\gamma} \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}} \frac{1}{(m^2+n^2)^{k/2}}\\
 &\leq \frac{1}{\gamma} \left(4 \sum_{m\geq 1} \frac{1}{m^k}+4\sum_{m,n\geq 1} \frac{1}{(m^2+n^2)^{k/2}} \right)\\
-&\leq \frac{1}{\gamma} \left( 4 \sum_{m\geq 1} \frac{1}{m^k}+4 \sum_{m\geq 1} \frac{1}{m^{k/2}} \sum_{n\geq 1} \frac{1}{n^{k/2}}\\
+&\leq \frac{1}{\gamma} \left( 4 \sum_{m\geq 1} \frac{1}{m^k}+4 \sum_{m\geq 1} \frac{1}{m^{k/2}} \sum_{n\geq 1} \frac{1}{n^{k/2}}\right)\\
 &<\infty,
 \end{align*}
 falls $k\geq 3$.
@@ -463,10 +463,10 @@ Für $m\not =0$ gilt
 \end{align*}
 sodass
 \begin{align*}
-\sum_{m\not =0} \sum_{n \in \Z} \frac{1}{(m \tau+n)^2}=-8\pi^2 \sum_{m=1}^\infty \sum__{n=1}^\infty n q^{mn}
+\sum_{m\not =0} \sum_{n \in \Z} \frac{1}{(m \tau+n)^2}=-8\pi^2 \sum_{m=1}^\infty \sum_{n=1}^\infty n q^{mn}
 \end{align*}
 gilt.
-Wenn wir zeigen, dass die letzte Summe absolut konvergiert, dürfen wir umordnen..
+Wenn wir zeigen, dass die letzte Summe absolut konvergiert, dürfen wir umordnen.
 Es gilt
 \begin{align*}
 \sum_{m=1}^\infty \sum_{n=1}\infty \abs{nq^{nm}} &= \sum_{n=1}^\infty n \sum_{m=1}^\infty \abs{q^n}^m\\
@@ -494,7 +494,7 @@ Damit folgt $(\sigma_j(n))^{1/n} \to 1$ für $n \to \infty$.
 
 Es gilt
 \begin{align*}
-G_2(-\frac{1}{\tau})&=\sum_{n\not =0} \frac{1}{n^2} \sum_{m \not 0} \sum_{n\in \Z} \frac{1}{-m\frac{1}{\tau}+n)^2}\\
+G_2(-\frac{1}{\tau})&=\sum_{n\not =0} \frac{1}{n^2} + \sum_{m \not= 0} \sum_{n\in \Z} \frac{1}{(-m\frac{1}{\tau}+n)^2}\\
 &=\tau^2 \left(\frac{\pi^2}{3}+\sum_{n \in \Z}\sum_{m \not =0} \frac{1}{(m\tau+n)^2}\right).
 \end{align*}
 Die wichtige Beobachtung ist, dass falls $G_2$ eine modulare Form von Gewicht $2$ wäre, dann der letzte Summand wieder $\tau^2 G_2$ wäre.
@@ -507,7 +507,7 @@ Es gilt $G_2(-\frac{1}{\tau})=\tau^2 G_2(\tau)-2\pi \mathrm{i}\tau$.
 \begin{proof}
 Wir definieren
 \begin{align*}
-a_{m,n}=\frac{1}{(m\tau+n-1)(m\tau+n)}=\frac{1}{m\tau +n-1}-\frac{1}{m\tau +n}.
+a_{m,n}(\tau)\coloneqq\frac{1}{(m\tau+n-1)(m\tau+n)}=\frac{1}{m\tau +n-1}-\frac{1}{m\tau +n}.
 \end{align*}
 Dann gilt
 \begin{align*}
@@ -516,8 +516,148 @@ Dann gilt
 Es gilt
 \begin{align*}
 G_2^\ast(\tau)&=\frac{\pi^2}{3}+\sum_{m\not=0} \sum_{n\in \Z} \left(\frac{1}{(m\tau+n)^2}-a_{m,n}(\tau)\right)\\
-&=\frac{\pi^2}{3}+\sum_{m\not=0} \sum_{n\in \Z} \frac{1}{(m\tau+n)^2}-\sum_{m\not=0}\sum_{n\in \Z} \left(\frac{1}{m\tau+n-1}-\frac{1}{m\tau +n}=G_2(\tau),
+&=\frac{\pi^2}{3}+\sum_{m\not=0} \sum_{n\in \Z} \frac{1}{(m\tau+n)^2}-\sum_{m\not=0}\sum_{n\in \Z} \left(\frac{1}{m\tau+n-1}-\frac{1}{m\tau +n}\right)=G_2(\tau),
 \end{align*}
-wobei wir verwendet haben das die Doppelsumme absolut konvergiert und wir daher umordnen dürfen.
+wobei wir verwendet haben, dass die Doppelsumme absolut konvergiert
+und wir daher umordnen dürfen.
 Der letzte Summand verschwindet als Teleskopsumme.
+Da die Doppelsumme absolut konvergiert, erhalten wir
+\begin{align*}
+G_2(\tau)&= \frac{pi^2}{3}+\sum_{n\in \Z} \sum_{m\not =0} \left(\frac{1}{(m\tau +n)^2}-a_{m,n}(\tau)\right)\\
+&=\tau^{-2} G_2\left(-\frac{1}{\tau}\right)- \sum_{n \in \Z} \sum_{m \not =0} a_{m,n}(\tau).
+\end{align*}
+Da die äußere Summe in $G_2(\tau)$ absolut konvergiert, gilt dies auch für $\sum_{n \in \Z}\left( \sum_{m\not =0} a_{m,n}(\tau)\right)$ (da die Terme \glqq nicht weit auseinander sind\grqq) und es gilt
+\begin{align*}
+\sum_{n\in \Z} \sum_{m \not=0} a_{m,n}(\tau)
+&=\lim_{N\to \infty} \sum_{-N+1}^N \sum_{m\not =0} a_{m,n}(\tau)\\
+&=\lim_{N \to \infty} \sum_{m\not =0} \sum_{-N+1}^N a_{m,n}(\tau)\\
+&=\lim_{N \to \infty} \frac{2}{\tau} \sum_{n=1}^\infty \left(\frac{1}{-\frac{N}{\tau}+m}+ \frac{1}{-\frac{N}{\tau}-m}\right)\\
+&=\lim_{N\to \infty} \frac{2}{\tau} \left(\pi \coth\left(-\frac{\pi N}{\tau}\right) +\frac{\tau}{N}\right)\\
+&=\frac{2\pi}{\tau} \lim_{N\to \infty} \mathrm{i} \frac{\ex^{-2\pi \mathrm{i}\frac{N}{\tau}}+1}{\ex^{-2\pi \mathrm{i}\frac{N}{\tau}}-1}\\
+&=-\frac{2\pi \mathrm{i}}{\tau}.
+\end{align*}
 \end{proof}
+
+\begin{defi}
+Wir definieren nun die Dedekindsche $\eta$-Funktion.
+\begin{align*}
+\eta(\tau)=q^{\frac{1}{24}} \prod_{n=1}^\infty(1-q^n)
+\end{align*}
+mit $q=\ex^{2\pi \mathrm{i}\tau}$.
+\end{defi}
+Da die Reihe $\sum_{n=1}^\infty q^n$ absolut und kompakt gleichmäßig für $\abs{q}<1-\varepsilon$ konvergiert, folgt,
+dass das Produkt konvergiert und holomorph ist (für weitere Details siehe Freitag Funktionentheorie)
+%TODO Quelle gut machen mit Verweis ins literaturverzeichnis
+
+\begin{prop}
+Es gilt
+\begin{align*}
+\eta(-\frac{1}{\tau})=\sqrt{\frac{\tau}{\mathrm{i}}} \eta(\tau)
+\end{align*}
+\end{prop}
+\begin{proof}
+Wir berechnen nun die logarithmische Ableitung
+\begin{align*}
+\frac{\eta'(\tau)}{\eta(\tau)}&=\left(\log(\eta(\tau))\right)'\\
+&=\frac{2\pi \mathrm{i}}{24}\left(1-24 \sum_{n=1}^\infty \frac{nq^n}{1-q^n}\right)\\
+&=\frac{2\pi\mathrm{i}}{24} \left(1-24 \sum_{n=1}^\infty nq^n \sum_{k=0}^\infty q^{kn} \right)\\
+&=\frac{2\pi \mathrm{i}}{24}\left(1-24 \sum_{n=1}^\infty \sum_{k=0}^\infty nq^{n(k+1} \right)\\
+&=\frac{2\pi \mathrm{i}}{24}\left(1-24 \sum_{n=1}^\infty \sigma_i(n)q^n\right)\\
+&=\frac{2\pi \mathrm{i}}{24} \frac{3}{\pi^2}G_2(\tau)\\
+&=\frac{1}{4 \pi} G_2(\tau).
+\end{align*}
+Als nächstes berechnen wir die logarithmische Ableitung der rechten Seite.
+\begin{align*}
+\frac{\left(\sqrt{\frac{\tau}{\mathrm{i}}}\eta(\tau)\right)'}{\left(\sqrt{\frac{\tau}{\mathrm{i}}}\eta(\tau)\right)}&= \frac{\frac{1}{2 \sqrt{\frac{\tau}{\mathrm{i}}}}\frac{1}{\mathrm{i}}\eta(\tau)+\sqrt{\frac{\tau}{\mathrm{i}}}\eta'(\tau)}{\sqrt{\frac{\tau}{\mathrm{i}}}\eta(\tau)}\\
+&=\frac{1}{2 \tau} +\frac{\eta'(\tau)}{\eta(\tau)}\\
+&=\frac{\mathrm{i}}{4\pi \tau^2}\left(\tau^2 G_2(\tau)-2\pi \mathrm{i}\tau\right)\\
+&=\frac{1}{\tau^2}\frac{\mathrm{i}}{4\pi} G_2\left(-\frac{1}{\tau}\right)\\
+&=\frac{1}{\tau^2} \frac{\eta'\left(-\frac{1}{\tau}\right)}{\eta\left(-\frac{1}{\tau}\right)}\\
+&=\frac{\left(\eta\left(-\frac{1}{\tau}\right)\right)'}{\eta\left(-\frac{1}{\tau}\right)}
+\end{align*}
+Dies impliziert, dass $\eta\left(-\frac{1}{\tau}\right)=c\sqrt{\frac{\tau}{\mathrm{i}}} \eta(\tau)$ für eine geeignete Konstante.
+Indem man $\tau=1$ setzt, erhält man $c=1$.
+\end{proof}
+%24 ist eine sehr merkwürdige Zahl, sie taucht an mehreren Stellen auf, kritische Dimension Boson-Higgs
+
+\begin{cor}
+Es gilt
+\begin{align*}
+\bigtriangleup{\tau}&=\frac{1}{1728}=(E_4^3(\tau)\\
+&=q\prod_{n=1}^\infty (1-q^n)^{24}\\
+&=\eta^{24}(\tau).
+\end{align*}
+\end{cor}
+%Dies sieht man, da beides modulformen von gewicht 12 sind.
+
+Man kann Modulformen über verschiedene Ansätze erhalten.
+Wir haben bereits gesehen, dass dies über Eisensteinreihen und Produktansätze geht.
+Als nächstes betrachten wir $\theta$-Funktionen.
+
+Sei $V$ ein euklidischer Vektorraum von Dimension $n$.
+Ein \emph{Gitter} ist eine Teilmenge $L\subseteq V$, falls diese von der Form
+\begin{align*}
+L=\Z v_1+\dots + \Z v_n
+\end{align*}
+für eine Basis $(v_1,\dots,v_n)$ ist.
+Die Zahl $\det((v_i,v_j))$ ist unabhängig von der gewählten Basis
+und heißt \emph{Determinante von $L$}, das heißt $\det(L)=\det((v_i,v_j))$.
+Es gilt außerdem, dass das Volumen des Fundamentalbereichs durch die Wurzel der Determinante von $L$ gegeben ist.
+%TODO nachschauen wie sehr das stimmt.
+Das \emph{duale Gitter} zu $L$ ist durch
+\begin{align*}
+L'\coloneqq \{ x\in V \mid (x,\alpha) \in \Z \forall \alpha \in L\}
+\end{align*}
+definiert und ist wiederum ein Gitter.
+Die \emph{theta-Reihe} von $L$ ist definiert als
+\begin{align*}
+\theta_L(\tau)\coloneqq \sum_{\alpha \in L} q^{\frac{\alpha^2}{2}}
+\end{align*}
+definiert eine holomorphe Funktion auf $H$, da das Skalarprodukt
+positiv definit ist.
+Die Poissonsche Summationsformel impliziert, dass
+\begin{align*}
+\theta_L\left(-\frac{1}{\tau}\right) = \sqrt{\frac{\tau}{\mathrm{i}}}^n \frac{1}{\sqrt{\det(L)}} \theta_{L'}(\theta).
+\end{align*}
+Ein Gitter $L$ heißt \emph{gerade}, falls $\alpha^2=(\alpha,\alpha)\in 2\Z$ für alle $\alpha \in L$ gerade ist.
+In diesem Fall folgt $(\alpha,\beta)\in \Z$ für alle $\alpha,\beta \in L$ (Polarisationsformel) und somit $L\subseteq L'$.
+Außerdem gilt $\abs{L'/L}=\det(L)$.
+Falls $L=L'$ gilt, heißt $L$ unimodular.
+
+Uns interessiert die Frage, wann die theta-Funktion eines Gitters eine Modulform ist.
+Dies kann höchstens dann passieren wenn es unimodular ist.
+\begin{thm}
+Sei $L\subseteq V$ ein gerades unimodulares Gitter. Dann gilt
+\begin{enumerate}[label=\roman*)]
+\item $\dim(V)=0\mod 8$,
+\item $\theta_L$ ist eine Modulform von Gewicht $\frac{n}{2}$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Beide Aussagen folgen aus der Transformationsformel von $\theta_L$.
+\end{proof}
+
+\begin{bem}
+Angenommen wir haben ein gerades Gitter $L$. Dann gilt
+\begin{align*}
+\theta_L(\tau)&=\sum_{a\in L} q^{\frac{\alpha^2}{2}}\\
+&=\sum_{n=0}^\infty a_n q^n,
+\end{align*}
+wobei $a_n=\abs{\{\alpha \in L \mid \alpha^2=2n\}}$.
+\end{bem}
+
+\begin{bsp}
+Betrachte $D_n=\{(x_1,\dots,x_n)\in \Z^n\mid \sum_{i=1}^nx_i=0\mod 2\}\subseteq \Rn$.
+Dies ist gerades Gitter mit Determinante $4$.
+Falls $n=0 \mod 8$ ist, definieren wir
+\begin{align*}
+D_n^+\coloneqq D_n \cup (s+D_n)
+\end{align*}
+mit $s=(\frac{1}{2},\dots,\frac{1}{2})$.
+Dies ist ein gerades Gitter, da $(s,s)=\frac{n}{4} \in 2\Z$ gilt.
+$D_8^+$ heißt auch $E_8$. Es gilt
+\begin{align*}
+\theta_{E_8}(\tau)=E_4(\tau)=1+240q+2160q^2+\dots.
+\end{align*}
+Man kann sich überzeugen, dass es genau $240$ Vektoren der Länge $1$ gibt.
+\end{bsp}
