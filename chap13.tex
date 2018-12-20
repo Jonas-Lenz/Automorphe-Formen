@@ -186,6 +186,7 @@ für $\alpha>1$ konvergiert. An dieser Stelle ist $k\geq 3$ wichtig,
 da man sonst $\alpha\leq 1$ erhalten würde.
 Im weiteren betrachten wir die Reihe für eine endliche Teilmenge $E \subseteq \Z^2$ und schätzen diese unabhängig von der Menge ab.
 \end{proof}
+%TODO im beweis kommt die 4 daher, dass wir nur auf einen quadranten gehen
 
 \begin{bem}
 Da die Reihen absolut konvergieren, können wir die Summationsreihenfolge der $G_k$ vertauschen,
@@ -317,6 +318,10 @@ Wir definieren
 Dann ist $\bigtriangleup\in S_{12}$, $\nu_\infty(\bigtriangleup)=1$ und $\bigtriangleup(\tau)\not=0$ für alle $\tau \in H$.
 \end{defi}
 
+Die \glqq zufällig\grqq\ erscheinende Wahl der Potenzen erklärt sich
+durch Theorem 13.22.
+Die Wahl des Faktors dient der Normalisierung.
+
 \begin{prop}
 \begin{enumerate}[label=(\roman*)]
 \item $S_k=\{0\}$ für $k<12$ oder $k=14$.
@@ -324,6 +329,9 @@ Dann ist $\bigtriangleup\in S_{12}$, $\nu_\infty(\bigtriangleup)=1$ und $\bigtri
 \item $M_k=\C E_k\oplus S_k$ für $k>2$.
 \end{enumerate}
 \end{prop}
+
+In der Zerlegung in (iii) ist der erste Summand derjenige, der sehr gut verstanden ist.
+Alle Mysterien verstecken sich im zweiten Summanden.
 
 \begin{prop}
 Sei $0\leq k\in 2\Z$. Dann gilt
@@ -334,6 +342,9 @@ Sei $0\leq k\in 2\Z$. Dann gilt
 \end{cases}
 \end{align*}
 \end{prop}
+
+Die folgende Aussage ist sehr wichtig, dadurch sieht man dass $M$
+eine sehr einfache Struktur hat.
 
 \begin{thm}
 Die Abbildung $\C[X,Y]\to M$ definiert durch
@@ -351,4 +362,162 @@ definiert.
 \end{thm}
 \begin{proof}
 Der Beweis verbleibt als Übung.
+\end{proof}
+
+\begin{defi}
+Wir definieren $j=\frac{E_4^3}{\bigtriangleup}$.
+\end{defi}
+Wir teilen nicht durch $0$, da $\bigtriangleup\not = 0$.
+
+\begin{bem}
+Dann gilt $j(\tau)=q^{-1} +744 + 196884q+ \dots$.
+Es gilt $196884=196883+1$ wobei der erste Summand mit der Monstergruppe zu tun hat.
+Die $j$-Funktion liefert einen Zusammenhang zwischen Gruppentheorie und Modulformen.
+Für weitere Details verweisen wir auf den Wikipediaartikel und die dort angegebenen Quellen\footnote{\url{https://de.wikipedia.org/wiki/J-Funktion}}.
+\end{bem}
+
+\begin{prop}
+$j$ ist eine meromorphe modulare Form von Gewicht $0$ und hat einen
+einfachen Pol in $\infty$.
+Außerdem definiert $j$ eine Bijektion zwischen $\Gamma\ H$ und $\C$.
+\end{prop}
+\begin{proof}
+Die erste Aussage ist klar.
+Für die zweite müssen wir zeigen, dass für $\lambda \in \C$ die Funktion
+\begin{align*}
+f_\lambda\coloneqq E_4^3-\lambda \bigtriangleup
+\end{align*}
+genau eine Nullstelle in $H$ hat.
+Aus der Gewichtsformel folgt
+\begin{align*}
+\nu_\infty(f_\lambda)+\frac{1}{3}\nu_\rho(f_\lambda)+\frac{1}{12}\nu_{\mathrm{i}}(f_\lambda)+\sum_{\substack{\tau \in \Gamma\backslash H\\ \tau \not = \rho,\mathrm{i}}} \nu_\tau(f_\lambda)=1.
+\end{align*}
+Dies vereinfacht sich durch Einführen geeigneter Variablen zu
+\begin{align*}
+\frac{n_\rho}{3}+\frac{n_{\mathrm{i}}{2}}+n_\tau=1
+\end{align*}
+mit nicht negativen $n_\rho,n_\mathrm{i},n_\tau \in \Z$.
+Diese Gleichung hat Lösungen $(3,0,0),(0,2,0)$ und $(0,0,1)$.
+Dies zeigt die Behauptung.
+\end{proof}
+
+\begin{prop}
+Die meromorphen modularen Formen von Gewicht $0$ auf $H$ sind genau
+die rationalen Funktionen in $j$.
+\end{prop}
+\begin{proof}
+Sei $f$ eine meromorphe modulare Form von Gewicht $0$.
+Wir nehmen an, dass $f$ Pole der Ordnung $m_1,\dots,m_n$
+in $\tau_1,\dots,\tau_n$ hat.
+Dann ist
+\begin{align*}
+f(z)\prod_{i=1}^n (j(z)-j(\tau_i))^{m_i}
+\end{align*}
+holomorph in $H$.
+Daher können wir ohne Einschränkung annehmen, dass $f$ holomorph in $H$ ist.
+Für geeignetes $0\leq k \in \Z$ gilt $f\bigtriangleup^k \in M_{12k}$ und wir können Funktion als
+\begin{align*}
+f\bigtriangleup^k=\sum_{4i+6j=12k} \alpha_{ij} E_4^i E_6^j
+\end{align*}
+schreiben.
+Damit gilt
+\begin{align*}
+f=\sum_{i+j=k} \alpha_{ij} \frac{E_4^{3i}}{\bigtriangleup^i} \frac{E_6^{2j}}{\bigtriangleup^j},
+\end{align*}
+was die Behauptung beweist, da $\frac{E_4^3}{\bigtriangleup}=j$ und
+$\frac{E_6^2}{\bigtriangleup}=j+c$ für ein geeignetes $c$ gilt, da auch $E_4^3$ und $\bigtriangleup$ eine Basis von $M_{12}$ bilden.
+\end{proof}
+
+Bevor wir uns die Eisensteinreihe von Gewicht $2$ betrachten, wiederholen wir noch einmal die Definition.
+Mit Lemma 13.7 gilt für alle $\tau \in K$, wobei $K$ kompakt ist, dass
+\begin{align*}
+\abs{G_k(\tau)}\leq \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}} \frac{1}{(m\tau +n )^k}\\
+&\leq\frac{1}{\gamma} \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}}\frac{1}{\abs{m\mathrm{i}+n}^k} \\
+&\leq \frac{1}{\gamma} \sum_{\substack{(m,n)\in \Z^2\\ (m,n)\not = (0,0)}} \frac{1}{(m^2+n^2)^{k/2}}\\
+&\leq \frac{1}{\gamma} \left(4 \sum_{m\geq 1} \frac{1}{m^k}+4\sum_{m,n\geq 1} \frac{1}{(m^2+n^2)^{k/2}} \right)\\
+&\leq \frac{1}{\gamma} \left( 4 \sum_{m\geq 1} \frac{1}{m^k}+4 \sum_{m\geq 1} \frac{1}{m^{k/2}} \sum_{n\geq 1} \frac{1}{n^{k/2}}\\
+&<\infty,
+\end{align*}
+falls $k\geq 3$.
+Wir betrachten nun den Fall $k=2$, in dem die Reihe erstmal nicht
+absolut konvergieren muss.
+Daher müssen wir eine Additionsreihenfolge vorgeben.
+\begin{defi}
+Wir definieren
+\begin{align*}
+G_2(\tau)=\sum_{n \not =0} \frac{1}{n^2} +\sum_{m \not =0} \left( \sum_{n\in \Z} \frac{1}{(m\tau+n)^2}\right).
+\end{align*}
+\end{defi}
+
+Das folgende Resultat beschreibt die Wohldefiniertheit und einen Zusammenhang zum Fall $k\geq 3$.
+\begin{prop}
+$G_2$ definiert einen holomorphe Funktion auf $H$ und es gilt
+\begin{align*}
+G_2(\tau)=\frac{\pi^2}{3}(1-24\sum_{n=1}^\infty \sigma_i(n)q^n)
+\end{align*}
+\end{prop}
+\begin{proof}
+Für $m\not =0$ gilt
+\begin{align*}
+\sum_{n \in \Z} \frac{1}{(m\tau+n)^2} =(2\pi \mathrm{i})^2 \sum_{n=1}^\infty nq^{mn},
+\end{align*}
+sodass
+\begin{align*}
+\sum_{m\not =0} \sum_{n \in \Z} \frac{1}{(m \tau+n)^2}=-8\pi^2 \sum_{m=1}^\infty \sum__{n=1}^\infty n q^{mn}
+\end{align*}
+gilt.
+Wenn wir zeigen, dass die letzte Summe absolut konvergiert, dürfen wir umordnen..
+Es gilt
+\begin{align*}
+\sum_{m=1}^\infty \sum_{n=1}\infty \abs{nq^{nm}} &= \sum_{n=1}^\infty n \sum_{m=1}^\infty \abs{q^n}^m\\
+&=\sum_{n=1}^\infty n \frac{\abs{q^n}}{1-\abs{q^n}}\\
+&=\sum_{n=1}^\infty n \frac{\abs{q}^n}{1-\abs{q}^n}\\
+&\leq C+2\sum_{n=1}^\infty n \abs{q}^n
+\end{align*}
+wobei wir im letzten Schritt verwendet haben, dass $1-\abs{q}^n \geq \frac{1}{2}$ für fast alle $n$ gilt.
+Da $n \abs{q}^n \leq \abs{q}^{n/2}$ für alle bis auf endliche viele $n$ gilt (aufgrund des exponentiellen Abfalls), dass wir den letzten Term nach oben gegen $D+2\sum_{n=1}^\infty \abs{q}^{n/2}$ abschätzen.
+Dann dürfen wir umordnen und erhalten die Behauptung.
+
+Für einen alternativen Beweis bemerken wir zunächst
+\begin{align*}
+n^j \leq \sigma_j(n)\leq \zeta(j)n^j.
+\end{align*}
+Die untere Abschätzung ist klar und die obere gilt wegen
+\begin{align*}
+\sigma_j(n)&=\sum_{d\mid n} d^j \\
+&=n^j \sum_{d\mid n} \left(\frac{d}{n}\right)^j\\
+&=n^j \sum_{d\mid n} \left(\frac{1}{n}\right)^j\\
+&\leq n^j \zeta(j).
+\end{align*}
+Damit folgt $(\sigma_j(n))^{1/n} \to 1$ für $n \to \infty$.
+\end{proof}
+
+Es gilt
+\begin{align*}
+G_2(-\frac{1}{\tau})&=\sum_{n\not =0} \frac{1}{n^2} \sum_{m \not 0} \sum_{n\in \Z} \frac{1}{-m\frac{1}{\tau}+n)^2}\\
+&=\tau^2 \left(\frac{\pi^2}{3}+\sum_{n \in \Z}\sum_{m \not =0} \frac{1}{(m\tau+n)^2}\right).
+\end{align*}
+Die wichtige Beobachtung ist, dass falls $G_2$ eine modulare Form von Gewicht $2$ wäre, dann der letzte Summand wieder $\tau^2 G_2$ wäre.
+Dies ist aber nicht der Fall, da die Reihen in der \glqq falschen\grqq\ Reihenfolge genommen werden.
+Den Unterschied zwischen den beiden Termen beschreibt die folgende Proposition.
+
+\begin{prop}
+Es gilt $G_2(-\frac{1}{\tau})=\tau^2 G_2(\tau)-2\pi \mathrm{i}\tau$.
+\end{prop}
+\begin{proof}
+Wir definieren
+\begin{align*}
+a_{m,n}=\frac{1}{(m\tau+n-1)(m\tau+n)}=\frac{1}{m\tau +n-1}-\frac{1}{m\tau +n}.
+\end{align*}
+Dann gilt
+\begin{align*}
+\frac{1}{(m\tau+n)^2}-a_{m,n}(\tau)=-\frac{1}{(m\tau+n)^2(m\tau+n-1)}.
+\end{align*}
+Es gilt
+\begin{align*}
+G_2^\ast(\tau)&=\frac{\pi^2}{3}+\sum_{m\not=0} \sum_{n\in \Z} \left(\frac{1}{(m\tau+n)^2}-a_{m,n}(\tau)\right)\\
+&=\frac{\pi^2}{3}+\sum_{m\not=0} \sum_{n\in \Z} \frac{1}{(m\tau+n)^2}-\sum_{m\not=0}\sum_{n\in \Z} \left(\frac{1}{m\tau+n-1}-\frac{1}{m\tau +n}=G_2(\tau),
+\end{align*}
+wobei wir verwendet haben das die Doppelsumme absolut konvergiert und wir daher umordnen dürfen.
+Der letzte Summand verschwindet als Teleskopsumme.
 \end{proof}
