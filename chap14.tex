@@ -1,0 +1,656 @@
+\chapter{Hecke-Petersson Theorie}
+%definiere inneres produkt auf cusp 
+%die c\alpha\beta heißen strukturkonstanten
+Diese Theorie gibt eine natürliche Erklärung der Multiplikativität
+der Koeffizienten von
+\begin{align*}
+\Delta(\tau)&=q \prod_{n=1}^\infty (1-q^n)^{24}\\
+&=q-24q^2+252q^3-1472q^4+4830q^5-6048q^6
+\end{align*}
+
+%define hecke algebra dafür brauchen wir folgendes
+
+\begin{defi}
+Für $\Z \ni N>0$ definiere 
+\begin{align*}
+\Gamma(N)=\{\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \SL_2(\Z) \mid \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} =\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix} \mod N\}.
+\end{align*}
+$\Gamma(N)$ ist eine normale Untergruppe von $\SL_2(\Z)$ und heißt
+\emph{Hauptkongruenzuntergruppe} vom Level $N$.
+Sie hat endlichen Index, tatsächlich gilt sogar
+\begin{align*}
+\abs{\SL_2(Z)/\Gamma(N)} =N^3 \prod_{p \mid N} (1-\frac{1}{p^2}).
+\end{align*}
+Eine Untergruppe $\Gamma \subseteq \SL_2(Z)$ heißt \emph{Kongruenzuntergruppe},
+falls $\Gamma$ die Gruppe $\Gamma(N)$ für ein $N \in \N$ enthält.
+\end{defi}
+
+\begin{bsp}
+Die beiden wichtigsten Beispiele für Kongruenzuntergruppen sind $\Gamma_0(N)$ %c\not =0
+und $\Gamma_1(N)$ %c=o mod N und b egal
+\end{bsp}
+
+Wir schreiben $\Sigma=\GL_2(\Q)^+$ für Matrizen mit positiver Determinante.
+
+\begin{prop}
+Sei $\Gamma$ eine Kongruenzuntergruppe und $\alpha \in \Sigma$.
+Dann existiert ein $M \in \N$ mit
+\begin{align*}
+\Gamma(M)\subseteq \alpha \Gamma \alpha^{-1}.
+\end{align*}
+\end{prop}
+\begin{proof}
+Sei $\Gamma(N)\subseteq \Gamma$.
+Wähle $M_1,M_2 \in \Z$, sodass $M_1\alpha,M_2\alpha^{-1} \in M_2(\Z)$ gilt.
+%ganzzahlige Einträge
+Definiere $M=M_1M_2N$.
+%aufpassen, dass M\in \N!
+Dann können wir $\gamma \in \Gamma(N)$ schreiben als
+\begin{align*}
+\gamma=1+Mg
+\end{align*}
+mit einem $g \in M_2(\Z)$.
+Dann gilt
+\begin{align*}
+\alpha \gamma \alpha^{-1} &=1+M_1M_2N \alpha g\alpha^{-1}\\
+&=1+N(M_1,\alpha)g (M_2\alpha^{-1})\\
+&\in \Gamma(N).
+\end{align*}
+Damit folgt die Behauptung, wenn man $\alpha$ durch $\alpha^{-1}$ ersetzt.
+\end{proof}
+
+%Hecke algebra mit Doppelnebenklassen
+
+\begin{prop}
+Sei $\alpha \in \Sigma$ und $\Gamma$ eine Kongruenzuntergruppe. Dann existiert eine Menge von Repräsentanten $(\gamma_i)$ von
+$(\Gamma \cap \alpha^{-1} \Gamma \alpha)\backslash \Gamma$ sodass
+\begin{align*}
+\Gamma \alpha \Gamma =\bigcup_{i} \Gamma \alpha \gamma_i
+\end{align*}
+als disjunkte Vereinigung gilt.
+Insbesondere ist die Menge $(\gamma_i)$ endlich.
+\end{prop}
+\begin{proof}
+Seien $\gamma,\gamma'\in \Gamma$.
+Dann gilt
+\begin{align*}
+\Gamma \alpha \gamma =\Gamma\alpha \gamma'&\Leftrightarrow \alpha \gamma' \gamma^{-1} \alpha^{-1} \Gamma\\
+&\Leftrightarrow \gamma'\gamma^{-1} \in \alpha^{-1} \Gamma \alpha\\
+&\Leftrightarrow \gamma' \in (\alpha^{-1} \Gamma \alpha \cap \Gamma)\gamma.
+\end{align*}
+Dies zeigt die Behauptung.
+\end{proof}
+%endlichkeit folgt mit argumenten, dass man \Gamma(N)s enthält.
+
+Ein analoges Resultat erhält man für Linksadjunktion.
+\begin{bem}
+Mit den Voraussetzungen wie eben können wir eine Menge $(\beta_i)$
+von Repräsentanten von $\Gamma/(\Gamma \cap \alpha^{-1} \Gamma \alpha)$ finden, die
+\begin{align*}
+\Gamma \alpha \Gamma)\bigcup \beta_i \alpha \Gamma
+\end{align*}
+als disjunkte Vereinigung erfüllt.
+\end{bem}
+
+Nun haben wir alles beisammen, um die Hecke Algebra definieren zu können.
+\begin{defi}
+Für $\alpha \in \Sigma$ definieren wir $T_\alpha=\Gamma \alpha \Gamma \in \Gamma \backslash \Sigma /\Gamma$
+und die Hecke Algebra
+\begin{align*}
+H_\Gamma = \{ \sum_{\alpha \in \Gamma \backslash \Sigma /\Gamma} c_\alpha T_\alpha \mid c_\alpha in \Z\}
+\end{align*}
+wobei alles bis auf endliche $c_\alpha$ verschwinden.
+$H_\Gamma$ ist der freie $\Z$-Modul, der durch die $T_\alpha$ erzeugt wird.
+\end{defi}
+
+Für $\alpha,\beta \in \Sigma$ gilt
+\begin{align*}
+(\Gamma \alpha \Gamma)(\Gamma \beta
+\Gamma)&=(\cup_i \Gamma \alpha_i)(\cup_j \beta_j \Gamma\\
+&=\cup_{i,j} \Gamma \alpha_i \beta_j \Gamma,
+\end{align*}
+so dass $(\Gamma \alpha \Gamma)(\Gamma \beta \Gamma)$
+die endliche Vereinigung von Doppelnebenklassen ist.
+Daher können wir $H_\Gamma$ zu einer Algebra machen, in dem wir
+\begin{align*}
+T_\alpha T_\beta \coloneqq \sum c_{\alpha \beta}^\gamma T_\gamma
+\end{align*}
+definieren, wobei wir über alle $\gamma \in \Gamma \backslash \Sigma /\Gamma$ summieren, die
+\begin{align*}
+\Gamma \gamma \Gamma \subseteq (\Gamma \alpha \Gamma)(\Gamma \beta
+\Gamma)
+\end{align*}
+erfüllen.
+Die Koeffizienten sind definiert durch
+\begin{align*}
+c_{\alpha\beta} =\abs{\{(i,j)\mit \Gamma \alpha_i \beta_j=\Gamma \gamma\}}
+\end{align*}
+wobei die $\alpha_i,\beta_j$ aus den disjunkten Vereinigungen von $\Gamma \alpha \Gamma$ kommen.
+Es ist a priori nicht klar, ob dieses Produkt wohldefiniert ist.
+Wir zeigen dies nun. Es gilt
+\begin{align*}
+\abs{\{(i,j)\mid \Gamma \alpha_i \beta_j =\Gamma \gamma\}} &=\abs{\{(i,j)\mid \Gamma \alpha_i =\Gamma \gamma \beta_j^{-1}\}}\\
+&=\abs{\{j\mid \Gamma \alpha \Gamma \supseteq \Gamma \gamma\ \beta_j^{-1}\}}\\
+&=\abs{\{j \mid \gamma \beta_j^{-1} \in \Gamma \alpha \Gamma\}}\\
+&=\abs{\{j \mid \beta_j \in \Gamma \alpha^{-1} \Gamma \gamma\}}\\
+&=\abs{\{j \mid \Gamma \beta_j \subseteq \Gamma \alpha^{-1} \Gamma \gamma\}}.
+\end{align*}
+Dies ist die Anzahl der Nebenklassen der Form $\Gamma \varepsilon$ in $\Gamma \alpha^{-1} \Gamma \gamma \cap \Gamma \beta \Gamma$.
+Diese letzte Zahl ist unabhängig von der Wahl der $\alpha_i,\beta_j$.
+Sei nun $\Gamma \gamma\Gamma=\Gamma \eta \Gamma$.
+Dann gilt $\gamma=\delta'\\delta S$ für geeignete $S,S'\in \Gamma$.
+Ebenso gilt
+\begin{align*}
+\Gamma \alpha^{-1} \Gamma \gamma \cap \Gamma \beta \Gamma&=\Gamma \alpha^{-1} \Gamma \eta \delta \cap \Gamma\beta \Gamma\\
+&=(\Gamma \alpha^{-1} \Gamma \eta \cap \Gamma \beta \Gamma)\delta.
+\end{align*}
+Dies impliziert, dass Multiplikation mit $\delta^{-1}$ Nebenklassen der Form $\Gamma \varepsilon$ in $\Gamma \alpha^{-1} \Gamma \gamma\cap \Gamma \beta \Gamma$ in Nebenklassen der Form $\Gamma \rho$ in $\Gamma \alpha^{-1}\Gamma \eta \cap \Gamma \beta \Gamma$.
+Also haben wir die Unabhängigkeit der Anzahl von $\gamma$ gezeigt.
+
+\begin{defi}
+Zusammen mit diesem Produkt heißt $H_\Gamma$ die zu $\Gamma$ gehörende \emph{Hecke Algebra}.
+\end{defi}
+
+Falls $\Gamma \gamma \Gamma=\cup_{k=1}^l \Gamma \gamma_k$ als disjunkte Vereinigung gilt,
+so folgt
+\begin{align*}
+\abs{\{(i,j)\mid \Gamma \alpha_i \beta_j \Gamma=\Gamma \gamma \Gamma\}}=l \abs{\{(i,j)\mid \Gamma \alpha_i \beta_j =\Gamma \gamma\}}.
+\end{align*}
+
+%important theorem dont know much about product
+\begin{thm}
+Die Hecke Algebra $H_\Gamma$ ist assoziativ.
+\end{thm}
+\begin{proof}
+Ein Beweis kann in dem Buch von Shimura über automorphe Formen gefunden werden
+\end{proof}
+%TODO buch raussuchen
+
+Wir betrachten nun den Fall $\Gamma =\SL_2(\Z)$.
+\begin{prop}
+Sei $\alpha \in \Sigma$.
+Dann enthält $\Gamma \alpha \Gamma$ eine eindeutige Matrix der Form
+\begin{align*}
+\begin{pmatrix}
+d_1&0\\
+0&d_2
+\end{pmatrix}
+\end{align*}
+wobei $d_1,d_2 \in \Q^+$ und $\frac{d_1}{d_2}\in \Z$ erfüllt seien.
+\end{prop}
+\begin{proof}
+Wähle $\Z \ni N>0$ so, dass $N\alpha$ ganzzahlig ist.
+Seien $a_1,a_2$ die Spalten von $N\alpha$ und $e_1,e_2$ die Standardbasisvektoren von $\R^2$.
+Definiere
+\begin{align*}
+\Lambda_1 &=\Z e_1+\Z e_2\\
+\Lambda_2 &=\Z a_1+\Z a_2\subseteq \Lambda_1.
+\end{align*}
+Aus dem Elementarteilersatz folgt die Existenz einer Basis $(\xi_1,\xi_2\}$ von $\Lambda_1$ sowie die von positiven Zahlen $D_1,D_2$
+$D_2 \mid D_1$, sodass $\{D_1\xi_1,D_2\xi_2\}$ eine $\Z$-Basis von $\Lambda_2$ ist.
+Sei $\xi$ die Matrix mit Spalten $\xi_1,\xi_2$.
+Da $\Lambda_1$ unimodular ist, folgt
+\begin{align*}
+\det(\xi)^2=\det(\xi^T \xi)=1.
+\end{align*}
+Durch Umorientieren können wir $\det(\xi)=1$, also $\xi \in \Gamma$ annehmen.
+Aus
+\begin{align*}
+\Lambda_2&=\Z a_1+\Z a_2\\
+&=\Z D_1 \xi_1+\Z D_2 \xi_2
+\end{align*}
+folgt
+\begin{align*}
+N\alpha=\xi \begin{pmatrix}
+D_1&0\\
+0&D_2
+\end{pmatrix} \gamma
+\end{align*}
+für ein geeignetes $\gamma \in \GL_2(\Z)$.
+Wie zuvor kann man nun $\det(\gamma)=1$ also $\gamma \in \Gamma$ sehen.
+Teilen durch $N$ liefert die Existenz, die Eindeutig verbleibt als Übung.
+\end{proof}
+
+%schönes aber sehr technisches Objekt.
+%Machen nicht alle beweise, da dies sehr zeitraubend wäre.
+
+\begin{prop}
+Sei $\gamma \in \Sigma$.
+Dann gibt es $\delta_1,\dots,\delta_n\in \Sigma$ mit
+\begin{align*}
+\Gamma \gamma \Gamma =\cup_{i=1}^n \Gamma \delta_i=\cup_{i=1}^n \delta_i \Gamma
+\end{align*}
+wobei die Vereinigungen disjunkt sind.
+\end{prop}
+\begin{proof}
+Wähle eine disjunkte Zerlegung $\Gamma \gamma \Gamma = \cup_{i=1}^n \Gamma \gamma_i$.
+Mit der letzten Proposition folgt dann
+\begin{align*}
+\Gamma \gamma \Gamma=\left(\Gamma \gamma \Gamma\right)^T=\cup_{i=1}^n \gamma_i^T \Gamma.
+\end{align*}
+Es gilt
+\begin{align*}
+\Gamma \gamma_i \cap \gamma_j^T \Gamma \not =\emptyset
+\end{align*}
+für alle $i,j$.
+Angenommen, dies wäre falsch, dann gilt mit $\Gamma \gamma_i \subseteq \Gamma \gamma_i \Gamma=\Gamma \gamma \Gamma=\cup_{j=1}^n \gamma_j^T \Gamma$, dass insbesondere
+\begin{align*}
+\Gamma \gamma_i \subseteq \cup{j\not =i} \gamma_j^T \Gamma
+\end{align*}
+gilt.
+Durch Multiplikation von rechts mit $\Gamma$ folgt
+\begin{align*}
+\Gamma \gamma \Gamma =\Gamma \gamma_i \Gamma \subseteq \cup_{j\not =i} \gamma_j^T \Gamma
+\end{align*}
+was ein Widerspruch ist, da die Nebenklassen paarweise disjunkt sind.
+Wähle nun $\delta_i \in \Gamma \gamma_i \cap \gamma_i^T \Gamma$.
+Dann gilt $\Gamma \delta_i =\Gamma \gamma_i$ und $\delta_i \Gamma =\gamma_i^T \Gamma$,
+was uns die gewünschte Zerlegung gibt.
+\end{proof}
+
+Damit können wir nun die Kommutativität der Multiplikation zeigen.
+
+\begin{prop}
+Seien $\alpha,\beta \in \Sigma$. Dann gilt
+\begin{align*}
+(\Gamma \alpha \Gamma)(\Gamma \beta \Gamma)=(\Gamma \beta \Gamma)(\Gamma \alpha \Gamma).
+\end{align*}
+\end{prop}
+\begin{proof}
+Wir wählen zunächst eine beidseitige disjunkte Zerlegung, das heißt
+\begin{align*}
+\Gamma \alpha \Gamma &=\cup_{i=1}^n \Gamma \alpha_i=\cup_{i=1}^n \alpha_i \Gamma\\
+\Gamma \beta \Gamma &=\cup_{i=1}^n \Gamma \beta_i=\cup_{i=1}^n \beta_i \Gamma.
+\end{align*}
+Damit gilt
+\begin{align*}
+(\Gamma \alpha \Gamma)(\Gamma \beta \Gamma)&=\cup_{i,j} \Gamma \alpha_i^T \beta_j^T \Gamma\\
+&=\cup_{i,j} (\Gamma \beta_j \alpha_i \Gamma)^T\\
+&=\cup_{i,j} (\Gamma \beta_j \alpha_i \Gamma)\\
+&=(\Gamma \beta \Gamma)(\Gamma \alpha \Gamma). \qedhere
+\end{align*}
+\end{proof}
+
+Nun können wir die Kommutativität der Hecke Algebra zeigen.
+
+\begin{thm}
+Die Hecke Algebra $H_\Gamma$ ist kommutativ.
+\end{thm}
+\begin{proof}
+Seien $\alpha, \beta \in \Sigma$ und wir wählen beidseite disjunkte Zerlegungen
+\begin{align*}
+\Gamma \alpha \Gamma &=\cup_{i=1}^n \Gamma \alpha_i=\cup_{i=1}^n \alpha_i \Gamma\\
+\Gamma \beta \Gamma &=\cup_{i=1}^n \Gamma \beta_i=\cup_{i=1}^n \beta_i \Gamma.
+\end{align*}
+Aufgrund der letzten Proposition gilt
+\begin{align*}
+(\Gamma \alpha \Gamma)(\Gamma \beta \Gamma)=(\Gamma \beta \Gamma)(\Gamma \alpha \Gamma).
+\end{align*}
+Sei nun $\gamma \in \Sigma$ mit
+\begin{align*}
+\Gamma \gamma \Gamma\subseteq (\Gamma \alpha \Gamma)(\Gamma \beta \Gamma)
+\end{align*}
+und der disjunkten Zerlegung
+\begin{align*}
+\Gamma \gamma \Gamma =\cup_{k=1}^l \Gamma \gamma_k.
+\end{align*}
+Wir müssen nun zeigen, dass $c_{\alpha \beta}^\gamma$ symmetrisch in $\alpha$ und $\beta$ ist.
+Es gilt (mit Proposition 14.9)
+\begin{align*}
+c_{\alpha \beta}^\gamma &=\abs{\{(i,j)\mid \Gamma \alpha_i \beta_j=\Gamma \gamma\}}\\
+&=\frac{1}{l}\abs{\{(i,j)\mid \Gamma \alpha_i \beta_j \Gamma=\Gamma \gamma \Gamma\}}\\
+&=\frac{1}{l}\abs{\{(i,j)\mid \Gamma \beta_j^T \alpha_i^T\Gamma =\Gamma \gamma \Gamma\}}\\
+&=\abs{\{(i,j)\mid \Gamma \beta_j^T \alpha_i^T=\Gamma \gamma\}}\\
+&=c_{\beta \alpha}^\gamma.
+\end{align*}
+Damit folgt die Behauptung.
+\end{proof}
+
+Als nächstes wollen wir die Hecke Algebra auf Modulformen operieren lassen.
+\begin{prop}
+Sei $f \in M_k$ und $\alpha \in \Sigma$.
+Wähle eine disjunkte Zerlegung
+\begin{align*}
+\Gamma \alpha \Gamma=\cup_{i=1}^n \Gamma \alpha_i.
+\end{align*}
+Dann ist
+\begin{align*}
+f\mid_{T_\alpha}=\det(\alpha)^{\frac{k}{2}-1} \sum_{i=1}^n f \mid_{\alpha_i}
+\end{align*}
+wohldefiniert.
+\end{prop}
+\begin{proof}
+Wähle eine andere disjunkte Zerlegung $\Gamma \alpha \Gamma=\cup_{j=1}^n \beta_j$.
+Nach möglicher Umnummerierung gilt $\beta_i=M \alpha_i$ für geeignete $M_i \in \Gamma$.
+Daraus folgt
+\begin{align*}
+f\mid_{\beta_i}=f\mid_{M_i \alpha_i} =(f \mid_{M_i})\mid_{\alpha_i}=f\mid_{\alpha_i}.
+\end{align*}
+%TODO warum stimmen die gleichheiten, vor allem die letzte?
+Also ist die Definition unabhängig von der Zerlegung.
+\end{proof}
+
+Das nächste Ziel wird sein, zu zeigen, dass dies wieder eine Modulform definiert.
+Dafür benötigen wir folgende Vorbereitung.
+\begin{prop}
+Sei $\alpha \in \Sigma$. Dann gilt $\alpha \gamma \alpha'$ mit
+$\gamma \in \Gamma$ und $\alpha'=r \begin{pmatrix}
+a&b\\
+0&d
+\end{pmatrix}$
+wobei $r \in \Q^+,a,b,d\in \Z$ mit $(a,b,d)=1$ sowie $a,d>0$.
+\end{prop}
+\begin{proof}
+Sei $\alpha =\begin{pmatrix}
+x&y\\
+s&t
+\end{pmatrix}$.
+Es genügt zu zeigen, dass
+\begin{align*}
+\gamma \alpha =\begin{pmatrix}
+\ast&\ast\\
+0&\ast
+\end{pmatrix}
+\end{align*}
+für ein geeignetes $\gamma \in \Gamma$ gilt.
+Dies ist für $s=0$ klar.
+Für $s\not =0$ wählen wir $c',d'\in \Z$ mit $d'=-c' \frac{x}{s}$.
+Setze $c=\frac{c'}{(c',d')}$ und $d=\frac{d'}{(c',d')}$ und ergänze $c,d$ zu einer Matrix $\gamma=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\in \Gamma$.
+\end{proof}
+
+\begin{prop}
+Sei $\alpha \in \Sigma$ und $f \in M_k$.
+Dann gilt $f\mid_{T_\alpha} \in M_k$ und ebenso für $S_k$.
+\end{prop}
+\begin{proof}
+Sei $f \in M_k$.
+Zunächst zeigen wir, dass $f \mid_{T_\alpha}$ invariant unter $\Gamma$ ist.
+Wähle die disjunkte Zerlegung $\Gamma \alpha \Gamma=\cup_{i} \Gamma \alpha_i$ und sei $M \in \Gamma$.
+Dann gilt
+\begin{align*}
+\Gamma \alpha \Gamma M=\cup_i \Gamma \alpha_i M
+\end{align*}
+sodass
+\begin{align*}
+(f \mid_{T_\alpha})\mid_M &=(\det(\alpha)^{\frac{k}{2}-1} \sum f\mid_{\alpha_i})\mid_M\\
+&=\det(a)^{\frac{k}{2}-1} \sum f\mid_{\alpha_i M}\\
+&=f \mid_{T_\alpha}
+\end{align*}
+gilt.
+Aus der Konstruktion ist klar, dass $f\mid_{T_\alpha}$ holomorph auf $H$ ist.
+Es bleibt zu zeigen, dass $f\mid_{T_\alpha}$ holomorph im unendlichen ist.
+Sei $\alpha \in \Sigma$. Die vorherige Proposition impliziert $\alpha=\gamma \alpha'$
+mit $\gamma \in \Gamma$ und $\alpha'=r \begin{pmatrix}
+a&b\\
+0&d
+\end{pmatrix}$
+mit geeigneten $r,a,b,d$.
+Dann folgt
+\begin{align*}
+f\mid_{\alpha} (\tau)&=f\mid_{\gamma \alpha'}(\tau)=f\mid_{\alpha'}(\tau)\\
+&=f\mid_{\begin{pmatrix}
+a&b\\
+0&d
+\end{pmatrix}} =\left(\frac{a}{d}\right)^{\frac{k}{2}} f\left( \frac{a \tau+b}{d}\right).
+\end{align*}
+Da $f$ holomorph im unendlichen ist, konvergiert $f(\tau)$ für $\tau \to \mathrm{i}\infty$ und somit auch $f\left(\frac{a\tau+d}{d}\right)$.
+Daraus folgt $f\mid_{T_\alpha} \in M_k$.
+Der Beweis für $S_k$ funktioniert analog.
+\end{proof}
+
+\begin{prop}
+Seien $\alpha,\beta \in \Sigma$ und $f \in M_k$.
+Dann gilt
+\begin{align*}
+(f \mid_{T_\alpha}\mid_{T_\beta} =f\mid_{T_\alpha T_\beta}.
+\end{align*}
+\end{prop}
+
+\begin{prop}
+Das Maß
+\begin{align*}
+\mathrm{d}\mu(\tau)=\frac{\mathrm{d}x\mathrm{d}y}{y^2}, \tau=x+\mathrm{i}y \in H
+\end{align*}
+ist invariant unter $\GL_2(\R^+)$.
+\end{prop}
+
+\begin{defi}
+Ein offene Menge $F \subseteq H$ heißt \emph{Fundamentalbereich von $\Gamma$}, falls eine Menge von Repräsentanten von $\Gamma\backslash H$ mit
+$F \subset R \subset \overline{F}$ und $\mu(\partial F)=0$ existiert.
+Wir definieren $\mu(\Gamma\backslash H)\coloneqq \mu(F)$, wobei $F$ ein beliebiger Fundamentalbereich von $\Gamma$ ist.
+Es gilt
+\begin{align*}
+\mu(\Gamma \backslash H)=\frac{\pi}{3}.
+\end{align*} 
+Für $f,g\in S_k$ definieren wir
+\begin{align*}
+(f,g)&=\int_{\Gamma \backslash H} f(\tau)\overline{g(\tau)} \Imt(\tau)^k ~\mathrm{d}\mu(\tau)\\
+&=\int_F f(\tau)=\overline{g}(\tau)\Imt(\tau)^k~\mathrm{d}\mu(\tau),
+\end{align*}
+wobei $F$ ein beliebiger Fundamentalbereich von $\Gamma$ ist.
+\end{defi}
+
+\begin{thm}
+$(\cdot,\cdot)$ definiert ein inneres Produkt auf $S_k$.
+\end{thm}
+
+\begin{thm}
+Der Heckeoperator $T_\alpha$ für $\alpha \in \Sigma$ ist bezüglich $(\cdot,\cdot)$ selbstadjungiert.
+\end{thm}
+\begin{proof}
+z.b. in [Automorphe Formen] von Anton Deitmar.
+\end{proof}
+
+Definiere $\Delta_n=\{\alpha \in M_2(\Z)\mid \det(\alpha)=n\}$ sowie
+$T_n=\sum_{\alpha \in \Gamma \backslash \Delta_n /\Gamma} T_\alpha$.
+Indem wir $\Delta_n=\cup \Gamma \gamma_i$ schreiben, gilt
+\begin{align*}
+f\mid_{T_n} =n^{\frac{k}{2}-1} \sum f\mid_{\gamma_i},
+\end{align*}
+also
+\begin{align*}
+f\mid_{T_n}=n^{\frac{k}{2}-1} \sum_{\gamma \in \Gamma \backslash \Delta_n} f\mid_\gamma.
+\end{align*}
+
+Solange wir keine explizite Beschreibung der Menge haben, über die wir summieren, ist die Formel noch nicht sehr nützlich.
+Es gilt $\Delta_n=\cup_{\substack{ad=n \\ b \mod d}} \Gamma(\begin{pmatrix}
+a&b\\
+0&d
+\end{pmatrix})$.
+%b mod d heißt b=0,\dots,d-1
+Damit erhalten wir
+\begin{align*}
+f\mid_{T_n}(\tau)=n^{k-1} \sum_{\substack{ad=n\\ b \mod d}} d^{-k} f\left( \frac{a\tau+b}{d}\right).
+\end{align*}
+Als nächstes betrachten wir die Fourierkoeffizienten der neuen Modulform.
+
+\begin{prop}
+Sei $f(\tau)=\sum_{m=0}^\infty c_mq^m \in M_k$.
+Dann gilt $f\mid_{T_n}(\tau)=\sum_{m=0}^\infty b_mq^m \in M_k$,
+wobei die Koeffizienten $b_m$ durch
+\begin{align*}
+b_m=\sum_{d \mid (m,n)} d^{k-1} c_{\frac{mn}{d^2}}
+\end{align*}
+gegeben sind.
+Insbesondere gilt $b_0=c_0\sigma_{k-1}(n)$ und $b_1=c_n$.
+\end{prop}
+\begin{proof}
+Es gilt
+\begin{align*}
+f\mid_{T_n}(\tau)&=n^{k-1} \sum_{ad=n} \sum_{b\mod d} d^{-k} f\left(\frac{a \tau+b}{d}\right)\\
+&=n^{k-1} \sum_{ad=n}\sum_b d^{-k} \sum_{m=0}^\infty c_m \mathrm{e}^{2 \pi \mathrm{i} m \frac{a\tau +b}{d}}\\
+&=n^{k-1} \sum_{ad=n} \sum_m c_m \mathrm{e}^{2\pi \mathrm{i} m a \frac{\tau}{d}} \sum_{b \mod d} \mathrm{e}^{2\pi \mathrm{i} m  \frac{b}{d}}\\
+&=\sum_{ad=n} \left(\frac{n}{d}\right)^{k-1} \sum_{m'=0}^\infty c{dm'} q^{am'}
+\end{align*}
+was durch umschreiben die gewünschte Formel ergibt.
+%im vorletzen schritt braucht man wie sich gauss summen verhalten.
+\end{proof}
+
+%TODO muss weiter nach oben! Dies ist alter Ansatz von Hecke und vorher ist von Shimura, welcher besser ist.
+
+%folgende formel erklärt angesprochene multiplikativität
+\begin{prop}
+Sei $f(\tau)=\sum_{m=0}^\infty c_mq^m \in M_k\setminus \{0\}$ für $k>0$ eine "simultane"
+%TODO fixen
+Eigenform für alle Heckeoperatoren, das heißt
+\begin{align*}
+f\mid_{T_n}=\lambda_n f
+\end{align*}
+für geeignete $\lambda_n \in \C$ für alle $n>0$.
+Dann gilt
+\begin{enumerate}
+\item $c_1\not =0$,
+\item $c_n=\lambda_n c_1,n>0$,
+\item $c_mc_n=c_1\sum_{d\mid (m,n)} d^{k-1} c_{\frac{mn}{d^2}}$. 
+\end{enumerate}
+Insbesondere gilt
+$c_mc_n=c_1c_{mn}$ falls $(m,n)=1$.
+\end{prop}
+\begin{proof}
+%T_a sind selbstadjungiert, kommutieren miteinander T_n sind auch selbstadjungiert, LA: simultan diagonalisierbar und dann machen wir eine aussage über eine nicht leere Menge.
+Es gilt $f\mid_{T_n}(\tau)=\sum_{m=0}^\infty b_mq^m$ mit
+\begin{align*}
+b_m=\sum_{d \mid (m,n)} d^{k-1} c_{\frac{mn}{d^2}}.
+\end{align*}
+Dann impliziert $f\mid_{T_n}=\lambda_n f$ dass
+\begin{align*}
+\lambda_n c_m=\sum_{d\mid (m,n)} d^{k-1} c_{\frac{mn}{d^2}}
+\end{align*}
+gilt.
+Daraus können wir bereits alles folgern.
+Setzen wir $m=1$ so erhalten wir $\lambda=nc_1=c_n$.
+Da wir den Grad positiv gewählt haben, folgt $c_1\not =0$ und somit die ersten beiden Aussagen.
+Die letzte Aussage folgt, wenn man die untere in die obere Formel einsetzt.
+\end{proof}
+
+Wir können den letzten Satz nun auf $S_{12}$ und $\Delta$ anwenden.
+
+\begin{bsp}
+Da $S_{12}=\C\Delta$ gilt, wissen wir eine Eigenform aller $T_n$ ist.
+Da es normalisiert ist $(c_1=1)$, sind die Fourierkoeffizienten multiplikativ.
+\end{bsp}
+
+\begin{prop}
+In $H_\Gamma$ gelten die folgenden Beziehungen.
+\begin{enumerate}
+\item $T_n T_m=T_m=T_n=T{mn}$ falls $(m,n)=1$,
+\item $T_p T_{p^n}=T_{p^{n+1}}+pT_{(p,p)}T_{p^{n-1}}$ falls $p$ prim ist.
+%T_{(p,p)} heißt T_{\begin{pmatrix}
+%p&0\\
+%0&p
+%\end{pmatrix}}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Shimura, p.63.
+\end{proof}
+
+\begin{bem}
+Für $f\in M_k$ gilt
+\begin{align*}
+f\mid_{pT_{(p,p)}}=p f \mid_{T_{(p,p)}}=p^{k-1} f.
+\end{align*}
+Für $\sigma_k(m)=\sum_{d\mid m}d^k$ gilt
+\begin{align*}
+\sigma_k(m)\sigma_k(n)=\sum_{d \mid (m,n)} d^k \sigma_k\left(\frac{mn}{d^2}\right).
+\end{align*}
+\end{bem}
+
+\begin{prop}
+Sei $k\geq 4$ gerade.
+Dann gilt
+\begin{align*}
+E_k \mid_{T_n}=\sigma_{k-1}(n)E_k
+\end{align*}
+für alle $n\geq 1$.
+\end{prop}
+\begin{proof}
+Es gilt
+\begin{align*}
+E_k(\tau)=1-\frac{2k}{B_k}\sum_{m=1}^\infty \sigma_{k-1}(m)q^m
+\end{align*}
+und
+\begin{align*}
+E_k\mid_{T_n} (\tau)=\sum_{m=0}^\infty b_mq^m
+\end{align*}
+mit
+\begin{align*}
+b_0&=\sigma_{k-1}(n)\\
+b_m&=\sum_{d\mid(m,n)}d^{k-1}c_{\frac{mn}{d^2}}\\
+&=-\frac{2k}{B_k} \sum_{d \mid (m,n)} d^{k-1} \sigma_{k-1}\left(\frac{mn}{d^2}\right)\\
+&=-\frac{2k}{B_k} \sigma_{k-1}(m)\sigma_{k-1}(n)\\
+&=\sigma_{k-1}(n)c_m,
+\end{align*}
+woraus die Behauptung folgt.
+\end{proof}
+
+\begin{prop}
+Sei $f\in S_k$ eine Eigenfunktion, also $f\not \equiv 0$ mit $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n \in \C$.
+Dann gilt
+\begin{align*}
+\abs{\lambda_n}\leq n^{\frac{k}{2}-1}\sigma_1(n).
+\end{align*}
+\end{prop}
+\begin{proof}
+Wir wissen bereits, dass die Funktion $h(\tau)\coloneqq \abs{f(\tau)} y^{\frac{k}{2}}$ beschränkt in $H$ ist.
+%TODO verweis suchen.
+Insbesondere existiert ein $\nu \in H$ mit $h(\tau)\leq h(\nu)$.
+Dann gilt
+\begin{align*}
+f\mid_{T_n}(\tau)=n^{k-1} \sum_{\substack{ad=n \\ b \mod d}}d^{-k} f\left(\frac{a\tau+b}{d}\right)
+\end{align*}
+sodass
+\begin{align*}
+\lambda_n f(\tau)=n^{k-1} \sum_{\substack{ad=n \\ b \mod d}}d^{-k} f\left(\frac{a\tau+b}{d}\right)
+\end{align*}
+folgt.
+Damit gilt
+\begin{align*}
+\abs{\lambda_n f(\tau)y^{\frac{k}{2}}} =n^{k-1} \abs{\sum_{\substack{ad=n \\ b \mod d}}d^{-k} f\left(\frac{a\tau+b}{d}\right) y^{\frac{k}{2}}}.
+\end{align*}
+Mit der Dreiecksungleichung folgt dann
+\begin{align*}
+\abs{\lambda_n} \abs{f(\tau)}y^{\frac{k}{2}} \leq n^{k-1} \sum_{\frac{1}{(ad)^{\frac{k}{2}}}} \abs{f\left(\frac{a\tau+b}{d}\right)} \left(\frac{ay}{d}\right)^{\frac{k}{2}}.
+\end{align*}
+Wenn wir $\tau=\nu$ wählen, erhalten wir
+\begin{align*}
+\abs{\lambda_n} h(\nu)\leq n^{k-1} \frac{1}{n^{\frac{k}{2}}} h(\nu) \sum_{ad=n} \sum_{b\mod d} 1.
+\end{align*}
+Teilen durch $h(\nu)$ liefert dann die Behauptung.
+\end{proof}
+
+\begin{prop}
+Sei $k\geq 4$ und $f(\tau)=\sum_{m=0}^\infty c_mq^m\in M_k$ mit $c_0=1$.
+Falls $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n$ und alle $n>1$, so gilt $f=E_k$.
+\end{prop}
+\begin{proof}
+Es gilt $f\mid_{T_n}(\tau)=\sum_{m=0}^\infty b_mq^m$ mit $b_0=\sigma_{k-1}(n)$.
+Also gilt $\lambda_n=\sigma_{k-1}(n)$.
+Wir nehmen $f\not =E_k$ an.
+Dann gilt $f-E_k \eqqcolon g \in S_k$ und $g$ verschwindet nicht überall.
+Weiterhin gilt $g\mid_{T_n} \sigma_{k-1}(n)g$.
+Aus der letzten Proposition folgt dann
+\begin{align*}
+\sigma_{k-1}(n)\leq n^{\frac{k}{2}-1 }\sigma_1(n).
+\end{align*}
+Allerdings gilt
+\begin{align*}
+2\sigma_{k-1}(n)-2n^{\frac{k}{2}-1} \sigma_1(n)&=\sum_{d\mid n}  \left(d^{k-1}+\left(\frac{n}{d}\right)^{k-1}-\frac{n^{\frac{k}{2}}}{n}(d+\frac{n}{d})\right)\\
+&=\sum_{d \mid n} \frac{n^{\frac{k}{2}}}{d}\left(\frac{d^k}{n^{\frac{k}{2}}}+\frac{n^{\frac{k}{2}}-1}{d^{k-2}}-\left(\frac{d^2}{n}+1\right) \right)\\
+&=\sum_{d \mid n} \frac{n^{\frac{k}{2}}}{d} \left(1-\left(\frac{n^{\frac{k}{2}}}{d}\right)^{k-2}\right) \left(\left(\frac{d}{n^{\frac{k}{2}}}\right)^k-1\right)\\
+&>0
+\end{align*}
+da in der letzten Summe "quasi alle Summanden" positiv sind.
+\end{proof}
