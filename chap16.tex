@@ -1,0 +1,166 @@
+\chapter{Zerlegungen von $\GL_2(\Q_p)$}
+Sei
+\begin{align*}
+\GL_2(\Q_p)&=\left\lbrace \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \mid a,b,c,d \in \Q_p, \det \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \not =0\right\rbrace\\
+&=\left\lbrace \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \mid a,b,c,d\in \Q_p \abs{ad-bc}_p \not =0\right\rbrace
+\end{align*}
+sowie
+\begin{align*}
+K_p=\GL_2(\Z_p^\ast)&=\left\lbrace \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\mid a,b,c,d \in \Z_p, ad-bc \in \Z_p^\ast\right\rbrace\\
+&= \left\lbrace \begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \mid a,b,c,d\in \Z_p, \abs{ad-bc}_p=1\right\rbrace.
+\end{align*}
+
+\begin{prop}
+$K_p$ ist eine maximale kompakte Untergruppe von $\GL_2(\Q_p)$.
+\end{prop}
+Der Beweis verbleibt als Übungsaufgabe
+
+\begin{prop}[Iwasawa Zerlegung]
+Sei $g \in \GL_2(\Q_p)$. Dann kann $g$ eindeutig in der Form
+\begin{align*}
+g=\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix} \begin{pmatrix}
+p^m&0\\
+0&p^n
+\end{pmatrix}
+k
+\end{align*}
+mit $x\in \Q_p$ sowie $k\in K_p$.
+\end{prop}
+\begin{proof}
+Sei $g=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}$. Wir nehmen zuerst an, dass $\abs{c}_p\leq \abs{d}_p$ gilt.
+Dann folgt
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\begin{pmatrix}
+1&0\\
+-\frac{c}{d}&1
+\end{pmatrix}
+=\begin{pmatrix}
+\ast&\ast\\
+0&\ast
+\end{pmatrix}
+\end{align*}
+und $\abs{\frac{c}{d}}_p=1$ das heißt $\frac{c}{d}\in \Z_p$.
+Also folgt
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}=\begin{pmatrix}
+r&s\\
+0&u
+\end{pmatrix}
+\underbrace{\begin{pmatrix}
+1&0\\
+-\frac{c}{d}&1
+\end{pmatrix}^{-1}}_{\in K_p}
+\end{align*}
+mit $ru\not =0$.
+Es gilt
+\begin{align*}
+\begin{pmatrix}
+r&s\\
+0&u
+\end{pmatrix}=\begin{pmatrix}
+1&\frac{s}{u}\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+r&0\\
+0&u
+\end{pmatrix}
+\end{align*}
+sowie
+\begin{align*}
+\begin{pmatrix}
+r&0\\
+0&u
+\end{pmatrix}=\begin{pmatrix}
+\varepsilon p^m&0\\
+0&\eta p^n
+\end{pmatrix}=
+\begin{pmatrix}
+p^m&0\\
+0&p^n
+\end{pmatrix}
+\begin{pmatrix}
+\varepsilon&0\\
+0&\eta
+\end{pmatrix}
+\end{align*}
+mit $\eta,\varepsilon \in \Z_p^\ast$.
+Also folgt
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}=\begin{pmatrix}
+1&\frac{s}{u}\\
+0&1
+\end{pmatrix} \begin{pmatrix}
+p^m&0\\
+0&p^n
+\end{pmatrix}\begin{pmatrix}
+\varepsilon&0\\
+0&\eta
+\end{pmatrix}\begin{pmatrix}
+1&0\\
+-\frac{c}{d}&1
+\end{pmatrix}^{-1}.
+\end{align*}
+Dies beweist die Behauptung für den Fall $\abs{c}_p\leq \abs{d}_p$.
+Falls $\abs{c}_p\geq \abs{d}_p$ gilt, dann folgt $\frac{d}{c}\in \Z_p$ sowie
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\begin{pmatrix}
+1&-\frac{d}{c}\\
+0&1
+\end{pmatrix}=
+\begin{pmatrix}
+\ast&\ast\\
+\ast&0
+\end{pmatrix}
+\end{align*}
+sodass Multiplikation mit $\begin{pmatrix}
+0&1\
+1&0
+\end{pmatrix}\in K$
+zum vorherigen Fall führt.
+\end{proof}
+
+\begin{prop}[Cartan Zerlegung]
+Sei $g\in \GL_2(\Q_p)$. Dann gilt
+\begin{align*}
+g=k_1 \begin{pmatrix}
+p^m&0\\
+0&p^n
+\end{pmatrix}k_2
+\end{align*}
+mit $k_1,k_2\in K_p$.
+\end{prop}
