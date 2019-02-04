@@ -1,0 +1,141 @@
+\chapter{Die Gruppe ´$\GL_2(\A)$}
+Wir erinnern zunächst an einige Eigenschaften der Idele und Adele.
+Die endlichen Adele $A_f$ sind definiert durch
+\begin{align*}
+A_f&=\hat{\prod_{p<\infty}}^\Z_p \Q_p\\
+&=\{(x_2,x_3,\dots) \mid x_p \in \Q_p, x_p\in \Z_p \text{ für fast alle } p\}.
+\end{align*}
+Wir haben $\A_f$ mit eingeschränkten Produkttopolgie ausgestattet.
+Dann ist
+\begin{align*}
+\hat{Z}=\prod_{p <\infty} \Z_p \subseteq \A_f
+\end{align*}
+kompakt.
+Die Adele sind definiert durch $\A=\A \times \A_f$.
+Weiterhin haben wir definiert
+\begin{align*}
+\A_f^\ast= \hat{\prod_{p<\infty}}^{\Z_p^\ast} \Q_p^\ast.
+\end{align*}
+Dann ist $\hat{Z}^\ast=\prod_{p<\infty} \Z_p^\ast \subseteq \A_f^\ast$ kompakt.
+Die Idele sind durch $\A^\ast=\R^\ast \times \A_f^\ast$ definiert.
+Außerdem ist durch
+\begin{align*}
+\Q &\hookrightarrow \A_f\\
+a&\mapsto (a,a,\dots)
+\end{align*}
+eine Einbettung definiert.
+\begin{prop}[Schwache Approximation]
+$\Q$ ist dicht in $\A_f$.
+\end{prop}
+\begin{proof}
+Dies folgt mit dem Chinesischen Restsatz.
+\end{proof}
+\begin{prop}[Starke Approximation für $\A$]
+$D=[0,1)\times \hat{Z}\subseteq \A$ ist ein Fundamentalbereich für die
+Operation von $\Q$ auf $\A$, das heißt es gilt
+\begin{align*}
+\A=\bigcup_{\alpha\in \Q} (\alpha+D)
+\end{align*}
+als disjunkte Vereinigung.
+\end{prop}
+
+\begin{prop}[Starke Approximation für $\A^*$]
+$D=(0,\infty)\times\hat{\Z}^*$ ist ein Fundamentalbereich für $\Q^\ast \setminus \A^\ast$, das heißt es gilt
+\begin{align*}
+\A^\ast=\bigcup_{\alpha\in \Q_p^\ast} \alpha D
+\end{align*}
+als disjunkte Vereinigung.
+\end{prop}
+\begin{proof}
+Für $x\in \A_f^\ast$ gilt $\abs{x}x\in \hat{Z}^\ast$.
+\end{proof}
+
+Für einen Ring $R$ beschreibe $\GL_2(R)$ die Gruppe aller invertierbaren $2\times 2$-Matrizen.
+Es gilt
+\begin{align*}
+\GL_2(\A_f)&=\hat{\prod_{p<\infty}}^{K_p} \GL_2(\Q_p)
+\end{align*}
+wobei $K_p=\GL_2(\Z_p)$ ist.
+Wir statten daher $\GL_2(\A_f)$ mit der eingeschränkten Produkttopologie aus.
+Definiere
+\begin{align*}
+\SL_2(\A_f)\coloneqq \{g \in \GL_2(\A_f) \mid \det(g)=1\}
+\end{align*}
+sowie
+\begin{align*}
+\SL_2(\Q)&\hookrightarrow \SL_2(\A_f)\\
+g &\mapsto (g,g,\dots).
+\end{align*}
+Die folgende Aussage ist falsch, wenn man $\SL_2$ durch $\GL_2$ ersetzt.
+\begin{prop}
+$\SL_2(\Q)$ ist dicht in $\SL_2(\A_f)$.
+\end{prop}
+\begin{proof}
+Sei $X$ der Abschluss von $\SL_2(\Q)$ in $\SL_2(\A_f)$.
+Da Multiplikation in $\SL_2(\A_f)$ stetig ist, ist $X$ eine Gruppe.
+Wir wissen bereits, dass $\Q$ dicht in $\A_f$ ist.
+Also enthält $X$ alle Matrizen der Form
+\begin{align*}
+\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix},\begin{pmatrix}
+1&0\\
+y&1
+\end{pmatrix}
+\end{align*}
+für $x,y\in \A_f$.
+Für eine fixe Primzahl $p$ enthält $X$ alle Elemente der Form $g=(g_2,g_3,\dots)$
+mit
+\begin{align*}
+g_p=\begin{pmatrix}
+1&x_p\\
+0&1
+\end{pmatrix},\begin{pmatrix}
+1&0\\
+y_p&1
+\end{pmatrix}
+\end{align*}
+mit $x_p,y_p \in \Q_p$
+sowie
+\begin{align*}
+g_q=\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+\end{align*}
+für $q\not =p$.
+Die Matrizen der Form
+\begin{align*}
+\begin{pmatrix}
+1&x_p\\
+0&1
+\end{pmatrix},\begin{pmatrix}
+1&0\\
+y_p&1
+\end{pmatrix}
+\end{align*}
+mit $x_p,y_p \in \Q_p$ erzeugen $\SL_2(\Q_p)$.
+Daher enthält $X$ alle Matrizen der Form $g=(g_2,g_3,\dots)$ mit $g_p \in \SL_2(\Q_p)$ and $g_p=\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}$ für fast alle $p$.
+Diese sind dicht in $\SL_2(\A_f)$.
+\end{proof}
+
+Es gilt $\GL_2(\A)=\GL_2(\R)\times \GL_2(\A_f)$.
+\begin{prop}[Starke Approximation für $\GL_2(\A)$]
+Sei $D_\infty$ ein Fundamentalbereich für $\GL_2(\Z)\setminus \GL_2(\R)$,
+das heißt $D_\infty$ enthält einen Repräsentanten für jedes Element in
+\begin{align*}
+\GL_2(\Z)\setminus \GL_2(\R).
+\end{align*}
+Ein Fundamentalbereich für $\GL_2(\Q)\setminus \GL_2(\A)$ ist durch
+\begin{align*}
+D\coloneqq D_\infty \GL_2(\hat{Z})
+\end{align*}
+gegeben.
+\end{prop}
+\begin{proof}
+Wir zeigen, dass jedes Element $g\in \GL_2(\A)$ von der Form $g=\gamma d$ mit $\gamma \in \GL_2(\Q)$ und $d\in D$ geschrieben werden kann.
+\end{proof}

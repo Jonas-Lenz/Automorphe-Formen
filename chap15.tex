@@ -1,0 +1,207 @@
+\chapter{Zerlegungen von $\GL_2(\R)$}
+Wir erinnern uns, dass $G=\SL_2(\R)$ auf der oberen Halbebene durch
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}\tau=\frac{a\tau+b}{c\tau+d}
+\end{align*}
+operiert.
+Der Stabilisator von $\mathrm{i}$ in $G$ ist durch
+\begin{align*}
+K&=\left\lbrace \begin{pmatrix}
+a&b\\
+-b&a
+\end{pmatrix}\mid a,b\in \R, a^2+b^2=1\right\rbrace\\
+&=\left\lbrace \begin{pmatrix}
+\cos \alpha &-\sin \alpha \\
+\sin \alpha & \cos \alpha
+\end{pmatrix} \mid 0\leq \alpha <2\pi\right\rbrace\\
+&=\SO_2(\R)
+\end{align*}
+gegeben.
+Weiterhin definieren wir
+\begin{align*}
+A=\left\lbrace \begin{pmatrix}
+y&0\\
+0&\frac{1}{y} 
+\end{pmatrix} \mid y>0 \right\rbrace
+\end{align*}
+sowie
+\begin{align*}
+N=\left\lbrace 
+\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix} \mid x\in \R\right\rbrace.
+\end{align*}
+Diese Gruppen bilden als Produkt grade $G$.
+\begin{prop}[Iwasawa Zerlegung]
+Sei $g\in G$. Dann kann $g$ eindeutig als Produkt
+\begin{align*}
+g=ank
+\end{align*}
+mit $a \in A$, $n\in N$ und $k \in K$ geschrieben werden.
+\end{prop}
+\begin{proof}
+Sei $g(\mathrm{i})=x+\mathrm{i}y\in H$.
+Definiere
+\begin{align*}
+a&=\begin{pmatrix}
+\sqrt{y}&0\\
+0&\frac{1}{\sqrt{y}}
+\end{pmatrix}\\
+n&=\begin{pmatrix}
+1&\frac{x}{y}\\
+0&1
+\end{pmatrix}.
+\end{align*}
+Dann gilt
+\begin{align*}
+an=\frac{1}{\sqrt{y}} \begin{pmatrix}
+y&x\\
+0&1
+\end{pmatrix},
+\end{align*}
+sodass $an(\mathrm{i})=g(\mathrm{i})$ gilt.
+Damit folgt $(an)^{-1} g \in K$.
+Dies beweist die Existenz der Zerlegung.
+Die Eindeutigkeit verbleibt als Übung.
+\end{proof}
+
+\begin{prop}[Cartan Zerlegung]
+Sei $g \in G$. Dann ist $g$ von der Form
+\begin{align*}
+g=\begin{pmatrix}
+\cos \alpha&-\sin\alpha\\
+\sin  \alpha&\cos \alpha
+\end{pmatrix} \begin{pmatrix}
+y&0\\
+0&\frac{1}{y}
+\end{pmatrix}
+\begin{pmatrix}
+\cos\beta&-\sin\beta\\
+\sin\beta&\cos\beta
+\end{pmatrix}
+\end{align*}
+mit $y>0$, $0\leq \alpha<\pi$ sowie $0\leq \beta <2\pi$.
+\end{prop}
+\begin{proof}
+Die Matrix $s=g^Tg$ ist symmetrisch und positiv definit.
+Also existiert $k \in \Oo_2(\R)$ mit
+\begin{align*}
+k^Tsk=\begin{pmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{pmatrix}
+\end{align*}
+wobei $\lambda_1,\lambda_2$ positiv sind.
+Mit
+\begin{align*}
+d=\begin{pmatrix}
+\sqrt{\lambda_1}&0\\
+0&\sqrt{\lambda_2}
+\end{pmatrix}
+\end{align*}
+gilt
+\begin{align*}
+k^Tg^Tgk=d^Td
+\end{align*}
+und weiter
+\begin{align*}
+gk&=(k^Tg^T)^{-1} d^Td\\
+&=\underbrace{(g^T)^{-1}kd^T}_{h} d.
+\end{align*}
+Wir behaupten, dass $h$ orthogonal ist. Es gilt
+\begin{align*}
+h^T h=dk^T g^{-1} (g^{T})^{-1} kd^T=1
+\end{align*}
+also $h \in \Oo_2(\R)$ und $g=k^{-1}hd$
+mit $h,k\in \Oo_2(\R)$.
+Für die Determinante gilt
+\begin{align*}
+1=\det(h)\det(d)\det(k).
+\end{align*}
+Wegen
+\begin{align*}
+\begin{pmatrix}
+-1&0\\
+0&1
+\end{pmatrix} d
+\begin{pmatrix}1
+-1&0\\
+0&1
+\end{pmatrix}=d
+\end{align*}
+können wir annehmen, dass $h,k \in \SO_2(\R)$.
+Außerdem gilt
+\begin{align*}
+\det(d)=\sqrt{\lambda_1}\sqrt{\lambda_2}=1
+\end{align*}
+sodass wir $d$ geeignet wählen können.
+\end{proof}
+
+Die obigen Zerlegungen existieren für beliebige reduktive Lie-Gruppen. Für weitere infos siehe [Knapp Lie groups beyond an introduction].
+
+$G \overset{\simeq}\to K \times A \times N$ wobei $K$ maximal kompakt, $A$ abelsch  und $N$ eine nilpotent Untergruppe von $G$ ist.[Knapp, p.455]
+Dies ist allgemeine Iwasawa Zerlegung.
+%TODO diesen Teil ausformulieren
+
+Cartan Zerlegung $G=KAK$ wobei $K$ maximal kompakt und $A$ abelsch ist.
+Als nächstes betrachten wir $\GL_2(\Q_\nu)$ mit $\GL_2(\A)$ und deren Zerlegungen.
+
+\begin{prop}[Iwasawa decomposition]
+Sei $g\in \GL_2(\R)$.
+Dann kann $g$ eindeutig geschrieben werden als
+\begin{align*}
+g=\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+y&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \alpha &-\sin \alpha\\
+\sin \alpha &\cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+\pm 1&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+r&0\\
+0&r
+\end{pmatrix}
+\end{align*}
+mit $x \in \R$, $y>0$, $0\leq \alpha \leq 2\pi$ sowie $r>0$.
+\end{prop}
+
+Analog betrachten wir die Cartan Zerlegung für $\GL_2(\R)$.
+\begin{prop}
+Sei $g \in \GL_2(\R)$. Dann kann $g$ geschrieben werden als
+\begin{align*}
+g=\begin{pmatrix}
+\cos \alpha &-\sin \alpha\\
+\sin \alpha &\cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+y&0\\
+0&\frac{1}{y}
+\end{pmatrix}
+\begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta
+\end{pmatrix}
+\begin{pmatrix}
+\pm 1&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+r&0\\
+0&r
+\end{pmatrix}
+\end{align*}
+mit $y>0$, $0\leq \alpha <\pi$ und $0\leq \beta <2\pi$.
+\end{prop}

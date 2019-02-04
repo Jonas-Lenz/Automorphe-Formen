@@ -597,7 +597,7 @@ woraus die Behauptung folgt.
 \end{proof}
 
 \begin{prop}
-Sei $f\in S_k$ eine Eigenfunktion, also $f\not \equiv 0$ mit $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n \in \C$.
+Sei $f\in S_k$ eine Eigenfunktion für alle Hecke Operatoren, also $f\not \equiv 0$ mit $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n \in \C$.
 Dann gilt
 \begin{align*}
 \abs{\lambda_n}\leq n^{\frac{k}{2}-1}\sigma_1(n).
@@ -633,7 +633,7 @@ Teilen durch $h(\nu)$ liefert dann die Behauptung.
 
 \begin{prop}
 Sei $k\geq 4$ und $f(\tau)=\sum_{m=0}^\infty c_mq^m\in M_k$ mit $c_0=1$.
-Falls $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n$ und alle $n>1$, so gilt $f=E_k$.
+Falls $f\mid_{T_n}=\lambda_n f$ für geeignete $\lambda_n$ und alle $n>1$ gilt, so folgt $f=E_k$.
 \end{prop}
 \begin{proof}
 Es gilt $f\mid_{T_n}(\tau)=\sum_{m=0}^\infty b_mq^m$ mit $b_0=\sigma_{k-1}(n)$.
@@ -652,5 +652,236 @@ Allerdings gilt
 &=\sum_{d \mid n} \frac{n^{\frac{k}{2}}}{d} \left(1-\left(\frac{n^{\frac{k}{2}}}{d}\right)^{k-2}\right) \left(\left(\frac{d}{n^{\frac{k}{2}}}\right)^k-1\right)\\
 &>0
 \end{align*}
-da in der letzten Summe "quasi alle Summanden" positiv sind.
+da in der letzten Summe \glqq quasi alle Summanden\grqq positiv sind.
+
+\end{proof}
+%Beste formel die wir bekommen können ist \abs{c_n}\leq n^{\frac{k}{2}-\frac{1}{2}} \sigma_0(n)
+%\sigma_0 ist anzahl der Teiler
+
+Eine Dirichletreihe ist eine formale Reihe
+\begin{align*}
+L(s)=\sum_{n=1}^\infty \frac{a_n}{n^s}
+\end{align*}
+mit $a_n\in \C$ sowie $n^s=\mathrm{e}^{s \log n}$.
+
+\begin{prop}
+Sei $L(s)=\sum \frac{a_n}{n^s}$ eine Dirichletreihe.
+Dann existiert ein $\sigma_0 \in \R \cup \{\pm \infty\}$ mit
+\begin{enumerate}
+\item $L(s)$ konvergiert absolut für $\Ret(s)>\sigma_0$,
+\item $L(s)$ konvergiert nicht absolut für $\Ret(s)<\sigma_0$,
+\item $L(s)$ ist für $\Ret(s)>\sigma_0$ holomorph. Für $\rho \in \R$
+mit $\rho >\sigma_0$ konvergiert die Funktion absolut gleichmäßig und ist auf $\{s \in \C \mid \Ret(s)\geq \rho\}$ beschränkt.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Für $s=\sigma+\mathrm{i}t$ gilt
+\begin{align*}
+\abs{\frac{a_n}{n^s}}=\frac{\abs{a_n}}{n^\sigma}.
+\end{align*}
+Definiere $\sigma_0$ als das Infimum über alle $\sigma$, sodass $\sum_{n=1}^\infty \frac{\abs{a_n}}{n^\sigma}$ konvergiert.
+Dann konvergiert nach Konstruktion $L(s)$ absolut für $\Ret(s)>\sigma_0$.
+Für $\rho \in \R$ mit $\rho>\sigma_0$ gilt
+\begin{align*}
+\sum_{n=1}^\infty \abs{\frac{a_n}{n^s}} \leq \sum_{n=1}^\infty \frac{\abs{a_n}{n^\sigma}}<\infty
+\end{align*}
+für alle $s\in \C$ mit $\Ret(s)\geq \rho$.
+Mit dem Satz von Weierstraß folgt, dass $L(s)$ holomorph ist, da $\frac{a_n}{n^s}$ holomorph ist.
+$\sigma_0$ heißt \emph{absolute Konvergenzabszisse}.
+\end{proof}
+
+\begin{lem}
+Sei $L(s)=\sum_{n=1}^\infty \frac{a_n}{n^s}$ eine Dirichletreihe mit
+$a_n =\mathcal{O}(n^x)$ für ein $x\in \R$, das heißt
+$\abs{a_n} \leq cn^x$ für ein geeignetes $x \in \R$.
+Dann gilt 
+\begin{align*}
+\sigma_0\leq x+1.
+\end{align*}
+\end{lem}
+\begin{proof}
+Sei $\abs{a_n}\leq cn^x$. Dann folgt $\frac{\abs{a_n}{n^\sigma}} \leq c \frac{1}{n^{\sigma-x}}$ und durch aufsummieren auch
+\begin{align*}
+\sum_{n=1}^\infty \frac{\abs{a_n}{n^\sigma}} \leq c \sum_{n=1}^\infty \frac{1}{n^{\sigma-x}}.
+\end{align*}
+Dies ist endlich, falls $\sigma-x>1$ bzw.\, $\sigma>x+1$ gilt.
+\end{proof}
+Dieses Lemma wird im weiteren Verlauf sehr hilfreich sein.
+
+Als nächstes wiederholen wir die $\Gamma$-Funktion samt einiger ihrer Eigenschaften.
+
+Die $\Gamma$-Funktion ist für $s \in \C$ mit $\Ret(s)>0$ durch
+\begin{align*}
+\Gamma(s)=\int_0^\infty \mathrm{e}^{-y} y^{s-1}~\mathrm{d}y.
+\end{align*}
+Sie kann meromorph auf $\C$ fortgesetzt werden, wobei in $\{0,-1,-2,\dots\}$ Pole der Ordnung $1$ mit Residuen
+\begin{align*}
+\operatorname{res}_{s=-n} \Gamma(s)=\frac{(-1)^n}{n!}
+\end{align*}
+vorliegen.
+Außerdem erfüllt $\Gamma$ die Funktionalgleichung
+\begin{align*}
+\Gamma(s+1)=s\Gamma(s)
+\end{align*}
+und hat keine Nullstellen.
+
+\begin{lem}
+Sei nun $k\geq 4$ gerade und $f(\tau)=\sum_{n=0}^\infty a_nq^n\in M_k$.
+Dann gilt $a_n=\mathcal{O}(n^{k-1})$.
+\end{lem}
+\begin{proof}
+Es gilt $E_k=1-\frac{2k}{B_k}\sum_{n=1}^\infty \sigma_{k-1}(n)q^n$ für die Fourierkoeffizienten der Eisensteinreihe.
+%TODO foto von Isa?!
+\end{proof}
+Damit erhalten wir aus dem vorherigen Lemma, dass die $L$-Reihe
+\begin{align*}
+L(f,s)=\sum_{n=1}^\infty \frac{a_n}{s}
+\end{align*}
+für $\Ret(s)>k$ absolut konvergiert und holomorph ist.
+
+Wir definieren
+\begin{align*}
+D(f,s)=\frac{1}{(2\pi)^s} \Gamma(s)L(f,s)
+\end{align*}
+dies hat eine schönere Funktionalgleichung.
+
+%TODO für Prüfung wissen
+\begin{thm}
+Mit den obigen Notationen gilt
+\begin{enumerate}
+\item $L(f,s)$ lässt sich meromorph auf $\C$ fortsetzen.
+Der einzig mögliche Pol ist ein Pol von Ordnung in $1$ in $s=k$ und für das Residuum gilt
+\begin{align*}
+\operatorname{res}_{s=k} L(f,s)=\frac{(2\pi \mathrm{i})^k}{(k-1)!} a_0.
+\end{align*}
+%Insbesondere passiert hier nichts für cuspforms.
+Außerdem gilt $L(f,0)=-a_0$ und $L(f,-n)=0$ für $n\in \N$.
+\item Die Funktion
+\begin{align*}
+D(f,s)-a_0\left(\frac{\mathrm{i}^k}{s-k}-\frac{1}{s}\right)=\int_1^\infty (f(\mathrm{i}y)-a_0)\left(y^s+\mathrm{i}^ky^{k-s}\right)
+\end{align*}
+ist holomorph auf $\C$ und auf jedem vertikalem Streifen $\{s \in \C \mid \alpha \leq \Ret(s)\leq \beta\}$ beschränkt.
+Außerdem erfüllt sie die Funktionalgleichung
+\begin{align*}
+D(f,k-s)=\mathrm{i}^k D(f,s).
+\end{align*}
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Für $\Ret(s)>0$ gilt
+\begin{align*}
+\Gamma(s)&=\int_0^\infty \mathrm{e}^{-x} x^{s-1}~\mathrm{d}x\\
+&=(2\pi n)^s \int_0^\infty \mathrm{e}^{-2\pi ny} y^{s-1}~\mathrm{d}y
+\end{align*}
+sodass
+\begin{align*}
+\Gamma(s)(2\pi n)^{-s}=\int_0^\infty \mathrm{e}^{-2\pi ny} y^{s-1}~\mathrm{d}y
+\end{align*}
+gilt. Diese Formel ist der Schlüssel des Beweises.
+Sei nun $\Ret(s)>k$.
+Dann gilt mit dem Satz über majorisierte Konvergenz
+\begin{align*}
+D(f,s)&=\frac{1}{(2 \pi)^s} \Gamma(s)\sum_{n=1}^\infty \frac{a_n}{s}\\
+&=\sum_{n=1}^\infty (2 \pi n)^{-s} \Gamma(s)a_n\\
+&=\sum_{n=1}^\infty \left(\int_0^\infty \mathrm{e}^{-2\pi ny} y^{s-1}~\mathrm{d}y\right)a_n\\
+&=\int_0^\infty\left( \sum_{n=1}^\infty a_n \mathrm{e}^{-2\pi ny}\right)y^{s-1}~\mathrm{d}y\\
+&=\int_0^\infty (f(\mathrm{i}y)-a_0)y^{s-1}~\mathrm{d}y\\
+&=\int_1^\infty (f(\mathrm{i}y)-a_0)y^{s-1}~\mathrm{d}y+\int_0^1 (f(\mathrm{i}y)-a_0)y^{s-1}~\mathrm{d}y.
+\end{align*}
+Wir betrachten zunächst das erste Integral mit der Substitution $y=\frac{1}{x}$:
+\begin{align*}
+\int_0^1 (f(\mathrm{i}y)-a_0)y^{s-1}~\mathrm{d}y&=-\int_\infty^1 f\left(\frac{\mathrm{i}}{x}\right)-a_0)x^{1-s-2}~\mathrm{d}x\\
+&=\int_1^\infty f\left(\frac{1}{-\mathrm{i}x}\right)-a_0)x^{s-1}~\mathrm{d}x\\
+&=\int_1^\infty (f(\mathrm{i}x)-a_0)\mathrm{i}^k x^{k-s-1}~\mathrm{d}x+a_0 \int_1^\infty (\mathrm{i}^k x^{k-s-1}-x^{-s-1})~\mathrm{d}x\\
+&=\int_1^\infty (f(\mathrm{i}x)-a_0)\mathrm{i}^k x^{k-s-1}~\mathrm{d}x+a_0\left(\frac{\mathrm{i}^k}{s-k}-\frac{1}{s}\right).
+\end{align*}
+Wenn wir dies in obige Formel einsetzen, erhalten wir die Behauptung, wenn alle Integrale existieren.
+Dies ist wegen $f(\mathrm{i}y)-a_0=\mathcal{O}(q)=\mathcal{O}(\mathrm{e}^{-2\pi ny}$ für $y\to \infty$ der Fall.
+Dies zeigt außerdem, dass die Funktion holomorph in $s=1$ ist.
+Weiterhin ist es in jedem vertikalen Streifen beschränkt.
+Daher hat $D(f,s)$ eine meromorphe Fortsetzung auf $\C$ mit möglichen Polen der Ordnung $1$ in $s=k$ und $s=0$.
+Die letzte Gleichung impliziert ebenso die Funktionalgleichung.
+Da $\Gamma(s)$ keine Nullstellen hat, ist $L(f,s)=(2\pi)^s \frac{1}{\Gamma(s)}D(f,s)$ meromorph auf $\C$ mit möglichen Polen in $s=0$ und $s=k$.
+Die Laurentwicklung von $\Gamma(s)$ und $D(f,s)$ in $0$ sind
+\begin{align*}
+\Gamma(s)&=\frac{1}{s}+\dots\\
+D(f,s)&=-\frac{a_0}{s}+\dots
+\end{align*}
+Also ist $L(f,s)$ endlich in $s=0$ mit $L(f,0)=-a_0$.
+Die anderen Pole von $\Gamma$ ergeben Nullstellen.
+Außerdem gilt
+\begin{align*}
+\operatorname{res}_{s=k}L(f,s)=\operatorname{res}_{s=k} (2\pi)^s \frac{1}{\Gamma(s)} D(f,s)=(2\pi)^k \frac{1}{\Gamma(s)}a_0\mathrm{i}^k. \qedhere
+\end{align*}
+\end{proof}
+%TODO qedhere fixen
+Es gibt auch die umgekehrte Aussage dieses Satzes (Hecke's Umkehrsatz)
+Falls eine Dirichletreihe die Funktionalgleichung erfüllt, so definiert $\sum a_n q^n$ eine Modulform.
+Hierbei ist die Voraussetzung, dass die Dirichletreihe in vertikalen Streifen beschränkt ist, wichtig.
+Einen Beweis findet man in [Modular forms, Miyake].
+
+\begin{bsp}
+Sei $k\geq 4$ gerade. Dann gilt
+\begin{align*}
+L(E_k,s)=-\frac{2k}{B_k} \zeta(s)\zeta(s+1-k).
+\end{align*}
+\end{bsp}
+
+\begin{prop}
+Sei $\alpha \colon \N \to \C$ multiplikativ mit $\alpha(1)=1$, sodass
+$\sum_{n=1}^\infty \alpha(n)$ absolut konvergiert.
+Dann gilt
+\begin{align*}
+\sum_{n=1}^\infty=\prod_p \sum_{n=0}^\infty \alpha(p^n).
+\end{align*}
+\end{prop}
+\begin{proof}
+Sei $p_N=\prod_{p\leq N} \sum_{n=0}^\infty \alpha(p^n)$.
+Dann gilt mit der Mulitplikativität
+\begin{align*}
+ p_N&=\sum_{n_1=0}^\infty \dots \sum_{n_r=0}^\infty \alpha(p_1^{n_1})\dots \alpha(p_r^{n_r})\\
+ &=\sum_{n_1=0}^\infty \dots \sum_{n_r=0}^\infty \alpha(p_1^{n_1}\dots p_r^{n_r})\\
+ &=\sum_{n=1}^N \alpha(n)+\sum_{n \in E_N} \alpha(n)
+\end{align*}
+wobei $p_1,\dots,p_r$ die Primzahlen kleiner gleich $N$ sind und
+$E_N=\{n >N\mid \text{ die Primteiler von } n \text{ sind höchstens } p_1,\dots,p_r\}$.
+Es folgt
+\begin{align*}
+\abs{p_N -\sum_{n=1}^N \alpha(n)}\leq \sum_{n>N} \abs{\alpha(n)}.
+\end{align*}
+Aus der absoluten Konvergenz folgt die Behauptung.
+\end{proof}
+
+Sei $f(\tau)=\sum_{n=0}^\infty c_nq^n \in M_k$. eine simultane Eigenform für alle Heckeoperatoren mit $c_1=1$. Dann gilt
+\begin{enumerate}
+\item $c_{mn}=c_m c_n$ falls $(m,n)=1$.
+\item $c_{p^n}c_p=c_{p^{n+1}} +p^{k-1}c_{p^{n-1}}$ falls $p$ prim ist.
+\end{enumerate}
+Wir wissen dann, dass die Dirichletreihe
+\begin{align*}
+L(f,s)=\sum_{n=1}^\infty \frac{c_n}{n^s}
+\end{align*}
+für $\Ret(s)>k$ konvergiert.
+Wir betrachten nun die Produktdarstellung
+\begin{prop}
+Für $\Ret(s)>k$ gilt
+\begin{align*}
+L(f,s)=\prod_p \frac{1}{1-c_pp^{-s}+p^{k-1-2s}}.
+\end{align*}
+\end{prop}
+\begin{proof}
+Da die $c_n$ multiplikativ sind, gilt dies auch für $c_nn^{-s}$.
+Mit dem letzten Satz gilt dann
+\begin{align*}
+L(f,s)=\sum_{n=1}^\infty \frac{c_n}{n^s}=\prod_p \underbrace{\sum_{n=0}^\infty c_{p^n}p^{-ns}}_{L_p(f,s)}.
+\end{align*}
+Es gilt
+\begin{align*}
+L_p(f,s)(1-c_pp^{-s}+p^{k-1-2s})&=\sum_{n=0}^\infty c_{p^n} p^{-ns} -\sum_{n=0}^\infty c_{p^n} c_p p^{-(n+1)s}
++\sum_{n=0}^\infty p^{k-1} c_{p^n} p^{-(n+2)s}\\
+&=1+\sum_{n=1}^\infty c_{p^n}p^{-ns} -\sum_{n=1}^\infty c_{p^{n-1}} c_p p^{-ns} +\sum_{n=2}^\infty p^{k-1} c_{p^{n-2}}p^{-ns}\\
+&=1+\sum_{n=2}^\infty c_{p^n} p^{-ns} -\sum_{n=2}^\infty c_{p^{n-1}} c_p p^{-ns} +\sum_{n=2} \dots\\
+&=1+\sum_{n=2}^\infty (c_p-c_{p^{n-1}}c_p+p^{k-1}c_{p^{n-s}})p^{-ns}\\
+&=1 \qedhere
+\end{align*}
 \end{proof}
