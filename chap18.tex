@@ -1,0 +1,24 @@
+\chapter{Die universell einhüllende Algebra von $\GL_2(\R)$}
+Eine Lie-Algebra ist ein Vektorraum $g$ mit einer bilinearen Abbildung
+\begin{align*}
+[\cdot,\cdot] \colon g \times g &\to g
+\end{align*}
+die
+\begin{enumerate}
+\item $[x,x]=0$,
+\item $[x,[y,z]]+[y,[z,x]]+[z[x,y]]$ (Jacobiidentität)
+\end{enumerate}
+für alle $x,y,z \in g$ erfüllt.
+
+\begin{bsp}
+\begin{enumerate}[label=(\roman*)]
+\item die $n\times n$ Matrizen über $\C$ bilden eine Lie-Algebra bezüglich $[A,B]=AB-BA$.
+\end{enumerate}
+\end{bsp}
+
+\begin{defi}
+Sei $g$ eine Lie Algebra. Eine \emph{universell einhüllende Algebra} von $g$ ist ein Paar $(U,i)$ wobei $U$ eine assoziative Algebra und
+$i$ eine Abbildung $i\colon g \to U$ mit
+$i([x,y])=[i(x),i(y)]$ ist, die die folgende universelle Eigenschaft erfüllt
+%TODO hier Diagramm einfügen
+\end{defi}

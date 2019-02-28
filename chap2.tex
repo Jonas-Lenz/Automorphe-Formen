@@ -1,4 +1,6 @@
 \chapter{Die $p$-adischen Zahlen}
+In diesem Kapitel betrachten wir nun bestimmte Absolutbeträge und vervollständigen $\Q$ bezüglich deren Topologien.
+
 Für $x\in \Q$ definieren wir
 \begin{align*}
 \abs{x}_\infty\coloneqq\begin{cases}
@@ -23,7 +25,7 @@ Ist $\abs{x}_p \not= \abs{y}_p$ so gilt Gleichheit.
 \begin{bsp}
 
 \begin{enumerate}[label=\roman*)]
-\item Die Folge $1,p,p^2,\dots$ konvergiert $p$-adisch gegen $0$, da $d_p(0,p^n)=p^{-n}\to 0$.
+\item Für eine Primzahl $p$ konvergiert die Folge $1,p,p^2,\dots$ $p$-adisch gegen $0$, da $d_p(0,p^n)=p^{-n}\to 0$.
 \item Die Folge $1,\frac{1}{10},\frac{1}{10^2},\dots$ ist keine Cauchy-Folge bezüglich $\abs{\cdot}_p$.
 \end{enumerate}
 \end{bsp}
@@ -119,8 +121,8 @@ Die restliche Aussage verbleibt als Übung.
 \end{satz}
 
 \begin{satz}
-Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die nicht $p$-adisch gegen $0$ konvergiert.
-Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ konstant für alle $n>N$ ist.
+Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die $p$-adisch nicht gegen $0$ konvergiert.
+Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ für alle $n>N$ konstant ist.
 \begin{proof}
 Sei $(x_n)_{n\in \N}$ eine Cauchyfolge bezüglich $\abs{\cdot}_p$ also folgt, dass $(\abs{x_n}_p)$ eine Cauchyfolge in $\R$ ist.
 Daher ist $(\abs{x_n}_p)$ konvergent in $\R$. Da es keine Nullfolge ist, muss sie stationär werden.
@@ -133,7 +135,7 @@ Die obigen Eigenschaft von $\abs{\cdot}_p$ setzen sich auf $\Q_p$ fort.
 \end{defi}
 
 \begin{bsp}
-Sei $x\in \Q_p^\ast$. Dann gilt $\abs{x}_p=p^n$ für ein $n\in \Z$.
+Sei $x\in \Q_p^\ast$. Aufgrund der Stetigkeit der Norm gilt dann $\abs{x}_p=p^n$ für ein $n\in \Z$.
 \end{bsp}
 Als nächstes beweisen wir den Satz von Bolzano-Weierstraß für $p$-adische Zahlen.
 
@@ -218,13 +220,13 @@ Sei $\beta$ ein anderes solches Element. Dann gilt $\abs{\alpha-\beta}\leq p^{-n
 \end{satz}
 
 \begin{cor}
-Es gilt $\overline{Z}=\Z_p$, insbesondere für jedes $x \in \Z_p$ existiert eine Folge
+Es gilt $\overline{\Z}=\Z_p$, insbesondere für jedes $x \in \Z_p$ existiert eine Folge
 $(\alpha_n)_{n\in \N}\subseteq \Z$ mit $0 \leq \alpha_n<p^n$, $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ und $\abs{x-\alpha_n}\leq p^{-n}$.
 Darüber hinaus ist diese Folge eindeutig.
 \end{cor}
 
 Sei umgekehrt $(\alpha_n)_{n \in \N}\subseteq \Z$ eine Folge mit $0\leq \alpha_n <p^n$ sowie $\alpha_n=\alpha_{n-1} \mod p^{n-1}$.
-Dann ist $(\alpha_n)_{n\in \N}$ eine Cauchyfolge und konvergiert gegen ein $x\in \Z_p$.
+Dann ist $(\alpha_n)_{n\in \N}$ nach Konstruktion eine Cauchyfolge und konvergiert daher gegen ein $x\in \Z_p$.
 
 \begin{defi}
 Eine Folge von Restklassen $(\alpha_n)_{n\in \N}$ wobei $\alpha_n \in \Z / p^n\Z$ ist, die $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ erfüllt, heißt \emph{kompatibles System}.

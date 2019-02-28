@@ -1,4 +1,4 @@
-\chapter{Die Gruppe ´$\GL_2(\A)$}
+\chapter{Die Gruppe $\GL_2(\A)$}
 Wir erinnern zunächst an einige Eigenschaften der Idele und Adele.
 Die endlichen Adele $A_f$ sind definiert durch
 \begin{align*}
@@ -138,4 +138,202 @@ gegeben.
 \end{prop}
 \begin{proof}
 Wir zeigen, dass jedes Element $g\in \GL_2(\A)$ von der Form $g=\gamma d$ mit $\gamma \in \GL_2(\Q)$ und $d\in D$ geschrieben werden kann.
+Wir schreiben dazu $\det(g)=\underbrace{\alpha}_{\in \Q^\ast} \underbrace{x}_{\in (0,\infty) \hat{Z}}$ nach der starken Approximation für Idele.
+Definiere
+\begin{align*}
+g'=\begin{pmatrix}
+\alpha^{-1}&0\\
+0&1
+\end{pmatrix}
+g
+\begin{pmatrix}
+x^{-1}&0\\
+0&1
+\end{pmatrix} \in \SL_2(\A).
+\end{align*}
+Sei nun $U$ eine offene Umgebung der $1$ in $\SL_2(\R)$.
+Dann ist
+\begin{align*}
+g'(U \cdot \SL_2(\hat{\Z})
+\end{align*}
+eine offene Umgebung von $g'$ in $\SL_2(\A)$.
+Aufgrund der Dichtheit von $\SL_2(\Q)$ in $\SL_2(\A_f)$ enthält diese ein Element der Form
+\begin{align*}
+\underbrace{\gamma_\infty}_{\in \GL_2(\R)} \underbrace{\gamma}_{\in \SL_2(\Q)}.
+\end{align*}
+Dann gilt
+\begin{align*}
+\gamma_\infty \gamma =g' \gamma_\infty' \gamma'
+\end{align*}
+für geeignete $\gamma_\infty',\gamma'$,
+sodass
+\begin{align*}
+g&=\begin{pmatrix}
+\alpha&0\\
+0&1
+\end{pmatrix} g' \begin{pmatrix}
+x&0\\
+0&1
+\end{pmatrix}\\
+&=\begin{pmatrix}
+\alpha&0\\
+0&1
+\end{pmatrix} (\underbrace{\gamma_\infty \gamma_\infty'^{-1}}_{\in \GL_2(\R)} ) (\gamma \gamma'^{-1} \begin{pmatrix}
+x&0\\
+0&1
+\end{pmatrix}\\
+&=\underbrace{\begin{pmatrix}
+\alpha&0\\
+0&1
+\end{pmatrix} \gamma}_{\in \GL_2(\Q)} \underbrace{(\gamma_\infty \gamma'^{-1}) \begin{pmatrix}
+x_\infty&0\\
+0&1
+\end{pmatrix}} _{\in \GL_2(\R)}
+\underbrace{\gamma'^{-1} \begin{pmatrix}
+x_f&0\\
+0&1
+\end{pmatrix}}_{\in \GL_2(\hat{Z})}.
+\end{align*}
+Es folgt, dass $g$ eine Zerlegung der Form
+\begin{align*}
+g=\mu d_\infty h
+\end{align*}
+besitzt.
+Die Eindeutigkeit der Zerlegung verbleibt als Übung.
 \end{proof}
+
+Nun betrachten wir die Iwasawa Zerlegung für Adele.
+\begin{prop}[Adelische Iwasawa Zerlegung]
+Sei $g\in \GL_2(\A)$.
+Dann kann $g$ eindeutig als
+\begin{align*}
+g=\begin{pmatrix}
+1&x\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+y&0\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}
+r&0\\
+0&r
+\end{pmatrix}
+k
+\end{align*}
+mit $x\in \A$, $r,y\in \A^\ast$, $k\in K=\Oo_2(\R)\GL_2(\hat{Z})$ und $y_\infty,r_\infty>0$  geschrieben werden.
+\end{prop}
+\begin{proof}
+Dies folgt durch Zusammensetzen der bisherigen Resultate.
+\end{proof}
+
+$\GL_2(\C)$ operiert auf auf $\mathbb{P}^1(\C)=\C\cup \{\infty\}$ durch
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}z=\frac{az+b}{cz+d}.
+\end{align*}
+Dies Operation ist transitiv.
+Für $M=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} \in \GL_2(\R)$ gilt
+\begin{align*}
+\Imt(Mz)=\frac{\det(M)}{\abs{cz+d}^2} \Imt(z).
+\end{align*}
+Wir definieren eine Operation von $\GL_2(\R)$ auf $H$ durch
+\begin{align*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} z&=\frac{az+b}{cz+d}~~\text{falls } \det(\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix})>0\\
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix} z&=\overline{\frac{az+b}{cz+d}}~~\text{falls } \det(\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix})<0.
+\end{align*}
+Die Operation von $\GL_2(\R)$ auf $H$ wird von $M \in \SL_2(\R)$ und $\begin{pmatrix}
+-1&0\\
+0&1
+\end{pmatrix}$
+erzeugt.
+Der Stabilisator von $\mathrm{i}$ ist $\O_2(\R)\cdot \R^\ast$ und die Abbildung
+\begin{align*}
+\GL_2(\R)/\GL_2(\R)_\mathrm{i} &\to H\\
+g \GL_2(\R)_\mathrm{i} &\mapsto g\mathrm{i}
+\end{align*}
+ist ein Isomorphismus.
+Ein Fundamentalbereich für die Operation von $\GL_2(\Z)$ auf $H$ ist durch
+\begin{align*} 
+\{z\in \C \mid -\frac{1}{2} \leq \Ret(z)\leq 0 \mid \abs{z}\geq1\}
+\end{align*}
+gegeben.
+
+\begin{prop}
+Sei $g \in \GL_2(\A)$. Dann hat $g$ eine eindeutige Darstellung der Form
+\begin{align*}
+g=\gamma \underbrace{\begin{pmatrix}
+y&x\\
+c0&1
+\end{pmatrix}}_{\in \GL_2(\R)} \underbrace{\begin{pmatrix}
+r&0\\
+0&r
+\end{pmatrix}}_{\in \GL_2(\R)} k
+\end{align*}
+mit $\gamma \in \GL_2(\Q)$ (diagonal eingebettet) sowie $x,y\in \R$
+mit $x+\mathrm{i}y \in \{z \in \C \mid -\frac{1}{2} \leq \Ret(z) \leq 0, \abs{z}\geq 1\}$, $r \in \R_{>0}$ und $k\in K=\Oo_2(\R) \GL_2(\hat{\Z})$.
+\end{prop}
+\begin{proof}
+Wir wissen bereits aufgrund der starken Approximation, dass $g \in GL_2(\A)$ eindeutig in der Form
+\begin{align*}
+g=\underbrace{\gamma}_{\in \GL_2(\Q)} \underbrace{d_\infty}_{\in D_\infty} \underbrace{h}_{\in \GL_2(\hat{Z})}
+\end{align*}
+mit $D_\infty=\GL_2(\Z)\setminus \GL_2(\R)$.
+Aus
+\begin{align*}
+H &\overset{\to}{\cong} \GL_2(\R) / \Oo_2(\R)\cdot \R^\ast\\
+x+\mathrm{i}y &\mapsto \begin{pmatrix}
+y&x\\
+0&1
+\end{pmatrix} \Oo_2(\R)\cdot \R^\ast
+\end{align*}
+erhalten wir
+\begin{align*}
+\GL_2(\Z)\setminus H =\GL_2(\Z) \setminus \GL_2(\R) / \Oo_2(\R)\cdot \R^\ast
+\end{align*}
+%TODO links operiert \GL_2(\Z) durch "fractional transformation" rechts durch Multiplikation von links.
+sodass 
+\begin{align*}
+D_\infty&=\GL_2(\Z) \setminus \GL_2(\R)
+&=\left\lbrace \begin{pmatrix}
+y&x\\
+0&1
+\end{pmatrix} \mid x+\mathrm{i}y \in C\right\rbrace \Oo_2(\R) \R^\ast
+\end{align*}
+mit $C=\{z \in \C \mid -\frac{1}{2}\leq  \Ret(z) \leq 0, \abs{z}\geq 1\}$.
+\end{proof}
+
+\begin{prop}
+Sei $g \in \GL_2(\A)$. Dann kann $g$ eindeutig in der Form
+\begin{align*}
+g=k_1 a k_2
+\end{align*}
+mit $k_1,k_2 \in K=\Oo_2(\R) \GL_2(\hat{Z})$ und
+\begin{align*}
+a=\left\lbrace \begin{pmatrix}
+yr&0\\
+0&r
+\end{pmatrix}, \begin{pmatrix}
+2^{m_2}&0\\
+0&2^{n_2}
+\end{pmatrix},\dots \right\rbrace
+\end{align*}
+und $y,r \in \R^\ast_{>0}$.
+\end{prop}
