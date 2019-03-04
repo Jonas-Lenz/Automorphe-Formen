@@ -198,8 +198,8 @@ Dann gilt
 \begin{align*}
 \abs{t}_p=\abs{(t-x)+x}_p \leq \max(\abs{t-x}_p,\abs{x}_p) \leq 1,
 \end{align*}
-das heißt $t \in \Z_p$ und $t=\frac{a}{b}$ mit $a,b\in \Z, (a,b)=1$ und $(p,b)=1$.
-Wähle $b'\in \Z$ mit $bb'=1 \mod p^n$.
+das heißt $t \in \Z_p$ und $t=\frac{a}{b}$ mit $a,b\in \Z, (a,b)=1$ und $(p,b)=1$. Letzteres gilt, da $\norm{t}_p\leq 1$. 
+Wähle $b'\in \Z$ mit $bb'=1 \mod p^n$. Dies existiert mit dem Lemma von Bézout wegen $(p^n,b)=1$.
 Dann gilt
 \begin{align*}
 \abs{t-ab'}_p&=\abs{\frac{a}{b}-ab'}_p\\
@@ -333,6 +333,6 @@ Dies folgt aus der Stetigkeit von $\abs{\cdot} \colon \Q_p \to \R$.
 \end{proof}
 
 \begin{prop}
-$(\Q_p,+)$, $(\Z_p,+)$, $(Q_p^\ast,\cdot)$, $(\Z_p^\ast,\cdot)$
+$(\Q_p,+)$, $(\Z_p,+)$, $(\Q_p^\ast,\cdot)$, $(\Z_p^\ast,\cdot)$
 sind lokal kompakte topologische Gruppen
 \end{prop}
