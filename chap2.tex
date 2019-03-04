@@ -99,7 +99,7 @@ Dann gilt für jedes $y\in K(x,r)$, dass
 \end{align*}
 Also folgt $y\in K(x',r)$ und somit $K(x,r)\subseteq K(x',r)$.
 Die umgekehrte Inklusion folgt analog.
-\item[(ii) and (iii)] Die Distanzfunktion $d_p(x,y)=\abs{x-y}_p$ nimmt höchstens abzählbar viele Werte an, nämlich $p^n$ für ein $n\in \Z$ oder $0$.
+\item[(ii) und (iii)] Die Distanzfunktion $d_p(x,y)=\abs{x-y}_p$ nimmt höchstens abzählbar viele Werte an, nämlich $p^n$ für ein $n\in \Z$ oder $0$.
 Also gilt für $r>0$ und hinreichend kleines $\varepsilon>0$, dass
 \begin{align*}
 \abs{x-y}_p<r \Leftrightarrow \abs{x-y}_p \leq r-\varepsilon,\\
@@ -121,7 +121,7 @@ Die restliche Aussage verbleibt als Übung.
 \end{satz}
 
 \begin{satz}
-Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die $p$-adisch nicht gegen $0$ konvergiert.
+Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die nicht $p$-adisch gegen $0$ konvergiert.
 Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ für alle $n>N$ konstant ist.
 \begin{proof}
 Sei $(x_n)_{n\in \N}$ eine Cauchyfolge bezüglich $\abs{\cdot}_p$ also folgt, dass $(\abs{x_n}_p)$ eine Cauchyfolge in $\R$ ist.
@@ -147,7 +147,7 @@ Sei also $(x_n)_{n\in \N} \subseteq \Q_p$ eine beschränkte Folge in $\Q_p$.
 Nach Definition ist jedes $x_n$ eine Cauchyfolge in $\Q$ bezüglich $\abs{\cdot}_p$.
 Für jedes $n \in \N$ wählen wir $x_n' \in \Q$ sodass
 \begin{align*}
-\abs{x_n-x_n'}<p^{-n}
+\abs{x_n-x_n'}_p<p^{-n}
 \end{align*}
 gilt, dies geht aufgrund der Dichtheit von $\Q$ in $\Q_p$.
 Die Folge $(x_n')\subseteq \Q$ ist beschränkt in $\abs{\cdot}_p$.
