@@ -173,27 +173,28 @@ Es gilt
 Wir konstruieren nun ein Haarmaß auf $\Q_p^\ast$.
 Für $A \subseteq \Q_p^\ast\subseteq \Q_p$ definieren wir
 \begin{align*}
-\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(A)\coloneqq \int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x_p}}.
+\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(A)\coloneqq \int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x}_p}.
 \end{align*}
 Da dies in $0$ nicht definiert ist, setzen wir den Integranden in diesem Punkt auf $0$.
-%warum auch immer das gut geht.
 Dann gilt für $y\in \Q_p^\ast$, dass
 \begin{align*}
-\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(yA)&=\int_{\Q_p} \chi_{yA}(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
+\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(yA)&=\int_{\Q_p} \chi_{yA}(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
 &=\abs{y^{-1}}_p \int_{\Q_p}\chi_A(y^{-1}x)\frac{\mathrm{d}x}{\abs{y^{-1}x}_p}\\
 &=\int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
-&=\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(A).
+&=\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(A).
 \end{align*}
-Also ist $\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}$ links invariant.
-Das Volumen von $\Z_p^\ast$ bezüglich $\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}$ ist
+Also ist $\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}$ links invariant.
+Das Volumen von $\Z_p^\ast$ bezüglich $\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}$ ist
 \begin{align*}
-\mu_{\frac{\mathrm{d}x}{\abs{x_p}}}(\Z_p^\ast)&=\int_{\Q_p}\chi(\Z_p^\ast) \frac{\mathrm{d}x}{\abs{x}_p}\\
+\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(\Z_p^\ast)&=\int_{\Q_p}\chi(\Z_p^\ast) \frac{\mathrm{d}x}{\abs{x}_p}\\
 &=\int_{\Q_p}\chi(\Z_p^\ast)~\mathrm{d}x=\mu_{\mathrm{d}x}(\Z_p^\ast)\\
-&=\frac{p-1}{p}.
+&=\frac{p-1}{p},
 \end{align*}
+wobei wir $\abs{x}_p=1$ für alle $x\in \Z_p^\ast$ benutzt haben.
+
 
 \begin{thm}
-${\frac{\mathrm{d}x}{\abs{x_p}}}$ definiert ein Haarmaß auf $\Q_p^\ast$.
+${\frac{\mathrm{d}x}{\abs{x}_p}}$ definiert ein Haarmaß auf $\Q_p^\ast$.
 Das normierte Haarmaß
 \begin{align*}
 \mathrm{d}^\ast x =\frac{p}{p-1}{\frac{\mathrm{d}x}{\abs{x_p}}}
@@ -214,7 +215,7 @@ definiert.
 Die Reihe konvergiert für $\Ret(s)>1$ und besitzt eine meromorphe Fortsetzung auf $\C$ mit einer Polstelle vom Grad $1$ in $s=1$.
 Für $\Ret(s)>1$ gilt
 \begin{align*}
-\zeta(s)=\prod_p \frac{1}{1-p^{-2}}.
+\zeta(s)=\prod_p \frac{1}{1-p^{-s}}.
 \end{align*}
 Für $\Ret(s)>0$ werden wir
 \begin{align*}
@@ -230,7 +231,7 @@ Somit gilt
 \begin{align*}
 \int_{\Z_p \setminus \{0\}} \abs{x}_p^s ~\mathrm{d}^\ast x&=\sum_{k=0}^\infty \int_{p^k \Z_p^\ast} \abs{x}_p^s ~\mathrm{d}^\ast x\\
 &=\sum_{k=0}^\infty \left(p^{-k}\right)^s \int_{p^k \Z_p^\ast}\mathrm{d}^\ast x \\
-&=\sum_{k=0}^\infty \left(p^{-k}\right)^s=\sum_{k=0}^\infty \left(p^{-2}\right)^k\\
-=\frac{1}{1-p^{-s}}.
+&=\sum_{k=0}^\infty \left(p^{-k}\right)^s=\sum_{k=0}^\infty \left(p^{-s}\right)^k\\
+&=\frac{1}{1-p^{-s}}.
 \end{align*}
 Dies scheint zunächst \glqq zufällig\grqq\, zu sein, aber wir werden später sehen, dass es hier einen tieferen Zusammenhang gibt.
