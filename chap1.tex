@@ -38,6 +38,7 @@ Dann sind äquivalent
 \item es existiert $c>0$ mit $\abs{x}_1=\abs{x}_2^c$ für alle $x\in K$.
 \end{enumerate}
 \end{satz}
+%TODO Verweis
 
 \begin{satz}
 Sei $\abs{\cdot}$ ein Absolutbetrag auf $K$. Dann sind die folgenden Abbildungen stetig:
@@ -49,6 +50,7 @@ Sei $\abs{\cdot}$ ein Absolutbetrag auf $K$. Dann sind die folgenden Abbildungen
 \item $K \times K \to K, (x,y)\mapsto xy$.
 \end{enumerate}
 \end{satz}
+%TODO Beweise, was ist Absolutbetrag auf K\times K?!
 
 In der Analysis wurden die reellen Zahlen als Vervollständigung der rationalen Zahlen bezüglich des Betrages eingeführt.
 Das Konzept der Vervollständigung lässt sich auch auf allgemeine Absolutbeträge verallgemeinern.
@@ -70,12 +72,15 @@ K &\to \hat{K}\\
 x &\mapsto (x)+N
 \end{align*}
 ist ein Körperhomomorphismus und somit injektiv.
-Der Absolutbetrag auf $\hat{K}$ wird definiert durch
+Der Absolutbetrag auf $\hat{K}$ wird durch
 \begin{align*}
 \abs{(x_n)}=\lim_{n\to \infty} \abs{x_n}
 \end{align*}
-wobei $\abs{x_n}$ aufgrund der umgekehrten Dreiecksungleichung eine Cauchy-Folge in $\R$ ist.
-Dieser ist wohldefiniert, $\hat{K}$ ist vollständig und $K$ ist dicht in $\hat{K}$.
+definiert, wobei $\abs{x_n}$ aufgrund der umgekehrten
+Dreiecksungleichung eine Cauchy-Folge in $\R$ ist.
+Aufgrund der Vollständigkeit von $\R$ ist obiger Grenzwert wohldefiniert.
+$\hat{K}$ ist vollständig und $K$ ist dicht in $\hat{K}$.
+%TODO wieso?
 Die Einbettung $K \hookrightarrow \hat{K}$ ist auf einer dichten Teilmenge von $\tilde{K}$ definiert.
 Da die Einbettung die Absolutbeträge erhält, ist sie stetig und lässt sich somit eindeutig zu einer stetigen Abbildung $\tilde{K}\to \hat{K}$ fortsetzen.
 Diese Abbildung ist ein Isomorphismus, der die Absolutbeträge erhält.

@@ -15,15 +15,15 @@ Sei $p>0$ eine Primzahl. Wir schreiben $x\in \Q^\ast$ als $x=p^n \frac{a}{b}$ mi
 \abs{x}_p \coloneqq p^{-n}.
 \end{align*}
 Außerdem setzen wir $\abs{0}_p=0$.
-Dann ist der $p$-adische Betrag $\abs{\cdot}_p$ ein nicht-archimedischer Absolutbetrag auf $\Q$.
-Mit $d_p$ bezeichnen wir die Metrik, die durch $\abs{\cdot}_p$ induziert wird.
-Es gilt die verschärfte Dreiecksungleichung
+Dann ist der $p$-adische Betrag $\abs{\cdot}_p$ ein nicht-archimedischer Absolutbetrag auf $\Q$, das heißt die starke Dreiecksungleichung
 \begin{align*}
 \abs{x+y}_p\leq \max{(\abs{x}_p,\abs{y}_p)}.
 \end{align*}
-Ist $\abs{x}_p \not= \abs{y}_p$ so gilt Gleichheit.
-\begin{bsp}
+gilt. Dabei gilt im Fall $\abs{x}_p \not= \abs{y}_p$ Gleichheit.
+Mit $d_p$ bezeichnen wir die Metrik, die durch $\abs{\cdot}_p$ induziert wird.
+%TODO Beweise für Behauptungen
 
+\begin{bsp}
 \begin{enumerate}[label=\roman*)]
 \item Für eine Primzahl $p$ konvergiert die Folge $1,p,p^2,\dots$ $p$-adisch gegen $0$, da $d_p(0,p^n)=p^{-n}\to 0$.
 \item Die Folge $1,\frac{1}{10},\frac{1}{10^2},\dots$ ist keine Cauchy-Folge bezüglich $\abs{\cdot}_p$.
@@ -34,6 +34,7 @@ Tatsächlich kann man die Absolutbeträge auf $\Q$ leicht charakterisieren.
 \begin{thm}[Ostrowski]
 Ein Absolutbetrag auf $\Q$ ist äquivalent zu $\abs{\cdot}_\infty$ oder zu einem $\abs{\cdot}_p$ für eine Primzahl $p$.
 \end{thm}
+%TODO Verweis?
 
 Die folgende Formel wird an einigen Stellen nützlich sein.
 
@@ -43,6 +44,7 @@ Sei $x\in \Q^\ast$. Dann gilt
 \abs{x}_\infty \prod_p \abs{x}_p=1.
 \end{align*}
 \end{satz}
+%TODO Beweis
 
 \begin{bem}
 Die Primzahlen $2,3,\dots$ werden als \emph{endliche} Primzahlen bezeichnet und $\infty$ als \emph{unendliche} Primzahl.
@@ -119,13 +121,14 @@ Die restliche Aussage verbleibt als Übung.
 \end{enumerate}
 \end{proof}
 \end{satz}
+%TODO Beweis sollte mal vollstaendig sein.
 
 \begin{satz}
 Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die nicht $p$-adisch gegen $0$ konvergiert.
 Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ für alle $n>N$ konstant ist.
 \begin{proof}
-Sei $(x_n)_{n\in \N}$ eine Cauchyfolge bezüglich $\abs{\cdot}_p$ also folgt, dass $(\abs{x_n}_p)$ eine Cauchyfolge in $\R$ ist.
-Daher ist $(\abs{x_n}_p)$ konvergent in $\R$. Da es keine Nullfolge ist, muss sie stationär werden.
+Sei $(x_n)_{n\in \N}$ eine Cauchyfolge bezüglich $\abs{\cdot}_p$ und somit $(\abs{x_n}_p)$ eine Cauchyfolge in $\R$.
+Daher ist $(\abs{x_n}_p)$ konvergent in $\R$. Da es keine Nullfolge ist und nur Werte $p^n$ für $n\in \Z$ annimmt, muss sie stationär werden.
 \end{proof}
 \end{satz}
 
@@ -150,16 +153,16 @@ Für jedes $n \in \N$ wählen wir $x_n' \in \Q$ sodass
 \abs{x_n-x_n'}_p<p^{-n}
 \end{align*}
 gilt, dies geht aufgrund der Dichtheit von $\Q$ in $\Q_p$.
-Die Folge $(x_n')\subseteq \Q$ ist beschränkt in $\abs{\cdot}_p$.
-Wir werden zeigen, dass $(x_n')$ eine Teilfolge besitzt, die Cauchy ist.
+Die Folge $(x_n')_{n\in \N}\subseteq \Q$ ist beschränkt in $\abs{\cdot}_p$.
+Wir werden zeigen, dass $(x_n')_{n\in \N}$ eine Teilfolge besitzt, die Cauchy ist.
 Diese Teilfolge definiert eine Zahl $x'\in \Q_p$.
-Die zugehörige Teilfolge von $(x_n)$ wird ebenfalls gegen $x$ konvergieren.
-Wir konstruieren die Cauchy Teilfolge von $(x_n')$ folgendermaßen.
-Da $(x_n')$ beschränkt ist, existieren $y \in \Q$ und $m\in \Z$ mit $(x_n')\subseteq \overline{K}(y,p^m)$. Dieser zerfällt in endlich viele ($p$ Stück) disjunkte abgeschlossene Bälle mit Radius $p^{m-1}$.
-Mindestens einer dieser Bälle muss unendlich viele Folgenglieder $(x_n')$ enthalten.
+Die zugehörige Teilfolge von $(x_n)_{n\in \N}$ wird ebenfalls gegen $x$ konvergieren.
+Wir konstruieren die Cauchy Teilfolge von $(x_n')_{n\in \N}$ folgendermaßen.
+Da $(x_n')_{n \in \N}$ beschränkt ist, existieren $y \in \Q$ und $m\in \Z$ mit $(x_n')_{n\in \N}\subseteq \overline{K}(y,p^m)$. Dieser zerfällt in endlich viele ($p$ Stück) disjunkte abgeschlossene Bälle mit Radius $p^{m-1}$.
+Mindestens einer dieser Bälle muss unendlich viele Folgenglieder $(x_n')_{n\in \N}$ enthalten.
 Beginnend mit $x_1$ entfernen wir alle Elemente der Folge, die nicht in diesem Ball liegen.
 Dieser Ball zerfällt erneut und so weiter.
-Dadurch erhalten wir eine Teilfolge $(x_n'')$ von $(x_n')$ mit der Eigenschaft,
+Dadurch erhalten wir eine Teilfolge $(x_n'')_{n\in \N}$ von $(x_n')_{n\in \N} $ mit der Eigenschaft,
 dass alle $x_i''$ für alle $i\geq N$ in einem abgeschlossen Ball
 mit Radius $p^{m-N}$ liegen. Damit folgt
 \begin{align*}
@@ -169,9 +172,14 @@ für alle $i,j\geq N$. Somit wir haben unsere gewünschte Cauchyfolge konstruier
 \end{proof}
 \end{thm}
 
+Als Konsequenz halten wir folgendes Resultat fest, was für $p=\infty$ ebenfalls aus der Analysis bekannt ist.
+
 \begin{cor}
 Eine Menge ist genau dann in $\Q_p$ kompakt, wenn sie beschränkt und abgeschlossen ist.
 \end{cor}
+\begin{proof}
+Dies gilt, da in metrischen Räumen Folgenkompaktheit äquivalent zu Kompaktheit ist.
+\end{proof}
 
 \begin{defi}
 Wir definieren die \emph{$p$-adischen ganzen Zahlen} durch
@@ -180,6 +188,9 @@ Wir definieren die \emph{$p$-adischen ganzen Zahlen} durch
 \end{align*}
 Dies ist ein Unterring von $\Q_p$.
 \end{defi}
+
+Die nächste Aussage im nächsten Kapitel wichtig werden, wenn wir ein geeignetes Maß auf $\Q_p$ definieren wollen.
+Dafür spielen sowohl die Kompaktheit als auch die Offenheit von $\Z_p$ eine große Rolle.
 
 \begin{satz}
 Die $p$-adischen ganzen Zahlen $\Z_p$ sind beschränkt, abgeschlossen und offen.
