@@ -1,9 +1,10 @@
 \chapter{Adele}
 Wir wollen alle Vervollständigungen von $\Q$ gleichzeitig betrachten.
-Dafür betrachten wir den lokal kompakten Ring 
+Dafür betrachten wir den lokalkompakten Ring 
 \begin{align*}
-\A_Q=\{(x_\infty,x_2,x_3,x_5\dots,)\mid x_\nu \in \Q_\nu \text{ und } x_p \in \Z_p \text{ a.e.}\}
+\A=\{(x_\infty,x_2,x_3,x_5,\dots,)\mid x_\nu \in \Q_\nu \text{ und } x_p \in \Z_p \text{ a.e.}\}
 \end{align*}
+%TODO a.e. schön machen 
 von Adelen.
 
 Sei $(X_i)_{i\in I}$ eine Familie topologischer Räume.
@@ -42,19 +43,19 @@ $\prod_{p <\infty} \Q_p$ ist nicht lokal kompakt und deswegen wissen wir nicht, 
 %TODO wissen wir wirklich dass es keins gibt?!
 
 \begin{defi}
-Sei $(x_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge
-(Diese muss es nicht geben, betrachte dafür zum Beispiel $\Rn$).
+Sei $(X_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $\emptyset \not =K_i\subseteq X_i$ eine kompakte offene Menge. Beachte, dass es diese nicht geben muss,
+betrachte dafür zum Beispiel $\Rn$).
 Dann definieren wir das eingeschränkte Produkt
 \begin{align*}
-X=\widehat{{\prod_{i\in I}}^{K_i}} X_i \coloneqq \{(x_i)_{i \in I} \in \prod_{i \in I} X_i \mid x_i \in K_i \text{ für fast alle } i \in I\}.
+X=\widehat{\prod_{i \in I}}\vphantom{\prod}^{K_i} X_i \coloneqq \{(x_i)_{i \in I} \in \prod_{i \in I} X_i \mid x_i \in K_i \text{ für fast alle } i \in I\}.
 \end{align*}
-%TODO eine gute art finden, dies zu texen
+%TODO eine gute art finden, dies zu texen, danke Peter, an allen Stellen einfügen
 Falls $K_i$ aus dem Kontext klar ist, lassen wir diese in der Schreibweise weg.
 Ein eingeschränktes offenes Rechteck ist eine Menge der Form
 \begin{align*}
 \prod_{i\in I} U_i
 \end{align*}
-wobei $U_i \subseteq X_i$ offen ist und $K_i=U_i$ für alle bis auf endlich viele $i  \in I$ gilt.
+wobei $U_i \subseteq X_i$ offen ist und $U_i=K_i$ für alle bis auf endlich viele $i  \in I$ gilt.
 Eine Teilmenge $U\subseteq X$ heißt offen, wenn es eine Vereinigung solcher Mengen ist.
 Die dazugehörige Topologie heißt die \emph{eingeschränkte Produkttopologie}.
 \end{defi}
@@ -64,7 +65,7 @@ Sei $(X_i)_{i\in I}$ eine Familie lokal kompakter Hausdorffräume.
 Für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge.
 Dann ist
 \begin{align*}
-X=\hat{\prod}_{i \in I}^{K_i} X_i
+X=\widehat{\prod_{i \in I}}\vphantom{\prod}^{K_i} X_i
 \end{align*}
 ausgestattet mit der eingeschränkten Produkttopologie ein lokal kompakter Hausdorffraum.
 \end{prop}
@@ -90,7 +91,7 @@ Nach dem letzten Satz ist $\mathbb{A}_f$ ein lokal kompakter Hausdorffraum.
 
 
 \begin{prop}
-Der Ring $\mathbb{A}_f$ ist ein topologischer Raum, das heißt, die Ringverknüpfungen sind stetig.
+Der Ring $\mathbb{A}_f$ ist ein topologischer Ring, das heißt, die Ringverknüpfungen sind stetig.
 \end{prop}
 
 \begin{prop}
