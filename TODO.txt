@@ -1,7 +1,8 @@
-nummerierungsklammern sind nicht eindeutig
+nummerierungsklammern sind nicht eindeutig, da will man vermutlich eh nach äquivalenten Aussagen etc unterscheiden und verschiedene Nummern vergeben.
 quotienten schön machen
 bei allen folgen die indizes dran schreiben
 seitenzahlen gefallen mir nicht
 A' ist nicht A' sondern A^1...
 \cong statt \simeq
 man will vermutlich mathbb{H} für obere halbebene machen...
+zitierte Beweise nachvollziehen

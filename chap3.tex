@@ -16,6 +16,9 @@ gilt für alle $A \in \sigma(X)$.
 Das Lebesguemaß auf $\Rn$ ist ein Radonmaß.
 \end{bsp}
 
+Die beiden folgenden Theoreme sichern uns die Existenz und Eindeutigkeit eines in einem gewissen Sinne schönen Maßes auf $\Q_p$ beziehungsweise allgemeiner auf lokalkompakten Hausdorffgruppen.
+Weitere Details zu dieser Theorie findet man in Kapitel VII \S 2,3 in \cite{Elstrodt}.
+
 \begin{thm}[Riesz]
 Sei $X$ ein lokal kompakter Hausdorffraum und
 \begin{align*}
@@ -34,14 +37,17 @@ sowie
 für alle $A \in \sigma(X)$.
 \end{thm}
 \begin{proof}
-Elstrodt, Kapitel 8 von Maß- und Integrationstheorie.
+Für den Beweis verweisen wir auf \cite[VII, 2.5]{Elstrodt}.
 \end{proof}
 
 \begin{thm}[Haar]
-Sei $G$ eine lokal kompakte Hausdorffgruppe.
+Sei $G$ eine lokalkompakte Hausdorffgruppe.
 Dann gibt es ein linksinvariantes Radonmaß $\mu$ auf $G$.
-Dieses ist eindeutig bis auf positive Konstanten und heißt \emph{Haarmaß} auf $G$.
+Dieses ist eindeutig bis auf einen positiven Faktor und heißt \emph{Haarmaß} auf $G$.
 \end{thm}
+\begin{proof}
+Für den Beweis verweisen wir auf \cite[VII, 3.12]{Elstrodt}.
+\end{proof}
 
 \begin{bsp}
 \begin{enumerate}[label=\roman*)]
@@ -52,24 +58,39 @@ Dieses ist eindeutig bis auf positive Konstanten und heißt \emph{Haarmaß} auf 
 \begin{align*}
 \frac{\mathrm{d}x_{11}\mathrm{d}x_{12}\mathrm{d}x_{21}\mathrm{d}x_{22}}{\abs{\det(M)}^2}
 \end{align*}
-gegeben. (M wie man es erwartet).
-%TODO M als Matrix hinschreiben
+mit $M=\begin{pmatrix}
+x_{11} &x_{12}\\
+x_{21} &x_{22}
+\end{pmatrix}$
+gegeben.
 \end{enumerate}
 \end{bsp}
 
 \begin{thm}
-Sei $G$ eine lokal kompakte Hausdorffgruppe und $\emptyset \not =K\subseteq G$ kompakt mit positivem Maß bezüglich eines nicht trivialen Vielfachen des Haarmaßes auf $G$. Dann gibt es ein eindeutiges Haarmaß $\mu$ auf $G$, das $\mu(K)=1$ erfüllt.
+Sei $G$ eine lokalkompakte Hausdorffgruppe und $\emptyset \not =K\subseteq G$ kompakt mit positivem Maß bezüglich eines Haarmaßes auf $G$. Dann gibt es ein eindeutiges Haarmaß $\mu$ auf $G$, das $\mu(K)=1$ erfüllt.
 \end{thm}
+\begin{proof}
+Es reicht zu zeigen, dass jede kompakte Menge endliches Maß hat.
+Sei dafür $K \subseteq G$ kompakt.
+Für $x \in K$ existiert eine offene Umgebung $U_x$ von $x$ mit endlichem Maß, da das Maß lokal endlich ist.
+Die Familie $\{U_x \mid x\in K\}$ ist eine offene Überdeckung der kompakten Menge $K$ und besitzt somit eine endliche Teilüberdeckung
+$\{U_x \mid x\in F\}$ für eine endliche Teilmenge $F\subseteq K$.
+Wegen der Subadditivität und Monotnie von $\mu$ gilt dann
+\begin{align*}
+\mu(K)\leq \mu\left(\bigcup_{x\in F} U_x\right) \leq \sum_{x\in F} \mu(U_x)<\infty.
+\end{align*}
+Also hat jede kompakte Menge endliches Maß und wir können das Haarmaß geeignet normieren.
+\end{proof}
 %TODO Kompaktheit liefert mit lokal endlich, dass K endliches Mass bezüglich eines nicht trivialen Vielfachen des Haarmasses ist.
 
 
 \begin{defi}
-Sei $G$ eine lokal kompakte Hausdorffgruppe und $\mu$ ein Haarmaß auf $G$.
+Sei $G$ eine lokalkompakte Hausdorffgruppe und $\mu$ ein Haarmaß auf $G$.
 Dann definiert für $x\in G$
 \begin{align*}
 \mu_x(A)=\mu(Ax)
 \end{align*}
-ein links invariantes Maß auf $G$.
+ein linksinvariantes Maß auf $G$.
 \end{defi}
 
 \begin{defi}
@@ -100,7 +121,7 @@ Man kann zeigen, dass jeder stetiger Gruppenhomomorphismus $h \colon \SL(2,\R)\t
 Daraus folgt, dass jedes Haarmaß auf $\SL(2,\R)$ auch rechts invariant ist.
 \end{bsp}
 
-Wir betrachten nun die lokal kompakten Hausdorffgruppen $\Q_p$ sowie $\Q_p^\ast$.
+Wir betrachten nun die lokalkompakten Hausdorffgruppen $\Q_p$ sowie $\Q_p^\ast$.
 Wir normieren das Haarmaß $\mu$ auf $\Q_p$ durch die Forderung $\mu(\Z_p)=1$.
 
 \begin{prop}
@@ -116,7 +137,7 @@ Für $x \in \Q_p^\ast$ definiert
 \mu_x(A)=\mu(Ax)
 \end{align*}
 ein Radonmaß auf $\Q_p$.
-Dies ist links invariant, da wegen der Linksinvarianz von $\mu$
+Dies ist linksinvariant, da wegen der Linksinvarianz von $\mu$
 \begin{align*}
 \mu_x(y+A)=\mu((y+A)x)=\mu(yx+Ax)=\mu_x(A)
 \end{align*}
@@ -183,7 +204,7 @@ Dann gilt für $y\in \Q_p^\ast$, dass
 &=\int_{\Q_p} \chi_A(x)\frac{\mathrm{d}x}{\abs{x}_p}\\
 &=\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(A).
 \end{align*}
-Also ist $\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}$ links invariant.
+Also ist $\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}$ linksinvariant.
 Das Volumen von $\Z_p^\ast$ bezüglich $\mu_{\frac{\mathrm{d}x}{\abs{x}_p}}$ ist
 \begin{align*}
 \mu_{\frac{\mathrm{d}x}{\abs{x}_p}}(\Z_p^\ast)&=\int_{\Q_p}\chi(\Z_p^\ast) \frac{\mathrm{d}x}{\abs{x}_p}\\
