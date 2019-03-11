@@ -19,37 +19,37 @@ Sei $(X_i)_{i \in I}$ eine Familie von topologischen Räumen. Dann ist das Produ
 \end{thm}
 
 \begin{thm}
-Sei $(X_i)_{i \in I}$ eine Familie von Hausdorffräumen. Dann ist $\prod_{i \in I} X_i$ lokal kompakt genau dann wenn alle $X_i$ lokal kompakt und alle bis auf endlich viele sogar kompakt sind.
+Sei $(X_i)_{i \in I}$ eine Familie von Hausdorffräumen. Dann ist $\prod_{i \in I} X_i$ lokalkompakt genau dann wenn alle $X_i$ lokalkompakt und alle bis auf endlich viele sogar kompakt sind.
 \end{thm}
-
 \begin{proof}
-\glqq $\Rightarrow$\grqq : Da die Projektionen $p_j \colon \prod_{i \in I} X_i \to X_j$ stetig sind, folgt, dass alle $X_i$ lokal kompakt sind.
+\glqq $\Rightarrow$\grqq : Da die Projektionen $p_j \colon \prod_{i \in I} X_i \to X_j$ stetig sind, folgt, dass alle $X_i$ lokalkompakt sind.
 Sei $x=(x_i)_{i\in I} \in \prod_{i \in I} X_i$ und $C=(C_i)_{i \in I}$ eine kompakte Umgebung von $x$.
 $C$ enthält eine Vereinigung offener Rechtecke. Da alle bis auf endlich viele Komponenten eines offenen Rechtecks der ganze Raum sind, gilt das gleich auch für $C$, das heißt
 \begin{align*}
 \pi_i(C)=X_i
 \end{align*}
-für alle bis auf endlich viele $i \in I$.
-\glqq $\Leftarrow$\grqq : Da mit $J=\{i\in I \mid x_i \text{ compact }\}$, die Menge $I \setminus J$ endlich ist, folgt mit
+für alle bis auf endlich viele $i \in I$.\\
+\glqq $\Leftarrow$\grqq : Da mit $J=\{i\in I \mid x_i \text{ kompact }\}$, die Menge $I \setminus J$ endlich ist, folgt mit
 \begin{align*}
 X=\prod_{i \in J} X_i \times \prod_{i \in I\setminus J}X_i,
 \end{align*}
-dass $X$ als Produkt einer kompakten und einer lokal kompakten Menge lokal kompakt ist.
+dass $X$ als Produkt einer kompakten und einer lokalkompakten Menge lokalkompakt ist.
 \end{proof}
 
 \begin{bsp}
-$\prod_{p <\infty} \Q_p$ ist nicht lokal kompakt und deswegen wissen wir nicht, ob es ein Haarmaß gibt.
-\end{bsp}
+$\prod_{p <\infty} \Q_p$ ist nicht lokalkompakt und daher gibt es dort kein Haarmaß.
+\end{bsp} 
 %TODO wissen wir wirklich dass es keins gibt?!
 
 \begin{defi}
-Sei $(X_i)_{ i \in I}$ eine Familie lokal kompakter Hausdorffräume und für jedes $i \in I$ sei $\emptyset \not =K_i\subseteq X_i$ eine kompakte offene Menge. Beachte, dass es diese nicht geben muss,
-betrachte dafür zum Beispiel $\Rn$).
+Sei $(X_i)_{ i \in I}$ eine Familie lokalkompakter Hausdorffräume und für jedes $i \in I$ sei $\emptyset \not =K_i\subseteq X_i$ eine kompakte offene Menge.
+Diese muss es nicht geben, betrachte dafür zum Beispiel $\Rn$.
 Dann definieren wir das eingeschränkte Produkt
 \begin{align*}
 X=\widehat{\prod_{i \in I}}\vphantom{\prod}^{K_i} X_i \coloneqq \{(x_i)_{i \in I} \in \prod_{i \in I} X_i \mid x_i \in K_i \text{ für fast alle } i \in I\}.
 \end{align*}
 %TODO eine gute art finden, dies zu texen, danke Peter, an allen Stellen einfügen
+%TODO Was muss man hier wirklich an K_i fordern?!
 Falls $K_i$ aus dem Kontext klar ist, lassen wir diese in der Schreibweise weg.
 Ein eingeschränktes offenes Rechteck ist eine Menge der Form
 \begin{align*}
@@ -61,13 +61,13 @@ Die dazugehörige Topologie heißt die \emph{eingeschränkte Produkttopologie}.
 \end{defi}
 
 \begin{prop}
-Sei $(X_i)_{i\in I}$ eine Familie lokal kompakter Hausdorffräume.
+Sei $(X_i)_{i\in I}$ eine Familie lokalkompakter Hausdorffräume.
 Für jedes $i \in I$ sei $K_i\subseteq X_i$ eine kompakte offene Menge.
 Dann ist
 \begin{align*}
 X=\widehat{\prod_{i \in I}}\vphantom{\prod}^{K_i} X_i
 \end{align*}
-ausgestattet mit der eingeschränkten Produkttopologie ein lokal kompakter Hausdorffraum.
+ausgestattet mit der eingeschränkten Produkttopologie ein lokalkompakter Hausdorffraum.
 \end{prop}
 
 \begin{proof}
@@ -77,16 +77,16 @@ Dann ist
 \prod_{i\in I\setminus J} U_i \times \prod_{i\in J} K_i
 \end{align*}
 eine kompakte Umgebung von $x$.
-Die Hausdorffeigenschaft verbleibt als Übung.
+Die Hausdorffeigenschaft folgt da, die $X_i$ Hausdorff sind.
 \end{proof}
 
 \begin{defi}
 Der Ring
 \begin{align*}
-\mathbb{A}_f \coloneqq \widehat{\prod_{p<\infty}^{\Z_p}} \Q_p
+\mathbb{A}_f \coloneqq \widehat{\prod_{p<\infty}}\vphantom{\prod}^{\Z_p} \Q_p
 \end{align*}
 heißt der Ring der \emph{endlichen Adele}.
-Nach dem letzten Satz ist $\mathbb{A}_f$ ein lokal kompakter Hausdorffraum.
+Nach dem letzten Satz ist $\mathbb{A}_f$ ein lokalkompakter Hausdorffraum.
 \end{defi}
 
 
@@ -101,13 +101,15 @@ Die Menge
 \end{align*}
 ist kompakt und offen.
 \end{prop}
+%TODO Beweis steht im Skript bzw ist leicht, per Definition bzw Tychonoff
 
+%das ist Beweis für folgenden Satz
 Sei $N\in \Z$ sowie $N>0$. Dann gilt
 \begin{align*}
 N=\prod_{p<\infty} p^{\nu_p}
 \end{align*}
 und $\nu_p=0$ für alle bis auf endlich viele $p$.
-Weiterhin haben wir, dass
+Weiterhin ist
 \begin{align*}
 N \hat{\Z}=\prod_{p <\infty} p^{\nu_p}\Z_p
 \end{align*}
@@ -132,7 +134,7 @@ Der Ring $\mathbb{A} \coloneqq \R \times \mathbb{A}_f$ heißt \emph{Ring der Ade
 \end{defi}
 
 \begin{bem}
-$\mathbb{A}$ ist ein lokal kompakter Hausdorffraum.
+$\mathbb{A}$ ist ein lokalkompakter Hausdorffraum.
 \end{bem}
 
 \begin{prop}
@@ -161,7 +163,7 @@ Für $r \in \Q \cap U$ gilt
 \end{align*}
 für alle $p<\infty$.
 Also folgt $r\in \Z$ und somit $r=0$.\\
-Es bleibt zu zeigen,dass $\Q$ abgeschlossen in $\mathbb{A}$ ist.
+Es bleibt zu zeigen, dass $\Q$ abgeschlossen in $\mathbb{A}$ ist.
 Sei dazu $a\in \overline{\Q}$. Wir nehmen $a \not \in \Q$ an.
 Es existiert eine offene Menge $U \subseteq \mathbb{A}$ mit $U \cap \Q=\{0\}$.
 Wähle eine offene Umgebung $V$ von $0\in \mathbb{A}$, die $V+V \subseteq U$ und $-V=V$ erfüllt.
@@ -178,12 +180,14 @@ x-y\in ((a+V)\cap \Q)-((a+V)\cap W \cap Q.
 Dies impliziert $x-y \in  (V-V)\cap \Q$ also $x-y\in (U\cap \Q)=\{0\}$.
 Aber $x=y$ ist ein Widerspruch.
 \end{proof}
+%hier verwendet man für die nichtleerheit der schnitte, dass a im Abschluss von \Q liegt.
+
 
 Wir betrachten die kanonische Projektion
 \begin{align*}
-\pi \colon \mathbb{A} \to A/\Q
+\pi \colon \A \to \A/\Q
 \end{align*}
-und statten $A/\Q$ mit der Quotiententopologie aus, das heißt $U \subseteq A/\Q$ ist genau dann offen wenn $\pi^{-1}(U)$ offen in $\mathbb{A}$ ist.
+und statten $\A/\Q$ mit der Quotiententopologie aus, das heißt $U \subseteq \A/\Q$ ist genau dann offen wenn $\pi^{-1}(U)$ offen in $\A$ ist.
 Insbesondere ist $\pi$ stetig.
 \begin{prop}
 Die kanonische Projektion ist offen.
@@ -201,16 +205,16 @@ somit ist die Offenheit gezeigt.
 \end{proof}
 
 \begin{prop}
-$A/\Q$ ist ein kompakter Hausdorffraum.
+$\A/\Q$ ist ein kompakter Hausdorffraum.
 \end{prop}
 \begin{proof}
-Zunächst zeigen wir, dass $A/\Q$ Hausdorff ist.
+Zunächst zeigen wir, dass $\A/\Q$ Hausdorff ist.
 Sei dafür $a+\Q\not = b+\Q$. Dann gilt $a-b \in \mathbb{A}\setminus \Q$, welches eine offene Menge ist.
 Dann existiert eine offene symmetrische Umgebung der $0$ mit
 \begin{align*}
 ((a-b)+U+U)\cap \Q=\emptyset.
 \end{align*}
-%TODO wieso?
+%TODO wieso? wegen Offenheit
 Somit folgt
 \begin{align*}
 ((a+U)-(b+U))\cap \Q &= \emptyset\\
@@ -218,7 +222,7 @@ Somit folgt
 (a+U)\cap (b+U+\Q)&=\emptyset\\
 (a+U+\Q)\cap (b+U+\Q)&=\emptyset.
 \end{align*}
-Daher sind $(a+U)$ und $(b+U)$ disjunkt in $A/\Q$ sind.
+Daher sind $(a+U)$ und $(b+U)$ disjunkt in $\A/\Q$ sind.
 Es bleibt die Kompaktheit zu zeigen.
 Dafür zeigen wir, dass es eine kompakte Teilmenge $K \subseteq \A$ mit $\pi(K)=\A$ gibt.
 Sei $K\coloneqq [0,1]\times \hat{\Z}\subseteq \A$.
@@ -235,24 +239,24 @@ b\coloneqq a- \sum_{p<\infty}\sum_{n=n_p}^{-1} a_p(n)p^n,
 wobei der zweite Summand ein Element von $\Q \subseteq \A$ ist.
 Dann gilt $b \in \R \times \A$, da
 \begin{align*}
-\abs{a_p-\sum_{q<\infty} \sum_{n=n_q}^{-1} a_q(n)q^n}_p\\
+\abs{a_p-\sum_{q<\infty} \sum_{n=n_q}^{-1} a_q(n)q^n}_p&
 =\abs{\sum_{n=0}^\infty a_p(n)p^n-\sum_{\infty>q\not =p} \sum_{n=n_q} a_q(n)q^n}_p\\
-=\max \left(\abs{\sum_{n=0}^\infty a_p(n)p^n}_p,\abs{\sum_{\infty>q\not =p} \sum_{n=n_q}^{-1} a_q(n)q^n}_p\right) \leq 1.
+&=\max \left(\abs{\sum_{n=0}^\infty a_p(n)p^n}_p,\abs{\sum_{\infty>q\not =p} \sum_{n=n_q}^{-1} a_q(n)q^n}_p\right) \leq 1.
 \end{align*}
 %TODO schön untereinander schreiben
-In dem wir $b$ um eine geeignete ganze Zahlen verschieben, erhalten wir einen Repräsentanten in $K$.
+Indem wir $b$ um eine geeignete ganze Zahlen verschieben, erhalten wir einen Repräsentanten in $K$.
 \end{proof}
 
-Da $\A$ eine lokal kompakte Hausdorffgruppe ist, können wir das Haarmaß auf $A$ betrachten, sodass $[0,1]\times \hat{\Z}$ Maß $1$ hat.
+Da $\A$ eine lokalkompakte Hausdorffgruppe ist, können wir das Haarmaß auf $\A$ betrachten, sodass $[0,1]\times \hat{\Z}$ Maß $1$ hat.
 
 \begin{defi}
 Eine \emph{einfache Funktion auf $\A$} ist eine Funktion der Form
 \begin{align*}
 f=\prod_{\nu \leq \infty} f_\nu,
 \end{align*}
-wobei $f_\nu \in C_c(\Q_\nu)$ und $f_p=\chi_{\Z_p}$ für fast alle $p<\infty$.
+wobei $f_\nu \in \CC_c(\Q_\nu)$ und $f_p=\chi_{\Z_p}$ für fast alle $p<\infty$.
 \end{defi}
-%TODO schoenes C fuer diffbarkeit
+
 
 \begin{bem}
 Für $x=(x_\nu)_{\nu \leq \infty}\in \A$ gilt
@@ -260,7 +264,7 @@ Für $x=(x_\nu)_{\nu \leq \infty}\in \A$ gilt
 f(x)=\prod_{\nu \leq \infty} f_\nu(x),
 \end{align*}
 wobei nur endlich viele Faktoren ungleich $1$ sind.
-Die einfachen Funktionen auf $\A$ sind stetig und haben kompakten Träger (Notation $f \in C_c(\A)$).
+Die einfachen Funktionen auf $\A$ sind stetig und haben kompakten Träger (Notation $f \in \CC_c(\A)$).
 \end{bem}
 
 \begin{prop}
@@ -273,13 +277,14 @@ Dann gilt
 
 \begin{proof}
 Betrachte die endliche Menge $I \coloneqq \{p <\infty \mid f_p \not = \chi_{\Z_p}\} \cup \{\infty\}$.
-Definiere $\A_I=\prod_{\nu \in I}\Q_\nu$.
+Definiere $\A_I\coloneqq\prod_{\nu \in I}\Q_\nu$.
 Dann gilt $\A=\A_I \times \A^I$, wobei
 \begin{align*}
-\A^I =\hat{\prod^{\Z_p}}_{p \not \in I} \Q_p
+\A^I \coloneqq\widehat{\prod_{p \in I}}~\vphantom{\prod}^{\Z_p} \Q_p
 \end{align*}
 ist.
-$\A_I$ ist als endliches Produkt lokal kompakter Hausdorffräume wieder ein lokal kompakter Hausdorffraum.
+%TODO wie will man damit umgehen, dass das p "zu weit" nach links geht und dadurch der hat so riesig wird.
+$\A_I$ ist als endliches Produkt lokalkompakter Hausdorffräume wieder ein lokalkompakter Hausdorffraum.
 Das Haarmaß auf $\A_I$ ist durch das Produkt der Haarmaße auf den Faktoren gegeben und der Satz von Fubini gilt.
 %TODO "das" haarmaß ist eher suboptimal.
 Wir schreiben
@@ -305,12 +310,12 @@ Sei $x\in \Z_p$. Dann existiert für jedes $n \in \Z, n>0$ genau ein $\alpha_n \
 %TODO formatierung schoen machen
 
 \begin{thm}
-Sei nun $x\in \hat{Z})=\prod_{\nu \leq \infty} \Z_p$. Dann existiert für jedes $N \in \Z$, $N>0$ existiert ein eindeutiges $\alpha_N\in \Z$, $0 \leq \alpha<N$ mit
+Sei nun $x\in \hat{\Z}=\prod_{\nu \leq \infty} \Z_p$. Dann existiert für jedes $N \in \Z$, $N>0$ existiert ein eindeutiges $\alpha_N\in \Z$, $0 \leq \alpha<N$ mit
 \begin{align*}
-\alpha_N \in x + N\hat{Z}.
+\alpha_N \in x + N\hat{\Z}.
 \end{align*}
 \end{thm}
-%nu statt p, da p nur für endliche primzahlen?!
+%nu statt p, da p nur für endliche primzahlen?! wie ist \hat{\Z} definiert oben nur für endliche primzahlen sonst keine Teilmenge von \A_f
 \begin{proof}
 Sei $x=(x_p)_{p\leq \infty}$ mit $x_p=\sum_{n=0}^\infty x_p(n)p^n$ sowie $N=\prod_{p\leq \infty} p^{\nu_p}$.
 Dann gilt $\nu_p=0$ für fast alle $p$ und $N\hat{\Z}=\prod_{p<\infty}p^{\nu_p} \Z_p$.
@@ -318,28 +323,28 @@ Der Chinesische Restsatz existiert ein eindeutiges $\alpha_N \in \Z$, $0\leq \al
 \begin{align*}
 \alpha_N=\sum_{n=0}^{\nu_p-1} x_p(n)p^n~~\mod p^{\nu_p}
 \end{align*}
-für alle $\nu_p\not =0$. Für dieses $\alpha_N$ gilt $\alpha_N \in x+N \hat{Z}$.
+für alle $\nu_p\not =0$. Für dieses $\alpha_N$ gilt $\alpha_N \in x+N \hat{\Z}$.
 Diese Approximation werden für wachsendes $N$ immer besser.
 Insbesondere gilt $\alpha_M=\alpha_N ~\mod N$ für alle Vielfachen $M$ von $N$. Also definiert $x$ eine Folge ganzer Zahlen $(\alpha_N)_{N>0}$ mit $0\leq \alpha_N <N$ sowie $\alpha_M=\alpha_N \mod N$ falls $N\mid M$.
 \end{proof}
 
-Umgekehrt definiert eine solche Folge ein Element in $\hat{Z}$.
+Umgekehrt definiert eine solche Folge ein Element in $\hat{\Z}$.
 
 \begin{defi}
-Eine Folge von Restklassen $(\alpha_N)_{N>0}$ mit $\alpha_N)\Z /N\Z$, die die Kompatibilitätsbedingung $\alpha_M=\alpha_N \mod N$ für $N \mid M$ erfüllt, heißt \emph{kompatibles System}.
+Eine Folge von Restklassen $(\alpha_N)_{N>0}$ mit $\alpha_N\in\Z /N\Z$, die die Kompatibilitätsbedingung $\alpha_M=\alpha_N \mod N$ für $N \mid M$ erfüllt, heißt \emph{kompatibles System}.
 Der projektive Limes
 \begin{align*}
-\lim_{\longleftarrow} \Z /N \Z=\{(\alpha_N) \in \prod_{N>0} (\Z /N \Z \mid (\alpha_N) \text{ ist kompatibel}\}
+\lim_{\longleftarrow} \Z /N \Z=\left\lbrace(\alpha_N) \in \prod_{N>0} (\Z /N \Z \mid (\alpha_N)_{N>0} \text{ ist kompatibel}\right\rbrace
 \end{align*}
-%TODO vermutlich zu lang
 ist auf natürliche Art und Weise ein Ring.
 Wir können diesen mit der Topologie des projektiven Limes ausstatten.
+%TODO was ist dieser Limes?!
 \end{defi}
 
 \begin{thm}
 Die Abbildung
 \begin{align*}
-\hat{Z}&\mapsto \lim_{\longleftarrow} \Z /N \Z\\
+\hat{\Z}&\mapsto \lim_{\longleftarrow} \Z /N \Z\\
 x&\mapsto (\alpha_N \mod N)
 \end{align*}
 ist ein Isomorphismus topologischer Ringe.
@@ -350,7 +355,7 @@ Die Abbildung
 \hat{\Z} &\to \Z /N\Z\\
 x&\mapsto \alpha_N \mod N
 \end{align*}
-ist surjektiv mit Kern $N\hat{Z}$. Also folgt
+ist surjektiv mit Kern $N\hat{\Z}$. Also folgt
 \begin{align*}
 \hat{\Z}/N\hat{\Z}=\Z /N \Z.
 \end{align*}

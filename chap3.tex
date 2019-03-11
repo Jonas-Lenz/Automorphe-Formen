@@ -20,7 +20,7 @@ Die beiden folgenden Theoreme sichern uns die Existenz und Eindeutigkeit eines i
 Weitere Details zu dieser Theorie findet man in Kapitel VII \S 2,3 in \cite{Elstrodt}.
 
 \begin{thm}[Riesz]
-Sei $X$ ein lokal kompakter Hausdorffraum und
+Sei $X$ ein lokalkompakter Hausdorffraum und
 \begin{align*}
 I \colon \CC_c(X) \to \C
 \end{align*}
@@ -162,6 +162,8 @@ $\mu(A)=\mu(x^{-1}xA)=\abs{x^{-1}}_p\mu(xA)$,
 also folgt $\mu(xA)=\abs{x}_p\mu(A)$.
 \end{proof}
 
+Als Konsequenz erhalten wir folgende nützliche Transformationsformel für $\Q_p$.
+
 \begin{cor}
 Sei $f$ integrierbar. Dann gilt für $a \in \Q_p^\ast$
 \begin{align*}
@@ -173,9 +175,8 @@ Wir wollen die letzte Proposition verwenden
 Es gilt 
 \begin{align*}
 \int_{\Q_p}f(a^{-1}x)~\mathrm{d}\mu(x)&=\int_{\Q_p} f(x)~\mathrm{d}\mu_a(x)\\
-&=\abs{a}_p \int_{\Q_p} f(x)~\mathrm{d}\mu(x).
+&=\abs{a}_p \int_{\Q_p} f(x)~\mathrm{d}\mu(x). \qedhere
 \end{align*}
-\qedhere
 \end{proof}
 Wir werden das normierte Haarmaß auf $\Q_p$ mit $\mathrm{d}x$ notieren.
 
