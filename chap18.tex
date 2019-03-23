@@ -11,14 +11,137 @@ die
 für alle $x,y,z \in g$ erfüllt.
 
 \begin{bsp}
-\begin{enumerate}[label=(\roman*)]
-\item die $n\times n$ Matrizen über $\C$ bilden eine Lie-Algebra bezüglich $[A,B]=AB-BA$.
-\end{enumerate}
+Die $n\times n$ Matrizen über $\C$ bilden eine Lie-Algebra bezüglich $[A,B]=AB-BA$.
 \end{bsp}
 
 \begin{defi}
-Sei $g$ eine Lie Algebra. Eine \emph{universell einhüllende Algebra} von $g$ ist ein Paar $(U,i)$ wobei $U$ eine assoziative Algebra und
+Sei $g$ eine Lie-Algebra. Eine \emph{universell einhüllende Algebra} von $g$ ist ein Paar $(U,i)$ wobei $U$ eine assoziative Algebra und
 $i$ eine Abbildung $i\colon g \to U$ mit
 $i([x,y])=[i(x),i(y)]$ ist, die die folgende universelle Eigenschaft erfüllt
+
+%\begin{tikzcd}
+%g \arrow[r, "j"] \arrow[rd, "i"] &A\\
+%&U \arrow[u, "\Phi"]
+%\end{tikzcd}
+
 %TODO hier Diagramm einfügen
 \end{defi}
+
+\begin{prop}
+Sei $g$ eine Lie-Algebra.
+Dann besitzt $g$ eine universell einhüllende Algebra $U(g)$ und diese ist eindeutig bis auf eindeutigen Isomorphismus.
+\end{prop}
+\begin{proof}
+%Übung, Tr(g)=k \oplus g \oplus g \dots.
+%Teile iwas raus, tensorprodukt.
+Die Eindeutigkeit ist aus dem Diagramm klar.
+Die Existenz verbleibt als Übung.
+\end{proof}
+
+Wir zitieren folgendes Resultat welches 1900 von Henri Poincaré und 1937 von Birkhoff und Witt bewiesen wurde.
+\begin{thm}
+Sei $g$ eine Lie-Algebra mit universell einhüllender Algebra $(U,i)$.
+Dann ist die Abbildung $i\colon g \to U$ injektiv.
+\end{thm}
+
+Wir konstruieren nun einen Isomorphismus von $U(\GL_2(\R))$ in eine Algebra bestehend aus Differentialoperatoren.
+
+\begin{defi}
+Sei $\alpha \in \GL_2(\R)$ und $F \colon \GL_2(\R) \to \C$ glatt. Definiere für $g \in \GL_2(\R)$
+\begin{align*}
+(D_\alpha F)(g)&\coloneqq \frac{\partial}{\partial t} F(g\mathrm{e}^{t\alpha}) \mid_{t=0}\\
+&=\frac{\partial}{\partial t} F(g+tg\alpha)\mid_{t=0}.
+\end{align*}
+\end{defi}
+
+\begin{prop}
+Für $c\in \R$ und $F, G \colon \GL_2(\R) \to \C$ glatt gilt
+\begin{enumerate}[label=(\roman*)]
+\item $D_\alpha(F+G)=D_\alpha F+ D_\alpha G$,
+\item $D_\alpha(cF)=c(D_\alpha F)$,
+\item $D_\alpha(FG)=(D_\alpha F)G+F(D_\alpha G)$.
+%hier sollte in t=0 wichtig sein.
+\end{enumerate}
+\end{prop}
+
+\begin{defi}
+Die Differentialoperatoren $D_\alpha$ erzeugen eine assoziative Algebra
+über $\R$, die wir mit $D_\R^2$ bezeichnen.
+Das Produkt ist durch Komposition gegeben.
+\end{defi}
+
+Wir sammeln nun einige Eigenschaften dieser Algebra.
+
+\begin{prop}
+Für $c \in \R$ und $\alpha,\beta \in \GL_2(\R)$ gilt
+\begin{enumerate}[label=(\roman*)]
+\item $D_{c\alpha} =c D_\alpha$,
+\item $D_{\alpha+\beta}=D_\alpha +D_\beta$,
+\item $D_\alpha D_\beta -D_\beta D_\alpha=D_{\alpha\beta-\beta\alpha}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Sei $F \colon \GL_2(\R) \to \C$ glatt. Schreibe $g \in \GL_2(\R)$ als $g=(g_{ij})$.
+Sei $h=(h_{ij})\in \GL_2(\R)$ und $\alpha=(\alpha_{ij})\in \GL_2(\R)$.
+Dann gilt mit der Kettenregel
+\begin{align*}
+(D_\alpha F)(h)&= \frac{\partial}{\partial t} F(h+th\alpha)\mid_{t=0}\\
+&=\sum_{i,j} \frac{\partial F}{\partial g_{ij}} \mid_h \frac{\partial}{\partial t} (h_{ij}+t(h\alpha)_{ij})\mid_{t=0}\\
+&=\sum_{i,j} \frac{\partial F}{\partial g_{ij}} \mid_h (h\alpha)_{ij}.
+\end{align*}
+Daraus folgen die beiden ersten Eigenschaften.
+Anwenden von $D_\beta$ impliziert unter der Verwendung der Produktregel
+\begin{align*}
+D_\beta(D_\alpha F)(h)&=\frac{\partial }{\partial t} (D_\alpha F)(h+th\beta)\mid_{t=0}\\
+&\frac{\partial}{\partial t} \left( \sum_{i,j} \frac{\partial F}{\partial g_{ij}} \mid_{h+th\beta} (h\alpha +th\beta\alpha)_{ij}\right) \mid_{t=0}\\
+&=\sum_{i,j} \left(\frac{\partial F}{\partial g_{ij}} \mid_h (h\beta \alpha)_{ij} +\sum_{k,l} \frac{\partial^2 F}{\partial g_{kl} \partial g_{ij}}\mid_h (h\beta)_{kl} (h\alpha)_{ij} \right).
+\end{align*}
+Dies impliziert nun
+\begin{align*}
+(D_\beta D_\alpha-D_\alpha D_\beta)(F(h))&=\sum_{i,j} \frac{\partial F}{\partial g_{ij}}\mid_h \left( (h\beta \alpha)_{ij}-(h\alpha\beta)_{ij} \right)\\
+&=D_{[\beta,\alpha]} F(h),
+\end{align*}
+was die dritte Behauptung zeigt.
+\end{proof}
+
+Also erhalten wir mit $V=\CC^\infty(\GL_2(\R))$ eine lineare Abbildung
+\begin{align*}
+j \colon \GL_2(\R) &\to \End(V)\\
+a &\mapsto D_\alpha.
+\end{align*}
+Aufgrund der universellen Eigenschaft der universell einhüllende
+Algebra folgt aus $[D_\alpha,D_\beta]=D[\alpha,\beta]$, dass es einen
+eindeutigen Homomorphismus
+\begin{align*}
+\Phi \colon U(\GL_2(\R)) &\to \End(V)
+\end{align*}
+mit $\Phi(i(\alpha))=D_\alpha$ gibt.
+
+\begin{thm}
+Die Abbildung $\Phi$ ist injektiv und liefert einen Isomorphismus von $U(\GL_2(\R))$ und $D_\R^2$.
+\end{thm}
+
+Dieses Resultat lässt sich folgendermaßen verallgemeinern:
+Sei $G$ eine Lie-Gruppe mit Lie-Algebra $g$.
+Dann kann $U(g)$ mit der Algebra der linksinvarianten Differentialoperatoren identifiziert werden.
+
+Wir erweitern die Operation von $\GL_2(\R)$ auf den glatten Funktionen
+$F \colon \GL_2(\R) \to \C$ zu einer Operation von $\GL_2(\C)=\GL_2(\R) \otimes_\R \C$ durch $(D_{\mathrm{i}\alpha} F)(g)\coloneqq \mathrm{i} (D_\alpha F)(g)$
+für $\alpha \in \GL_2(\R)$ und identifizieren $U(\GL_2(\C))$ mit $D_\C^2 \coloneqq D_\R^2 \otimes_\R \C$.
+Im folgenden schreiben wir für $\GL_2(\C)$ nur $g$.
+
+\begin{prop}
+Sei $F \colon \GL_2(\R) \to \C$ glatt und linksinvariant unter $\GL_2(\Z)$
+und rechtsinvariant unter dem Zentrum $Z(\GL_2(R))=\R^\ast$.
+Dann ist $DF$ für alle $D \in D_\C^2$ linksinvariant unter $\GL_2(\Z)$ sowie rechtsinvariant unter $Z(\GL_2(\R))$.
+\end{prop}
+\begin{proof}
+Seien $\alpha_1,\dots,\alpha_n \in \GL_2(\R)$ und sei $D=D_{\alpha_1} \circ \dots \circ D_{\alpha_n}$.
+Dann gilt für $\gamma \in \GL_2(\Z)$
+\begin{align*}
+DF(\gamma h) &=\frac{\partial}{\partial t_1}\dots \frac{\partial}{\partial t_n}(F(\gamma h \ex^{t_n\alpha_n} \dots \ex^{t_1\alpha_1}))\mid_{t=0}\\
+&=\frac{\partial}{\partial t_1}\dots \frac{\partial}{\partial t_n}(F( h \ex^{t_n\alpha_n} \dots \ex^{t_1\alpha_1}))\mid_{t=0}\\
+&=(DF)(h).
+\end{align*}
+Die Invarianz unter $Z(\GL_2(\R))$ funktioniert analog.
+\end{proof}

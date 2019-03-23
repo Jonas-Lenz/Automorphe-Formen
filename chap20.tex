@@ -1,0 +1,468 @@
+\chapter{Konstruktion automorpher Formen auf $\GL_2(\A)$}
+Wir konstruieren in diesem Abschnitt automorphe Formen auf $\GL_2(\A)$
+durch Adelisierung klassischer Modulformen.
+
+Starke Approximation für $\GL_1(\A)$ besagt
+%TODO Verweis suchen
+\begin{align*}
+\A^\ast=\Q^\ast \R_+^\ast \prod_{p <\infty} \Z_p^\ast
+\end{align*}
+%hineres ist adelischer teil und Q wird auf alles multipliziert.
+%q diagonal eingebettet in \A^\ast.
+Sei $x=(x_\infty,x_2,\dots,)\in \A^\ast$. Dann ist $rx=(rx_\infty,rx_2,\dots) \in \R_+^\ast \prod_{p<\infty} \Z_p^\ast$ für ein geeignetes $r \in \Q^\ast$.
+
+Für $\GL_2(\A)$ gilt analog
+\begin{align*}
+\GL_2(\A)=\GL_2(\Q) \GL_2(\R)^+ \prod_{p<\infty} \GL_2(\Z_p).
+\end{align*}
+
+Sei $f \colon \mathds{H} \to \C$ und $k\in \Z$. Für $g=\begin{pmatrix}
+a &b\\
+c&d
+\end{pmatrix} \in \GL_2(\R)^+$ definieren wir
+\begin{align*}
+f\mid_{k,g}=f\mid_g(\tau)=\det(g)^{\frac{k}{2}} (c\tau+d)^{-k} f(g\tau).
+\end{align*}
+
+Wir können $g$ eindeutig schreiben als
+\begin{align*}
+g=\begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \alpha & -\sin \alpha\\
+\sin \alpha &\cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+\end{align*}
+mit $x,y,\alpha,r\in \R$, $y,r>0$ und $0\leq \alpha <2 \pi$.
+%TODO verweis auf richtige Zerlegung raussuchen. Iwasawa Zerlegung
+Dann ist
+\begin{align*}
+f\mid_g(\mathrm{i})=y^{\frac{k}{2}} \ex^{-\mathrm{i}k\alpha} f(x+\mathrm{i}y).
+\end{align*}
+%TODO sollte man mal nachrechnen, sogar unabhängig von $r$.
+
+Dies werden wir benutzen, um automorphe Formen zu konstruieren.
+
+Sei nun $f \in M_k$. Wir definieren nun die adelische Anhebung $\phi_f$ auf $\GL_2(\A)$ von $f$.
+%Lift statt Anhebung?!
+Sei $g \in \GL_2(\A)$. Schreibe
+\begin{align*}
+g = \underbrace{\gamma}_{\in \GL_2(\Q)} \underbrace{g_\infty}_{ \in \GL_2(\R)^+} \underbrace{k_f}_{\in \prod_{p<\infty} \GL_2(\Z_p)}.
+\end{align*}
+und definieren
+\begin{align*}
+\phi_f(g)\coloneqq f\mid_{k,g_\infty}(\mathrm{i}).
+\end{align*}
+Da die obige Zerlegung nicht eindeutig ist, müssen wir zeigen, dass dies aber keinen Einfluss auf $\phi_f$ hat.
+\begin{prop}
+Die Abbildung $\phi_f$ ist wohldefiniert.
+\end{prop}
+\begin{proof}
+Sei $g=\gamma g_\infty k_f=\gamma' g_\infty' k_f'$. Dann ist
+$\gamma g_\infty=\gamma' g_\infty'$ in $\GL_2(\R)^+$ sowie
+$\gamma k_f =\gamma' k_f'$ in $\prod_{p<\infty} \GL_2(\Z_p)$.
+Es folgt $\gamma^{-1} \gamma' \in \prod_{p<\infty} \GL_2(\Z_p)$.
+Dies impliziert $\gamma^{-1} \gamma' \in \GL_2(\Z)$, da die Einträge in allen $\Z_p$ liegen.
+Aus der ersten Gleichheit folgt $\gamma^{-1} \gamma' \in \SL_2(\Z)$.
+Damit gilt
+\begin{align*}
+f \mid_{g_\infty}=f \mid_{\gamma^{-1} \gamma' g_\infty'} = \left(f\mid_{\gamma^{-1} \gamma'} \right) \mid_{g_\infty'}=f\mid_{g_\infty'}.
+\end{align*}
+\end{proof}
+
+\begin{prop}
+$\phi_f$ ist glatt.
+\end{prop}
+\begin{proof}
+Für festes $\gamma \in \GL_2(\Q)$ ist
+\begin{align*}
+\phi_f(g)=f\mid_{g_\infty}(\mathrm{i})=y^{\frac{k}{2}} \ex^{-\mathrm{i}k\alpha } f(x+\mathrm{i}y)
+\end{align*}
+für alle $g=\gamma g_\infty k_f$ in $\gamma \GL_2(\R)^+ \prod_{p<\infty} \GL_2(\Z_p)$.
+Diese Funktion ist glatt als Funktion in $x,y,\alpha$, da $f$ holomorph ist.
+Somit ist $f$ (im wesentlichen) glatt im Sinne von Kapitel 11 ($\Phi_\infty^U \colon \GL_2(\R)^+ \to \C$).
+\end{proof}
+
+\begin{prop}
+$\phi_f$ ist linksinvariant unter $\GL_2(\Q)$.
+\end{prop}
+\begin{proof}
+Es ist aus der Definition von $\phi_f$ klar, dass $\phi_f(\gamma g)=\phi_f(g)$ für alle $\gamma \in \GL_2(\Q)$ und alle $g \in \GL_2(\A)$ ist.
+\end{proof}
+
+\begin{prop}
+Weiterhin ist $\phi_f(gz)=\phi_f(zg)=\phi_f(g)$ für alle $z \in Z(\GL_2(\A))$ und $g \in \GL_2(\A)$.
+\end{prop}
+\begin{proof}
+Schreibe $z=\begin{pmatrix}
+a &0\\
+0 &a
+\end{pmatrix}$ mit einem $a \in \A^\ast=\Q^\ast \R_+^\ast \hat{Z}^\ast$.
+Dann
+\begin{align*}
+z=\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+\begin{pmatrix}
+a_\infty &0\\
+0 &a_\infty
+\end{pmatrix}
+\begin{pmatrix}
+a_f' &0\\
+0 & a_f'
+\end{pmatrix}
+\end{align*}
+mit $a_\infty' \in \R_+^\ast$ und $a_f' \in \hat{Z}^\ast$.
+Ist $g=\gamma g_\infty k_f$, so ist
+\begin{align*}
+gz= \gamma \begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+g_\infty
+\begin{pmatrix}
+a_\infty' &0 \\
+0 &a_\infty'
+\end{pmatrix}
+k_f
+\begin{pmatrix}
+a_f' &0 \\
+0 &a_f'
+\end{pmatrix}
+\end{align*}
+und
+\begin{align*}
+\phi_f(gz)&=f\mid_{g_\infty \begin{pmatrix}
+a_\infty' &0 \\
+0 &a_\infty'
+\end{pmatrix}} (\mathrm{i})\\
+f\mid_{g_\infty}(\mathrm{i})=\phi_f(g).
+\end{align*}
+Das entscheidende hier ist, dass der Strich Operator trivial auf den Diagonalmatrizen ist und mit Komposition verträglich ist.
+\end{proof}
+%Das reicht uns, indem wir in Def 11.3 den trivialen Charakter wählen.
+
+Sei $K=\Oo_2(\R) \prod_{p<\infty} \GL_2(\Z_p)$.
+\begin{prop}
+Dann ist $\phi_f$ rechts $K$-endlich. 
+\end{prop}
+\begin{proof}
+Durch Rechtstranslation mit $k\in K$ entstehen neue Funktionen $(\phi_f \circ \R_k)(g)=\phi_f(gk)$.
+Wir werden zeigen, dass dieser Vektorraum endlichdimensional ist.
+Seine Dimension ist nach oben durch $2$ beschränkt.
+Schreibe dazu (Iwasawa Zerlegung) $g\in \GL_2(\A)$ als $g \gamma g_\infty k_f$ mit
+\begin{align*}
+g_\infty= sowie immer
+\end{align*}
+wobei $x,y,\alpha,r \in \R$, $y,r>0$ und $0\leq \alpha < 2\pi$. Sei $k\in K$.
+Wir nehmen zuerst an, dass $k_\infty \in \SO_2(\R)$ ist, das heißt
+\begin{align*}
+k_\infty \begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta.
+\end{pmatrix}
+\end{align*}
+Dann ist $gk=\gamma g_\infty \begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta.
+\end{pmatrix} k_f'$ wobei $k_f'$ auch den endlichen Anteil von $k$ enthält.
+Es gilt
+\begin{align*}
+g_\infty \begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta.
+\end{pmatrix}= \begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\alpha+\beta) &-\sin(\alpha+\beta)\\
+\sin(\alpha+\beta) &\cos(\alpha+\beta)
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+\end{align*}
+sodass
+\begin{align*}
+\phi_f(gk)= y^{\frac{k}{2}} \ex^{-\mathrm{i}k(\alpha+\beta)} f(x+\mathrm{i}y)=\mathrm{e}^{-\mathrm{i}k\beta}  \phi_f(g)
+\end{align*}
+folgt.
+Das heißt für positive Determinante passiert nichts.
+Ist $k_\infty \in \Oo_2(\R)$ mit $\det(K_\infty)=-1$, so ist
+\begin{align*}
+k_\infty=\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta.
+\end{pmatrix}
+\end{align*}
+und
+\begin{align*}
+gk=gk=\gamma g_\infty
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta
+\end{pmatrix} k_f'.
+\end{align*}
+Mit
+\begin{align*}
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+1 &-x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+=\begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\end{align*}
+folgt
+\begin{align*}
+g_\infty \begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta
+\end{pmatrix}=
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+1 &-x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+=\begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \alpha &-\sin \alpha\\
+\sin \alpha \cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \beta &-\sin \beta\\
+\sin \beta &\cos \beta
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+&=\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+1 &-x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos(\beta-\alpha) &-\sin(\beta-\alpha)\\
+\sin(\beta-\alpha) &\cos(\beta-\alpha)
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+\end{align*}
+sodass
+\begin{align*}
+\phi_f(gk)&=y^{\frac{k}{2}} \mathrm{e}^{-\mathrm{i}k (\beta-\alpha)} f(-x+\mathrm{i}y)\\
+&=\ex^{-\mathrm{i}k\beta} y^{\frac{k}{2}} \mathrm{e}^{\mathrm{i}k\alpha} f(-x+\mathrm{i}y)\\
+&=\ex^{-\mathrm{i}k \beta} \phi_f\left(g\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix} \right).
+\end{align*}
+Somit ist
+\begin{align*}
+\langle \phi_f \circ R_k \mid k\in K \rangle =\C \phi_f +\C(\phi_f \circ R_{\begin{pmatrix}
+-1 &0\\
+0 &1
+\end{pmatrix}}.
+\end{align*}
+\end{proof}
+
+Als nächstes müssen wir zeigen, dass $\phi_f$ ist $Z(U(g))$-endlich ist.
+Dafür benutzen wir das Resultat aus dem letzten Kapitel.
+\begin{prop}
+$\phi_f$ ist $\Z(U(g))$-endlich.
+\end{prop}
+\begin{proof}
+Hierbei betrachten wir $\phi_f$ wieder als Funktion auf $\GL_2(\R)^+$.
+Also
+\begin{align*}
+\phi_f \colon \GL_2(\R)^+ &\to \C\\
+g &\mapsto f\mid_g(\mathrm{i}).
+\end{align*}
+Aus dem letzten Kapitel wissen wir, dass $Z(U(g))$ von $D_z$ und $D_c$ erzeugt wird.
+Es gilt
+\begin{align*}
+(D_z \phi_f)(g)&= \frac{\partial}{\partial t} \left( \phi_f (g \exp(tz))\right) \mid_{t=0}\\
+&=\frac{\partial}{\partial t} (\phi_f(g(\begin{pmatrix}
+\ex^t &0\\
+0 &\ex^t
+\end{pmatrix}))\mid_{t=0}\\
+&=\frac{\partial}{\partial t} \left(f\mid_{g \begin{pmatrix}
+\ex^t &0\\
+0 &\ex^t
+\end{pmatrix}} (\mathrm{i})\right)\mid_{t=0}\\
+\frac{\partial}{\partial t}(f\mid_g(\mathrm{i}))\mid_{t=0}=0.
+\end{align*}
+Sei $g\in \GL_2(\R)^+$. Dann lässt sich $g$ eindeutig schreiben als
+\begin{align*}
+\begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \alpha &-\sin \alpha\\
+\sin \alpha &\cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}.
+\end{align*}
+In diesen Koordinaten ist der Casimir-Operator durch
+\begin{align*}
+D_c=2y^2\left( \frac{\partial^2}{\partial x^2}+ \frac{\partial^2}{\partial y^2}\right) +2y\frac{\partial ^2}{\partial x \partial y}.
+\end{align*}
+Es folgt
+\begin{align*}
+D_c \phi_f&=D_c\left(y^{\frac{k}{2}} \ex^{-\mathrm{i}k\alpha} f(x+\mathrm{i}y)\right)\\
+&=2y^{\frac{k}{2}+2} \ex^{-\mathrm{i}k\alpha} \frac{\partial^2}{\partial x^2}+ \frac{\partial^2}{\partial y^2} f(x+\mathrm{i}y)\\
+-2\mathrm{i}k y^{\frac{k}{2}+1)} \mathrm{e}^{-\mathrm{i}k\alpha} \left(\frac{\partial}{\partial x}+\mathrm{i}\frac{\partial}{\partial y}\right) f(x+\mathrm{i}y)\\
++2y^{\frac{k}{2}} \frac{k}{2}(\frac{k}{2}-1)\ex^{-\mathrm{i}k\alpha} f(x+\mathrm{i}y)\\
+&=\frac{1}{2}k(k-2) \phi_f(g).
+\end{align*}
+Einige Terme fallen hier weg, da $f$ holomorph ist. Insbesondere sind somit Real- und Imaginärteil harmonisch.
+Somit folgt
+\begin{align*}
+\langle D\phi_f \mid D\in Z(U(g))\rangle=\C \phi_f. \qedhere
+\end{align*}
+\end{proof}
+
+\begin{prop}
+Als letztes zeigen wir noch, dass $\phi_f$ beschränktes Wachstum hat.
+\end{prop}
+\begin{proof}
+Schreibe $g\in \GL_2(\A)$ in seiner üblichen Zerlegung
+\begin{align*}
+g=\gamma \begin{pmatrix}
+1 &x\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+y &0\\
+0 &1
+\end{pmatrix}
+\begin{pmatrix}
+\cos \alpha &-\sin \alpha\\
+\sin \alpha &\cos \alpha
+\end{pmatrix}
+\begin{pmatrix}
+r &0\\
+0 &r
+\end{pmatrix}
+k_f
+\end{align*}
+mit $x,y,\alpha,r \in \R$, $r,y>0$, $x^2+y^2\geq 1$, $-\frac{1}{2} \leq x \leq 0$.
+%halber Fundamentalbereich
+Dann ist
+\begin{align*}
+\abs{\phi_f(g)}&=y^{\frac{k}{2}} \abs{f(x+\mathrm{i}y)}\\
+&\leq cy^{\frac{k}{2}}
+\end{align*}
+für $y$ groß genug, weil $f \in M_k$ ist, und
+\begin{align*}
+\norm{g} \geq \frac{\sqrt{2}}{2}y^{\frac{1}{3}}
+\end{align*}
+(vgl Goldfeld, Humdley, S.123) sodass
+\begin{align*}
+\abs{\phi_f(g)} \leq D \norm{g}^m
+\end{align*}
+für geeignete Konstanten $D,m$.
+\end{proof}
+
+Insgesamt haben wir folgendes gezeigt.
+\begin{thm}
+Sei $f \in M_k$. Dann ist die Funktion
+\begin{align*}
+\phi_f \colon \GL_2(\A) \to \C
+\end{align*}
+glatt und erfüllt
+\begin{enumerate}
+\item $\phi_f(\gamma g)= \phi_f(g)$ für alle $g \in \GL_2(\A)$ und $\gamma \in \GL_2(\Q)$,
+\item $\phi_f(zg)=\phi_f(g)$ für alle $g\in \GL_2(\A)$ und $z\in Z(\GL_2(\A))$,
+\item $\phi_f$ ist rechts $K$-endlich,
+\item $\phi_f$ ist $Z(U(g))$-endlich,
+\item $\phi_f$ hat beschränktes Wachstum,
+\end{enumerate}
+das heißt $\phi_f$ ist eine automorphe Form auf $\GL_2(\A)$.
+\end{thm}
