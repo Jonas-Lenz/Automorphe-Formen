@@ -188,7 +188,7 @@ für alle $i,j\geq N$. Somit wir haben unsere gewünschte Cauchyfolge konstruier
 Als Konsequenz halten wir folgendes Resultat fest, welches für $p=\infty$ ebenfalls aus der Analysis bekannt ist.
 
 \begin{cor}
-Eine Menge ist genau dann in $\Q_p$ kompakt, wenn sie beschränkt und abgeschlossen ist.
+Eine Menge ist in $\Q_p$ genau dann kompakt, wenn sie beschränkt und abgeschlossen ist.
 \end{cor}
 \begin{proof}
 Dies gilt, da in metrischen Räumen Folgenkompaktheit äquivalent zu Kompaktheit ist.
@@ -199,7 +199,8 @@ Wir definieren die \emph{$p$-adischen ganzen Zahlen} durch
 \begin{align*}
 \Z_p\coloneqq \{x\in \Q_p \mid \abs{x}_p \leq 1\}.
 \end{align*}
-Dies ist ein Unterring von $\Q_p$.
+Mit der starken Dreiecksungleichung kann man zeigen, dass dies ein
+Unterring von $\Q_p$ ist.
 \end{defi}
 
 Die nächste Aussage im nächsten Kapitel wichtig werden, wenn wir ein geeignetes Maß auf $\Q_p$ definieren wollen.
@@ -276,7 +277,7 @@ Weiterhin ist die Abbildung
 \Z_p &\to \Z /p^n \Z\\
 x &\mapsto \alpha_n
 \end{align*}
-ist surjektiv und ihr Kern ist durch $p^n\Z_p$ gegeben.
+surjektiv und ihr Kern ist durch $p^n\Z_p$ gegeben.
 Also folgt
 \begin{align*}
 \Z_p /p^n \Z_p \cong \Z /p^n \Z
@@ -293,6 +294,8 @@ Dies impliziert
 \end{align*}
 sodass $\Q_p$ der Quotientenkörper von $\Z_p$ ist.
 \end{lem}
+
+Dies liefert nach der bisherigen analytischen Beschreibung von $\Q_p$ und $\Z_p$ nun auch eine algebraische Beschreibung.
 
 Für $x\in \Q_p^\ast$ gilt $\abs{x^{-1}}_p=\frac{1}{\abs{x}_p}$ und somit auch
 \begin{align*}

@@ -26,6 +26,7 @@ I \colon \CC_c(X) \to \C
 \end{align*}
 eine \emph{positive lineare Form}, das heißt $I(f)\geq 0$ für alle $0\leq f \in \CC_c(X)$.
 Dann existiert ein eindeutiges Radonmaß $\mu \colon \sigma(X)\to [0,\infty]$ mit $I(f)=\int_X f ~\mathrm{d}\mu$.
+Hierbei beschreibt $\CC_c(X)$ den Raum der stetigen Funktionen mit kompaktem Träger auf $X$.
 Außerdem gilt für kompakte Mengen $K$
 \begin{align*}
 \mu(K)=\inf\{I(f)\mid f\in \CC_c(X),f \geq \chi_K\}
@@ -118,11 +119,14 @@ Der Rest verbleibt als Übungsaufgabe.
 
 \begin{bsp}
 Man kann zeigen, dass jeder stetiger Gruppenhomomorphismus $h \colon \SL(2,\R)\to \R_{\geq 0}$ konstant sein muss.
-Daraus folgt, dass jedes Haarmaß auf $\SL(2,\R)$ auch rechts invariant ist.
+Daraus folgt, dass jedes Haarmaß auf $\SL(2,\R)$ auch rechtsinvariant ist.
 \end{bsp}
 
 Wir betrachten nun die lokalkompakten Hausdorffgruppen $\Q_p$ sowie $\Q_p^\ast$.
 Wir normieren das Haarmaß $\mu$ auf $\Q_p$ durch die Forderung $\mu(\Z_p)=1$.
+
+Als nächstes betrachten wir die modulare Funktion von $\Q_p$, 
+dies wird uns auch eine Transformationsformel auf $\Q_p$ liefern.
 
 \begin{prop}
 Für eine messbare Menge $A \subseteq \Q_p$ und $x \in \Q_p^\ast$ gilt
@@ -149,7 +153,7 @@ Dann gilt $x\Z_p=p^n\Z_p$ sowie
 \Z_p=\bigcup_{j=0}^{p^n-1}(j+p^n\Z_p)
 \end{align*}
 als disjunkte Vereinigung.
-Aus $\sigma$-Additivität folgt daher
+Aus der $\sigma$-Additivität folgt daher
 \begin{align*}
 \mu(\Z_p)&=\sum_{j=0}^{p^n-1} \mu(j+p^n\Z_p)\\
 &=p^n \mu(p^n \Z_p),
@@ -162,7 +166,7 @@ $\mu(A)=\mu(x^{-1}xA)=\abs{x^{-1}}_p\mu(xA)$,
 also folgt $\mu(xA)=\abs{x}_p\mu(A)$.
 \end{proof}
 
-Als Konsequenz erhalten wir folgende nützliche Transformationsformel für $\Q_p$.
+Als Konsequenz erhalten wir wie angekündigt folgende nützliche Transformationsformel für $\Q_p$.
 
 \begin{cor}
 Sei $f$ integrierbar. Dann gilt für $a \in \Q_p^\ast$
