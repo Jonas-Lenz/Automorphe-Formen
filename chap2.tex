@@ -76,7 +76,8 @@ bezüglich $\abs{\cdot}_p$ um $x$ mit Radius $r$.
 Im Unterschied zu den bekannten Bällen aus Analysis I besitzen die Bälle
 bezüglich der $p$-adischen Beträge einige überraschende Eigenschaften.
 Beispielsweise ist einem beliebigen Ball jeder innere Punkt ein Mittelpunkt.
-Hierbei geht stark ein, dass wir mit einem nicht-archimedischen Betrag arbeiten. 
+Hierbei geht stark ein, dass wir mit einem nicht-archimedischen Betrag arbeiten und der $p$-adische Betrag
+nur abzählbar viele Werte annimmt.
 
 \begin{satz}
 Sei $p$ eine endliche Primzahl, $x\in \Q$ und $r\in \R_{>0}$.
@@ -136,6 +137,8 @@ Die restliche Aussage verbleibt als Übung.
 \end{satz}
 %TODO Beweis sollte mal vollstaendig sein.
 
+Auch für Cauchyfolgen gilt eine stärkere Eigenschaft.
+
 \begin{satz}
 Sei $(x_n)_{n \in \N} \subseteq \Q$ eine $p$-adische Cauchyfolge, die nicht $p$-adisch gegen $0$ konvergiert.
 Dann existiert ein $N \in \N$, sodass $\abs{x_n}_p$ für alle $n>N$ konstant ist.
@@ -158,7 +161,7 @@ Als nächstes beweisen wir den Satz von Bolzano-Weierstraß für $p$-adische Zah
 \begin{thm}
 Jede beschränkte Folge in $\Q_\nu$ hat einen Häufungspunkt.
 \begin{proof}
-Für $\nu=\infty$ ist dies die Aussage des Satzes von Bolzano-Weierstraß.
+Für $\nu=\infty$ ist dies die Aussage des Satzes von Bolzano-Weierstraß, bekannt aus Analysis I.
 Sei also $(x_n)_{n\in \N} \subseteq \Q_p$ eine beschränkte Folge in $\Q_p$.
 Nach Definition ist jedes $x_n$ eine Cauchyfolge in $\Q$ bezüglich $\abs{\cdot}_p$.
 Für jedes $n \in \N$ wählen wir $x_n' \in \Q$ sodass
@@ -191,7 +194,7 @@ Als Konsequenz halten wir folgendes Resultat fest, welches für $p=\infty$ ebenf
 Eine Menge ist in $\Q_p$ genau dann kompakt, wenn sie beschränkt und abgeschlossen ist.
 \end{cor}
 \begin{proof}
-Dies gilt, da in metrischen Räumen Folgenkompaktheit äquivalent zu Kompaktheit ist.
+Dies gilt, da in metrischen Räumen Folgenkompaktheit äquivalent zu Kompaktheit ist (vgl. z.\thinspace B. \cite[Proposition 6.22]{manetti}).
 \end{proof}
 
 \begin{defi}
@@ -210,7 +213,13 @@ Dafür spielen sowohl die Kompaktheit als auch die Offenheit von $\Z_p$ eine gro
 Die $p$-adischen ganzen Zahlen $\Z_p$ sind beschränkt, abgeschlossen und offen.
 Insbesondere ist $\Z_p$ kompakt.
 \end{satz}
-%TODO Beweis für offenheit hinschreiben
+\begin{proof}
+Da die Abbildung $\abs{\cdot}_p$ stetig ist, folgt die Abgeschlossenheit von $\Z_p$.
+Mit Satz 2.7 (ii) ist klar, dass $\Z_p$ offen ist.
+Die Beschränktheit ist klar.
+Mit Korollar 2.12 folgt dann die Kompaktheit.
+\end{proof}
+
 
 \begin{satz}
 Sei $x\in \Z_p$ und $n\in \N_{\geq 1}$.
@@ -247,7 +256,7 @@ Sei $\beta$ ein anderes solches Element. Dann gilt $\abs{\alpha-\beta}\leq p^{-n
 \end{satz}
 
 \begin{cor}
-Es gilt $\overline{\Z}=\Z_p$, insbesondere für jedes $x \in \Z_p$ existiert eine Folge
+Es gilt $\overline{\Z}=\Z_p$, insbesondere existiert für jedes $x \in \Z_p$ eine Folge
 $(\alpha_n)_{n\in \N}\subseteq \Z$ mit $0 \leq \alpha_n<p^n$, $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ und $\abs{x-\alpha_n}\leq p^{-n}$.
 Darüber hinaus ist diese Folge eindeutig.
 \end{cor}
@@ -256,8 +265,12 @@ Darüber hinaus ist diese Folge eindeutig.
 %\end{proof}
 %TODO wie geht das wirklich?
 
+%das folgende ist teil des beweises von 2.17
 Sei umgekehrt $(\alpha_n)_{n \in \N}\subseteq \Z$ eine Folge mit $0\leq \alpha_n <p^n$ sowie $\alpha_n=\alpha_{n-1} \mod p^{n-1}$.
 Dann ist $(\alpha_n)_{n\in \N}$ nach Konstruktion eine Cauchyfolge und konvergiert daher gegen ein $x\in \Z_p$.
+
+Bisher haben wir die $p$-adischen Zahlen analytisch konstruiert.
+Jetzt werden wir eine algebraische Konstruktion kennenlernen.
 
 \begin{defi}
 Eine Folge von Restklassen $(\alpha_n)_{n\in \N}$ wobei $\alpha_n \in \Z / p^n\Z$ ist, die $\alpha_n=\alpha_{n-1} \mod p^{n-1}$ erfüllt, heißt \emph{kompatibles System}.
