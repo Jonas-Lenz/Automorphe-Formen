@@ -15,6 +15,10 @@ gilt für alle $A \in \sigma(X)$.
 \begin{bsp}
 Das Lebesguemaß auf $\Rn$ ist ein Radonmaß.
 \end{bsp}
+\begin{proof}
+Es ist klar, dass das Lebesguemaß lokal endlich ist.
+Die Regularität von innen folgt aus \cite[II, 7.2]{Elstrodt}.
+\end{proof}
 
 Die beiden folgenden Theoreme sichern uns die Existenz und Eindeutigkeit eines in einem gewissen Sinne schönen Maßes auf $\Q_p$ beziehungsweise allgemeiner auf lokalkompakten Hausdorffgruppen.
 Weitere Details zu dieser Theorie findet man in Kapitel VII \S 2,3 in \cite{Elstrodt}.
@@ -26,7 +30,7 @@ I \colon \CC_c(X) \to \C
 \end{align*}
 eine \emph{positive lineare Form}, das heißt $I(f)\geq 0$ für alle $0\leq f \in \CC_c(X)$.
 Dann existiert ein eindeutiges Radonmaß $\mu \colon \sigma(X)\to [0,\infty]$ mit $I(f)=\int_X f ~\mathrm{d}\mu$.
-Hierbei beschreibt $\CC_c(X)$ den Raum der stetigen Funktionen mit kompaktem Träger auf $X$.
+Hierbei bezeichnet $\CC_c(X)$ den Raum der stetigen Funktionen mit kompaktem Träger auf $X$.
 Außerdem gilt für kompakte Mengen $K$
 \begin{align*}
 \mu(K)=\inf\{I(f)\mid f\in \CC_c(X),f \geq \chi_K\}
