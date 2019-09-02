@@ -7,16 +7,23 @@ Dafür betrachten wir den lokalkompakten Ring
 %TODO a.e. schön machen 
 von Adelen.
 
+Wir erinnern kurz an die Definition der Produkttopolgie.
+
+\begin{defi}
 Sei $(X_i)_{i\in I}$ eine Familie topologischer Räume.
 Die Produkttopologie auf $\prod_{i \in I} X_i$ ist die gröbste Topologie auf $\prod_{i \in I} X_i$, bezüglich der alle Projektionen stetig sind.
 Eine Basis für diese Topologie ist durch $\{\prod_{i\in I}O_i\}$ gegeben, wobei $O_i$ für alle $i \in I$ offen ist und $O_i=X_i$ für fast alle $i \in I$ gilt.
 
 Mengen dieser Form heißen \emph{offene Rechtecke}.
+\end{defi}
 
 Wir benötigen folgenden klassischen Satz aus der Topologie.
 \begin{thm}[Tychonoff]
 Sei $(X_i)_{i \in I}$ eine Familie von topologischen Räumen. Dann ist das Produkt der $X_i$ genau dann kompakt, wenn alle $X_i$ kompakt sind.
 \end{thm}
+\begin{proof}
+Für einen Beweis siehe beispielsweise \cite[Theorem 7.7]{manetti}
+\end{proof}
 
 \begin{thm}
 Sei $(X_i)_{i \in I}$ eine Familie von Hausdorffräumen. Dann ist $\prod_{i \in I} X_i$ lokalkompakt genau dann wenn alle $X_i$ lokalkompakt und alle bis auf endlich viele sogar kompakt sind.
@@ -40,6 +47,8 @@ dass $X$ als Produkt einer kompakten und einer lokalkompakten Menge lokalkompakt
 $\prod_{p <\infty} \Q_p$ ist nicht lokalkompakt und daher gibt es dort kein Haarmaß.
 \end{bsp} 
 %TODO wissen wir wirklich dass es keins gibt?!
+
+Daher benötigen einen für unsere Zwecke besseren Begriff des Produkts.
 
 \begin{defi}
 Sei $(X_i)_{ i \in I}$ eine Familie lokalkompakter Hausdorffräume und für jedes $i \in I$ sei $\emptyset \not =K_i\subseteq X_i$ eine kompakte offene Menge.
