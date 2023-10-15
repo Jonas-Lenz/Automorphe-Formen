@@ -62,25 +62,25 @@ a &\mapsto \abs{x}
 ist ein stetiger Gruppenhomomorphismus.
 Der Kern
 \begin{align*}
-A'\coloneqq \{a \in \A^\ast \mid \abs{a}=1\}
+\A^1\coloneqq \{a \in \A^\ast \mid \abs{a}=1\}
 \end{align*}
 ist eine abgeschlossene Untergruppe von $\A^\ast$.
 Für $x \in \Q^\ast$ gilt
 \begin{align*}
 \prod_{\nu \leq \infty} \abs{x}_\nu=1.
 \end{align*}
-Also ist $\Q^\ast$ eine diskrete abgeschlossene Untergruppe von $A'$.
+Also ist $\Q^\ast$ eine diskrete abgeschlossene Untergruppe von $\A^1$.
 
 
-Der Quotient $A'/\Q^\ast$ ausgestattet mit der Quotiententopologie ist eine lokal kompakte Hausdorffgruppe.
+Der Quotient $\A^1/\Q^\ast$ ausgestattet mit der Quotiententopologie ist eine lokal kompakte Hausdorffgruppe.
 Wir definieren
 \begin{align*}
-\hat{\Z}^\ast &\to \A'\\
+\hat{\Z}^\ast &\to \\A^1\\
 (x_p)_{p<\infty} &\mapsto (1,x_2,x_3,\dots).
 \end{align*}
 
 \begin{prop}
-Die kanonische Abbildung $f \colon \hat{\Z}^\ast \to \A'/\Q^\ast$
+Die kanonische Abbildung $f \colon \hat{\Z}^\ast \to \\A^1/\Q^\ast$
 ist ein Isomorphismus topologischer Gruppen.
 \end{prop}
 \begin{proof}
@@ -91,7 +91,7 @@ Sei dafür $f((x_p)_{p<\infty})=f((y_p)_{p<\infty})$. Dann gilt
 \end{align*}
 für ein $r\in \Q^\ast$.
 Die erste Komponente impliziert aber $r=1$. Also folgt die Injektivität.
-Für die Surjektivität betrachten wir $a=(a_\infty,a_2,a_3,\dots)\in \A'$. Dann gilt
+Für die Surjektivität betrachten wir $a=(a_\infty,a_2,a_3,\dots)\in \\A^1$. Dann gilt
 \begin{align*}
 1&=\abs{a_\infty}_\infty \prod_{p<\infty}\abs{a_p}_p\\
 &=a_\infty \frac{\abs{a_\infty}_\infty}{a_\infty}\prod_{p<\infty} \abs{a_p}_p\\
@@ -108,10 +108,10 @@ Die Stetigkeit verbleibt als Übungsaufgabe.
 \end{proof}
 
 \begin{cor}
-$\A'/\Q^\ast$ ist kompakt.
+$\\A^1/\Q^\ast$ ist kompakt.
 \end{cor}
 
 Der Isomorphismus $\hat{\Z}=\lim_{\Leftarrow} (\Z/N\Z)$ impliziert
 \begin{align*}
-\hat{\Z}^\ast=\lim_{\Leftarrow} \left(\Z/N\Z\right)^\ast=A'/\Q^\ast.
+\hat{\Z}^\ast=\lim_{\Leftarrow} \left(\Z/N\Z\right)^\ast=\A^1/\Q^\ast.
 \end{align*}
