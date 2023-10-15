@@ -255,19 +255,19 @@ Die natürliche Abbildung $\chi_f \colon \A_f \to T$ ist ein Charakter von $\A_f
 Da $\A_f$ total unzusammenhängend ist, existiert $\Z \ni m >0$ mit
 $m \hat{Z} \subseteq \ker(\chi_f)=\prod_{p<\infty} p^{\nu_p} \Z_p$ (hier ist $\hat{\Z}$ \emph{nicht} die duale Gruppe) mit $m=\prod p^{\nu_p}$.
 Also gilt für alle $p \not \mid m$, dass $\Z_p \subseteq \ker(\chi_p)$ und somit $a_p \in \Z_p$.
-Da ein beliebiges Element $x\in \A$ die Summe von endlich vielen Elementen in $\Q_\nu$ und etwas $m\hat{Z}$ ist, erhalten wir, dass $\chi(x)=\mathrm{e}(ax)$ für alle $x\in \A$ gilt.
+Da ein beliebiges Element $x\in \A$ die Summe von endlich vielen Elementen in $\Q_\nu$ und einem Element aus $m\hat{\Z}$ ist, erhalten wir, dass $\chi(x)=\mathrm{e}(ax)$ für alle $x\in \A$ gilt.
 \end{proof}
 
 Als nächstes bestimmen wir die Charaktere der kompakten Gruppe $\A/\Q$.
 Sei $r\in \Q$. Dann gilt
 \begin{align*}
-r=\sum_{n=n_p}^\infty r_p(n)n^p
+r=\sum_{n=n_p}^\infty r_p(n)p^n
 \end{align*}
 mit $n_p=0$ für fast alle $p<\infty$ und
 \begin{align*}
 r-\sum_{p<\infty} \sum_{n=n_p}^{-1}r_p(n) \in \Q \cap \Z_p
 \end{align*}
-for all $p$. Also folgt $r-\sum_{p<\infty} \sum_{n=n_p}^{-1}r_p(n) \in \Z$.
+für alle $p$. Also folgt $r-\sum_{p<\infty} \sum_{n=n_p}^{-1}r_p(n)p^n \in \Z$.
 %dieses minus erklärt das minus in der definition von e_p
 Daraus folgt dass für alle $a\in \Q$ die Abbildung
 \begin{align*}
@@ -375,7 +375,7 @@ ein Charakter.
 
 Sei nun $\chi \colon \A^\ast \to T$ ein Charakter und $(\chi_\nu)_{\nu \leq \infty}$ das zugehörige System lokaler Charaktere.
 Wir müssen zeigen, dass fast alle dieser $\chi_p$ unverzweigt sind.
-Wegen $\A^\ast=\R^\ast=\A_f^\ast$ reicht es die Aussage für $\chi_f$ zu zeigen.
+Wegen $\A^\ast=\R^\ast\times\A_f^\ast$ reicht es die Aussage für $\chi_f$ zu zeigen.
 Da $\A_f^\ast$ total unzusammenhängend ist, enthält der Kern $\ker(\chi_f)$ eine offene Untergruppe.
 Also enthält es eine offene Menge der Form
 $\prod_{p \in I} U_p \times \prod_{p \not \in I} \Z_p^\ast$ für eine endliche Menge $I$ und $U_p \subseteq \Q_p^\ast$ offen.
@@ -403,11 +403,11 @@ Dann ist $H$ offen und
 G=\bigcup_{a \in G/H} aH
 \end{align*}
 ist eine offene Überdeckung von $G$.
-Da $G$ kompakt ist, gibt es eine endliche Teilüberdeckung und $H$ ist konstant auf jedem $a_i H$. Somit $\chi(G)=\{\chi(a_i),\dots,\chi(a_n)\}$.
+Da $G$ kompakt ist, gibt es eine endliche Teilüberdeckung und $\chi$ ist konstant auf jedem $a_i H$. Somit $\chi(G)=\{\chi(a_1),\dots,\chi(a_n)\}$.
 %wieso
 \end{proof}
 
-Da die Gruppe $A'/\Q^\ast\simeq \hat{\Z^\ast}$ kompakt und total unzusammenhängend ist, ist jeder Charakter dieser Gruppe endlich.
+Da die Gruppe $\A^1/\Q^\ast\simeq \hat{\Z^\ast}$ kompakt und total unzusammenhängend ist, ist jeder Charakter dieser Gruppe endlich.
 
 Wir zeigen zunächst folgendes Lemma, um den nächsten Satz leichter beweisen zu können.
 \begin{lem}
@@ -416,25 +416,25 @@ Dann ist $\chi$ trivial.
 \end{lem}
 \begin{proof}
 Die Exponentialfunktion liefert einen Isomorphismus von $(\R,+)$ nach $(\R_{>0}^\ast,\cdot)$.
-Wir wissen bereits, dass die Charaktere von $(\R,+)$ von der der Form
+Wir wissen bereits, dass die Charaktere von $(\R,+)$ von der Form $\chi(x)=\mathrm{e}(ax)$ für ein $a\in \R$ sind.
 \end{proof}
 
 Der Gruppenisomorphismus
 \begin{align*}
-A^\ast &\to \A' \times \R_{>0}^\ast\\
+\A^\ast &\to \A^1 \times \R_{>0}^\ast\\
 (a_\infty,a_f)&\mapsto \left( \left( \frac{a_\infty}{\abs{a}},a_f\right),\abs{a}\right)
 \end{align*}
 induziert einen Isomorphismus
 \begin{align*}
-\A^\ast/\Q^\ast &\to \A'/\Q^\ast \times \R_{>0}^\ast\\
+\A^\ast/\Q^\ast &\to \A^1/\Q^\ast \times \R_{>0}^\ast\\
 (a_\infty,a_f)\Q^\ast&\mapsto \left( \left( \frac{a_\infty}{\abs{a}},a_f\right)\Q^\ast,\abs{a}\right)
 \end{align*}
 
 \begin{prop}
 Es gibt eine Bijektion zwischen
 \begin{enumerate}[label=\roman*)]
-\item den Charakteren von $\A'/\Q^\ast$,
-\item den Charakteren von $\A'/\Q \times \R_{>0}^\ast$, die trivial auf $\R_{>0}^\ast$ sind,
+\item den Charakteren von $\A^1/\Q^\ast$,
+\item den Charakteren von $\A^1/\Q^\ast \times \R_{>0}^\ast$, die trivial auf $\R_{>0}^\ast$ sind,
 \item den endlichen Charakteren von $\A^\ast/\Q^\ast$.
 \end{enumerate}
 \end{prop}
@@ -458,15 +458,15 @@ falls $\chi$ nicht durch einen Dirichlet-Charakter kleineren Grads induziert wir
 In diesem Fall heißt $N$ der \emph{Führer} von $\chi$.
 \end{defi}
 \begin{prop}
-Sei $\chi \colon (\Z/N\Z)^\ast \to T$ ein Dirichlet-Charakter $\mod N$.
-Dann induziert $\chi$ einen Charakter $\omega$ von $\A'/\Q^\ast$ durch
+Sei $\chi \colon (\Z/N\Z)^\ast \to T$ ein Dirichlet-Charakter$\mod N$.
+Dann induziert $\chi$ einen Charakter $\omega$ von $\A^1/\Q^\ast$ durch
 \begin{align*}
-\A'/\Q^\ast \simeq \hat{Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
+\A^1/\Q^\ast \simeq \hat{Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
 \end{align*}
 sowie einen endlichen Charakter von $\A^\ast/\Q^\ast$
 durch
 \begin{align*}
-\A^\ast/\Q^\ast \simeq \A'/\Q^\ast \times \R_{>0}^\ast \to \A'/\Q^\ast \simeq \hat{Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
+\A^\ast/\Q^\ast \simeq \\A^1/\Q^\ast \times \R_{>0}^\ast \to \A^1/\Q^\ast \simeq \hat{\Z}^\ast \simeq \lim_{\longleftarrow} (\Z/n\Z)^\ast \to (\Z/N\Z)^\ast
 \end{align*}
 %TODO wirklich endlich?!
 Dieser Charakter erzeugt einen Charakter $\A^\ast \to T$, der trivial auf $\Q^\ast$ ist.
