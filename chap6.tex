@@ -20,7 +20,7 @@ ist ein stetiger Gruppenhomomorphismus. Daher ist das Bild eine kompakte Untergr
 \end{proof}
 
 \begin{defi}
-Eine lokal kompakte Hausdorffgruppe heißt \emph{total umzusammenhängend}, falls jede offene Umgebung der $1$ eine offene Untergruppe enthält.
+Eine lokal kompakte Hausdorffgruppe heißt \emph{total unzusammenhängend}, falls jede offene Umgebung der $1$ eine offene Untergruppe enthält.
 \end{defi}
 
 \begin{bsp}
@@ -31,7 +31,7 @@ Zum Beispiel sind
 \item $(\A_f,+)$, $(\A_f^\ast,\cdot)$
 \item $(\hat{Z},+)$, $(\hat{Z}^\ast,\cdot)$
 \end{enumerate}
-solche Gruppen.
+total unzusammenhängende Gruppen.
 \end{bsp}
 
 \begin{prop}
@@ -104,13 +104,12 @@ ist ein Charakter von $\R$.
 Nun werden wir die Charaktere einiger Gruppen bestimmen, die in der Vorlesung eine Rolle spielen, z.B. $\R$, $\Q$, $\A$.
 
 \begin{prop}
-Es gilt $\chi(x)=\mathrm{e}^{2\pi \mathrm{i}a x}$.
 Die Abbildung
 \begin{align*}
 \R &\to \hat{\R}\\
 a&\mapsto (x\mapsto \mathrm{e}_\infty(ax))
 \end{align*}
-ist ein Isomorphismus topologischer Gruppen.
+ist ein Isomorphismus topologischer Gruppen, wobei $e_\infty$ wie im vorherigen Beispiel definiert ist.
 \end{prop}
 \begin{proof}
 Wir zeigen, dass jeder Charakter von $\R$ von der angegebenen Form ist.
@@ -126,7 +125,7 @@ Für $x\in \R$ gilt
 und somit folgt $\gamma(x)=\frac{1}{c}\int_x^{x+a} \gamma(t)~\mathrm{d}t$.
 Dies impliziert aber, dass $\gamma$ differenzierbar ist mit
 \begin{align*}
-\gamma'(t)&=\frac{1}{c}\left(\gamma(x+a)-\gamma(x)\right)\\
+\gamma'(x)&=\frac{1}{c}\left(\gamma(x+a)-\gamma(x)\right)\\
 &= \frac{1}{c}(\gamma(a)-1)\gamma(x).
 \end{align*}
 Aus der Differentialgleichung folgt, dass $\gamma$ von der gewünschten Gestalt ist.
@@ -144,7 +143,7 @@ ist ein Isomorphismus.
 \begin{prop}
 Die dualen Gruppen der zyklischen Gruppen sind
 \begin{align*}
-\hat{\Z/n\Z} &\simeq \Z/n\Z\\
+\widehat{\Z/n\Z} &\simeq \Z/n\Z\\
 \hat{\Z} &\simeq \R/\Z \simeq T.
 \end{align*}
 \end{prop}
@@ -168,7 +167,7 @@ Dann ist
 \begin{align*}
 e_p \colon \Q_p \to T
 \end{align*}
-ein Charakter. Die Stetigkeit folgt, daraus, dass $e_p$ auf $\Z_p$ konstant $1$, also lokal konstant ist.
+ein Charakter. Die Stetigkeit folgt daraus, dass $e_p$ auf $\Z_p$ konstant $1$, also lokal konstant ist.
 
 \begin{prop}
 Die Abbildung
@@ -190,20 +189,20 @@ Für $m\in \Z$, $m>0$ gilt dann
 $p^m \frac{1}{p^m}=1$ und somit $\chi(\frac{1}{p^m})^{p^m}=1$.
 Also muss $\chi(\frac{1}{p^m})$ eine Einheitswurzel sein, im Besonderen gilt
 \begin{align*}
-\chi(\frac{1}{p^m})=\mathrm{e}(\frac{a_m}{p^m})
+\chi\left(\frac{1}{p^m}\right)=\mathrm{e}\left(\frac{a_m}{p^m}\right)
 \end{align*}
 für ein eindeutiges $a_m \in \Z/p^m\Z$.
 Wir erhalten so eine Folge $(a_m)_{m> 0} \in \prod_{m>0} \left(\Z/p^m\Z\right)$ und behaupten, dass diese kompatibel ist.
 Dies gilt, da
 \begin{align*}
-\mathrm{e}(\frac{a_m}{p^m})&=\chi(\frac{1}{p^m})=\chi(\frac{p}{p^{m+1}})\\
-&=\chi(\frac{1}{p^{m+1}})^p=\mathrm{e}(\frac{a_{m+1}}{p^{m+1}})^p=\mathrm{e}(\frac{a_{m+1}}{p^{m}})^p,
+\mathrm{e}\left(\frac{a_m}{p^m}\right)&=\chi\left(\frac{1}{p^m}\right)=\chi\left(\frac{p}{p^{m+1}}\right)\\
+&=\chi\left(\frac{1}{p^{m+1}}\right)^p=\mathrm{e}\left(\frac{a_{m+1}}{p^{m+1}}\right)^p=\mathrm{e}\left(\frac{a_{m+1}}{p^{m}}\right)^p,
 \end{align*}
 sodass $\frac{a_{m+1}}{p^m}=\frac{a_m}{p^m}\mod 1$.
 Also definiert $(a_m)_{m>0}$ eine $p$-adische Zahl $a\in \Z_p$.
-Es gilt $\chi(x)=e_p(-ax)$ für alle $x\in \Q_p$. Dies ist wahr für $x\in \Z_p$.
+Wir behaupten, dass $\chi(x)=e_p(-ax)$ für alle $x\in \Q_p$ gilt. Dies ist wahr für $x\in \Z_p$.
 Als nächstes beweisen wir dies für $x=\frac{1}{p^m}$ mit $\Z \ni m>0$.
-Dazu schreiben wir $a=\sum_{n=0}^\infty a_p(n)p^n$ modulo $p^m$ gilt
+Dazu schreiben wir $a=\sum_{n=0}^\infty a_p(n)p^n$. Dann gilt
 \begin{align*}
 a&=\sum_{n=0}^{m-1}a_p(n)p^n \mod p^m\\
 &=a_m \mod p^m.
@@ -214,16 +213,16 @@ Daraus folgt
 \end{align*}
 und
 \begin{align*}
-e_p(-\frac{a}{p^m})&=\mathrm{e}((\frac{a}{p^m})^-)\\
-&=\mathrm{e}(\frac{1}{p^m}\sum_{n=0}^\infty a_p(n)p^n)\\
-&=\mathrm{e}(\frac{a^m}{p^m})=\chi(\frac{1}{p^m}).
+e_p\left(-\frac{a}{p^m}\right)&=\mathrm{e}\left(\left(\frac{a}{p^m}\right)^-\right)\\
+&=\mathrm{e}\left(\frac{1}{p^m}\sum_{n=0}^\infty a_p(n)p^n\right)\\
+&=\mathrm{e}\left(\frac{a_m}{p^m}\right)=\chi\left(\frac{1}{p^m}\right).
 \end{align*}
 Da $\Q_p$ als Gruppe von $\Z_p$ und den Elementen der Form $\frac{1}{p^m}$ mit $\Z \ni m>0$ erzeugt wird, folgt die Gleichheit der Charaktere.
-\item Wir reduzieren den allgemeinen Fall auf Fall $1$.
+\item Wir reduzieren den allgemeinen Fall auf den vorherigen.
 Da $\Q_p$ total unzusammenhängend ist, enthält der Kern von $\chi$ einen Ball $K(0,p^{-m})=p^m \Z_p$ für $\Z \ni m>0$.
-Wir definieren nun einen neuen Charakter, auf denen wir i) anwenden können.
+Wir definieren nun einen neuen Charakter, auf den wir i) anwenden können.
 Für $\psi(x)\coloneqq \chi(p^mx)$ gilt $\Z_p \subseteq \ker(\psi)$ und somit $\psi(x)=e_p(ax)$ für ein $a\in \Z_p$.
-Damit folgt $\chi(x)=e_p(\frac{a_p}{p^m}x)$. \qedhere
+Damit folgt $\chi(x)=e_p(\frac{a}{p^m}x)$. \qedhere
 \end{enumerate}
 \end{proof}
 
